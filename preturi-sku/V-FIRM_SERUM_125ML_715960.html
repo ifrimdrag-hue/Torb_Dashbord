@@ -1,0 +1,1571 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>V-FIRM SERUM 125ML 715960 — Prețuri</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../static/css/style.css">
+
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#212529">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('../sw.js').catch(function(){});
+    }
+  </script>
+</head>
+<body class="bg-light">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+  <div class="container-fluid px-4">
+    <a class="navbar-brand fw-bold fs-5" href="../index.html">
+      <i class="bi bi-bar-chart-fill text-success me-1"></i>Torb Logistic
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navmenu">
+      <ul class="navbar-nav ms-auto gap-1">
+        <li class="nav-item">
+          <a class="nav-link "
+             href="../index.html">
+            <i class="bi bi-speedometer2"></i> Dashboard
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "
+             href="../team.html">
+            <i class="bi bi-people-fill"></i> Echipă
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "
+             href="../clients.html">
+            <i class="bi bi-building"></i> Clienți
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "
+             href="../products.html">
+            <i class="bi bi-box-seam-fill"></i> Produse
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "
+             href="../profitabilitate.html">
+            <i class="bi bi-graph-up-arrow"></i> Profitabilitate
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "
+             href="../ask.html">
+            <i class="bi bi-chat-dots-fill"></i> AI
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "
+             href="../bonus.html">
+            <i class="bi bi-trophy-fill"></i> Bonus
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "
+             href="../conditii.html">
+            <i class="bi bi-file-earmark-text-fill"></i> Condiții
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active"
+             href="../preturi.html">
+            <i class="bi bi-tags-fill"></i> Prețuri
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "
+             href="../forecast.html">
+            <i class="bi bi-boxes"></i> Stoc / Forecast
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid px-4 py-4">
+  
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <div>
+    <a href="../preturi.html" class="text-muted small">
+      <i class="bi bi-arrow-left"></i> Înapoi la catalog
+    </a>
+    <h5 class="mb-0 fw-bold mt-1">
+      <span class="badge bg-secondary me-2">Cod 1994</span>
+      <code>V-FIRM SERUM 125ML 715960</code>
+      <span class="text-muted fw-normal ms-2">Cosmetice</span>
+    </h5>
+    <div class="text-muted small">V-FIRM SERUM 125ML 715960</div>
+  </div>
+  <div class="d-flex gap-2">
+    
+    <span class="badge bg-info text-dark fs-6">TVA 9%</span>
+    
+  </div>
+</div>
+
+<div class="row g-3">
+  <!-- ── Col stânga: Landing cost + Produs ── -->
+  <div class="col-lg-5">
+
+    <!-- Landing cost card -->
+    <div class="card shadow-sm border-0 mb-3">
+      <div class="card-header bg-white fw-semibold">
+        <i class="bi bi-box-arrow-in-right me-1 text-primary"></i> Cost Landing 2026
+      </div>
+      <div class="card-body">
+        <div class="row g-2">
+          <div class="col-6">
+            <label class="form-label small fw-semibold">Monedă</label>
+            <select id="lc-moneda" class="form-select form-select-sm">
+              
+              <option value="USD" >USD</option>
+              
+              <option value="EUR" >EUR</option>
+              
+              <option value="PLN" >PLN</option>
+              
+              <option value="RON" >RON</option>
+              
+            </select>
+          </div>
+          <div class="col-6">
+            <label class="form-label small fw-semibold">Curs RON</label>
+            <input type="number" id="lc-curs" class="form-control form-control-sm"
+                   step="0.0001" value="4.32">
+          </div>
+          <div class="col-12">
+            <label class="form-label small fw-semibold">Preț achiziție (valută/buc)</label>
+            <input type="number" id="lc-pret" class="form-control form-control-sm"
+                   step="0.000001" value="0"
+                   oninput="recalcLC()">
+          </div>
+          <div class="col-6">
+            <label class="form-label small fw-semibold">
+              Transport %
+              <span class="text-muted fw-normal">(din preț ach.)</span>
+            </label>
+            <input type="number" id="lc-transport" class="form-control form-control-sm"
+                   step="0.1" value="10" oninput="recalcLC()">
+          </div>
+          <div class="col-6">
+            <label class="form-label small fw-semibold">
+              Taxă vamală %
+              <span class="text-muted fw-normal">
+                MFN: 0%
+              </span>
+            </label>
+            <input type="number" id="lc-taxa" class="form-control form-control-sm"
+                   step="0.1" value="0"
+                   oninput="recalcLC()">
+          </div>
+          <div class="col-12">
+            <label class="form-label small fw-semibold">Alte costuri (RON/buc)</label>
+            <input type="number" id="lc-alte" class="form-control form-control-sm"
+                   step="0.001" value="0" oninput="recalcLC()">
+          </div>
+        </div>
+
+        <!-- Landing breakdown -->
+        <div class="mt-3 p-2 bg-light rounded small">
+          <div class="d-flex justify-content-between">
+            <span>Preț achiziție RON</span>
+            <span id="show-pret-ron" class="fw-semibold">0.0000</span>
+          </div>
+          <div class="d-flex justify-content-between">
+            <span>+ Transport</span>
+            <span id="show-transport">—</span>
+          </div>
+          <div class="d-flex justify-content-between">
+            <span>+ Taxă vamală</span>
+            <span id="show-taxa">—</span>
+          </div>
+          <div class="d-flex justify-content-between">
+            <span>+ Alte costuri</span>
+            <span id="show-alte">—</span>
+          </div>
+          <hr class="my-1">
+          <div class="d-flex justify-content-between fw-bold">
+            <span>= Landing cost RON/buc</span>
+            <span id="show-landing" class="text-primary fs-6">
+              0.0000
+            </span>
+          </div>
+        </div>
+
+        <button class="btn btn-primary btn-sm w-100 mt-2" onclick="saveLanding()">
+          <i class="bi bi-save me-1"></i>Salvează landing cost
+        </button>
+        <div id="lc-msg" class="small mt-1"></div>
+      </div>
+    </div>
+
+    <!-- Produs config -->
+    <div class="card shadow-sm border-0 mb-3">
+      <div class="card-header bg-white fw-semibold">
+        <i class="bi bi-upc me-1 text-secondary"></i> Configurare produs
+      </div>
+      <div class="card-body">
+        <div class="row g-2">
+          <div class="col-6">
+            <label class="form-label small fw-semibold">Cod HS vamal</label>
+            <input type="text" id="p-hs" class="form-control form-control-sm"
+                   value="" placeholder="ex: 09023000" maxlength="10">
+          </div>
+          <div class="col-6">
+            <label class="form-label small fw-semibold">TVA %</label>
+            <select id="p-tva" class="form-select form-select-sm">
+              <option value="0.09" selected>9%</option>
+              <option value="0.19" >19%</option>
+              <option value="0.05" >5%</option>
+              <option value="0.00" >0%</option>
+            </select>
+          </div>
+          <div class="col-6">
+            <label class="form-label small fw-semibold">Taxă vamală MFN %</label>
+            <input type="number" id="p-mfn" class="form-control form-control-sm"
+                   step="0.1" value="0">
+          </div>
+          <div class="col-6">
+            <label class="form-label small fw-semibold">Taxă vamală aplicată %</label>
+            <input type="number" id="p-taxa" class="form-control form-control-sm"
+                   step="0.1" value="0">
+            <div class="form-text">0% = GSP+ Sri Lanka</div>
+          </div>
+        </div>
+        <button class="btn btn-outline-secondary btn-sm w-100 mt-2" onclick="saveProdus()">
+          Salvează configurare produs
+        </button>
+        <div id="p-msg" class="small mt-1"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Col dreapta: Prețuri vânzare + Simulator ── -->
+  <div class="col-lg-7">
+
+    <!-- Prețuri vânzare -->
+    <div class="card shadow-sm border-0 mb-3">
+      <div class="card-header bg-white d-flex justify-content-between align-items-center">
+        <span class="fw-semibold">
+          <i class="bi bi-currency-dollar me-1 text-success"></i> Prețuri Vânzare 2026
+        </span>
+        <button class="btn btn-sm btn-success" onclick="showAddPret()">
+          <i class="bi bi-plus-lg me-1"></i>Adaugă preț
+        </button>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-sm table-hover align-middle mb-0" id="pv-table">
+          <thead class="table-secondary">
+            <tr>
+              <th>Client</th>
+              <th class="text-end">Preț RON (fără TVA)</th>
+              <th class="text-end">Marjă brută</th>
+              <th class="text-end">Marjă %</th>
+              <th class="text-center">Acțiuni</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            
+            
+            
+            <tr>
+              <td>
+                
+                  <span class="badge bg-primary">Standard</span>
+                
+              </td>
+              <td class="text-end fw-semibold">655.35</td>
+              <td class="text-end">
+                —
+              </td>
+              <td class="text-end fw-bold">
+                —
+              </td>
+              <td class="text-center">
+                <button class="btn btn-xs btn-outline-primary py-0 px-1 btn-edit-pret"
+                        data-pret="655.35"
+                        data-cod=""
+                        data-client="Standard">
+                  <i class="bi bi-pencil"></i>
+                </button>
+              </td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+      <!-- Add/edit form inline -->
+      <div id="pret-form" class="card-body border-top d-none">
+        <div class="row g-2 align-items-end">
+          <div class="col-md-5">
+            <label class="form-label small fw-semibold">Client (gol = standard)</label>
+            <select id="pf-client" class="form-select form-select-sm">
+              <option value="">— Standard (toți clienții) —</option>
+              
+              <option value="1263">KAUFLAND ROMANIA SCS</option>
+              
+              <option value="732">AUCHAN ROMANIA SA</option>
+              
+              <option value="888">CARREFOUR ROMANIA SA</option>
+              
+              <option value="977">SELGROS CASH &amp; CARRY SRL</option>
+              
+              <option value="997">BEBETEI INVESTMENTS GROUP SRL</option>
+              
+              <option value="809">FILDAS TRADING SRL</option>
+              
+              <option value="936">FARMACIA TEI SRL</option>
+              
+              <option value="1347">DR.MAX SRL</option>
+              
+              <option value="872">METRO CASH &amp; CARRY ROMANIA SRL</option>
+              
+              <option value="973">PROFI ROM FOOD SRL</option>
+              
+              <option value="1429">BRANDMIX KFT</option>
+              
+              <option value="794">URANUS DISTRIBUTION S.R.L.</option>
+              
+              <option value="1430">HUN-TRADE KFT</option>
+              
+              <option value="1404">LIBRARIILE COMPAS S.R.L.</option>
+              
+              <option value="773">ONEDIA DISTRIBUTION SRL</option>
+              
+              <option value="1453">SUPECO INVESTMENT SRL</option>
+              
+              <option value="1449">SEZAMO S.R.L.</option>
+              
+              <option value="996">COMPANIA DE LIBRARII BUCURESTI SA</option>
+              
+              <option value="1437">EMAG RETAIL S.R.L.</option>
+              
+              <option value="733">STEFAN MARKETING SRL</option>
+              
+              <option value="1446">JULIUS MEINL AM GRABEN GMBH</option>
+              
+              <option value="795">VALEX INTERNATIONAL EXIM SRL</option>
+              
+              <option value="857">BROTACEL SRL</option>
+              
+              <option value="778">DUO SRL</option>
+              
+              <option value="796">VASILONI S.R.L.</option>
+              
+              <option value="767">GREEN POWER-DISTRIBUTION SRL</option>
+              
+              <option value="760">ZIMEX SRL</option>
+              
+              <option value="753">GEDAL PRODUCTION S.R.L.</option>
+              
+              <option value="804">TOTAL S.R.L.</option>
+              
+              <option value="2029">BARTA ATI SRL</option>
+              
+              <option value="924">BEST IMAGE AGENCY SRL</option>
+              
+              <option value="1306">UNITATEA MILITARA 0461</option>
+              
+              <option value="768">ERKOM SRL</option>
+              
+              <option value="780">ESTRADE DISTRIBUTION SRL</option>
+              
+              <option value="779">EL CASIO COM SRL</option>
+              
+              <option value="850">NO SUGAR SHOP  SRL</option>
+              
+              <option value="843">NEW STARS IMPEX SRL</option>
+              
+              <option value="945">PLANT FESTIN SRL</option>
+              
+              <option value="1451">ALMIRA TRADE SRL</option>
+              
+              <option value="788">NOY BUSINESS TRANZACTIONS SRL</option>
+              
+              <option value="913">ISSA INTERNET SRL</option>
+              
+              <option value="3298">STEFANO - COMPANY - LTD SRL</option>
+              
+              <option value="769">BENAN PROGRESS S.R.L.</option>
+              
+              <option value="1271">TACKLE SHOP ARENA S.R.L.</option>
+              
+              <option value="758">PARA DISTRIBUTION GROUP SRL</option>
+              
+              <option value="790">PREXICO SRL</option>
+              
+              <option value="1300">MIRALI BAZZAR S.R.L.</option>
+              
+              <option value="776">BIOS FARM SRL</option>
+              
+              <option value="1166">TOTAL DISTRIBUTION BEER SRL</option>
+              
+              <option value="1393">LORIMER SRL</option>
+              
+              <option value="832">INTER MACEDONIA C.R. SRL</option>
+              
+              <option value="864">TEODAL PLANT SRL</option>
+              
+              <option value="763">MAIALEX SRL</option>
+              
+              <option value="1201">SAFE BUSINESS MARKET S.R.L.</option>
+              
+              <option value="4909">MEGA IMAGE SRL</option>
+              
+              <option value="835">EDEN MARKET IMPEX SRL</option>
+              
+              <option value="1412">POPACART SRL</option>
+              
+              <option value="892">ARZE - MED INVEST S.R.L.</option>
+              
+              <option value="792">RIUSMAR-IMPEX SRL</option>
+              
+              <option value="793">TERRAFARM SRL</option>
+              
+              <option value="1317">MARIA PHARMAMED SRL</option>
+              
+              <option value="854">SERV-CONEX 2000 S.R.L.</option>
+              
+              <option value="951">ELAN-TRIO SRL</option>
+              
+              <option value="848">ROM SEP SRL</option>
+              
+              <option value="3478">PASCUPAS PRO S.R.L.</option>
+              
+              <option value="1415">VOGH PER AQUA S.R.L.</option>
+              
+              <option value="943">ACCENTURE SERVICES SRL</option>
+              
+              <option value="958">RUBIN FARM S.R.L.</option>
+              
+              <option value="4854">GSAD TRIUMF S.R.L.</option>
+              
+              <option value="2244">ANDAL GREEN MARKET S.R.L.</option>
+              
+              <option value="774">APRILIA SRL</option>
+              
+              <option value="789">OVIDOR AVANTAJ SRL</option>
+              
+              <option value="940">MONA IMPEX 93 S.R.L.</option>
+              
+              <option value="1278">TINOS FARM SRL</option>
+              
+              <option value="3155">CERES COM S.R.L.</option>
+              
+              <option value="822">MARMOSIM S.R.L.</option>
+              
+              <option value="859">SARA INEDIT S.R.L.</option>
+              
+              <option value="961">PADRINO DRINKS SRL</option>
+              
+              <option value="1441">RADOMA IMPEX SRL</option>
+              
+              <option value="1436">E.ON BUSINESS SERVICES CLUJ SRL</option>
+              
+              <option value="799">IRIS FARM S.R.L.</option>
+              
+              <option value="1509">SMART BOX TRADING S.R.L.</option>
+              
+              <option value="969">TIPO S.R.L.</option>
+              
+              <option value="1356">ELIANA NICOLETA FARM SRL</option>
+              
+              <option value="1585">UNI DOOR EXPERT SRL</option>
+              
+              <option value="831">FARMACIA ANA-MARIA SRL</option>
+              
+              <option value="2515">RECOVERY SYSTEM S.R.L.</option>
+              
+              <option value="3361">SODEXO SRL</option>
+              
+              <option value="1309">BELLFLOWER ART  SRL</option>
+              
+              <option value="1799">ELSTAR GROUP S.R.L.</option>
+              
+              <option value="807">AXOR SERV S.R.L.</option>
+              
+              <option value="1219">DADDA COMPUTER 2000 S.R.L.</option>
+              
+              <option value="1266">NEPTUN SA</option>
+              
+              <option value="901">GRAND COTTON S.R.L.</option>
+              
+              <option value="1294">JAVAHER FASHION S.R.L.</option>
+              
+              <option value="852">EUROMIB CONCEPT STORE SRL</option>
+              
+              <option value="1153">TAMIVAL DOLCE SRL</option>
+              
+              <option value="879">GRATIA IMOB SRL</option>
+              
+              <option value="1573">BUCEGI S.R.L.</option>
+              
+              <option value="834">ADCORIAN IMPEX SRL</option>
+              
+              <option value="1264">IRIA FLORAL DESIGN SRL</option>
+              
+              <option value="1200">GREENBIOLIFE S.R.L.</option>
+              
+              <option value="989">OZANA MARKET SRL</option>
+              
+              <option value="856">MAURANA PRODIMPEX S.R.L.</option>
+              
+              <option value="4596">P. DUSSMANN SERV ROMANIA SRL</option>
+              
+              <option value="1443">CAMI INVEST S.R.L.</option>
+              
+              <option value="1394">EDAS OVERSEA DREAM S.R.L.</option>
+              
+              <option value="963">CRISTIN N L IMPEX SRL</option>
+              
+              <option value="905">RANDI.HR IDEAL S.R.L.</option>
+              
+              <option value="1383">SUPERB KIDS S.R.L.</option>
+              
+              <option value="1199">ALBERTINO STAR SRL</option>
+              
+              <option value="998">PRO APIS SRL</option>
+              
+              <option value="1407">ACTUAL HIPER SUPER MARKET S.R.L.</option>
+              
+              <option value="1417">VIASAN BIO S.R.L.</option>
+              
+              <option value="1346">SORANA INTERNATIONAL SRL</option>
+              
+              <option value="827">VLADU EURO INVESTMENT SRL</option>
+              
+              <option value="819">COROLA ROSA SRL</option>
+              
+              <option value="1345">AIMAN-ALI 245 IMPEX SRL</option>
+              
+              <option value="927">DELICATESE FLORESCU S.R.L.</option>
+              
+              <option value="1399">GREEN HILLS MARKET S.R.L.</option>
+              
+              <option value="1351">BIG MARKET SRL</option>
+              
+              <option value="1684">CEZAR POLEAC</option>
+              
+              <option value="1332">POPA-MIRCEA SERV S.R.L.</option>
+              
+              <option value="2701">BELCEANU ALINA</option>
+              
+              <option value="1368">GAVRILA   ASOCIATII-SOCIETATE PROFESIONALA DE AVOCATI CU R</option>
+              
+              <option value="4933">EMILIBIO S.R.L.</option>
+              
+              <option value="4616">VALENTINA DOROFTEI</option>
+              
+              <option value="4945">NOBLESSE LIFESTYLE S.R.L.</option>
+              
+              <option value="1386">CID 2002 SERVCOM CATERING SRL</option>
+              
+              <option value="886">R-THEO FAMILY SRL</option>
+              
+              <option value="4584">RALUCA FLOREA</option>
+              
+              <option value="4019">DELITA INDUSTRIAL TOOLS SRL</option>
+              
+              <option value="1334">EINTRAHT AXEL S.R.L.</option>
+              
+              <option value="3233">CLAUDIU VASILESCU</option>
+              
+              <option value="4537">FLORINA STEFAN</option>
+              
+              <option value="1326">ALEGRO MARKET COMP S.R.L.</option>
+              
+              <option value="1427">LORIS PLANT S.R.L.</option>
+              
+              <option value="1381">LE CHATEAU EVENEMENTS SRL</option>
+              
+              <option value="3374">CB-CREATION S.R.L.</option>
+              
+              <option value="873">AMD MARIA MEDICAL SRL</option>
+              
+              <option value="3227">MARIAN DRAGOMIR</option>
+              
+              <option value="1321">TNA SERVICE 2001 SRL</option>
+              
+              <option value="2473">MG BUSINESS COSMETICS</option>
+              
+              <option value="968">MOV-GANG S.R.L.</option>
+              
+              <option value="1295">PALADIUM COM SRL</option>
+              
+              <option value="1455">OPTIMUS CONCRET SOLUTIONS S.R.L.</option>
+              
+              <option value="4458">BOGDAN BUZDUGAN</option>
+              
+              <option value="3028">ROMAN TSIUPA</option>
+              
+              <option value="1327">GIULI &amp; DAVID VISION SRL</option>
+              
+              <option value="1763">CRICOS COMERT 72 S.R.L.</option>
+              
+              <option value="2167">DANIELA HOAGHEA</option>
+              
+              <option value="4559">CORINA CAZAN</option>
+              
+              <option value="4935">COSMY MAG S.R.L.</option>
+              
+              <option value="4674">GETICA FORWARDER S.R.L.</option>
+              
+              <option value="3639">TABITA GABOR</option>
+              
+              <option value="1802">ROMICA FEDOR</option>
+              
+              <option value="3208">VECTOR AS COM 05 SRL</option>
+              
+              <option value="4906">STEFANIA NITU</option>
+              
+              <option value="4789">ALINA BUDEANU</option>
+              
+              <option value="3067">MRV MARKET SRL</option>
+              
+              <option value="4244">MIRUNA DINU</option>
+              
+              <option value="1388">TERRAN CID SRL</option>
+              
+              <option value="1371">DARIUS PRO SERV SRL</option>
+              
+              <option value="883">AXINCOM IMPEX S.R.L.</option>
+              
+              <option value="4223">MANOLESCU CATALINA</option>
+              
+              <option value="4947">PROFESSIONAL SCENT SOLUTIONS SRL</option>
+              
+              <option value="1784">SACOMA IMPEX SRL</option>
+              
+              <option value="915">FARMATECLIN SRL</option>
+              
+              <option value="4973">LUCIAN BAICEANU</option>
+              
+              <option value="4873">DORINA OPREA</option>
+              
+              <option value="2374">SIMONA MEICI</option>
+              
+              <option value="4882">CALIN MIHAI</option>
+              
+              <option value="4282">ENE LAURA</option>
+              
+              <option value="4502">ADRIAN VARVARI</option>
+              
+              <option value="4629">IOANA IGNA</option>
+              
+              <option value="4432">GABRIEL CHIVU</option>
+              
+              <option value="1387">DAVIS LINE S.R.L.</option>
+              
+              <option value="4423">GUNCEA ANDREEA FLORIANA</option>
+              
+              <option value="4471">MAGNOR TRADING S.R.L.</option>
+              
+              <option value="4587">ALINA SAMAREANU</option>
+              
+              <option value="3126">HALET ANDREEA</option>
+              
+              <option value="4457">PETRU ZAHARII</option>
+              
+              <option value="3487">DAION SERCOM SRL</option>
+              
+              <option value="3285">BERINDEI IOLANDA</option>
+              
+              <option value="1794">AMARIEI MARGERETA</option>
+              
+              <option value="4248">CHIRILAS ADRIANA</option>
+              
+              <option value="2796">PAULA GHERASIM</option>
+              
+              <option value="3540">BULBOREA CODRUTA</option>
+              
+              <option value="4659">ANDREEA TURCU</option>
+              
+              <option value="2178">CARMEN EPURE</option>
+              
+              <option value="4749">GHEORMAN VERONICA</option>
+              
+              <option value="4817">ANCA EUGENIA APETROAEI PIJIN</option>
+              
+              <option value="4250">VLAD CIUREA</option>
+              
+              <option value="1007">PANY BRAND SRL</option>
+              
+              <option value="4535">IOANA ROGOJUNARU</option>
+              
+              <option value="4872">ANDREEA PASTIN</option>
+              
+              <option value="4477">PASTIN  ANDREEA-CABINET INDIVIDUAL DE PSIHOLOGIE</option>
+              
+              <option value="4283">TIBERIU MOLNAR</option>
+              
+              <option value="2373">FLORINA VLAD</option>
+              
+              <option value="4142">CATALINA SERBANESCU</option>
+              
+              <option value="4619">ADRIAN LUNGOCI</option>
+              
+              <option value="4784">NANESCU SIMONA</option>
+              
+              <option value="4568">ELENA CRISTINA CRUSOS</option>
+              
+              <option value="4409">RUXANDRA MOTOIU</option>
+              
+              <option value="2897">VALENTIN ANDREI TACIOPOL</option>
+              
+              <option value="4427">CARASTOIAN RALUCA</option>
+              
+              <option value="4798">FLORENTINA  SANDULESCU</option>
+              
+              <option value="4284">ALISA DAOGANU</option>
+              
+              <option value="4234">CALUGAREANU NICOLETA</option>
+              
+              <option value="4634">ELIANCA ALEX COM 2016 S.R.L.</option>
+              
+              <option value="2718">LAVINIA VACARESCU</option>
+              
+              <option value="2553">MATEI LEONARD DAN</option>
+              
+              <option value="1824">MIGHIU DANIELA</option>
+              
+              <option value="4744">STEFAN AURAS</option>
+              
+              <option value="4696">ADRIAN COZMA</option>
+              
+              <option value="4359">GEORGIANA IOANA CHIORESCU</option>
+              
+              <option value="4459">ILEANA CRETIU</option>
+              
+              <option value="4517">ARABELA UMBRA</option>
+              
+              <option value="3148">GRAFFINO SOFTWARE S.R.L.</option>
+              
+              <option value="3489">ATTILA SANTA</option>
+              
+              <option value="4751">ANGELA DIMONU</option>
+              
+              <option value="4560">CRISTINA CINDEA</option>
+              
+              <option value="4476">TOFAN SERGIU</option>
+              
+              <option value="4493">FLORIN VIORICA</option>
+              
+              <option value="4604">RAMONA CIOCOTISAN</option>
+              
+              <option value="1704">CAMELIA LIVADARIU</option>
+              
+              <option value="4907">FLORI CATANA</option>
+              
+              <option value="4467">MADALINA CHINCISAN</option>
+              
+              <option value="4337">FERENC VURA</option>
+              
+              <option value="3638">GHEORGHE (PORUMBELU) CIRSTEAN</option>
+              
+              <option value="4732">VASILE KOTI</option>
+              
+              <option value="4357">CLAUDIU JITARU</option>
+              
+              <option value="4723">SUCIU DAN MIHAI</option>
+              
+              <option value="4585">ADRIANA LICA</option>
+              
+              <option value="4663">ANCA VADAN</option>
+              
+              <option value="4468">GABRIELA IONESI</option>
+              
+              <option value="2647">SOREL TANASOIU</option>
+              
+              <option value="4414">DRAGOS PASCALAU</option>
+              
+              <option value="4515">MARICICA MITITELU</option>
+              
+              <option value="4504">ANDREEA STEFAN</option>
+              
+              <option value="4639">CRISTINA VASILE</option>
+              
+              <option value="2198">MANOLACHE MADALINA</option>
+              
+              <option value="2849">MIHAI ZAHARIA</option>
+              
+              <option value="4706">ROXANA PASCU</option>
+              
+              <option value="4874">VALERICA PARASCHIV</option>
+              
+              <option value="4360">ADRIAN NITA</option>
+              
+              <option value="4305">MAICA GAVRIILA VATRA</option>
+              
+              <option value="4338">ANDREEA SANDU</option>
+              
+              <option value="4307">BISSTECH SRL</option>
+              
+              <option value="4503">ELENA GHERGHELI</option>
+              
+              <option value="906">SUCCES DE LUXE S.R.L.</option>
+              
+              <option value="4408">VALI TOMA</option>
+              
+              <option value="4516">CORALIA IVAN</option>
+              
+              <option value="4435">IRINA VISOIU</option>
+              
+              <option value="4797">FELICIA BENCHEA</option>
+              
+              <option value="953">SILANCE IMPEX SRL</option>
+              
+              <option value="4299">MARIAN ANDRONACHE</option>
+              
+              <option value="4753">MIRELA CHIS</option>
+              
+              <option value="4494">GEORGESCU COSTIN</option>
+              
+              <option value="4343">NICULESCU EMANUEL CRISTIAN</option>
+              
+              <option value="3690">SEEI TECHNOLOGY S.R.L.</option>
+              
+              <option value="4755">FLORIN VASILE</option>
+              
+              <option value="4715">POLOBOC IRINA</option>
+              
+              <option value="4905">VASILE INA</option>
+              
+              <option value="4334">DORINA DOICEAN</option>
+              
+              <option value="3459">MIRUNA LAVRIC</option>
+              
+              <option value="4430">ANDREEA MARGINEAN</option>
+              
+              <option value="4914">MATEI ECATERINA</option>
+              
+              <option value="4941">ZAHARIA AUGUSTIN NICOLAE</option>
+              
+              <option value="4637">STUPARIU MARIA GABRIELA</option>
+              
+              <option value="4954">RALUCA BLAJUT</option>
+              
+              <option value="2815">POPA CALIN</option>
+              
+              <option value="4904">CRISTIAN STANESCU</option>
+              
+              <option value="4456">TEREZA IONESCU</option>
+              
+              <option value="4097">SIMIONESCU ALINA</option>
+              
+              <option value="2835">ANITA BADEA</option>
+              
+              <option value="3214">LIDIA SCURTU</option>
+              
+              <option value="4480">NICOLAE ADRIAN-VALERIAN</option>
+              
+              <option value="3727">RAZVAN STAN</option>
+              
+              <option value="4745">TERDIC MARIUS TUDOR</option>
+              
+              <option value="3210">BIOLAN NICOLAE</option>
+              
+              <option value="4395">VALEANU GHEORGHE</option>
+              
+              <option value="4615">ROXANA MARGA</option>
+              
+              <option value="2737">UDRESCU STEFAN</option>
+              
+              <option value="4980">HANGANU RODICA</option>
+              
+              <option value="4588">MIRELA BALAN</option>
+              
+              <option value="4769">BELU GABRIEL</option>
+              
+              <option value="4718">DORIN FLUERARU</option>
+              
+              <option value="3376">CRETU IULIA</option>
+              
+              <option value="4855">VIORICA APOSTOL</option>
+              
+              <option value="4617">MARIA MIKAS</option>
+              
+              <option value="3667">SERBANESCU ALEXANDRA</option>
+              
+              <option value="974">STAN F. FLORINA PERSOANA FIZICA AUTORIZATA</option>
+              
+              <option value="4916">DIANA GHINCULOV</option>
+              
+              <option value="4239">BRANDUSA GEORGIANA CARMEN</option>
+              
+              <option value="4429">CIPRI ADI</option>
+              
+              <option value="4859">COMSA BOGDAN</option>
+              
+              <option value="3770">FECHETE DANIELA</option>
+              
+              <option value="4614">GHERMAN DIANA</option>
+              
+              <option value="4810">MANTA VICTOR</option>
+              
+              <option value="4876">INBOX SOLUTION SRL</option>
+              
+              <option value="4626">PAL ZITA</option>
+              
+              <option value="4946">RAZVAN CALIN</option>
+              
+              <option value="4726">TEAM ACTIV CONTEXPERT SRL</option>
+              
+              <option value="993">ALEN PLAZA S.R.L.</option>
+              
+              <option value="4837">ALEX GARASHCHENKO</option>
+              
+              <option value="4725">BACOS ALIN CRISTIAN</option>
+              
+              <option value="4571">CORINA MATEI</option>
+              
+              <option value="4640">RALUCA ADASCALITEI</option>
+              
+              <option value="3022">STEFANESCU FLORENTINA</option>
+              
+              <option value="4955">YURII POHORZHELSKYI</option>
+              
+              <option value="4545">BEDEREAGA DANIEL</option>
+              
+              <option value="3865">CAMI DRILA</option>
+              
+              <option value="4364">GUTIU SORIN</option>
+              
+              <option value="4695">NATALIA SAKOVYCH</option>
+              
+              <option value="4597">ALEXANDRA SANDU</option>
+              
+              <option value="4245">ANCA BIVOL</option>
+              
+              <option value="955">BOGDAN DRAGNEA</option>
+              
+              <option value="4846">CUZMANOV GEORGIANA</option>
+              
+              <option value="4421">POPA BOGDAN</option>
+              
+              <option value="4012">VLAD CONSTANTIN</option>
+              
+              <option value="4410">ASL SECURITY SOLUTIONS SRL</option>
+              
+              <option value="4428">ELENA KAPLOWITZ</option>
+              
+              <option value="4303">CLAUDIU TUDORESCU</option>
+              
+              <option value="4424">DANA CALIN</option>
+              
+              <option value="4331">PODARU EUGEN</option>
+              
+              <option value="4420">RALUCA NEMETHY</option>
+              
+              <option value="4242">ANDREI LOREDANA</option>
+              
+              <option value="2457">TUDOR LILIANA</option>
+              
+              <option value="3982">BIANCA POPESCU</option>
+              
+              <option value="4475">CIPRIAN POTOROACA</option>
+              
+              <option value="4852">ANDREEA PANEA</option>
+              
+              <option value="4433">MONICA GLODEAN</option>
+              
+              <option value="3032">SHAHRAM AMIRI</option>
+              
+              <option value="4551">CONSTANTIN GABRIEL TARLION</option>
+              
+              <option value="4534">DANIEL CIOBANU</option>
+              
+              <option value="4186">FRINCU MIHAI</option>
+              
+              <option value="4405">MARIANA IVANUS</option>
+              
+              <option value="4295">CRISTIAN NICULA</option>
+              
+              <option value="4413">MUSUROAEA GABRIEL PERSOANA FIZICA AUTORIZATA</option>
+              
+              <option value="4748">PERETEANU SORIN</option>
+              
+              <option value="4683">RADOI ANDRA</option>
+              
+              <option value="4269">TIRZIU DORINA</option>
+              
+              <option value="4576">VERONICA POPESCU</option>
+              
+              <option value="4783">AXINTE SABINA DANIELA</option>
+              
+              <option value="4660">CECILIA DAMARIS CONSTANTIN</option>
+              
+              <option value="4425">EMIL PANTAZI</option>
+              
+              <option value="4651">MARIUS TEMOCICO</option>
+              
+              <option value="4286">ZOLTAN FODOR</option>
+              
+              <option value="2632">CRISTIAN MALCICA</option>
+              
+              <option value="4829">CRISTINA PARVAN</option>
+              
+              <option value="4479">RUXANDRA ULMEANU</option>
+              
+              <option value="3217">POPA MIHAI</option>
+              
+              <option value="4285">SORIN SCARLET</option>
+              
+              <option value="4940">BIANCA OLAHUT</option>
+              
+              <option value="4235">NEAGU IOANA</option>
+              
+              <option value="4621">OLIMPIA NITA</option>
+              
+              <option value="837">C.S.M. GENERAL TRADING SRL</option>
+              
+              <option value="1662">DINU MADALINA</option>
+              
+              <option value="4952">LOREDANA MUNTEANU</option>
+              
+              <option value="4513">ANDREIA CHIRILA</option>
+              
+              <option value="4358">LUIZA IOANA</option>
+              
+              <option value="4701">SANDU STAN</option>
+              
+              <option value="4707">IOAN NEACSU</option>
+              
+              <option value="4638">ZSUZSANNA SZOKE</option>
+              
+              <option value="3439">CIRLOGEA VIORICA</option>
+              
+              <option value="2802">CLAUDIU SCHMIDT</option>
+              
+              <option value="4688">DENISA BRATU</option>
+              
+              <option value="4549">EUGENIA IBRAM</option>
+              
+              <option value="4552">GORMET SRL</option>
+              
+              <option value="4885">PETER BOKER</option>
+              
+              <option value="4565">RADU</option>
+              
+              <option value="2421">SILVIA GEORGESCU</option>
+              
+              <option value="4532">TANASE ANA MARIA</option>
+              
+              <option value="4521">THE AMERICAN INTERNATIONAL SCHOOL OF BUCHAREST LLC - FILIALA</option>
+              
+              <option value="4690">VERONICA DIACONESCU</option>
+              
+              <option value="4500">LUIZA INDREI</option>
+              
+              <option value="4252">REGHINA HOCA</option>
+              
+              <option value="1621">BIRO LILI</option>
+              
+              <option value="4890">PIRJE STEFAN</option>
+              
+              <option value="4820">CRISTINA MURESAN</option>
+              
+              <option value="4799">ELENA BANCIU</option>
+              
+              <option value="4287">ROXANA RUGEA</option>
+              
+              <option value="4794">ALEXANDRA TRITOIU</option>
+              
+              <option value="4782">CIMPOESCU MIHAELA</option>
+              
+              <option value="4734">GEORGETA DANIELA BOLAN</option>
+              
+              <option value="4251">HUSZAR HALNALKA</option>
+              
+              <option value="4522">LIGIA TRIF</option>
+              
+              <option value="4812">SIMONA BERCA</option>
+              
+              <option value="1906">ENACHE ANA MARIA</option>
+              
+              <option value="4711">JOARZA CARINA MARIA</option>
+              
+              <option value="4606">LAURA RADACHE</option>
+              
+              <option value="2927">MIHAI MARES</option>
+              
+              <option value="4539">MINEA OANA GEORGIANA</option>
+              
+              <option value="4478">ANDREI VATA</option>
+              
+              <option value="2882">CLAUDIA BICA</option>
+              
+              <option value="4650">GHENOV ADRIANA</option>
+              
+              <option value="4431">SIMONA STAMATE</option>
+              
+              <option value="4288">SW UMWELTTECHNIK ROMANIA SRL</option>
+              
+              <option value="3300">DANIELA-SILVIA MILEA</option>
+              
+              <option value="4861">IOANA SOGLU</option>
+              
+              <option value="1973">MAGDALENA NOWICKA</option>
+              
+              <option value="4406">VICTOR ALBEI</option>
+              
+              <option value="4801">ANDREESCU IULIA</option>
+              
+              <option value="4407">HALMAGYI KATALIN</option>
+              
+              <option value="4363">B+W PLANNING AND CONSULTING S.R.L.</option>
+              
+              <option value="4770">CARMEUSE HOLDING SRL</option>
+              
+              <option value="4733">DRAGHICESCU LUMINITA</option>
+              
+              <option value="4767">DELIA CRISAN</option>
+              
+              <option value="4463">STAN ALEXANDRU</option>
+              
+              <option value="4883">CRISTINA ADRIANA</option>
+              
+              <option value="4978">IAMBOR CECILIA</option>
+              
+              <option value="4737">IOANA TEODORESCU</option>
+              
+              <option value="4889">LEONTI SIMONA</option>
+              
+              <option value="4979">MARMELIUC OTILIA</option>
+              
+              <option value="4949">OANA SEBASTIAN</option>
+              
+              <option value="4921">SIMONA LEONTI</option>
+              
+              <option value="4379">EMILIA PLUGARU</option>
+              
+              <option value="4536">IULIAN NICULITA</option>
+              
+              <option value="3115">LAZAR ADRIAN</option>
+              
+              <option value="4554">LUMINOSU CLAUDIU ALIN</option>
+              
+              <option value="4961">MALINICIU CONSTANTIN</option>
+              
+              <option value="4601">MOISUC CATALIN</option>
+              
+              <option value="4703">RADU LOREDANA</option>
+              
+              <option value="4281">URSU NICOLAE</option>
+              
+              <option value="4277">BURCEA IULIAN</option>
+              
+              <option value="4068">CRISTINA B</option>
+              
+              <option value="4271">GEORGE RUSU</option>
+              
+              <option value="4361">MARTON ANDOR</option>
+              
+              <option value="4254">PALAGHIU DOINA</option>
+              
+              <option value="4403">PAUL ANTAL</option>
+              
+              <option value="4375">ANDREEA PAVEL</option>
+              
+              <option value="3050">COZMA ADRIAN</option>
+              
+              <option value="4931">DANIELA MIHAILESCU</option>
+              
+              <option value="4130">DELIA MANCIU</option>
+              
+              <option value="3827">ELENA BOTEA</option>
+              
+              <option value="4455">MARIAN BUCIU</option>
+              
+              <option value="4818">NECULA DANIEL</option>
+              
+              <option value="4362">CRISTINA ALBERT</option>
+              
+              <option value="4925">CRISTINA PIELMUS</option>
+              
+              <option value="4402">GANEA SARA</option>
+              
+              <option value="4261">IACOB FELICIA</option>
+              
+              <option value="4491">IVAN LARISA</option>
+              
+              <option value="4506">LEUCUTIA ION TRAIAN</option>
+              
+              <option value="4293">LIVIA ARVINTE</option>
+              
+              <option value="4173">MARILENA DUMITRESCU</option>
+              
+              <option value="4644">MARTAC FLORINELA -CABINET INDIVIDUAL DE AVOCATURA BIROU</option>
+              
+              <option value="4322">OCTAVIA  ADRIANA BANICA</option>
+              
+              <option value="4490">PASAT LIDIA</option>
+              
+              <option value="4469">PROFI AUTO SRL</option>
+              
+              <option value="4489">STAVARU TEODORA</option>
+              
+              <option value="4942">ALEXANDRU POP</option>
+              
+              <option value="4762">HANS SCHULLER</option>
+              
+              <option value="4370">HINGAN ANDREI</option>
+              
+              <option value="4280">NASCA MIRABELA</option>
+              
+              <option value="4412">NISTORESCU ANA-MARIA</option>
+              
+              <option value="4275">DANU ALEXANDRA</option>
+              
+              <option value="4932">DRAGOS VALENTIN STERE</option>
+              
+              <option value="4178">GHEORGHIU ANCA ELENA</option>
+              
+              <option value="4823">RADU IONUT</option>
+              
+              <option value="4377">ERZSEBET TUROS</option>
+              
+              <option value="4369">FLOREA GABRIEL</option>
+              
+              <option value="4311">MAKSYM KLOS</option>
+              
+              <option value="3137">PANFIL IRINA</option>
+              
+              <option value="4722">PETER PAL PIROSKA</option>
+              
+              <option value="4670">RADU VALERIU</option>
+              
+              <option value="4400">TRUTA CONSTANTIN</option>
+              
+              <option value="4835">ADRIAN CRETU</option>
+              
+              <option value="4592">ANDREI MIHAI-COSTIN</option>
+              
+              <option value="2600">BACONSCHI TEODOR</option>
+              
+              <option value="4212">CARMEN UDREA</option>
+              
+              <option value="952">CONSTANTIN IONUT</option>
+              
+              <option value="4666">COSTACHE VASILE GABI</option>
+              
+              <option value="4346">FANITA LUMINITA</option>
+              
+              <option value="4630">GHEORGHITA GABRIELA</option>
+              
+              <option value="4514">OLEKSII NOCHOVNYI</option>
+              
+              <option value="4923">OLGA KASHAYEVA</option>
+              
+              <option value="4577">OLTEANU LUCIAN</option>
+              
+              <option value="4411">ANDRA VLAD</option>
+              
+              <option value="4333">COBIRJE-POPA GEANINA-MIHAELA - PRESTARI SERVICII MEDICALE NE</option>
+              
+              <option value="4813">COSTACHE GEORGE</option>
+              
+              <option value="4541">DRAGOMIR MIHAI</option>
+              
+              <option value="4857">DUMITRESCU-SIMION SERBAN - AVOCAT COLABORATOR</option>
+              
+              <option value="4754">ELENA ZAHARIE</option>
+              
+              <option value="4583">GHEORGHE MARIN</option>
+              
+              <option value="4321">OANA MIHAILESCU</option>
+              
+              <option value="4350">POPA ANAMARIA</option>
+              
+              <option value="4580">STANOV DANIELA</option>
+              
+              <option value="4937">STOICA IULIA</option>
+              
+              <option value="1884">RADU RODIN</option>
+              
+              <option value="4894">RARES SPALNACAN</option>
+              
+              <option value="4257">TEMIAN CRISTINA</option>
+              
+              <option value="4246">ALEX GARASHENKO</option>
+              
+              <option value="4740">FETTER ALEXANDRA</option>
+              
+              <option value="4595">ILEANA SERBANESCU</option>
+              
+              <option value="4401">CENARIU DIANA</option>
+              
+              <option value="4419">GERAJ JANOS</option>
+              
+              <option value="4233">GHEORGHE DUMITRASCU</option>
+              
+              <option value="4308">HOARCA NICOLAE VASILE</option>
+              
+              <option value="4256">LUCIAN CEL MARE</option>
+              
+            </select>
+          </div>
+          <div class="col-md-3">
+            <label class="form-label small fw-semibold">Preț RON (fără TVA)</label>
+            <input type="number" id="pf-pret" class="form-control form-control-sm"
+                   step="0.01" min="0" oninput="recalcSim()">
+          </div>
+          <div class="col-md-4">
+            <button class="btn btn-sm btn-success me-1" onclick="savePret()">
+              <i class="bi bi-check-lg"></i> Salvează
+            </button>
+            <button class="btn btn-sm btn-outline-secondary" onclick="hidePretForm()">
+              Anulează
+            </button>
+          </div>
+        </div>
+        <div id="pf-msg" class="small mt-1"></div>
+      </div>
+    </div>
+
+    <!-- Simulator marjă -->
+    <div class="card shadow-sm border-0 mb-3">
+      <div class="card-header bg-white fw-semibold">
+        <i class="bi bi-sliders me-1 text-warning"></i> Simulator Marjă
+      </div>
+      <div class="card-body">
+        <div class="row g-3 align-items-end">
+          <div class="col-md-4">
+            <label class="form-label small fw-semibold">Preț vânzare simulat (RON)</label>
+            <input type="number" id="sim-pret" class="form-control form-control-sm"
+                   step="0.01" value="655.35"
+                   oninput="recalcSim()">
+          </div>
+          <div class="col-md-4">
+            <label class="form-label small fw-semibold">Condiții comerciale (RON/buc)</label>
+            <input type="number" id="sim-cond" class="form-control form-control-sm"
+                   step="0.001" value="0" oninput="recalcSim()">
+            <div class="form-text">Ex: rabat % aplicat</div>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label small fw-semibold">Marjă netă minimă %</label>
+            <input type="number" id="sim-threshold" class="form-control form-control-sm"
+                   step="1" value="15" oninput="recalcSim()">
+          </div>
+        </div>
+
+        <!-- Rezultate simulator -->
+        <div class="mt-3 row g-2 text-center" id="sim-results">
+          <div class="col-6 col-md-3">
+            <div class="card border-0 bg-light py-2">
+              <div class="text-muted" style="font-size:11px">Landing cost</div>
+              <div class="fw-bold text-primary" id="sim-landing">
+                0.0000
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="card border-0 bg-light py-2">
+              <div class="text-muted" style="font-size:11px">Marjă brută</div>
+              <div class="fw-bold" id="sim-mb">—</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="card border-0 bg-light py-2">
+              <div class="text-muted" style="font-size:11px">Marjă brută %</div>
+              <div class="fw-bold" id="sim-mb-pct">—</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="card border-0 py-2" id="sim-net-card">
+              <div class="text-muted" style="font-size:11px">Marjă netă %</div>
+              <div class="fw-bold" id="sim-mn-pct">—</div>
+            </div>
+          </div>
+        </div>
+
+        <div id="sim-alert" class="alert mt-2 d-none py-2 small"></div>
+
+        <!-- Preț minim recomandat -->
+        <div class="mt-2 text-muted small" id="sim-recomandat"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const LANDING = 0;
+const SKU     = "V-FIRM SERUM 125ML 715960";
+const AN      = 2026;
+
+// ── Landing cost recalc ──────────────────────────────────────────────────────
+function recalcLC() {
+  const pret   = parseFloat(document.getElementById('lc-pret').value)      || 0;
+  const curs   = parseFloat(document.getElementById('lc-curs').value)       || 1;
+  const transp = parseFloat(document.getElementById('lc-transport').value)  || 0;
+  const taxa   = parseFloat(document.getElementById('lc-taxa').value)       || 0;
+  const alte   = parseFloat(document.getElementById('lc-alte').value)       || 0;
+
+  const pretRON    = pret * curs;
+  const transpRON  = pretRON * transp / 100;
+  const taxaRON    = pretRON * taxa / 100;
+  const landing    = pretRON + transpRON + taxaRON + alte;
+
+  document.getElementById('show-pret-ron').textContent  = pretRON.toFixed(4);
+  document.getElementById('show-transport').textContent = '+' + transpRON.toFixed(4);
+  document.getElementById('show-taxa').textContent      = '+' + taxaRON.toFixed(4);
+  document.getElementById('show-alte').textContent      = '+' + alte.toFixed(4);
+  document.getElementById('show-landing').textContent   = landing.toFixed(4);
+  document.getElementById('sim-landing').textContent    = landing.toFixed(4);
+}
+
+async function saveLanding() {
+  const body = {
+    sku: SKU, an: AN,
+    pret_valuta:     parseFloat(document.getElementById('lc-pret').value)      || 0,
+    moneda:          document.getElementById('lc-moneda').value,
+    curs:            parseFloat(document.getElementById('lc-curs').value)       || 1,
+    transport_pct:   parseFloat(document.getElementById('lc-transport').value)  || 0,
+    taxa_vamala_pct: parseFloat(document.getElementById('lc-taxa').value)       || 0,
+    alte_costuri:    parseFloat(document.getElementById('lc-alte').value)       || 0,
+  };
+  const resp = await fetch('/api/preturi/landing', {
+    method: 'POST', headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(body)
+  });
+  const data = await resp.json();
+  const msg = document.getElementById('lc-msg');
+  if (data.ok) {
+    msg.className = 'small text-success';
+    msg.textContent = 'Salvat! Landing cost: ' + data.landing_cost_ron.toFixed(4) + ' RON';
+    recalcSim();
+  } else {
+    msg.className = 'small text-danger';
+    msg.textContent = data.error;
+  }
+}
+
+// ── Produs config ────────────────────────────────────────────────────────────
+async function saveProdus() {
+  const body = {
+    sku: SKU,
+    hs_code:      document.getElementById('p-hs').value,
+    taxa_mfn:     parseFloat(document.getElementById('p-mfn').value)   || 0,
+    taxa_aplicata:parseFloat(document.getElementById('p-taxa').value)  || 0,
+    tva_pct:      parseFloat(document.getElementById('p-tva').value)   || 0.09,
+  };
+  const resp = await fetch('/api/preturi/produs', {
+    method: 'POST', headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(body)
+  });
+  const data = await resp.json();
+  const msg = document.getElementById('p-msg');
+  msg.className = data.ok ? 'small text-success' : 'small text-danger';
+  msg.textContent = data.ok ? 'Salvat!' : data.error;
+}
+
+// ── Preț vânzare ─────────────────────────────────────────────────────────────
+function showAddPret() {
+  document.getElementById('pret-form').classList.remove('d-none');
+  document.getElementById('pf-client').value = '';
+  document.getElementById('pf-pret').value = '';
+}
+function hidePretForm() {
+  document.getElementById('pret-form').classList.add('d-none');
+}
+
+document.querySelectorAll('.btn-edit-pret').forEach(btn => {
+  btn.addEventListener('click', function() {
+    document.getElementById('pf-client').value = this.dataset.cod;
+    document.getElementById('pf-pret').value   = this.dataset.pret;
+    document.getElementById('pret-form').classList.remove('d-none');
+    document.getElementById('pf-pret').focus();
+  });
+});
+
+async function savePret() {
+  const body = {
+    sku: SKU, an: AN,
+    pret:       parseFloat(document.getElementById('pf-pret').value),
+    cod_client: document.getElementById('pf-client').value || null,
+  };
+  const msg = document.getElementById('pf-msg');
+  if (!body.pret) { msg.textContent = 'Introdu un preț valid.'; return; }
+  const resp = await fetch('/api/preturi/vanzare', {
+    method: 'POST', headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(body)
+  });
+  const data = await resp.json();
+  if (data.ok) location.reload();
+  else { msg.className = 'small text-danger'; msg.textContent = data.error; }
+}
+
+// ── Simulator ────────────────────────────────────────────────────────────────
+function recalcSim() {
+  const landing   = parseFloat(document.getElementById('sim-landing').textContent) || LANDING;
+  const pretNou   = parseFloat(document.getElementById('sim-pret').value) || 0;
+  const cond      = parseFloat(document.getElementById('sim-cond').value) || 0;
+  const threshold = parseFloat(document.getElementById('sim-threshold').value) || 15;
+
+  if (!pretNou) {
+    ['sim-mb','sim-mb-pct','sim-mn-pct'].forEach(id =>
+      document.getElementById(id).textContent = '—');
+    return;
+  }
+
+  const mb     = pretNou - landing;
+  const mbPct  = pretNou > 0 ? mb / pretNou * 100 : 0;
+  const mn     = mb - cond;
+  const mnPct  = pretNou > 0 ? mn / pretNou * 100 : 0;
+
+  const mbEl = document.getElementById('sim-mb');
+  mbEl.textContent = mb.toFixed(2) + ' RON';
+  mbEl.className = 'fw-bold ' + (mb < 0 ? 'text-danger' : 'text-success');
+
+  const mbPctEl = document.getElementById('sim-mb-pct');
+  mbPctEl.textContent = mbPct.toFixed(1) + '%';
+  mbPctEl.className = 'fw-bold ' + (mbPct < 15 ? 'text-danger' : mbPct < 25 ? 'text-warning' : 'text-success');
+
+  const mnPctEl = document.getElementById('sim-mn-pct');
+  mnPctEl.textContent = mnPct.toFixed(1) + '%';
+  mnPctEl.className = 'fw-bold ' + (mnPct < threshold ? 'text-danger' : 'text-success');
+
+  const card = document.getElementById('sim-net-card');
+  card.className = 'card border-0 py-2 ' + (mnPct < threshold ? 'bg-danger bg-opacity-10' : 'bg-success bg-opacity-10');
+
+  const alert = document.getElementById('sim-alert');
+  if (mnPct < threshold) {
+    alert.className = 'alert alert-danger mt-2 py-2 small';
+    const pretMin = (landing + cond) / (1 - threshold / 100);
+    alert.textContent = `Marjă netă (${mnPct.toFixed(1)}%) sub pragul de ${threshold}%. ` +
+      `Preț minim recomandat: ${pretMin.toFixed(2)} RON`;
+    alert.classList.remove('d-none');
+    document.getElementById('sim-recomandat').textContent =
+      `Preț minim pentru marjă netă ≥ ${threshold}%: ${pretMin.toFixed(2)} RON`;
+  } else {
+    alert.classList.add('d-none');
+    document.getElementById('sim-recomandat').textContent = '';
+  }
+}
+
+// Init
+recalcLC();
+recalcSim();
+</script>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+</body>
+</html>

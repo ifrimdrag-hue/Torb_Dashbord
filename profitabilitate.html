@@ -1,0 +1,579 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Profitabilitate 2026 — Torb Logistic</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="static/css/style.css">
+
+  <link rel="manifest" href="./manifest.json">
+  <meta name="theme-color" content="#212529">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./sw.js').catch(function(){});
+    }
+  </script>
+</head>
+<body class="bg-light">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+  <div class="container-fluid px-4">
+    <a class="navbar-brand fw-bold fs-5" href="index.html">
+      <i class="bi bi-bar-chart-fill text-success me-1"></i>Torb Logistic
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navmenu">
+      <ul class="navbar-nav ms-auto gap-1">
+        <li class="nav-item">
+          <a class="nav-link "
+             href="index.html">
+            <i class="bi bi-speedometer2"></i> Dashboard
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "
+             href="team.html">
+            <i class="bi bi-people-fill"></i> Echipă
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "
+             href="clients.html">
+            <i class="bi bi-building"></i> Clienți
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "
+             href="products.html">
+            <i class="bi bi-box-seam-fill"></i> Produse
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active"
+             href="profitabilitate.html">
+            <i class="bi bi-graph-up-arrow"></i> Profitabilitate
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "
+             href="ask.html">
+            <i class="bi bi-chat-dots-fill"></i> AI
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "
+             href="bonus.html">
+            <i class="bi bi-trophy-fill"></i> Bonus
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "
+             href="conditii.html">
+            <i class="bi bi-file-earmark-text-fill"></i> Condiții
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "
+             href="preturi.html">
+            <i class="bi bi-tags-fill"></i> Prețuri
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "
+             href="forecast.html">
+            <i class="bi bi-boxes"></i> Stoc / Forecast
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid px-4 py-4">
+  
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h4 class="mb-0 fw-bold">
+    <i class="bi bi-graph-up-arrow text-success me-1"></i> Analiză Profitabilitate
+  </h4>
+  <div class="d-flex gap-2 align-items-center">
+    
+    <a href="profitabilitate.html"
+       class="btn btn-sm btn-outline-secondary">2024</a>
+    
+    <a href="profitabilitate.html"
+       class="btn btn-sm btn-outline-secondary">2025</a>
+    
+    <a href="profitabilitate.html"
+       class="btn btn-sm btn-primary">2026</a>
+    
+    <a href="#" onclick="alert('Export disponibil doar în aplicația locală.');return false;"
+       class="btn btn-sm btn-outline-success ms-2">
+      <i class="bi bi-file-earmark-excel"></i> Excel
+    </a>
+    <a href="#" onclick="alert('Export disponibil doar în aplicația locală.');return false;"
+       class="btn btn-sm btn-outline-danger">
+      <i class="bi bi-file-earmark-slides"></i> PPT
+    </a>
+  </div>
+</div>
+
+<!-- Tabs -->
+<ul class="nav nav-tabs mb-4" id="profTabs">
+  <li class="nav-item">
+    <a class="nav-link active"
+       href="profitabilitate.html">
+      <i class="bi bi-people me-1"></i> Agenți
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link "
+       href="profitabilitate.html">
+      <i class="bi bi-building me-1"></i> Clienți
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link "
+       href="profitabilitate.html">
+      <i class="bi bi-box-seam me-1"></i> Produse
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link "
+       href="profitabilitate.html">
+      <i class="bi bi-grid-3x3 me-1"></i> Matrice Agent × Brand
+    </a>
+  </li>
+</ul>
+
+<!-- ── Tab: Agenți ── -->
+
+<div class="row g-3 mb-4">
+  
+  <div class="col-6 col-xl-3">
+    <div class="card border-0 shadow-sm h-100">
+      <div class="card-body text-center">
+        <p class="fw-bold mb-1">DRAGNEA BOGDAN</p>
+        <p class="display-6 fw-bold mb-0 text-success">
+          26.2%
+        </p>
+        <p class="text-muted small mb-1">Marjă Netă %</p>
+        <p class="small fw-semibold">808.831 RON</p>
+        <div class="d-flex justify-content-between text-muted small">
+          <span>45 clienți</span>
+          <span>
+            
+            <span class="text-danger">
+              ▼24.8%
+            </span>
+            
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="col-6 col-xl-3">
+    <div class="card border-0 shadow-sm h-100">
+      <div class="card-body text-center">
+        <p class="fw-bold mb-1">Oana Filip</p>
+        <p class="display-6 fw-bold mb-0 text-success">
+          29.0%
+        </p>
+        <p class="text-muted small mb-1">Marjă Netă %</p>
+        <p class="small fw-semibold">320.261 RON</p>
+        <div class="d-flex justify-content-between text-muted small">
+          <span>7 clienți</span>
+          <span>
+            
+            <span class="text-success">
+              ▲97.7%
+            </span>
+            
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="col-6 col-xl-3">
+    <div class="card border-0 shadow-sm h-100">
+      <div class="card-body text-center">
+        <p class="fw-bold mb-1">BRINZA CLAUDIU</p>
+        <p class="display-6 fw-bold mb-0 text-success">
+          36.0%
+        </p>
+        <p class="text-muted small mb-1">Marjă Netă %</p>
+        <p class="small fw-semibold">319.940 RON</p>
+        <div class="d-flex justify-content-between text-muted small">
+          <span>45 clienți</span>
+          <span>
+            
+            <span class="text-success">
+              ▲330.9%
+            </span>
+            
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="col-6 col-xl-3">
+    <div class="card border-0 shadow-sm h-100">
+      <div class="card-body text-center">
+        <p class="fw-bold mb-1">CONSTANTIN IONUT</p>
+        <p class="display-6 fw-bold mb-0 text-success">
+          50.4%
+        </p>
+        <p class="text-muted small mb-1">Marjă Netă %</p>
+        <p class="small fw-semibold">75.320 RON</p>
+        <div class="d-flex justify-content-between text-muted small">
+          <span>59 clienți</span>
+          <span>
+            
+            <span class="text-danger">
+              ▼108.5%
+            </span>
+            
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+<div class="card shadow-sm border-0">
+  <div class="card-header bg-white fw-semibold">
+    Ranking Agenți după Marjă Netă — 2026 YTD (Ian–Apr)
+  </div>
+  <div class="table-responsive">
+    <table class="table table-sm table-hover mb-0">
+      <thead class="table-dark">
+        <tr>
+          <th>#</th>
+          <th>Agent</th>
+          <th class="text-end">Val Netă</th>
+          <th class="text-end">vs 2025 YTD</th>
+          <th class="text-end">MB (RON)</th>
+          <th class="text-end">MB%</th>
+          <th class="text-end">MN (RON)</th>
+          <th class="text-end">MN%</th>
+          <th class="text-end">Clienți</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <tr>
+          <td class="text-muted small">1</td>
+          <td>
+            <a href="agent/DRAGNEA_BOGDAN.html"
+               class="text-decoration-none fw-semibold">DRAGNEA BOGDAN</a>
+          </td>
+          <td class="text-end small">3.08M RON</td>
+          <td class="text-end small">
+            
+            
+            <span class="text-danger">
+              -6.2%
+            </span>
+            
+          </td>
+          <td class="text-end small">1.46M RON</td>
+          <td class="text-end small text-success">47.2%</td>
+          <td class="text-end fw-semibold ">
+            808.831 RON
+          </td>
+          <td class="text-end fw-bold text-success">
+            26.2%
+          </td>
+          <td class="text-end small">45</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted small">2</td>
+          <td>
+            <a href="agent/Oana_Filip.html"
+               class="text-decoration-none fw-semibold">Oana Filip</a>
+          </td>
+          <td class="text-end small">1.10M RON</td>
+          <td class="text-end small">
+            
+            
+            <span class="text-success">
+              12.8%
+            </span>
+            
+          </td>
+          <td class="text-end small">370.005 RON</td>
+          <td class="text-end small text-success">33.5%</td>
+          <td class="text-end fw-semibold ">
+            320.261 RON
+          </td>
+          <td class="text-end fw-bold text-success">
+            29.0%
+          </td>
+          <td class="text-end small">7</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted small">3</td>
+          <td>
+            <a href="agent/BRINZA_CLAUDIU.html"
+               class="text-decoration-none fw-semibold">BRINZA CLAUDIU</a>
+          </td>
+          <td class="text-end small">888.681 RON</td>
+          <td class="text-end small">
+            
+            
+            <span class="text-danger">
+              -3.8%
+            </span>
+            
+          </td>
+          <td class="text-end small">319.940 RON</td>
+          <td class="text-end small text-success">36.0%</td>
+          <td class="text-end fw-semibold ">
+            319.940 RON
+          </td>
+          <td class="text-end fw-bold text-success">
+            36.0%
+          </td>
+          <td class="text-end small">45</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted small">4</td>
+          <td>
+            <a href="agent/CONSTANTIN_IONUT.html"
+               class="text-decoration-none fw-semibold">CONSTANTIN IONUT</a>
+          </td>
+          <td class="text-end small">149.403 RON</td>
+          <td class="text-end small">
+            
+            
+            <span class="text-danger">
+              -4.6%
+            </span>
+            
+          </td>
+          <td class="text-end small">75.320 RON</td>
+          <td class="text-end small text-success">50.4%</td>
+          <td class="text-end fw-semibold ">
+            75.320 RON
+          </td>
+          <td class="text-end fw-bold text-success">
+            50.4%
+          </td>
+          <td class="text-end small">59</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted small">5</td>
+          <td>
+            <a href="agent/GURAMULTA_GHEORGHE.html"
+               class="text-decoration-none fw-semibold">GURAMULTA GHEORGHE</a>
+          </td>
+          <td class="text-end small">71.697 RON</td>
+          <td class="text-end small">
+            
+            
+            <span class="text-danger">
+              -7.1%
+            </span>
+            
+          </td>
+          <td class="text-end small">32.422 RON</td>
+          <td class="text-end small text-success">45.2%</td>
+          <td class="text-end fw-semibold ">
+            32.422 RON
+          </td>
+          <td class="text-end fw-bold text-success">
+            45.2%
+          </td>
+          <td class="text-end small">29</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted small">6</td>
+          <td>
+            <a href="agent/EMAG.html"
+               class="text-decoration-none fw-semibold">EMAG</a>
+          </td>
+          <td class="text-end small">29.053 RON</td>
+          <td class="text-end small">
+            
+            
+            <span class="text-success">
+              36.1%
+            </span>
+            
+          </td>
+          <td class="text-end small">21.673 RON</td>
+          <td class="text-end small text-success">74.6%</td>
+          <td class="text-end fw-semibold ">
+            21.673 RON
+          </td>
+          <td class="text-end fw-bold text-success">
+            74.6%
+          </td>
+          <td class="text-end small">664</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted small">7</td>
+          <td>
+            <a href="agent/SITE.html"
+               class="text-decoration-none fw-semibold">SITE</a>
+          </td>
+          <td class="text-end small">27.176 RON</td>
+          <td class="text-end small">
+            
+            
+            <span class="text-success">
+              0.5%
+            </span>
+            
+          </td>
+          <td class="text-end small">19.341 RON</td>
+          <td class="text-end small text-success">71.2%</td>
+          <td class="text-end fw-semibold ">
+            19.341 RON
+          </td>
+          <td class="text-end fw-bold text-success">
+            71.2%
+          </td>
+          <td class="text-end small">167</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted small">8</td>
+          <td>
+            <a href="agent/BOTEA_DANIEL.html"
+               class="text-decoration-none fw-semibold">BOTEA DANIEL</a>
+          </td>
+          <td class="text-end small">18.327 RON</td>
+          <td class="text-end small">
+            
+            
+            <span class="text-danger">
+              -38.0%
+            </span>
+            
+          </td>
+          <td class="text-end small">1.714 RON</td>
+          <td class="text-end small text-success">9.4%</td>
+          <td class="text-end fw-semibold ">
+            1.714 RON
+          </td>
+          <td class="text-end fw-bold text-primary">
+            9.4%
+          </td>
+          <td class="text-end small">3</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted small">9</td>
+          <td>
+            <a href="agent/ALTEX.html"
+               class="text-decoration-none fw-semibold">ALTEX</a>
+          </td>
+          <td class="text-end small">825 RON</td>
+          <td class="text-end small">
+            
+            
+            <span class="text-success">
+              87.9%
+            </span>
+            
+          </td>
+          <td class="text-end small">613 RON</td>
+          <td class="text-end small text-success">74.3%</td>
+          <td class="text-end fw-semibold ">
+            613 RON
+          </td>
+          <td class="text-end fw-bold text-success">
+            74.3%
+          </td>
+          <td class="text-end small">6</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted small">10</td>
+          <td>
+            <a href="agent/TRENDYOL.html"
+               class="text-decoration-none fw-semibold">TRENDYOL</a>
+          </td>
+          <td class="text-end small">407 RON</td>
+          <td class="text-end small">
+            —
+          </td>
+          <td class="text-end small">274 RON</td>
+          <td class="text-end small text-success">67.5%</td>
+          <td class="text-end fw-semibold ">
+            274 RON
+          </td>
+          <td class="text-end fw-bold text-success">
+            67.5%
+          </td>
+          <td class="text-end small">13</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted small">11</td>
+          <td>
+            <a href="agent/REICH_LEOPOLD.html"
+               class="text-decoration-none fw-semibold">REICH LEOPOLD</a>
+          </td>
+          <td class="text-end small">54 RON</td>
+          <td class="text-end small">
+            
+            
+            <span class="text-danger">
+              -111.1%
+            </span>
+            
+          </td>
+          <td class="text-end small">18 RON</td>
+          <td class="text-end small text-success">33.6%</td>
+          <td class="text-end fw-semibold ">
+            18 RON
+          </td>
+          <td class="text-end fw-bold text-success">
+            33.6%
+          </td>
+          <td class="text-end small">1</td>
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ── Tab: Clienți ── -->
+
+
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+<script>
+function filterTable(tableId, q) {
+  const lq = q.toLowerCase();
+  document.querySelectorAll('#' + tableId + ' tbody tr').forEach(r => {
+    r.style.display = r.textContent.toLowerCase().includes(lq) ? '' : 'none';
+  });
+}
+</script>
+
+</body>
+</html>

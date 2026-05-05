@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PAVEL MIHAI VALENTIN — Torb Logistic</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../static/css/style.css">
+
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#212529">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('../sw.js').catch(function(){});
+    }
+  </script>
+</head>
+<body class="bg-light">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+  <div class="container-fluid px-4">
+    <a class="navbar-brand fw-bold fs-5" href="../index.html">
+      <i class="bi bi-bar-chart-fill text-success me-1"></i>Torb Logistic
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navmenu">
+      <ul class="navbar-nav ms-auto gap-1">
+        <li class="nav-item">
+          <a class="nav-link "
+             href="../index.html">
+            <i class="bi bi-speedometer2"></i> Dashboard
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "
+             href="../team.html">
+            <i class="bi bi-people-fill"></i> Echipă
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active"
+             href="../clients.html">
+            <i class="bi bi-building"></i> Clienți
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "
+             href="../products.html">
+            <i class="bi bi-box-seam-fill"></i> Produse
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "
+             href="../profitabilitate.html">
+            <i class="bi bi-graph-up-arrow"></i> Profitabilitate
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "
+             href="../ask.html">
+            <i class="bi bi-chat-dots-fill"></i> AI
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "
+             href="../bonus.html">
+            <i class="bi bi-trophy-fill"></i> Bonus
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "
+             href="../conditii.html">
+            <i class="bi bi-file-earmark-text-fill"></i> Condiții
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "
+             href="../preturi.html">
+            <i class="bi bi-tags-fill"></i> Prețuri
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "
+             href="../forecast.html">
+            <i class="bi bi-boxes"></i> Stoc / Forecast
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid px-4 py-4">
+  
+<nav aria-label="breadcrumb" class="mb-3">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="../clients.html">Clienți</a></li>
+    <li class="breadcrumb-item active">PAVEL MIHAI VALENTIN</li>
+  </ol>
+</nav>
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <div>
+    <h4 class="mb-0 fw-bold"><i class="bi bi-building text-primary me-1"></i>PAVEL MIHAI VALENTIN</h4>
+    <small class="text-muted">
+      fara tip client · PANTELIMON, ILFOV ·
+      CUI: 0773952677 · Agent: <strong>EMAG</strong>
+    </small>
+  </div>
+  <div class="d-flex gap-2 align-items-center">
+    
+    <a href="../client/3405.html"
+       class="btn btn-sm btn-outline-secondary">2024</a>
+    
+    <a href="../client/3405.html"
+       class="btn btn-sm btn-outline-secondary">2025</a>
+    
+    <a href="../client/3405.html"
+       class="btn btn-sm btn-primary">2026</a>
+    
+    <a href="#" onclick="alert('Export disponibil doar în aplicația locală.');return false;"
+       class="btn btn-sm btn-outline-success ms-2">
+      <i class="bi bi-file-earmark-excel"></i> Excel
+    </a>
+    <a href="#" onclick="alert('Export disponibil doar în aplicația locală.');return false;"
+       class="btn btn-sm btn-outline-danger">
+      <i class="bi bi-file-earmark-slides"></i> PPT
+    </a>
+  </div>
+</div>
+
+<!-- KPI cards -->
+<div class="row g-3 mb-4">
+  
+  <div class="col-6 col-md-3">
+    <div class="card border-0 shadow-sm text-center p-2">
+      <i class="bi bi-currency-euro text-primary fs-4 mt-2"></i>
+      <p class="text-muted small mb-1 mt-1">Val Netă 2026</p>
+      <p class="fw-bold mb-0">—</p>
+    </div>
+  </div>
+  <div class="col-6 col-md-3">
+    <div class="card border-0 shadow-sm text-center p-2">
+      <i class="bi bi-graph-up text-success fs-4 mt-2"></i>
+      <p class="text-muted small mb-1 mt-1">Marjă Brută 2026</p>
+      <p class="fw-bold mb-0">—</p>
+      <small class="text-success"></small>
+    </div>
+  </div>
+  <div class="col-6 col-md-3">
+    <div class="card border-0 shadow-sm text-center p-2">
+      <i class="bi bi-graph-down-arrow text-warning fs-4 mt-2"></i>
+      <p class="text-muted small mb-1 mt-1">Marjă Netă 2026</p>
+      <p class="fw-bold mb-0 ">
+        —
+      </p>
+      <small class="text-warning">
+        
+      </small>
+    </div>
+  </div>
+  <div class="col-6 col-md-3">
+    <div class="card border-0 shadow-sm text-center p-2">
+      <i class="bi bi-file-earmark-text text-dark fs-4 mt-2"></i>
+      <p class="text-muted small mb-1 mt-1">Total Facturi</p>
+      <p class="fw-bold mb-0">1</p>
+      <small class="text-muted">Prima: 2025-10-23</small>
+    </div>
+  </div>
+</div>
+
+<!-- Charts + Yearly -->
+<div class="row g-3 mb-4">
+  <div class="col-xl-7">
+    <div class="card shadow-sm border-0 h-100">
+      <div class="card-header bg-white d-flex justify-content-between align-items-center">
+        <span class="fw-semibold"><i class="bi bi-bar-chart-line text-primary me-1"></i> Trend Lunar</span>
+        <div class="btn-group btn-group-sm">
+          <button class="btn btn-primary active" onclick="switchMetric('vn',this)">Val Netă</button>
+          <button class="btn btn-outline-success" onclick="switchMetric('mb',this)">Marjă Brută</button>
+        </div>
+      </div>
+      <div class="card-body"><canvas id="clientTrend" height="130"></canvas></div>
+    </div>
+  </div>
+
+  <div class="col-xl-5">
+    <div class="card shadow-sm border-0 h-100">
+      <div class="card-header bg-white fw-semibold">
+        <i class="bi bi-calendar3 text-secondary me-1"></i> Evoluție Anuală
+      </div>
+      <div class="table-responsive">
+        <table class="table table-sm mb-0">
+          <thead class="table-light">
+            <tr>
+              <th>An</th>
+              <th class="text-end">Val Netă</th>
+              <th class="text-end">MB%</th>
+              <th class="text-end">MN (RON)</th>
+              <th class="text-end">MN%</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr >
+              <td>2025</td>
+              <td class="text-end small">34 RON</td>
+              <td class="text-end small text-success">82.3%</td>
+              <td class="text-end small text-danger">-4.972 RON</td>
+              <td class="text-end small text-danger">
+                -14418.9%
+              </td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+      <div class="card-body pt-0 pb-2">
+        <canvas id="brandChart" height="100"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Produse cumpărate -->
+<div class="card shadow-sm border-0">
+  <div class="card-header bg-white d-flex justify-content-between align-items-center fw-semibold">
+    <span><i class="bi bi-box-seam text-secondary me-1"></i>
+      Produse Cumpărate 2026
+      <span class="badge bg-secondary ms-1">0</span>
+    </span>
+    <input type="text" id="prodSearch" class="form-control form-control-sm w-auto"
+           placeholder="Filtrare produs…" oninput="filterProds(this.value)">
+  </div>
+  <div class="table-responsive">
+    <table class="table table-sm table-hover mb-0" id="prodTable">
+      <thead class="table-dark">
+        <tr>
+          <th>Produs</th>
+          <th>Brand</th>
+          <th class="text-end">Cant.</th>
+          <th class="text-end">Val Netă</th>
+          <th class="text-end">MB (RON)</th>
+          <th class="text-end">MB%</th>
+          <th class="text-end">MN (RON)</th>
+          <th class="text-end">MN%</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <tr><td colspan="8" class="text-center text-muted py-3">Nicio dată pentru 2026</td></tr>
+        
+      </tbody>
+    </table>
+  </div>
+</div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+<script>
+const MONTHS    = ["Ian", "Feb", "Mar", "Apr", "Mai", "Iun", "Iul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const M_VN      = {"2025": [0, 0, 0, 0, 0, 0, 0, 0, 0, 34.0, 0, 0]};
+const M_MB      = {"2025": [0, 0, 0, 0, 0, 0, 0, 0, 0, 28.0, 0, 0]};
+const BRAND_MIX = [];
+
+const PALETTE = {
+  2024: {vn:'rgba(173,181,189,0.6)', mb:'rgba(173,181,189,0.45)'},
+  2025: {vn:'rgba(13,110,253,0.6)',  mb:'rgba(13,202,240,0.6)'},
+  2026: {vn:'rgba(25,135,84,0.85)', mb:'rgba(25,135,84,0.6)'},
+};
+let trendChart, currentM = 'vn';
+
+function switchMetric(m, btn) {
+  currentM = m;
+  document.querySelectorAll('.btn-group .btn').forEach(b => {
+    b.classList.remove('active','btn-primary','btn-success');
+    if (b.textContent.trim() === 'Val Netă') b.classList.add('btn-outline-primary');
+    else b.classList.add('btn-outline-success');
+  });
+  btn.classList.remove('btn-outline-primary','btn-outline-success');
+  btn.classList.add(m === 'vn' ? 'btn-primary' : 'btn-success','active');
+  const src = m === 'vn' ? M_VN : M_MB;
+  trendChart.data.datasets = Object.entries(src).sort(([a],[b])=>a-b).map(([yr,data]) => ({
+    label: yr, data, backgroundColor: (PALETTE[yr]||{})[m]||'#adb5bd', borderRadius: 3,
+  }));
+  trendChart.update();
+}
+
+(function() {
+  const ctx = document.getElementById('clientTrend').getContext('2d');
+  trendChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: MONTHS,
+      datasets: Object.entries(M_VN).sort(([a],[b])=>a-b).map(([yr,data]) => ({
+        label: yr, data, backgroundColor: (PALETTE[yr]||{}).vn||'#adb5bd', borderRadius: 3,
+      })),
+    },
+    options: {
+      responsive: true,
+      plugins: {legend: {position: 'top'}},
+      scales: {y: {beginAtZero: true, ticks: {callback: v => v>=1e6?(v/1e6).toFixed(1)+'M':v>=1e3?(v/1e3).toFixed(0)+'K':v}}},
+    },
+  });
+
+  const bctx = document.getElementById('brandChart').getContext('2d');
+  new Chart(bctx, {
+    type: 'doughnut',
+    data: {
+      labels: BRAND_MIX.map(d => d.label),
+      datasets: [{
+        data: BRAND_MIX.map(d => d.value),
+        backgroundColor: ['#0d6efd','#198754','#ffc107','#dc3545','#0dcaf0','#6c757d','#fd7e14','#6610f2'],
+        borderWidth: 1,
+      }],
+    },
+    options: {plugins: {legend: {position:'right',labels:{font:{size:9}}}}, cutout:'60%'},
+  });
+})();
+
+function filterProds(q) {
+  const lq = q.toLowerCase();
+  document.querySelectorAll('#prodTable tbody tr').forEach(r => {
+    r.style.display = r.textContent.toLowerCase().includes(lq) ? '' : 'none';
+  });
+}
+</script>
+
+</body>
+</html>

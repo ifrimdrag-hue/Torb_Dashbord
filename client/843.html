@@ -1,0 +1,986 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NEW STARS IMPEX SRL — Torb Logistic</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../static/css/style.css">
+
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#212529">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('../sw.js').catch(function(){});
+    }
+  </script>
+</head>
+<body class="bg-light">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+  <div class="container-fluid px-4">
+    <a class="navbar-brand fw-bold fs-5" href="../index.html">
+      <i class="bi bi-bar-chart-fill text-success me-1"></i>Torb Logistic
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navmenu">
+      <ul class="navbar-nav ms-auto gap-1">
+        <li class="nav-item">
+          <a class="nav-link "
+             href="../index.html">
+            <i class="bi bi-speedometer2"></i> Dashboard
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "
+             href="../team.html">
+            <i class="bi bi-people-fill"></i> Echipă
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active"
+             href="../clients.html">
+            <i class="bi bi-building"></i> Clienți
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "
+             href="../products.html">
+            <i class="bi bi-box-seam-fill"></i> Produse
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "
+             href="../profitabilitate.html">
+            <i class="bi bi-graph-up-arrow"></i> Profitabilitate
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "
+             href="../ask.html">
+            <i class="bi bi-chat-dots-fill"></i> AI
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "
+             href="../bonus.html">
+            <i class="bi bi-trophy-fill"></i> Bonus
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "
+             href="../conditii.html">
+            <i class="bi bi-file-earmark-text-fill"></i> Condiții
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "
+             href="../preturi.html">
+            <i class="bi bi-tags-fill"></i> Prețuri
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "
+             href="../forecast.html">
+            <i class="bi bi-boxes"></i> Stoc / Forecast
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid px-4 py-4">
+  
+<nav aria-label="breadcrumb" class="mb-3">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="../clients.html">Clienți</a></li>
+    <li class="breadcrumb-item active">NEW STARS IMPEX SRL</li>
+  </ol>
+</nav>
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <div>
+    <h4 class="mb-0 fw-bold"><i class="bi bi-building text-primary me-1"></i>NEW STARS IMPEX SRL</h4>
+    <small class="text-muted">
+      fara tip client · BUCURESTI, BUCURESTI ·
+      CUI: RO2784230 · Agent: <strong>CONSTANTIN IONUT</strong>
+    </small>
+  </div>
+  <div class="d-flex gap-2 align-items-center">
+    
+    <a href="../client/843.html"
+       class="btn btn-sm btn-outline-secondary">2024</a>
+    
+    <a href="../client/843.html"
+       class="btn btn-sm btn-outline-secondary">2025</a>
+    
+    <a href="../client/843.html"
+       class="btn btn-sm btn-primary">2026</a>
+    
+    <a href="#" onclick="alert('Export disponibil doar în aplicația locală.');return false;"
+       class="btn btn-sm btn-outline-success ms-2">
+      <i class="bi bi-file-earmark-excel"></i> Excel
+    </a>
+    <a href="#" onclick="alert('Export disponibil doar în aplicația locală.');return false;"
+       class="btn btn-sm btn-outline-danger">
+      <i class="bi bi-file-earmark-slides"></i> PPT
+    </a>
+  </div>
+</div>
+
+<!-- KPI cards -->
+<div class="row g-3 mb-4">
+  
+  <div class="col-6 col-md-3">
+    <div class="card border-0 shadow-sm text-center p-2">
+      <i class="bi bi-currency-euro text-primary fs-4 mt-2"></i>
+      <p class="text-muted small mb-1 mt-1">Val Netă 2026</p>
+      <p class="fw-bold mb-0">12.073 RON</p>
+    </div>
+  </div>
+  <div class="col-6 col-md-3">
+    <div class="card border-0 shadow-sm text-center p-2">
+      <i class="bi bi-graph-up text-success fs-4 mt-2"></i>
+      <p class="text-muted small mb-1 mt-1">Marjă Brută 2026</p>
+      <p class="fw-bold mb-0">4.811 RON</p>
+      <small class="text-success">39.9%</small>
+    </div>
+  </div>
+  <div class="col-6 col-md-3">
+    <div class="card border-0 shadow-sm text-center p-2">
+      <i class="bi bi-graph-down-arrow text-warning fs-4 mt-2"></i>
+      <p class="text-muted small mb-1 mt-1">Marjă Netă 2026</p>
+      <p class="fw-bold mb-0 ">
+        4.811 RON
+      </p>
+      <small class="text-success">
+        39.9%
+      </small>
+    </div>
+  </div>
+  <div class="col-6 col-md-3">
+    <div class="card border-0 shadow-sm text-center p-2">
+      <i class="bi bi-file-earmark-text text-dark fs-4 mt-2"></i>
+      <p class="text-muted small mb-1 mt-1">Total Facturi</p>
+      <p class="fw-bold mb-0">110</p>
+      <small class="text-muted">Prima: 2024-01-09</small>
+    </div>
+  </div>
+</div>
+
+<!-- Charts + Yearly -->
+<div class="row g-3 mb-4">
+  <div class="col-xl-7">
+    <div class="card shadow-sm border-0 h-100">
+      <div class="card-header bg-white d-flex justify-content-between align-items-center">
+        <span class="fw-semibold"><i class="bi bi-bar-chart-line text-primary me-1"></i> Trend Lunar</span>
+        <div class="btn-group btn-group-sm">
+          <button class="btn btn-primary active" onclick="switchMetric('vn',this)">Val Netă</button>
+          <button class="btn btn-outline-success" onclick="switchMetric('mb',this)">Marjă Brută</button>
+        </div>
+      </div>
+      <div class="card-body"><canvas id="clientTrend" height="130"></canvas></div>
+    </div>
+  </div>
+
+  <div class="col-xl-5">
+    <div class="card shadow-sm border-0 h-100">
+      <div class="card-header bg-white fw-semibold">
+        <i class="bi bi-calendar3 text-secondary me-1"></i> Evoluție Anuală
+      </div>
+      <div class="table-responsive">
+        <table class="table table-sm mb-0">
+          <thead class="table-light">
+            <tr>
+              <th>An</th>
+              <th class="text-end">Val Netă</th>
+              <th class="text-end">MB%</th>
+              <th class="text-end">MN (RON)</th>
+              <th class="text-end">MN%</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr >
+              <td>2024</td>
+              <td class="text-end small">34.306 RON</td>
+              <td class="text-end small text-success">51.4%</td>
+              <td class="text-end small ">17.622 RON</td>
+              <td class="text-end small text-success">
+                51.4%
+              </td>
+            </tr>
+            
+            <tr >
+              <td>2025</td>
+              <td class="text-end small">36.146 RON</td>
+              <td class="text-end small text-success">32.7%</td>
+              <td class="text-end small text-danger">-13.189 RON</td>
+              <td class="text-end small text-danger">
+                -36.5%
+              </td>
+            </tr>
+            
+            <tr class="table-active fw-semibold">
+              <td>2026</td>
+              <td class="text-end small">12.073 RON</td>
+              <td class="text-end small text-success">39.9%</td>
+              <td class="text-end small ">4.811 RON</td>
+              <td class="text-end small text-success">
+                39.9%
+              </td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+      <div class="card-body pt-0 pb-2">
+        <canvas id="brandChart" height="100"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Produse cumpărate -->
+<div class="card shadow-sm border-0">
+  <div class="card-header bg-white d-flex justify-content-between align-items-center fw-semibold">
+    <span><i class="bi bi-box-seam text-secondary me-1"></i>
+      Produse Cumpărate 2026
+      <span class="badge bg-secondary ms-1">37</span>
+    </span>
+    <input type="text" id="prodSearch" class="form-control form-control-sm w-auto"
+           placeholder="Filtrare produs…" oninput="filterProds(this.value)">
+  </div>
+  <div class="table-responsive">
+    <table class="table table-sm table-hover mb-0" id="prodTable">
+      <thead class="table-dark">
+        <tr>
+          <th>Produs</th>
+          <th>Brand</th>
+          <th class="text-end">Cant.</th>
+          <th class="text-end">Val Netă</th>
+          <th class="text-end">MB (RON)</th>
+          <th class="text-end">MB%</th>
+          <th class="text-end">MN (RON)</th>
+          <th class="text-end">MN%</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <tr>
+          <td class="small" style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="T.CIOC ECO N CU 100% CACAO 100GR-728 (8410342005861)">
+            <a href="../produs/T_CIOC_ECO_N_CU_100__CACAO_100GR-728__8410342005861_.html" class="text-decoration-none">
+              T.CIOC ECO N CU 100% CACAO 100GR-728 (8…
+            </a>
+          </td>
+          <td class="small"><span class="badge bg-light text-dark">Toras</span></td>
+          <td class="text-end small">72.0</td>
+          <td class="text-end small fw-semibold">1.175 RON</td>
+          <td class="text-end small">259 RON</td>
+          <td class="text-end small text-success">22.1%</td>
+          <td class="text-end small fw-semibold ">259 RON</td>
+          <td class="text-end small text-success">
+            22.1%
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="small" style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="T.CIOC N CU 85% CACAO FZG 75GR-585 (8410342007049)">
+            <a href="../produs/T_CIOC_N_CU_85__CACAO_FZG_75GR-585__8410342007049_.html" class="text-decoration-none">
+              T.CIOC N CU 85% CACAO FZG 75GR-585 (841…
+            </a>
+          </td>
+          <td class="small"><span class="badge bg-light text-dark">Toras</span></td>
+          <td class="text-end small">132.0</td>
+          <td class="text-end small fw-semibold">1.080 RON</td>
+          <td class="text-end small">335 RON</td>
+          <td class="text-end small text-success">31.0%</td>
+          <td class="text-end small fw-semibold ">335 RON</td>
+          <td class="text-end small text-success">
+            31.0%
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="small" style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="T.CIOC N CU 95% CACAO FZG 75GR-595 (8410342007735)">
+            <a href="../produs/T_CIOC_N_CU_95__CACAO_FZG_75GR-595__8410342007735_.html" class="text-decoration-none">
+              T.CIOC N CU 95% CACAO FZG 75GR-595 (841…
+            </a>
+          </td>
+          <td class="small"><span class="badge bg-light text-dark">Toras</span></td>
+          <td class="text-end small">108.0</td>
+          <td class="text-end small fw-semibold">884 RON</td>
+          <td class="text-end small">233 RON</td>
+          <td class="text-end small text-success">26.4%</td>
+          <td class="text-end small fw-semibold ">233 RON</td>
+          <td class="text-end small text-success">
+            26.4%
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="small" style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="T.CIOC N CU MANGO FZG 75GR-532 (8410342006301)">
+            <a href="../produs/T_CIOC_N_CU_MANGO_FZG_75GR-532__8410342006301_.html" class="text-decoration-none">
+              T.CIOC N CU MANGO FZG 75GR-532 (8410342…
+            </a>
+          </td>
+          <td class="small"><span class="badge bg-light text-dark">Toras</span></td>
+          <td class="text-end small">96.0</td>
+          <td class="text-end small fw-semibold">810 RON</td>
+          <td class="text-end small">337 RON</td>
+          <td class="text-end small text-success">41.5%</td>
+          <td class="text-end small fw-semibold ">337 RON</td>
+          <td class="text-end small text-success">
+            41.5%
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="small" style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="T.CIOC N CU PORTOCALE FZG 75GR-533 (8410342002013)">
+            <a href="../produs/T_CIOC_N_CU_PORTOCALE_FZG_75GR-533__8410342002013_.html" class="text-decoration-none">
+              T.CIOC N CU PORTOCALE FZG 75GR-533 (841…
+            </a>
+          </td>
+          <td class="small"><span class="badge bg-light text-dark">Toras</span></td>
+          <td class="text-end small">96.0</td>
+          <td class="text-end small fw-semibold">810 RON</td>
+          <td class="text-end small">333 RON</td>
+          <td class="text-end small text-success">41.2%</td>
+          <td class="text-end small fw-semibold ">333 RON</td>
+          <td class="text-end small text-success">
+            41.2%
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="small" style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="T.CIOC N CU MENTA FZG 75GR-534 (8410342003218)">
+            <a href="../produs/T_CIOC_N_CU_MENTA_FZG_75GR-534__8410342003218_.html" class="text-decoration-none">
+              T.CIOC N CU MENTA FZG 75GR-534 (8410342…
+            </a>
+          </td>
+          <td class="small"><span class="badge bg-light text-dark">Toras</span></td>
+          <td class="text-end small">84.0</td>
+          <td class="text-end small fw-semibold">737 RON</td>
+          <td class="text-end small">346 RON</td>
+          <td class="text-end small text-success">46.9%</td>
+          <td class="text-end small fw-semibold ">346 RON</td>
+          <td class="text-end small text-success">
+            46.9%
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="small" style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="T.CIOC ALBA CU CEAI MATCHA FZG 75GR-524 (8410342007643)">
+            <a href="../produs/T_CIOC_ALBA_CU_CEAI_MATCHA_FZG_75GR-524__8410342007643_.html" class="text-decoration-none">
+              T.CIOC ALBA CU CEAI MATCHA FZG 75GR-524…
+            </a>
+          </td>
+          <td class="small"><span class="badge bg-light text-dark">Toras</span></td>
+          <td class="text-end small">60.0</td>
+          <td class="text-end small fw-semibold">491 RON</td>
+          <td class="text-end small">231 RON</td>
+          <td class="text-end small text-success">47.1%</td>
+          <td class="text-end small fw-semibold ">231 RON</td>
+          <td class="text-end small text-success">
+            47.1%
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="small" style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="T.CIOC CU 72% CACAO FZG 75GR-530 (8410342006585)">
+            <a href="../produs/T_CIOC_CU_72__CACAO_FZG_75GR-530__8410342006585_.html" class="text-decoration-none">
+              T.CIOC CU 72% CACAO FZG 75GR-530 (84103…
+            </a>
+          </td>
+          <td class="small"><span class="badge bg-light text-dark">Toras</span></td>
+          <td class="text-end small">60.0</td>
+          <td class="text-end small fw-semibold">491 RON</td>
+          <td class="text-end small">177 RON</td>
+          <td class="text-end small text-success">36.0%</td>
+          <td class="text-end small fw-semibold ">177 RON</td>
+          <td class="text-end small text-success">
+            36.0%
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="small" style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="T.CIOC ALBA CU CAPSUNI FZG 75GR-565 (8410342005731)">
+            <a href="../produs/T_CIOC_ALBA_CU_CAPSUNI_FZG_75GR-565__8410342005731_.html" class="text-decoration-none">
+              T.CIOC ALBA CU CAPSUNI FZG 75GR-565 (84…
+            </a>
+          </td>
+          <td class="small"><span class="badge bg-light text-dark">Toras</span></td>
+          <td class="text-end small">48.0</td>
+          <td class="text-end small fw-semibold">393 RON</td>
+          <td class="text-end small">182 RON</td>
+          <td class="text-end small text-success">46.3%</td>
+          <td class="text-end small fw-semibold ">182 RON</td>
+          <td class="text-end small text-success">
+            46.3%
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="small" style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="T.CIOC ALBA CU KIWI FZG 75GR-535 (8410342007001)">
+            <a href="../produs/T_CIOC_ALBA_CU_KIWI_FZG_75GR-535__8410342007001_.html" class="text-decoration-none">
+              T.CIOC ALBA CU KIWI FZG 75GR-535 (84103…
+            </a>
+          </td>
+          <td class="small"><span class="badge bg-light text-dark">Toras</span></td>
+          <td class="text-end small">48.0</td>
+          <td class="text-end small fw-semibold">393 RON</td>
+          <td class="text-end small">173 RON</td>
+          <td class="text-end small text-success">44.0%</td>
+          <td class="text-end small fw-semibold ">173 RON</td>
+          <td class="text-end small text-success">
+            44.0%
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="small" style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="T.CIOC LAPTE FZG 75GR-559 (8410342005595)">
+            <a href="../produs/T_CIOC_LAPTE_FZG_75GR-559__8410342005595_.html" class="text-decoration-none">
+              T.CIOC LAPTE FZG 75GR-559 (8410342005595)
+            </a>
+          </td>
+          <td class="small"><span class="badge bg-light text-dark">Toras</span></td>
+          <td class="text-end small">48.0</td>
+          <td class="text-end small fw-semibold">393 RON</td>
+          <td class="text-end small">185 RON</td>
+          <td class="text-end small text-success">47.1%</td>
+          <td class="text-end small fw-semibold ">185 RON</td>
+          <td class="text-end small text-success">
+            47.1%
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="small" style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="T.CIOC N CU CAFEA FZG 75GR-568 (8410342006318)">
+            <a href="../produs/T_CIOC_N_CU_CAFEA_FZG_75GR-568__8410342006318_.html" class="text-decoration-none">
+              T.CIOC N CU CAFEA FZG 75GR-568 (8410342…
+            </a>
+          </td>
+          <td class="small"><span class="badge bg-light text-dark">Toras</span></td>
+          <td class="text-end small">48.0</td>
+          <td class="text-end small fw-semibold">393 RON</td>
+          <td class="text-end small">182 RON</td>
+          <td class="text-end small text-success">46.3%</td>
+          <td class="text-end small fw-semibold ">182 RON</td>
+          <td class="text-end small text-success">
+            46.3%
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="small" style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="T.CIOC N CU CAPSUNI FZG 75GR-528 (8410342002174)">
+            <a href="../produs/T_CIOC_N_CU_CAPSUNI_FZG_75GR-528__8410342002174_.html" class="text-decoration-none">
+              T.CIOC N CU CAPSUNI FZG 75GR-528 (84103…
+            </a>
+          </td>
+          <td class="small"><span class="badge bg-light text-dark">Toras</span></td>
+          <td class="text-end small">48.0</td>
+          <td class="text-end small fw-semibold">393 RON</td>
+          <td class="text-end small">161 RON</td>
+          <td class="text-end small text-success">40.9%</td>
+          <td class="text-end small fw-semibold ">161 RON</td>
+          <td class="text-end small text-success">
+            40.9%
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="small" style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="T.CIOC N CU LAMAIE FZG 75GR-523 (8410342008411)">
+            <a href="../produs/T_CIOC_N_CU_LAMAIE_FZG_75GR-523__8410342008411_.html" class="text-decoration-none">
+              T.CIOC N CU LAMAIE FZG 75GR-523 (841034…
+            </a>
+          </td>
+          <td class="small"><span class="badge bg-light text-dark">Toras</span></td>
+          <td class="text-end small">48.0</td>
+          <td class="text-end small fw-semibold">393 RON</td>
+          <td class="text-end small">148 RON</td>
+          <td class="text-end small text-success">37.7%</td>
+          <td class="text-end small fw-semibold ">148 RON</td>
+          <td class="text-end small text-success">
+            37.7%
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="small" style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="B.CEAI FRUIT INFUSIONS ASSORTED 40E (10EX4) 72G 71618-4792252935488">
+            <a href="../produs/B_CEAI_FRUIT_INFUSIONS_ASSORTED_40E__10EX4__72G_71618-4792252935488.html" class="text-decoration-none">
+              B.CEAI FRUIT INFUSIONS ASSORTED 40E (10…
+            </a>
+          </td>
+          <td class="small"><span class="badge bg-light text-dark">Basilur</span></td>
+          <td class="text-end small">18.0</td>
+          <td class="text-end small fw-semibold">362 RON</td>
+          <td class="text-end small">172 RON</td>
+          <td class="text-end small text-success">47.6%</td>
+          <td class="text-end small fw-semibold ">172 RON</td>
+          <td class="text-end small text-success">
+            47.6%
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="small" style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="T.HEY GO CIOC ALBA FZG CU FISTIC 60G-181 (8410342008299)">
+            <a href="../produs/T_HEY_GO_CIOC_ALBA_FZG_CU_FISTIC_60G-181__8410342008299_.html" class="text-decoration-none">
+              T.HEY GO CIOC ALBA FZG CU FISTIC 60G-18…
+            </a>
+          </td>
+          <td class="small"><span class="badge bg-light text-dark">Toras</span></td>
+          <td class="text-end small">38.0</td>
+          <td class="text-end small fw-semibold">327 RON</td>
+          <td class="text-end small">124 RON</td>
+          <td class="text-end small text-success">37.9%</td>
+          <td class="text-end small fw-semibold ">124 RON</td>
+          <td class="text-end small text-success">
+            37.9%
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="small" style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="T.CIOC ALBA CU COCOS FZG 75GR-529 (8410342002167)">
+            <a href="../produs/T_CIOC_ALBA_CU_COCOS_FZG_75GR-529__8410342002167_.html" class="text-decoration-none">
+              T.CIOC ALBA CU COCOS FZG 75GR-529 (8410…
+            </a>
+          </td>
+          <td class="small"><span class="badge bg-light text-dark">Toras</span></td>
+          <td class="text-end small">36.0</td>
+          <td class="text-end small fw-semibold">295 RON</td>
+          <td class="text-end small">139 RON</td>
+          <td class="text-end small text-success">47.1%</td>
+          <td class="text-end small fw-semibold ">139 RON</td>
+          <td class="text-end small text-success">
+            47.1%
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="small" style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="T.CIOC LAPTE SI ALUNE FZG 75G-562 (8410342005625)">
+            <a href="../produs/T_CIOC_LAPTE_SI_ALUNE_FZG_75G-562__8410342005625_.html" class="text-decoration-none">
+              T.CIOC LAPTE SI ALUNE FZG 75G-562 (8410…
+            </a>
+          </td>
+          <td class="small"><span class="badge bg-light text-dark">Toras</span></td>
+          <td class="text-end small">36.0</td>
+          <td class="text-end small fw-semibold">295 RON</td>
+          <td class="text-end small">139 RON</td>
+          <td class="text-end small text-success">47.2%</td>
+          <td class="text-end small fw-semibold ">139 RON</td>
+          <td class="text-end small text-success">
+            47.2%
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="small" style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="T.CIOC N CU BANANA FZG 75GR-531 (8410342006011)">
+            <a href="../produs/T_CIOC_N_CU_BANANA_FZG_75GR-531__8410342006011_.html" class="text-decoration-none">
+              T.CIOC N CU BANANA FZG 75GR-531 (841034…
+            </a>
+          </td>
+          <td class="small"><span class="badge bg-light text-dark">Toras</span></td>
+          <td class="text-end small">36.0</td>
+          <td class="text-end small fw-semibold">295 RON</td>
+          <td class="text-end small">120 RON</td>
+          <td class="text-end small text-success">40.9%</td>
+          <td class="text-end small fw-semibold ">120 RON</td>
+          <td class="text-end small text-success">
+            40.9%
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="small" style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="T.CIOC N CU BUC.CACAO FZG 75GR-567 (8410342006004)">
+            <a href="../produs/T_CIOC_N_CU_BUC_CACAO_FZG_75GR-567__8410342006004_.html" class="text-decoration-none">
+              T.CIOC N CU BUC.CACAO FZG 75GR-567 (841…
+            </a>
+          </td>
+          <td class="small"><span class="badge bg-light text-dark">Toras</span></td>
+          <td class="text-end small">36.0</td>
+          <td class="text-end small fw-semibold">295 RON</td>
+          <td class="text-end small">120 RON</td>
+          <td class="text-end small text-success">40.9%</td>
+          <td class="text-end small fw-semibold ">120 RON</td>
+          <td class="text-end small text-success">
+            40.9%
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="small" style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="T.CIOC ALBA CU FRUCTE GOJI  75GR-569 (8410342006325)">
+            <a href="../produs/T_CIOC_ALBA_CU_FRUCTE_GOJI__75GR-569__8410342006325_.html" class="text-decoration-none">
+              T.CIOC ALBA CU FRUCTE GOJI  75GR-569 (8…
+            </a>
+          </td>
+          <td class="small"><span class="badge bg-light text-dark">Toras</span></td>
+          <td class="text-end small">24.0</td>
+          <td class="text-end small fw-semibold">196 RON</td>
+          <td class="text-end small">92 RON</td>
+          <td class="text-end small text-success">47.1%</td>
+          <td class="text-end small fw-semibold ">92 RON</td>
+          <td class="text-end small text-success">
+            47.1%
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="small" style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="KL CEAI IMPERIAL GREEN (25X1,5G) 90206-4792252942431">
+            <a href="../produs/KL_CEAI_IMPERIAL_GREEN__25X1_5G__90206-4792252942431.html" class="text-decoration-none">
+              KL CEAI IMPERIAL GREEN (25X1,5G) 90206-…
+            </a>
+          </td>
+          <td class="small"><span class="badge bg-light text-dark">KingsLeaf</span></td>
+          <td class="text-end small">36.0</td>
+          <td class="text-end small fw-semibold">145 RON</td>
+          <td class="text-end small">78 RON</td>
+          <td class="text-end small text-success">53.8%</td>
+          <td class="text-end small fw-semibold ">78 RON</td>
+          <td class="text-end small text-success">
+            53.8%
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="small" style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="T.HEY GO CIOC ALBA FZG CU ALUNE SI SARE 60G-182 (8410342008305)">
+            <a href="../produs/T_HEY_GO_CIOC_ALBA_FZG_CU_ALUNE_SI_SARE_60G-182__8410342008305_.html" class="text-decoration-none">
+              T.HEY GO CIOC ALBA FZG CU ALUNE SI SARE…
+            </a>
+          </td>
+          <td class="small"><span class="badge bg-light text-dark">Toras</span></td>
+          <td class="text-end small">15.0</td>
+          <td class="text-end small fw-semibold">123 RON</td>
+          <td class="text-end small">50 RON</td>
+          <td class="text-end small text-success">40.8%</td>
+          <td class="text-end small fw-semibold ">50 RON</td>
+          <td class="text-end small text-success">
+            40.8%
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="small" style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="T.HEY GO CIOC LAPTE FZG CU OREZ CROCANT 60G-180 (8410342008282)">
+            <a href="../produs/T_HEY_GO_CIOC_LAPTE_FZG_CU_OREZ_CROCANT_60G-180__8410342008282_.html" class="text-decoration-none">
+              T.HEY GO CIOC LAPTE FZG CU OREZ CROCANT…
+            </a>
+          </td>
+          <td class="small"><span class="badge bg-light text-dark">Toras</span></td>
+          <td class="text-end small">15.0</td>
+          <td class="text-end small fw-semibold">123 RON</td>
+          <td class="text-end small">50 RON</td>
+          <td class="text-end small text-success">40.8%</td>
+          <td class="text-end small fw-semibold ">50 RON</td>
+          <td class="text-end small text-success">
+            40.8%
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="small" style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="B.&#34;SUMMER FIESTA&#34; 71396-4792252933132">
+            <a href="../produs/B__SUMMER_FIESTA__71396-4792252933132.html" class="text-decoration-none">
+              B.&#34;SUMMER FIESTA&#34; 71396-4792252933132
+            </a>
+          </td>
+          <td class="small"><span class="badge bg-light text-dark">Basilur</span></td>
+          <td class="text-end small">3.0</td>
+          <td class="text-end small fw-semibold">103 RON</td>
+          <td class="text-end small">49 RON</td>
+          <td class="text-end small text-success">47.9%</td>
+          <td class="text-end small fw-semibold ">49 RON</td>
+          <td class="text-end small text-success">
+            47.9%
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="small" style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="B.ECO ORGANSIA APPLE CINNAMON AND ROSEHIP 1,8GX18E 19322">
+            <a href="../produs/B_ECO_ORGANSIA_APPLE_CINNAMON_AND_ROSEHIP_1_8GX18E_19322.html" class="text-decoration-none">
+              B.ECO ORGANSIA APPLE CINNAMON AND ROSEH…
+            </a>
+          </td>
+          <td class="small"><span class="badge bg-light text-dark">Basilur</span></td>
+          <td class="text-end small">6.0</td>
+          <td class="text-end small fw-semibold">95 RON</td>
+          <td class="text-end small">59 RON</td>
+          <td class="text-end small text-success">62.1%</td>
+          <td class="text-end small fw-semibold ">59 RON</td>
+          <td class="text-end small text-success">
+            62.1%
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="small" style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="B.ECO ORGANSIA LEMON GINGER HONEY 1,8GX18E 19326">
+            <a href="../produs/B_ECO_ORGANSIA_LEMON_GINGER_HONEY_1_8GX18E_19326.html" class="text-decoration-none">
+              B.ECO ORGANSIA LEMON GINGER HONEY 1,8GX…
+            </a>
+          </td>
+          <td class="small"><span class="badge bg-light text-dark">Basilur</span></td>
+          <td class="text-end small">6.0</td>
+          <td class="text-end small fw-semibold">95 RON</td>
+          <td class="text-end small">59 RON</td>
+          <td class="text-end small text-success">62.1%</td>
+          <td class="text-end small fw-semibold ">59 RON</td>
+          <td class="text-end small text-success">
+            62.1%
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="small" style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="B.ECO ORGANSIA ROOIBOS ORANGE CHAI 1,5GX18E 19328">
+            <a href="../produs/B_ECO_ORGANSIA_ROOIBOS_ORANGE_CHAI_1_5GX18E_19328.html" class="text-decoration-none">
+              B.ECO ORGANSIA ROOIBOS ORANGE CHAI 1,5G…
+            </a>
+          </td>
+          <td class="small"><span class="badge bg-light text-dark">Basilur</span></td>
+          <td class="text-end small">6.0</td>
+          <td class="text-end small fw-semibold">95 RON</td>
+          <td class="text-end small">59 RON</td>
+          <td class="text-end small text-success">62.1%</td>
+          <td class="text-end small fw-semibold ">59 RON</td>
+          <td class="text-end small text-success">
+            62.1%
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="small" style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="B.&#34;FRUITY DELIGHT&#34; 71395-4792252933125">
+            <a href="../produs/B__FRUITY_DELIGHT__71395-4792252933125.html" class="text-decoration-none">
+              B.&#34;FRUITY DELIGHT&#34; 71395-4792252933125
+            </a>
+          </td>
+          <td class="small"><span class="badge bg-light text-dark">Basilur</span></td>
+          <td class="text-end small">2.0</td>
+          <td class="text-end small fw-semibold">67 RON</td>
+          <td class="text-end small">31 RON</td>
+          <td class="text-end small text-success">45.7%</td>
+          <td class="text-end small fw-semibold ">31 RON</td>
+          <td class="text-end small text-success">
+            45.7%
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="small" style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="KL CEAI EARL GREY (25X2G) 90204-4792252942417">
+            <a href="../produs/KL_CEAI_EARL_GREY__25X2G__90204-4792252942417.html" class="text-decoration-none">
+              KL CEAI EARL GREY (25X2G) 90204-4792252942417
+            </a>
+          </td>
+          <td class="small"><span class="badge bg-light text-dark">KingsLeaf</span></td>
+          <td class="text-end small">12.0</td>
+          <td class="text-end small fw-semibold">48 RON</td>
+          <td class="text-end small">26 RON</td>
+          <td class="text-end small text-success">52.8%</td>
+          <td class="text-end small fw-semibold ">26 RON</td>
+          <td class="text-end small text-success">
+            52.8%
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="small" style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="KL CEAI ENGLISH BREAKFAST (25X2G) 90205-4792252942424">
+            <a href="../produs/KL_CEAI_ENGLISH_BREAKFAST__25X2G__90205-4792252942424.html" class="text-decoration-none">
+              KL CEAI ENGLISH BREAKFAST (25X2G) 90205…
+            </a>
+          </td>
+          <td class="small"><span class="badge bg-light text-dark">KingsLeaf</span></td>
+          <td class="text-end small">12.0</td>
+          <td class="text-end small fw-semibold">48 RON</td>
+          <td class="text-end small">26 RON</td>
+          <td class="text-end small text-success">52.8%</td>
+          <td class="text-end small fw-semibold ">26 RON</td>
+          <td class="text-end small text-success">
+            52.8%
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="small" style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="KL CEAI ROYAL ASSAM (25X2G) 90213-4792252942578">
+            <a href="../produs/KL_CEAI_ROYAL_ASSAM__25X2G__90213-4792252942578.html" class="text-decoration-none">
+              KL CEAI ROYAL ASSAM (25X2G) 90213-47922…
+            </a>
+          </td>
+          <td class="small"><span class="badge bg-light text-dark">KingsLeaf</span></td>
+          <td class="text-end small">12.0</td>
+          <td class="text-end small fw-semibold">48 RON</td>
+          <td class="text-end small">25 RON</td>
+          <td class="text-end small text-success">52.8%</td>
+          <td class="text-end small fw-semibold ">25 RON</td>
+          <td class="text-end small text-success">
+            52.8%
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="small" style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="B.SWEET ORCHARD ORANGE &amp; ORANGE BLOSSOM 75G 72658">
+            <a href="../produs/B_SWEET_ORCHARD_ORANGE__amp__ORANGE_BLOSSOM_75G_72658.html" class="text-decoration-none">
+              B.SWEET ORCHARD ORANGE &amp; ORANGE BLOSSOM…
+            </a>
+          </td>
+          <td class="small"><span class="badge bg-light text-dark">Basilur</span></td>
+          <td class="text-end small">2.0</td>
+          <td class="text-end small fw-semibold">40 RON</td>
+          <td class="text-end small">25 RON</td>
+          <td class="text-end small text-success">60.7%</td>
+          <td class="text-end small fw-semibold ">25 RON</td>
+          <td class="text-end small text-success">
+            60.7%
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="small" style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="B.SWEET ORCHARD PEACH &amp; ELDERFLOWER 75G 72656">
+            <a href="../produs/B_SWEET_ORCHARD_PEACH__amp__ELDERFLOWER_75G_72656.html" class="text-decoration-none">
+              B.SWEET ORCHARD PEACH &amp; ELDERFLOWER 75G 72656
+            </a>
+          </td>
+          <td class="small"><span class="badge bg-light text-dark">Basilur</span></td>
+          <td class="text-end small">2.0</td>
+          <td class="text-end small fw-semibold">40 RON</td>
+          <td class="text-end small">25 RON</td>
+          <td class="text-end small text-success">60.7%</td>
+          <td class="text-end small fw-semibold ">25 RON</td>
+          <td class="text-end small text-success">
+            60.7%
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="small" style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="B.SWEET ORCHARD RED APPLE &amp; YUZU 75G 72657">
+            <a href="../produs/B_SWEET_ORCHARD_RED_APPLE__amp__YUZU_75G_72657.html" class="text-decoration-none">
+              B.SWEET ORCHARD RED APPLE &amp; YUZU 75G 72657
+            </a>
+          </td>
+          <td class="small"><span class="badge bg-light text-dark">Basilur</span></td>
+          <td class="text-end small">2.0</td>
+          <td class="text-end small fw-semibold">40 RON</td>
+          <td class="text-end small">25 RON</td>
+          <td class="text-end small text-success">60.7%</td>
+          <td class="text-end small fw-semibold ">25 RON</td>
+          <td class="text-end small text-success">
+            60.7%
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="small" style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="B.&#34;COLLECTION NO.1 ASSORTED&#34; 70333-4792252915091">
+            <a href="../produs/B__COLLECTION_NO_1_ASSORTED__70333-4792252915091.html" class="text-decoration-none">
+              B.&#34;COLLECTION NO.1 ASSORTED&#34; 70333-4792…
+            </a>
+          </td>
+          <td class="small"><span class="badge bg-light text-dark">Basilur</span></td>
+          <td class="text-end small">1.0</td>
+          <td class="text-end small fw-semibold">32 RON</td>
+          <td class="text-end small">20 RON</td>
+          <td class="text-end small text-success">61.6%</td>
+          <td class="text-end small fw-semibold ">20 RON</td>
+          <td class="text-end small text-success">
+            61.6%
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="small" style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="B.&#34;MAGIC FRUITS ASSORTED&#34; 70331-4792252915077">
+            <a href="../produs/B__MAGIC_FRUITS_ASSORTED__70331-4792252915077.html" class="text-decoration-none">
+              B.&#34;MAGIC FRUITS ASSORTED&#34; 70331-4792252915077
+            </a>
+          </td>
+          <td class="small"><span class="badge bg-light text-dark">Basilur</span></td>
+          <td class="text-end small">1.0</td>
+          <td class="text-end small fw-semibold">32 RON</td>
+          <td class="text-end small">19 RON</td>
+          <td class="text-end small text-success">59.6%</td>
+          <td class="text-end small fw-semibold ">19 RON</td>
+          <td class="text-end small text-success">
+            59.6%
+          </td>
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+</div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+<script>
+const MONTHS    = ["Ian", "Feb", "Mar", "Apr", "Mai", "Iun", "Iul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const M_VN      = {"2024": [3683.0, 4091.0, 4958.0, 3039.0, 4405.0, 1032.0, 738.0, 802.0, 2596.0, 3893.0, 1916.0, 3152.0], "2025": [4980.0, 2035.0, 6952.0, 2726.0, 2537.0, 1419.0, 1335.0, 1549.0, 2240.0, 2440.0, 4011.0, 3920.0], "2026": [2340.0, 2329.0, 3027.0, 4377.0, 0, 0, 0, 0, 0, 0, 0, 0]};
+const M_MB      = {"2024": [1903.0, 2137.0, 2699.0, 1492.0, 2110.0, 597.0, 495.0, 507.0, 1362.0, 2014.0, 734.0, 1571.0], "2025": [2584.0, -1028.0, 2408.0, 657.0, 698.0, 527.0, 616.0, 141.0, 628.0, 1158.0, 1864.0, 1558.0], "2026": [1004.0, 927.0, 1099.0, 1782.0, 0, 0, 0, 0, 0, 0, 0, 0]};
+const BRAND_MIX = [{"label": "Toras", "value": 10782.0}, {"label": "Basilur", "value": 1001.0}, {"label": "KingsLeaf", "value": 290.0}];
+
+const PALETTE = {
+  2024: {vn:'rgba(173,181,189,0.6)', mb:'rgba(173,181,189,0.45)'},
+  2025: {vn:'rgba(13,110,253,0.6)',  mb:'rgba(13,202,240,0.6)'},
+  2026: {vn:'rgba(25,135,84,0.85)', mb:'rgba(25,135,84,0.6)'},
+};
+let trendChart, currentM = 'vn';
+
+function switchMetric(m, btn) {
+  currentM = m;
+  document.querySelectorAll('.btn-group .btn').forEach(b => {
+    b.classList.remove('active','btn-primary','btn-success');
+    if (b.textContent.trim() === 'Val Netă') b.classList.add('btn-outline-primary');
+    else b.classList.add('btn-outline-success');
+  });
+  btn.classList.remove('btn-outline-primary','btn-outline-success');
+  btn.classList.add(m === 'vn' ? 'btn-primary' : 'btn-success','active');
+  const src = m === 'vn' ? M_VN : M_MB;
+  trendChart.data.datasets = Object.entries(src).sort(([a],[b])=>a-b).map(([yr,data]) => ({
+    label: yr, data, backgroundColor: (PALETTE[yr]||{})[m]||'#adb5bd', borderRadius: 3,
+  }));
+  trendChart.update();
+}
+
+(function() {
+  const ctx = document.getElementById('clientTrend').getContext('2d');
+  trendChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: MONTHS,
+      datasets: Object.entries(M_VN).sort(([a],[b])=>a-b).map(([yr,data]) => ({
+        label: yr, data, backgroundColor: (PALETTE[yr]||{}).vn||'#adb5bd', borderRadius: 3,
+      })),
+    },
+    options: {
+      responsive: true,
+      plugins: {legend: {position: 'top'}},
+      scales: {y: {beginAtZero: true, ticks: {callback: v => v>=1e6?(v/1e6).toFixed(1)+'M':v>=1e3?(v/1e3).toFixed(0)+'K':v}}},
+    },
+  });
+
+  const bctx = document.getElementById('brandChart').getContext('2d');
+  new Chart(bctx, {
+    type: 'doughnut',
+    data: {
+      labels: BRAND_MIX.map(d => d.label),
+      datasets: [{
+        data: BRAND_MIX.map(d => d.value),
+        backgroundColor: ['#0d6efd','#198754','#ffc107','#dc3545','#0dcaf0','#6c757d','#fd7e14','#6610f2'],
+        borderWidth: 1,
+      }],
+    },
+    options: {plugins: {legend: {position:'right',labels:{font:{size:9}}}}, cutout:'60%'},
+  });
+})();
+
+function filterProds(q) {
+  const lq = q.toLowerCase();
+  document.querySelectorAll('#prodTable tbody tr').forEach(r => {
+    r.style.display = r.textContent.toLowerCase().includes(lq) ? '' : 'none';
+  });
+}
+</script>
+
+</body>
+</html>

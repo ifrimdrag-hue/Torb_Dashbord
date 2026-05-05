@@ -1,0 +1,748 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NEPTUN SA — Torb Logistic</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../static/css/style.css">
+
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#212529">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('../sw.js').catch(function(){});
+    }
+  </script>
+</head>
+<body class="bg-light">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+  <div class="container-fluid px-4">
+    <a class="navbar-brand fw-bold fs-5" href="../index.html">
+      <i class="bi bi-bar-chart-fill text-success me-1"></i>Torb Logistic
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navmenu">
+      <ul class="navbar-nav ms-auto gap-1">
+        <li class="nav-item">
+          <a class="nav-link "
+             href="../index.html">
+            <i class="bi bi-speedometer2"></i> Dashboard
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "
+             href="../team.html">
+            <i class="bi bi-people-fill"></i> Echipă
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active"
+             href="../clients.html">
+            <i class="bi bi-building"></i> Clienți
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "
+             href="../products.html">
+            <i class="bi bi-box-seam-fill"></i> Produse
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "
+             href="../profitabilitate.html">
+            <i class="bi bi-graph-up-arrow"></i> Profitabilitate
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "
+             href="../ask.html">
+            <i class="bi bi-chat-dots-fill"></i> AI
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "
+             href="../bonus.html">
+            <i class="bi bi-trophy-fill"></i> Bonus
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "
+             href="../conditii.html">
+            <i class="bi bi-file-earmark-text-fill"></i> Condiții
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "
+             href="../preturi.html">
+            <i class="bi bi-tags-fill"></i> Prețuri
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "
+             href="../forecast.html">
+            <i class="bi bi-boxes"></i> Stoc / Forecast
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid px-4 py-4">
+  
+<nav aria-label="breadcrumb" class="mb-3">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="../clients.html">Clienți</a></li>
+    <li class="breadcrumb-item active">NEPTUN SA</li>
+  </ol>
+</nav>
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <div>
+    <h4 class="mb-0 fw-bold"><i class="bi bi-building text-primary me-1"></i>NEPTUN SA</h4>
+    <small class="text-muted">
+      fara tip client · CAMPINA, PRAHOVA ·
+      CUI: RO1322535 · Agent: <strong>DRAGNEA BOGDAN</strong>
+    </small>
+  </div>
+  <div class="d-flex gap-2 align-items-center">
+    
+    <a href="../client/1266.html"
+       class="btn btn-sm btn-outline-secondary">2024</a>
+    
+    <a href="../client/1266.html"
+       class="btn btn-sm btn-outline-secondary">2025</a>
+    
+    <a href="../client/1266.html"
+       class="btn btn-sm btn-primary">2026</a>
+    
+    <a href="#" onclick="alert('Export disponibil doar în aplicația locală.');return false;"
+       class="btn btn-sm btn-outline-success ms-2">
+      <i class="bi bi-file-earmark-excel"></i> Excel
+    </a>
+    <a href="#" onclick="alert('Export disponibil doar în aplicația locală.');return false;"
+       class="btn btn-sm btn-outline-danger">
+      <i class="bi bi-file-earmark-slides"></i> PPT
+    </a>
+  </div>
+</div>
+
+<!-- KPI cards -->
+<div class="row g-3 mb-4">
+  
+  <div class="col-6 col-md-3">
+    <div class="card border-0 shadow-sm text-center p-2">
+      <i class="bi bi-currency-euro text-primary fs-4 mt-2"></i>
+      <p class="text-muted small mb-1 mt-1">Val Netă 2026</p>
+      <p class="fw-bold mb-0">1.537 RON</p>
+    </div>
+  </div>
+  <div class="col-6 col-md-3">
+    <div class="card border-0 shadow-sm text-center p-2">
+      <i class="bi bi-graph-up text-success fs-4 mt-2"></i>
+      <p class="text-muted small mb-1 mt-1">Marjă Brută 2026</p>
+      <p class="fw-bold mb-0">923 RON</p>
+      <small class="text-success">60.1%</small>
+    </div>
+  </div>
+  <div class="col-6 col-md-3">
+    <div class="card border-0 shadow-sm text-center p-2">
+      <i class="bi bi-graph-down-arrow text-warning fs-4 mt-2"></i>
+      <p class="text-muted small mb-1 mt-1">Marjă Netă 2026</p>
+      <p class="fw-bold mb-0 ">
+        923 RON
+      </p>
+      <small class="text-success">
+        60.1%
+      </small>
+    </div>
+  </div>
+  <div class="col-6 col-md-3">
+    <div class="card border-0 shadow-sm text-center p-2">
+      <i class="bi bi-file-earmark-text text-dark fs-4 mt-2"></i>
+      <p class="text-muted small mb-1 mt-1">Total Facturi</p>
+      <p class="fw-bold mb-0">42</p>
+      <small class="text-muted">Prima: 2024-09-19</small>
+    </div>
+  </div>
+</div>
+
+<!-- Charts + Yearly -->
+<div class="row g-3 mb-4">
+  <div class="col-xl-7">
+    <div class="card shadow-sm border-0 h-100">
+      <div class="card-header bg-white d-flex justify-content-between align-items-center">
+        <span class="fw-semibold"><i class="bi bi-bar-chart-line text-primary me-1"></i> Trend Lunar</span>
+        <div class="btn-group btn-group-sm">
+          <button class="btn btn-primary active" onclick="switchMetric('vn',this)">Val Netă</button>
+          <button class="btn btn-outline-success" onclick="switchMetric('mb',this)">Marjă Brută</button>
+        </div>
+      </div>
+      <div class="card-body"><canvas id="clientTrend" height="130"></canvas></div>
+    </div>
+  </div>
+
+  <div class="col-xl-5">
+    <div class="card shadow-sm border-0 h-100">
+      <div class="card-header bg-white fw-semibold">
+        <i class="bi bi-calendar3 text-secondary me-1"></i> Evoluție Anuală
+      </div>
+      <div class="table-responsive">
+        <table class="table table-sm mb-0">
+          <thead class="table-light">
+            <tr>
+              <th>An</th>
+              <th class="text-end">Val Netă</th>
+              <th class="text-end">MB%</th>
+              <th class="text-end">MN (RON)</th>
+              <th class="text-end">MN%</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr >
+              <td>2024</td>
+              <td class="text-end small">13.620 RON</td>
+              <td class="text-end small text-success">55.8%</td>
+              <td class="text-end small ">7.599 RON</td>
+              <td class="text-end small text-success">
+                55.8%
+              </td>
+            </tr>
+            
+            <tr >
+              <td>2025</td>
+              <td class="text-end small">15.491 RON</td>
+              <td class="text-end small text-success">57.7%</td>
+              <td class="text-end small text-danger">-16.059 RON</td>
+              <td class="text-end small text-danger">
+                -103.7%
+              </td>
+            </tr>
+            
+            <tr class="table-active fw-semibold">
+              <td>2026</td>
+              <td class="text-end small">1.537 RON</td>
+              <td class="text-end small text-success">60.1%</td>
+              <td class="text-end small ">923 RON</td>
+              <td class="text-end small text-success">
+                60.1%
+              </td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+      <div class="card-body pt-0 pb-2">
+        <canvas id="brandChart" height="100"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Produse cumpărate -->
+<div class="card shadow-sm border-0">
+  <div class="card-header bg-white d-flex justify-content-between align-items-center fw-semibold">
+    <span><i class="bi bi-box-seam text-secondary me-1"></i>
+      Produse Cumpărate 2026
+      <span class="badge bg-secondary ms-1">23</span>
+    </span>
+    <input type="text" id="prodSearch" class="form-control form-control-sm w-auto"
+           placeholder="Filtrare produs…" oninput="filterProds(this.value)">
+  </div>
+  <div class="table-responsive">
+    <table class="table table-sm table-hover mb-0" id="prodTable">
+      <thead class="table-dark">
+        <tr>
+          <th>Produs</th>
+          <th>Brand</th>
+          <th class="text-end">Cant.</th>
+          <th class="text-end">Val Netă</th>
+          <th class="text-end">MB (RON)</th>
+          <th class="text-end">MB%</th>
+          <th class="text-end">MN (RON)</th>
+          <th class="text-end">MN%</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <tr>
+          <td class="small" style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="B.&#34;ORIENTAL COLLECTION ASSORTED VOL.I&#34; 70969-4792252925328">
+            <a href="../produs/B__ORIENTAL_COLLECTION_ASSORTED_VOL_I__70969-4792252925328.html" class="text-decoration-none">
+              B.&#34;ORIENTAL COLLECTION ASSORTED VOL.I&#34; …
+            </a>
+          </td>
+          <td class="small"><span class="badge bg-light text-dark">Basilur</span></td>
+          <td class="text-end small">4.0</td>
+          <td class="text-end small fw-semibold">142 RON</td>
+          <td class="text-end small">80 RON</td>
+          <td class="text-end small text-success">56.4%</td>
+          <td class="text-end small fw-semibold ">80 RON</td>
+          <td class="text-end small text-success">
+            56.4%
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="small" style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="B.&#34;ORIENTAL COLLECTION ASSORTED VOL.II&#34; 71707-4792252937635">
+            <a href="../produs/B__ORIENTAL_COLLECTION_ASSORTED_VOL_II__71707-4792252937635.html" class="text-decoration-none">
+              B.&#34;ORIENTAL COLLECTION ASSORTED VOL.II&#34;…
+            </a>
+          </td>
+          <td class="small"><span class="badge bg-light text-dark">Basilur</span></td>
+          <td class="text-end small">4.0</td>
+          <td class="text-end small fw-semibold">142 RON</td>
+          <td class="text-end small">82 RON</td>
+          <td class="text-end small text-success">57.6%</td>
+          <td class="text-end small fw-semibold ">82 RON</td>
+          <td class="text-end small text-success">
+            57.6%
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="small" style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="B.&#34;BOUQUET ASSORTED&#34; 70332-4792252915084">
+            <a href="../produs/B__BOUQUET_ASSORTED__70332-4792252915084.html" class="text-decoration-none">
+              B.&#34;BOUQUET ASSORTED&#34; 70332-4792252915084
+            </a>
+          </td>
+          <td class="small"><span class="badge bg-light text-dark">Basilur</span></td>
+          <td class="text-end small">3.0</td>
+          <td class="text-end small fw-semibold">106 RON</td>
+          <td class="text-end small">70 RON</td>
+          <td class="text-end small text-success">65.4%</td>
+          <td class="text-end small fw-semibold ">70 RON</td>
+          <td class="text-end small text-success">
+            65.4%
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="small" style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="B.FLORAL FANTASY VOL.I 100G 72141-4792252944619">
+            <a href="../produs/B_FLORAL_FANTASY_VOL_I_100G_72141-4792252944619.html" class="text-decoration-none">
+              B.FLORAL FANTASY VOL.I 100G 72141-47922…
+            </a>
+          </td>
+          <td class="small"><span class="badge bg-light text-dark">Basilur</span></td>
+          <td class="text-end small">2.0</td>
+          <td class="text-end small fw-semibold">88 RON</td>
+          <td class="text-end small">59 RON</td>
+          <td class="text-end small text-success">66.9%</td>
+          <td class="text-end small fw-semibold ">59 RON</td>
+          <td class="text-end small text-success">
+            66.9%
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="small" style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="B.MOROCCAN MINT 70226-4792252100541">
+            <a href="../produs/B_MOROCCAN_MINT_70226-4792252100541.html" class="text-decoration-none">
+              B.MOROCCAN MINT 70226-4792252100541
+            </a>
+          </td>
+          <td class="small"><span class="badge bg-light text-dark">Basilur</span></td>
+          <td class="text-end small">3.0</td>
+          <td class="text-end small fw-semibold">84 RON</td>
+          <td class="text-end small">54 RON</td>
+          <td class="text-end small text-success">64.6%</td>
+          <td class="text-end small fw-semibold ">54 RON</td>
+          <td class="text-end small text-success">
+            64.6%
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="small" style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="B.MUSIC CONCERT CHRISTMAS 70319-4792252001312">
+            <a href="../produs/B_MUSIC_CONCERT_CHRISTMAS_70319-4792252001312.html" class="text-decoration-none">
+              B.MUSIC CONCERT CHRISTMAS 70319-4792252001312
+            </a>
+          </td>
+          <td class="small"><span class="badge bg-light text-dark">Basilur</span></td>
+          <td class="text-end small">2.0</td>
+          <td class="text-end small fw-semibold">84 RON</td>
+          <td class="text-end small">49 RON</td>
+          <td class="text-end small text-success">58.9%</td>
+          <td class="text-end small fw-semibold ">49 RON</td>
+          <td class="text-end small text-success">
+            58.9%
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="small" style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="B.SPRING TEA 100G 71206-4792252929210 NEW">
+            <a href="../produs/B_SPRING_TEA_100G_71206-4792252929210_NEW.html" class="text-decoration-none">
+              B.SPRING TEA 100G 71206-4792252929210 NEW
+            </a>
+          </td>
+          <td class="small"><span class="badge bg-light text-dark">Basilur</span></td>
+          <td class="text-end small">3.0</td>
+          <td class="text-end small fw-semibold">84 RON</td>
+          <td class="text-end small">50 RON</td>
+          <td class="text-end small text-success">59.9%</td>
+          <td class="text-end small fw-semibold ">50 RON</td>
+          <td class="text-end small text-success">
+            59.9%
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="small" style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="B.SUMMER TEA 100G 71207-4792252929227">
+            <a href="../produs/B_SUMMER_TEA_100G_71207-4792252929227.html" class="text-decoration-none">
+              B.SUMMER TEA 100G 71207-4792252929227
+            </a>
+          </td>
+          <td class="small"><span class="badge bg-light text-dark">Basilur</span></td>
+          <td class="text-end small">3.0</td>
+          <td class="text-end small fw-semibold">84 RON</td>
+          <td class="text-end small">50 RON</td>
+          <td class="text-end small text-success">59.9%</td>
+          <td class="text-end small fw-semibold ">50 RON</td>
+          <td class="text-end small text-success">
+            59.9%
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="small" style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="B.LOVE STORY VOL.1 70484-4792252917255">
+            <a href="../produs/B_LOVE_STORY_VOL_1_70484-4792252917255.html" class="text-decoration-none">
+              B.LOVE STORY VOL.1 70484-4792252917255
+            </a>
+          </td>
+          <td class="small"><span class="badge bg-light text-dark">Basilur</span></td>
+          <td class="text-end small">2.0</td>
+          <td class="text-end small fw-semibold">71 RON</td>
+          <td class="text-end small">43 RON</td>
+          <td class="text-end small text-success">60.7%</td>
+          <td class="text-end small fw-semibold ">43 RON</td>
+          <td class="text-end small text-success">
+            60.7%
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="small" style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="B.TEA BOOK VOL I  70208-4792252001060">
+            <a href="../produs/B_TEA_BOOK_VOL_I__70208-4792252001060.html" class="text-decoration-none">
+              B.TEA BOOK VOL I  70208-4792252001060
+            </a>
+          </td>
+          <td class="small"><span class="badge bg-light text-dark">Basilur</span></td>
+          <td class="text-end small">2.0</td>
+          <td class="text-end small fw-semibold">71 RON</td>
+          <td class="text-end small">43 RON</td>
+          <td class="text-end small text-success">60.9%</td>
+          <td class="text-end small fw-semibold ">43 RON</td>
+          <td class="text-end small text-success">
+            60.9%
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="small" style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="B.TEA BOOK VOL II  70209-4792252100374">
+            <a href="../produs/B_TEA_BOOK_VOL_II__70209-4792252100374.html" class="text-decoration-none">
+              B.TEA BOOK VOL II  70209-4792252100374
+            </a>
+          </td>
+          <td class="small"><span class="badge bg-light text-dark">Basilur</span></td>
+          <td class="text-end small">2.0</td>
+          <td class="text-end small fw-semibold">71 RON</td>
+          <td class="text-end small">45 RON</td>
+          <td class="text-end small text-success">63.6%</td>
+          <td class="text-end small fw-semibold ">45 RON</td>
+          <td class="text-end small text-success">
+            63.6%
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="small" style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="B.TEA BOOK VOL III  70289-4792252100831">
+            <a href="../produs/B_TEA_BOOK_VOL_III__70289-4792252100831.html" class="text-decoration-none">
+              B.TEA BOOK VOL III  70289-4792252100831
+            </a>
+          </td>
+          <td class="small"><span class="badge bg-light text-dark">Basilur</span></td>
+          <td class="text-end small">2.0</td>
+          <td class="text-end small fw-semibold">71 RON</td>
+          <td class="text-end small">45 RON</td>
+          <td class="text-end small text-success">63.6%</td>
+          <td class="text-end small fw-semibold ">45 RON</td>
+          <td class="text-end small text-success">
+            63.6%
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="small" style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="B.TEA BOOK VOL IV  70316-4792252001299">
+            <a href="../produs/B_TEA_BOOK_VOL_IV__70316-4792252001299.html" class="text-decoration-none">
+              B.TEA BOOK VOL IV  70316-4792252001299
+            </a>
+          </td>
+          <td class="small"><span class="badge bg-light text-dark">Basilur</span></td>
+          <td class="text-end small">2.0</td>
+          <td class="text-end small fw-semibold">71 RON</td>
+          <td class="text-end small">42 RON</td>
+          <td class="text-end small text-success">59.5%</td>
+          <td class="text-end small fw-semibold ">42 RON</td>
+          <td class="text-end small text-success">
+            59.5%
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="small" style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="DEL.PRALINE CIOCOLATA ALBA 150G 70727 8410223602523">
+            <a href="../produs/DEL_PRALINE_CIOCOLATA_ALBA_150G_70727_8410223602523.html" class="text-decoration-none">
+              DEL.PRALINE CIOCOLATA ALBA 150G 70727 8…
+            </a>
+          </td>
+          <td class="small"><span class="badge bg-light text-dark">Delaviuda</span></td>
+          <td class="text-end small">3.0</td>
+          <td class="text-end small fw-semibold">57 RON</td>
+          <td class="text-end small">30 RON</td>
+          <td class="text-end small text-success">52.9%</td>
+          <td class="text-end small fw-semibold ">30 RON</td>
+          <td class="text-end small text-success">
+            52.9%
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="small" style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="B.REFILL SUMMER TEA 70339-4792252915497">
+            <a href="../produs/B_REFILL_SUMMER_TEA_70339-4792252915497.html" class="text-decoration-none">
+              B.REFILL SUMMER TEA 70339-4792252915497
+            </a>
+          </td>
+          <td class="small"><span class="badge bg-light text-dark">Basilur</span></td>
+          <td class="text-end small">4.0</td>
+          <td class="text-end small fw-semibold">52 RON</td>
+          <td class="text-end small">32 RON</td>
+          <td class="text-end small text-success">62.2%</td>
+          <td class="text-end small fw-semibold ">32 RON</td>
+          <td class="text-end small text-success">
+            62.2%
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="small" style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="B.FLORAL FANTASY VOL.II 100G 72142-4792252944626">
+            <a href="../produs/B_FLORAL_FANTASY_VOL_II_100G_72142-4792252944626.html" class="text-decoration-none">
+              B.FLORAL FANTASY VOL.II 100G 72142-4792…
+            </a>
+          </td>
+          <td class="small"><span class="badge bg-light text-dark">Basilur</span></td>
+          <td class="text-end small">1.0</td>
+          <td class="text-end small fw-semibold">44 RON</td>
+          <td class="text-end small">29 RON</td>
+          <td class="text-end small text-success">64.9%</td>
+          <td class="text-end small fw-semibold ">29 RON</td>
+          <td class="text-end small text-success">
+            64.9%
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="small" style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="PUNGA MARE CADOU P0008">
+            <a href="../produs/PUNGA_MARE_CADOU_P0008.html" class="text-decoration-none">
+              PUNGA MARE CADOU P0008
+            </a>
+          </td>
+          <td class="small"><span class="badge bg-light text-dark">Basilur</span></td>
+          <td class="text-end small">22.0</td>
+          <td class="text-end small fw-semibold">44 RON</td>
+          <td class="text-end small">31 RON</td>
+          <td class="text-end small text-success">70.0%</td>
+          <td class="text-end small fw-semibold ">31 RON</td>
+          <td class="text-end small text-success">
+            70.0%
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="small" style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="PUNGA MICA CADOU P0007">
+            <a href="../produs/PUNGA_MICA_CADOU_P0007.html" class="text-decoration-none">
+              PUNGA MICA CADOU P0007
+            </a>
+          </td>
+          <td class="small"><span class="badge bg-light text-dark">Basilur</span></td>
+          <td class="text-end small">26.0</td>
+          <td class="text-end small fw-semibold">39 RON</td>
+          <td class="text-end small">23 RON</td>
+          <td class="text-end small text-success">60.0%</td>
+          <td class="text-end small fw-semibold ">23 RON</td>
+          <td class="text-end small text-success">
+            60.0%
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="small" style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="DEL.PRALINE CIOCOLATA CU LAPTE SI CREMA ALUNE PADURE 150G 70757 8410223607726">
+            <a href="../produs/DEL_PRALINE_CIOCOLATA_CU_LAPTE_SI_CREMA_ALUNE_PADURE_150G_70757_8410223607726.html" class="text-decoration-none">
+              DEL.PRALINE CIOCOLATA CU LAPTE SI CREMA…
+            </a>
+          </td>
+          <td class="small"><span class="badge bg-light text-dark">Delaviuda</span></td>
+          <td class="text-end small">2.0</td>
+          <td class="text-end small fw-semibold">38 RON</td>
+          <td class="text-end small">20 RON</td>
+          <td class="text-end small text-success">52.1%</td>
+          <td class="text-end small fw-semibold ">20 RON</td>
+          <td class="text-end small text-success">
+            52.1%
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="small" style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="B.LOVE STORY VOL.3 70486-4792252917279">
+            <a href="../produs/B_LOVE_STORY_VOL_3_70486-4792252917279.html" class="text-decoration-none">
+              B.LOVE STORY VOL.3 70486-4792252917279
+            </a>
+          </td>
+          <td class="small"><span class="badge bg-light text-dark">Basilur</span></td>
+          <td class="text-end small">1.0</td>
+          <td class="text-end small fw-semibold">35 RON</td>
+          <td class="text-end small">11 RON</td>
+          <td class="text-end small text-success">30.0%</td>
+          <td class="text-end small fw-semibold ">11 RON</td>
+          <td class="text-end small text-success">
+            30.0%
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="small" style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="CELMAR GINKOBILOBA 5947226224160">
+            <a href="../produs/CELMAR_GINKOBILOBA_5947226224160.html" class="text-decoration-none">
+              CELMAR GINKOBILOBA 5947226224160
+            </a>
+          </td>
+          <td class="small"><span class="badge bg-light text-dark">Celmar</span></td>
+          <td class="text-end small">7.0</td>
+          <td class="text-end small fw-semibold">30 RON</td>
+          <td class="text-end small">17 RON</td>
+          <td class="text-end small text-success">55.3%</td>
+          <td class="text-end small fw-semibold ">17 RON</td>
+          <td class="text-end small text-success">
+            55.3%
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="small" style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="CELMAR ROOIBOS 5947226224177">
+            <a href="../produs/CELMAR_ROOIBOS_5947226224177.html" class="text-decoration-none">
+              CELMAR ROOIBOS 5947226224177
+            </a>
+          </td>
+          <td class="small"><span class="badge bg-light text-dark">Celmar</span></td>
+          <td class="text-end small">4.0</td>
+          <td class="text-end small fw-semibold">17 RON</td>
+          <td class="text-end small">11 RON</td>
+          <td class="text-end small text-success">65.9%</td>
+          <td class="text-end small fw-semibold ">11 RON</td>
+          <td class="text-end small text-success">
+            65.9%
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="small" style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="CELMAR FRUCTE DE PADURE 5947226224030">
+            <a href="../produs/CELMAR_FRUCTE_DE_PADURE_5947226224030.html" class="text-decoration-none">
+              CELMAR FRUCTE DE PADURE 5947226224030
+            </a>
+          </td>
+          <td class="small"><span class="badge bg-light text-dark">Celmar</span></td>
+          <td class="text-end small">4.0</td>
+          <td class="text-end small fw-semibold">12 RON</td>
+          <td class="text-end small">6 RON</td>
+          <td class="text-end small text-success">52.7%</td>
+          <td class="text-end small fw-semibold ">6 RON</td>
+          <td class="text-end small text-success">
+            52.7%
+          </td>
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+</div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+<script>
+const MONTHS    = ["Ian", "Feb", "Mar", "Apr", "Mai", "Iun", "Iul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const M_VN      = {"2024": [0, 0, 0, 0, 0, 0, 0, 0, 891.0, 5283.0, 3038.0, 4408.0], "2025": [596.0, 149.0, 482.0, 510.0, 1555.0, 0, 1200.0, 1813.0, 2480.0, 2142.0, 3579.0, 985.0], "2026": [470.0, 0, 0, 1066.0, 0, 0, 0, 0, 0, 0, 0, 0]};
+const M_MB      = {"2024": [0, 0, 0, 0, 0, 0, 0, 0, 492.0, 3015.0, 1611.0, 2481.0], "2025": [370.0, 90.0, 292.0, 325.0, 877.0, 0, 710.0, 1076.0, 1263.0, 1258.0, 2086.0, 593.0], "2026": [265.0, 0, 0, 657.0, 0, 0, 0, 0, 0, 0, 0, 0]};
+const BRAND_MIX = [{"label": "Basilur", "value": 1383.0}, {"label": "Delaviuda", "value": 95.0}, {"label": "Celmar", "value": 59.0}];
+
+const PALETTE = {
+  2024: {vn:'rgba(173,181,189,0.6)', mb:'rgba(173,181,189,0.45)'},
+  2025: {vn:'rgba(13,110,253,0.6)',  mb:'rgba(13,202,240,0.6)'},
+  2026: {vn:'rgba(25,135,84,0.85)', mb:'rgba(25,135,84,0.6)'},
+};
+let trendChart, currentM = 'vn';
+
+function switchMetric(m, btn) {
+  currentM = m;
+  document.querySelectorAll('.btn-group .btn').forEach(b => {
+    b.classList.remove('active','btn-primary','btn-success');
+    if (b.textContent.trim() === 'Val Netă') b.classList.add('btn-outline-primary');
+    else b.classList.add('btn-outline-success');
+  });
+  btn.classList.remove('btn-outline-primary','btn-outline-success');
+  btn.classList.add(m === 'vn' ? 'btn-primary' : 'btn-success','active');
+  const src = m === 'vn' ? M_VN : M_MB;
+  trendChart.data.datasets = Object.entries(src).sort(([a],[b])=>a-b).map(([yr,data]) => ({
+    label: yr, data, backgroundColor: (PALETTE[yr]||{})[m]||'#adb5bd', borderRadius: 3,
+  }));
+  trendChart.update();
+}
+
+(function() {
+  const ctx = document.getElementById('clientTrend').getContext('2d');
+  trendChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: MONTHS,
+      datasets: Object.entries(M_VN).sort(([a],[b])=>a-b).map(([yr,data]) => ({
+        label: yr, data, backgroundColor: (PALETTE[yr]||{}).vn||'#adb5bd', borderRadius: 3,
+      })),
+    },
+    options: {
+      responsive: true,
+      plugins: {legend: {position: 'top'}},
+      scales: {y: {beginAtZero: true, ticks: {callback: v => v>=1e6?(v/1e6).toFixed(1)+'M':v>=1e3?(v/1e3).toFixed(0)+'K':v}}},
+    },
+  });
+
+  const bctx = document.getElementById('brandChart').getContext('2d');
+  new Chart(bctx, {
+    type: 'doughnut',
+    data: {
+      labels: BRAND_MIX.map(d => d.label),
+      datasets: [{
+        data: BRAND_MIX.map(d => d.value),
+        backgroundColor: ['#0d6efd','#198754','#ffc107','#dc3545','#0dcaf0','#6c757d','#fd7e14','#6610f2'],
+        borderWidth: 1,
+      }],
+    },
+    options: {plugins: {legend: {position:'right',labels:{font:{size:9}}}}, cutout:'60%'},
+  });
+})();
+
+function filterProds(q) {
+  const lq = q.toLowerCase();
+  document.querySelectorAll('#prodTable tbody tr').forEach(r => {
+    r.style.display = r.textContent.toLowerCase().includes(lq) ? '' : 'none';
+  });
+}
+</script>
+
+</body>
+</html>

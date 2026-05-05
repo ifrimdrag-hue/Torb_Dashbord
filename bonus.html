@@ -1,0 +1,3138 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tracker Bonus Echipă — Torb Logistic</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="static/css/style.css">
+
+  <link rel="manifest" href="./manifest.json">
+  <meta name="theme-color" content="#212529">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./sw.js').catch(function(){});
+    }
+  </script>
+</head>
+<body class="bg-light">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+  <div class="container-fluid px-4">
+    <a class="navbar-brand fw-bold fs-5" href="index.html">
+      <i class="bi bi-bar-chart-fill text-success me-1"></i>Torb Logistic
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navmenu">
+      <ul class="navbar-nav ms-auto gap-1">
+        <li class="nav-item">
+          <a class="nav-link "
+             href="index.html">
+            <i class="bi bi-speedometer2"></i> Dashboard
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "
+             href="team.html">
+            <i class="bi bi-people-fill"></i> Echipă
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "
+             href="clients.html">
+            <i class="bi bi-building"></i> Clienți
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "
+             href="products.html">
+            <i class="bi bi-box-seam-fill"></i> Produse
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "
+             href="profitabilitate.html">
+            <i class="bi bi-graph-up-arrow"></i> Profitabilitate
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "
+             href="ask.html">
+            <i class="bi bi-chat-dots-fill"></i> AI
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active"
+             href="bonus.html">
+            <i class="bi bi-trophy-fill"></i> Bonus
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "
+             href="conditii.html">
+            <i class="bi bi-file-earmark-text-fill"></i> Condiții
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "
+             href="preturi.html">
+            <i class="bi bi-tags-fill"></i> Prețuri
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "
+             href="forecast.html">
+            <i class="bi bi-boxes"></i> Stoc / Forecast
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid px-4 py-4">
+  
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h4 class="mb-0 fw-bold"><i class="bi bi-trophy-fill text-warning me-2"></i>Tracker Bonus Echipă</h4>
+  <div class="d-flex gap-2">
+    <a href="/bonus/export" class="btn btn-sm btn-success">
+      <i class="bi bi-file-earmark-excel me-1"></i> Export Excel
+    </a>
+    <a href="bonus-simulator.html" class="btn btn-sm btn-outline-success">
+      <i class="bi bi-calculator-fill me-1"></i> Simulator Bonus
+    </a>
+  </div>
+</div>
+
+<!-- Summary table -->
+<div class="card shadow-sm border-0 mb-4">
+  <div class="card-header bg-white fw-semibold">
+    <i class="bi bi-table me-1 text-secondary"></i> Centralizare Bonus 2026 — date reale YTD
+  </div>
+  <div class="table-responsive">
+    <table class="table table-sm table-hover align-middle mb-0">
+      <thead class="table-dark">
+        <tr>
+          <th>Agent</th>
+          <th class="text-end">Bonus Lunar Target</th>
+          <th class="text-end">Bonus Anual Target</th>
+          <th class="text-end">Bonus Realizat YTD</th>
+          <th class="text-center">Realizare %</th>
+          <th class="text-center">Luni cu bonus</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        
+        
+        
+        <tr>
+          <td>
+            <div class="fw-semibold">Claudiu</div>
+            <div class="text-muted small">BRINZA CLAUDIU</div>
+          </td>
+          <td class="text-end">4000 RON</td>
+          <td class="text-end">48000 RON</td>
+          <td class="text-end fw-semibold">
+            
+              <span class="text-success">2700 RON</span>
+            
+          </td>
+          <td class="text-center">
+            
+              <span class="badge bg-danger">5.6%</span>
+            
+          </td>
+          <td class="text-center text-muted">2 / 12</td>
+          <td class="text-end">
+            <button class="btn btn-sm btn-outline-secondary py-0"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#detail-1">
+              <i class="bi bi-chevron-down"></i>
+            </button>
+          </td>
+        </tr>
+        <!-- Monthly detail row -->
+        <tr class="collapse" id="detail-1">
+          <td colspan="7" class="p-0">
+            <div class="px-3 py-2 bg-light border-top border-bottom">
+              <table class="table table-xs table-sm mb-0 small">
+                <thead class="table-secondary">
+                  <tr>
+                    <th>Lună</th>
+                    <th class="text-end">Bază Vânz.</th>
+                    <th class="text-end">Target Vânz.</th>
+                    <th class="text-end">Actual Vânz.</th>
+                    <th class="text-center">Realiz. Vânz.</th>
+                    <th class="text-center">Realiz. Marjă</th>
+                    <th class="text-center">Strategic</th>
+                    <th class="text-end">Bonus Vânz.</th>
+                    <th class="text-end">Bonus Marjă</th>
+                    <th class="text-end">Bonus Strat.</th>
+                    <th class="text-end fw-semibold">Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                  
+                  <tr class="">
+                    <td class="fw-semibold">Ian</td>
+                    <td class="text-end">
+                      
+                        266723
+                      
+                    </td>
+                    <td class="text-end">
+                      320068
+                    </td>
+                    <td class="text-end">
+                      215693
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          67.4%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          59.0%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        
+                          <span class="text-danger" title="Prag neîndeplinit — bonus strategic blocat">
+                            61.2% <i class="bi bi-lock-fill"></i>
+                          </span>
+                        
+                      
+                    </td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end fw-semibold text-muted">
+                      —
+                    </td>
+                  </tr>
+                  
+                  
+                  <tr class="">
+                    <td class="fw-semibold">Feb</td>
+                    <td class="text-end">
+                      
+                        244120
+                      
+                    </td>
+                    <td class="text-end">
+                      292944
+                    </td>
+                    <td class="text-end">
+                      210948
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          72.0%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          66.5%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        
+                          <span class="text-danger" title="Prag neîndeplinit — bonus strategic blocat">
+                            61.9% <i class="bi bi-lock-fill"></i>
+                          </span>
+                        
+                      
+                    </td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end fw-semibold text-muted">
+                      —
+                    </td>
+                  </tr>
+                  
+                  
+                  <tr class="">
+                    <td class="fw-semibold">Mar</td>
+                    <td class="text-end">
+                      
+                        239920
+                      
+                    </td>
+                    <td class="text-end">
+                      287905
+                    </td>
+                    <td class="text-end">
+                      292655
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-success fw-semibold">
+                          101.6%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          73.5%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        
+                          <span class="text-danger" title="Prag neîndeplinit — bonus strategic blocat">
+                            109.6% <i class="bi bi-lock-fill"></i>
+                          </span>
+                        
+                      
+                    </td>
+                    <td class="text-end">1800</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end fw-semibold text-success">
+                      1800
+                    </td>
+                  </tr>
+                  
+                  
+                  <tr class="">
+                    <td class="fw-semibold">Apr</td>
+                    <td class="text-end">
+                      
+                        173221
+                      
+                    </td>
+                    <td class="text-end">
+                      207866
+                    </td>
+                    <td class="text-end">
+                      169390
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          81.5%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          73.9%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        
+                          <span class="text-danger" title="Prag neîndeplinit — bonus strategic blocat">
+                            82.6% <i class="bi bi-lock-fill"></i>
+                          </span>
+                        
+                      
+                    </td>
+                    <td class="text-end">900</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end fw-semibold text-success">
+                      900
+                    </td>
+                  </tr>
+                  
+                  
+                  <tr class="">
+                    <td class="fw-semibold">Mai</td>
+                    <td class="text-end">
+                      
+                        178003
+                      
+                    </td>
+                    <td class="text-end">
+                      213604
+                    </td>
+                    <td class="text-end">
+                      0
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          0.0%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          0.0%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        
+                          <span class="text-danger" title="Prag neîndeplinit — bonus strategic blocat">
+                            0.0% <i class="bi bi-lock-fill"></i>
+                          </span>
+                        
+                      
+                    </td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end fw-semibold text-muted">
+                      —
+                    </td>
+                  </tr>
+                  
+                  
+                  <tr class="">
+                    <td class="fw-semibold">Iun</td>
+                    <td class="text-end">
+                      
+                        113895
+                      
+                    </td>
+                    <td class="text-end">
+                      136674
+                    </td>
+                    <td class="text-end">
+                      0
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          0.0%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          0.0%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        
+                          <span class="text-danger" title="Prag neîndeplinit — bonus strategic blocat">
+                            0.0% <i class="bi bi-lock-fill"></i>
+                          </span>
+                        
+                      
+                    </td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end fw-semibold text-muted">
+                      —
+                    </td>
+                  </tr>
+                  
+                  
+                  <tr class="">
+                    <td class="fw-semibold">Iul</td>
+                    <td class="text-end">
+                      
+                        153085
+                      
+                    </td>
+                    <td class="text-end">
+                      183702
+                    </td>
+                    <td class="text-end">
+                      0
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          0.0%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          0.0%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        
+                          <span class="text-danger" title="Prag neîndeplinit — bonus strategic blocat">
+                            0.0% <i class="bi bi-lock-fill"></i>
+                          </span>
+                        
+                      
+                    </td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end fw-semibold text-muted">
+                      —
+                    </td>
+                  </tr>
+                  
+                  
+                  <tr class="">
+                    <td class="fw-semibold">Aug</td>
+                    <td class="text-end">
+                      
+                        192756
+                      
+                    </td>
+                    <td class="text-end">
+                      231308
+                    </td>
+                    <td class="text-end">
+                      0
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          0.0%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          0.0%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        
+                          <span class="text-danger" title="Prag neîndeplinit — bonus strategic blocat">
+                            0.0% <i class="bi bi-lock-fill"></i>
+                          </span>
+                        
+                      
+                    </td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end fw-semibold text-muted">
+                      —
+                    </td>
+                  </tr>
+                  
+                  
+                  <tr class="">
+                    <td class="fw-semibold">Sep</td>
+                    <td class="text-end">
+                      
+                        206630
+                      
+                    </td>
+                    <td class="text-end">
+                      247956
+                    </td>
+                    <td class="text-end">
+                      0
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          0.0%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          0.0%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        
+                          <span class="text-danger" title="Prag neîndeplinit — bonus strategic blocat">
+                            0.0% <i class="bi bi-lock-fill"></i>
+                          </span>
+                        
+                      
+                    </td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end fw-semibold text-muted">
+                      —
+                    </td>
+                  </tr>
+                  
+                  
+                  <tr class="">
+                    <td class="fw-semibold">Oct</td>
+                    <td class="text-end">
+                      
+                        320778
+                      
+                    </td>
+                    <td class="text-end">
+                      384934
+                    </td>
+                    <td class="text-end">
+                      0
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          0.0%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          0.0%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        
+                          <span class="text-danger" title="Prag neîndeplinit — bonus strategic blocat">
+                            0.0% <i class="bi bi-lock-fill"></i>
+                          </span>
+                        
+                      
+                    </td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end fw-semibold text-muted">
+                      —
+                    </td>
+                  </tr>
+                  
+                  
+                  <tr class="">
+                    <td class="fw-semibold">Nov</td>
+                    <td class="text-end">
+                      
+                        233936
+                      
+                    </td>
+                    <td class="text-end">
+                      280724
+                    </td>
+                    <td class="text-end">
+                      0
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          0.0%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          0.0%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        
+                          <span class="text-danger" title="Prag neîndeplinit — bonus strategic blocat">
+                            0.0% <i class="bi bi-lock-fill"></i>
+                          </span>
+                        
+                      
+                    </td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end fw-semibold text-muted">
+                      —
+                    </td>
+                  </tr>
+                  
+                  
+                  <tr class="">
+                    <td class="fw-semibold">Dec</td>
+                    <td class="text-end">
+                      
+                        350873
+                      
+                    </td>
+                    <td class="text-end">
+                      421048
+                    </td>
+                    <td class="text-end">
+                      0
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          0.0%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          0.0%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        
+                          <span class="text-danger" title="Prag neîndeplinit — bonus strategic blocat">
+                            0.0% <i class="bi bi-lock-fill"></i>
+                          </span>
+                        
+                      
+                    </td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end fw-semibold text-muted">
+                      —
+                    </td>
+                  </tr>
+                  
+                </tbody>
+                <tfoot class="table-light fw-semibold">
+                  <tr>
+                    <td colspan="7" class="text-end">Total</td>
+                    <td class="text-end">2700</td>
+                    <td class="text-end">0</td>
+                    <td class="text-end">0</td>
+                    <td class="text-end text-success">2700 RON</td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+          </td>
+        </tr>
+        
+        
+        
+        
+        <tr>
+          <td>
+            <div class="fw-semibold">Bogdan</div>
+            <div class="text-muted small">DRAGNEA BOGDAN</div>
+          </td>
+          <td class="text-end">4000 RON</td>
+          <td class="text-end">48000 RON</td>
+          <td class="text-end fw-semibold">
+            
+              <span class="text-success">9800 RON</span>
+            
+          </td>
+          <td class="text-center">
+            
+              <span class="badge bg-danger">20.4%</span>
+            
+          </td>
+          <td class="text-center text-muted">2 / 12</td>
+          <td class="text-end">
+            <button class="btn btn-sm btn-outline-secondary py-0"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#detail-2">
+              <i class="bi bi-chevron-down"></i>
+            </button>
+          </td>
+        </tr>
+        <!-- Monthly detail row -->
+        <tr class="collapse" id="detail-2">
+          <td colspan="7" class="p-0">
+            <div class="px-3 py-2 bg-light border-top border-bottom">
+              <table class="table table-xs table-sm mb-0 small">
+                <thead class="table-secondary">
+                  <tr>
+                    <th>Lună</th>
+                    <th class="text-end">Bază Vânz.</th>
+                    <th class="text-end">Target Vânz.</th>
+                    <th class="text-end">Actual Vânz.</th>
+                    <th class="text-center">Realiz. Vânz.</th>
+                    <th class="text-center">Realiz. Marjă</th>
+                    <th class="text-center">Strategic</th>
+                    <th class="text-end">Bonus Vânz.</th>
+                    <th class="text-end">Bonus Marjă</th>
+                    <th class="text-end">Bonus Strat.</th>
+                    <th class="text-end fw-semibold">Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                  
+                  <tr class="">
+                    <td class="fw-semibold">Ian</td>
+                    <td class="text-end">
+                      
+                        908560
+                      
+                    </td>
+                    <td class="text-end">
+                      1090273
+                    </td>
+                    <td class="text-end">
+                      773330
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          70.9%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          72.5%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        
+                          <span class="text-danger" title="Prag neîndeplinit — bonus strategic blocat">
+                            68.8% <i class="bi bi-lock-fill"></i>
+                          </span>
+                        
+                      
+                    </td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end fw-semibold text-muted">
+                      —
+                    </td>
+                  </tr>
+                  
+                  
+                  <tr class="">
+                    <td class="fw-semibold">Feb</td>
+                    <td class="text-end">
+                      
+                        826060
+                      
+                    </td>
+                    <td class="text-end">
+                      991272
+                    </td>
+                    <td class="text-end">
+                      978088
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-warning fw-semibold">
+                          98.7%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-success fw-semibold">
+                          106.8%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        
+                          <span class="text-success fw-semibold">
+                            105.6%
+                          </span>
+                        
+                      
+                    </td>
+                    <td class="text-end">1600</td>
+                    <td class="text-end">1100</td>
+                    <td class="text-end">1100</td>
+                    <td class="text-end fw-semibold text-success">
+                      3800
+                    </td>
+                  </tr>
+                  
+                  
+                  <tr class="">
+                    <td class="fw-semibold">Mar</td>
+                    <td class="text-end">
+                      
+                        1090430
+                      
+                    </td>
+                    <td class="text-end">
+                      1308516
+                    </td>
+                    <td class="text-end">
+                      663679
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          50.7%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          37.5%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        
+                          <span class="text-danger" title="Prag neîndeplinit — bonus strategic blocat">
+                            58.4% <i class="bi bi-lock-fill"></i>
+                          </span>
+                        
+                      
+                    </td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end fw-semibold text-muted">
+                      —
+                    </td>
+                  </tr>
+                  
+                  
+                  <tr class="">
+                    <td class="fw-semibold">Apr</td>
+                    <td class="text-end">
+                      
+                        462349
+                      
+                    </td>
+                    <td class="text-end">
+                      554819
+                    </td>
+                    <td class="text-end">
+                      668002
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-success fw-semibold">
+                          120.4%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-success fw-semibold">
+                          120.9%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        
+                          <span class="text-success fw-semibold">
+                            147.8%
+                          </span>
+                        
+                      
+                    </td>
+                    <td class="text-end">3000</td>
+                    <td class="text-end">1500</td>
+                    <td class="text-end">1500</td>
+                    <td class="text-end fw-semibold text-success">
+                      6000
+                    </td>
+                  </tr>
+                  
+                  
+                  <tr class="">
+                    <td class="fw-semibold">Mai</td>
+                    <td class="text-end">
+                      
+                        515389
+                      
+                    </td>
+                    <td class="text-end">
+                      618467
+                    </td>
+                    <td class="text-end">
+                      0
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          0.0%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          0.0%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        
+                          <span class="text-danger" title="Prag neîndeplinit — bonus strategic blocat">
+                            0.0% <i class="bi bi-lock-fill"></i>
+                          </span>
+                        
+                      
+                    </td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end fw-semibold text-muted">
+                      —
+                    </td>
+                  </tr>
+                  
+                  
+                  <tr class="">
+                    <td class="fw-semibold">Iun</td>
+                    <td class="text-end">
+                      
+                        604765
+                      
+                    </td>
+                    <td class="text-end">
+                      725718
+                    </td>
+                    <td class="text-end">
+                      0
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          0.0%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          0.0%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        
+                          <span class="text-danger" title="Prag neîndeplinit — bonus strategic blocat">
+                            0.0% <i class="bi bi-lock-fill"></i>
+                          </span>
+                        
+                      
+                    </td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end fw-semibold text-muted">
+                      —
+                    </td>
+                  </tr>
+                  
+                  
+                  <tr class="">
+                    <td class="fw-semibold">Iul</td>
+                    <td class="text-end">
+                      
+                        607673
+                      
+                    </td>
+                    <td class="text-end">
+                      729208
+                    </td>
+                    <td class="text-end">
+                      0
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          0.0%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          0.0%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        
+                          <span class="text-danger" title="Prag neîndeplinit — bonus strategic blocat">
+                            0.0% <i class="bi bi-lock-fill"></i>
+                          </span>
+                        
+                      
+                    </td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end fw-semibold text-muted">
+                      —
+                    </td>
+                  </tr>
+                  
+                  
+                  <tr class="">
+                    <td class="fw-semibold">Aug</td>
+                    <td class="text-end">
+                      
+                        559725
+                      
+                    </td>
+                    <td class="text-end">
+                      671671
+                    </td>
+                    <td class="text-end">
+                      0
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          0.0%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          0.0%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        
+                          <span class="text-danger" title="Prag neîndeplinit — bonus strategic blocat">
+                            0.0% <i class="bi bi-lock-fill"></i>
+                          </span>
+                        
+                      
+                    </td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end fw-semibold text-muted">
+                      —
+                    </td>
+                  </tr>
+                  
+                  
+                  <tr class="">
+                    <td class="fw-semibold">Sep</td>
+                    <td class="text-end">
+                      
+                        646273
+                      
+                    </td>
+                    <td class="text-end">
+                      775528
+                    </td>
+                    <td class="text-end">
+                      0
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          0.0%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          0.0%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        
+                          <span class="text-danger" title="Prag neîndeplinit — bonus strategic blocat">
+                            0.0% <i class="bi bi-lock-fill"></i>
+                          </span>
+                        
+                      
+                    </td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end fw-semibold text-muted">
+                      —
+                    </td>
+                  </tr>
+                  
+                  
+                  <tr class="">
+                    <td class="fw-semibold">Oct</td>
+                    <td class="text-end">
+                      
+                        1061595
+                      
+                    </td>
+                    <td class="text-end">
+                      1273914
+                    </td>
+                    <td class="text-end">
+                      0
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          0.0%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          0.0%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        
+                          <span class="text-danger" title="Prag neîndeplinit — bonus strategic blocat">
+                            0.0% <i class="bi bi-lock-fill"></i>
+                          </span>
+                        
+                      
+                    </td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end fw-semibold text-muted">
+                      —
+                    </td>
+                  </tr>
+                  
+                  
+                  <tr class="">
+                    <td class="fw-semibold">Nov</td>
+                    <td class="text-end">
+                      
+                        697185
+                      
+                    </td>
+                    <td class="text-end">
+                      836622
+                    </td>
+                    <td class="text-end">
+                      0
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          0.0%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          0.0%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        
+                          <span class="text-danger" title="Prag neîndeplinit — bonus strategic blocat">
+                            0.0% <i class="bi bi-lock-fill"></i>
+                          </span>
+                        
+                      
+                    </td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end fw-semibold text-muted">
+                      —
+                    </td>
+                  </tr>
+                  
+                  
+                  <tr class="">
+                    <td class="fw-semibold">Dec</td>
+                    <td class="text-end">
+                      
+                        729249
+                      
+                    </td>
+                    <td class="text-end">
+                      875099
+                    </td>
+                    <td class="text-end">
+                      0
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          0.0%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          0.0%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        
+                          <span class="text-danger" title="Prag neîndeplinit — bonus strategic blocat">
+                            0.0% <i class="bi bi-lock-fill"></i>
+                          </span>
+                        
+                      
+                    </td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end fw-semibold text-muted">
+                      —
+                    </td>
+                  </tr>
+                  
+                </tbody>
+                <tfoot class="table-light fw-semibold">
+                  <tr>
+                    <td colspan="7" class="text-end">Total</td>
+                    <td class="text-end">4600</td>
+                    <td class="text-end">2600</td>
+                    <td class="text-end">2600</td>
+                    <td class="text-end text-success">9800 RON</td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+          </td>
+        </tr>
+        
+        
+        
+        
+        <tr>
+          <td>
+            <div class="fw-semibold">Oana</div>
+            <div class="text-muted small">Oana Filip</div>
+          </td>
+          <td class="text-end">3000 RON</td>
+          <td class="text-end">36000 RON</td>
+          <td class="text-end fw-semibold">
+            
+              <span class="text-success">10080 RON</span>
+            
+          </td>
+          <td class="text-center">
+            
+              <span class="badge bg-danger">28.0%</span>
+            
+          </td>
+          <td class="text-center text-muted">4 / 12</td>
+          <td class="text-end">
+            <button class="btn btn-sm btn-outline-secondary py-0"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#detail-3">
+              <i class="bi bi-chevron-down"></i>
+            </button>
+          </td>
+        </tr>
+        <!-- Monthly detail row -->
+        <tr class="collapse" id="detail-3">
+          <td colspan="7" class="p-0">
+            <div class="px-3 py-2 bg-light border-top border-bottom">
+              <table class="table table-xs table-sm mb-0 small">
+                <thead class="table-secondary">
+                  <tr>
+                    <th>Lună</th>
+                    <th class="text-end">Bază Vânz.</th>
+                    <th class="text-end">Target Vânz.</th>
+                    <th class="text-end">Actual Vânz.</th>
+                    <th class="text-center">Realiz. Vânz.</th>
+                    <th class="text-center">Realiz. Marjă</th>
+                    <th class="text-center">Strategic</th>
+                    <th class="text-end">Bonus Vânz.</th>
+                    <th class="text-end">Bonus Marjă</th>
+                    <th class="text-end">Bonus Strat.</th>
+                    <th class="text-end fw-semibold">Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                  
+                  <tr class="">
+                    <td class="fw-semibold">Ian</td>
+                    <td class="text-end">
+                      
+                        343331
+                      
+                    </td>
+                    <td class="text-end">
+                      411998
+                    </td>
+                    <td class="text-end">
+                      328898
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          79.8%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-success fw-semibold">
+                          100.6%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        
+                          <span class="text-danger" title="Prag neîndeplinit — bonus strategic blocat">
+                            84.9% <i class="bi bi-lock-fill"></i>
+                          </span>
+                        
+                      
+                    </td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">600</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end fw-semibold text-success">
+                      600
+                    </td>
+                  </tr>
+                  
+                  
+                  <tr class="">
+                    <td class="fw-semibold">Feb</td>
+                    <td class="text-end">
+                      
+                        203270
+                      
+                    </td>
+                    <td class="text-end">
+                      243924
+                    </td>
+                    <td class="text-end">
+                      292928
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-success fw-semibold">
+                          120.1%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-success fw-semibold">
+                          125.4%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        
+                          <span class="text-success fw-semibold">
+                            122.0%
+                          </span>
+                        
+                      
+                    </td>
+                    <td class="text-end">2250</td>
+                    <td class="text-end">900</td>
+                    <td class="text-end">1350</td>
+                    <td class="text-end fw-semibold text-success">
+                      4500
+                    </td>
+                  </tr>
+                  
+                  
+                  <tr class="">
+                    <td class="fw-semibold">Mar</td>
+                    <td class="text-end">
+                      
+                        253030
+                      
+                    </td>
+                    <td class="text-end">
+                      303637
+                    </td>
+                    <td class="text-end">
+                      249346
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          82.1%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-warning fw-semibold">
+                          85.4%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        
+                          <span class="text-success fw-semibold">
+                            111.3%
+                          </span>
+                        
+                      
+                    </td>
+                    <td class="text-end">750</td>
+                    <td class="text-end">300</td>
+                    <td class="text-end">1080</td>
+                    <td class="text-end fw-semibold text-success">
+                      2130
+                    </td>
+                  </tr>
+                  
+                  
+                  <tr class="">
+                    <td class="fw-semibold">Apr</td>
+                    <td class="text-end">
+                      
+                        178474
+                      
+                    </td>
+                    <td class="text-end">
+                      214169
+                    </td>
+                    <td class="text-end">
+                      231987
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-success fw-semibold">
+                          108.3%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-warning fw-semibold">
+                          98.5%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        
+                          <span class="text-warning fw-semibold">
+                            95.2%
+                          </span>
+                        
+                      
+                    </td>
+                    <td class="text-end">1650</td>
+                    <td class="text-end">480</td>
+                    <td class="text-end">720</td>
+                    <td class="text-end fw-semibold text-success">
+                      2850
+                    </td>
+                  </tr>
+                  
+                  
+                  <tr class="">
+                    <td class="fw-semibold">Mai</td>
+                    <td class="text-end">
+                      
+                        204841
+                      
+                    </td>
+                    <td class="text-end">
+                      245810
+                    </td>
+                    <td class="text-end">
+                      0
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          0.0%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          0.0%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        
+                          <span class="text-danger" title="Prag neîndeplinit — bonus strategic blocat">
+                            0.0% <i class="bi bi-lock-fill"></i>
+                          </span>
+                        
+                      
+                    </td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end fw-semibold text-muted">
+                      —
+                    </td>
+                  </tr>
+                  
+                  
+                  <tr class="">
+                    <td class="fw-semibold">Iun</td>
+                    <td class="text-end">
+                      
+                        181345
+                      
+                    </td>
+                    <td class="text-end">
+                      217614
+                    </td>
+                    <td class="text-end">
+                      0
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          0.0%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          0.0%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        
+                          <span class="text-danger" title="Prag neîndeplinit — bonus strategic blocat">
+                            0.0% <i class="bi bi-lock-fill"></i>
+                          </span>
+                        
+                      
+                    </td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end fw-semibold text-muted">
+                      —
+                    </td>
+                  </tr>
+                  
+                  
+                  <tr class="">
+                    <td class="fw-semibold">Iul</td>
+                    <td class="text-end">
+                      
+                        132429
+                      
+                    </td>
+                    <td class="text-end">
+                      158915
+                    </td>
+                    <td class="text-end">
+                      0
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          0.0%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          0.0%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        
+                          <span class="text-danger" title="Prag neîndeplinit — bonus strategic blocat">
+                            0.0% <i class="bi bi-lock-fill"></i>
+                          </span>
+                        
+                      
+                    </td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end fw-semibold text-muted">
+                      —
+                    </td>
+                  </tr>
+                  
+                  
+                  <tr class="">
+                    <td class="fw-semibold">Aug</td>
+                    <td class="text-end">
+                      
+                        148990
+                      
+                    </td>
+                    <td class="text-end">
+                      178789
+                    </td>
+                    <td class="text-end">
+                      0
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          0.0%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          0.0%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        
+                          <span class="text-danger" title="Prag neîndeplinit — bonus strategic blocat">
+                            0.0% <i class="bi bi-lock-fill"></i>
+                          </span>
+                        
+                      
+                    </td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end fw-semibold text-muted">
+                      —
+                    </td>
+                  </tr>
+                  
+                  
+                  <tr class="">
+                    <td class="fw-semibold">Sep</td>
+                    <td class="text-end">
+                      
+                        196028
+                      
+                    </td>
+                    <td class="text-end">
+                      235234
+                    </td>
+                    <td class="text-end">
+                      0
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          0.0%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          0.0%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        
+                          <span class="text-danger" title="Prag neîndeplinit — bonus strategic blocat">
+                            0.0% <i class="bi bi-lock-fill"></i>
+                          </span>
+                        
+                      
+                    </td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end fw-semibold text-muted">
+                      —
+                    </td>
+                  </tr>
+                  
+                  
+                  <tr class="">
+                    <td class="fw-semibold">Oct</td>
+                    <td class="text-end">
+                      
+                        225609
+                      
+                    </td>
+                    <td class="text-end">
+                      270731
+                    </td>
+                    <td class="text-end">
+                      0
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          0.0%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          0.0%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        
+                          <span class="text-danger" title="Prag neîndeplinit — bonus strategic blocat">
+                            0.0% <i class="bi bi-lock-fill"></i>
+                          </span>
+                        
+                      
+                    </td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end fw-semibold text-muted">
+                      —
+                    </td>
+                  </tr>
+                  
+                  
+                  <tr class="">
+                    <td class="fw-semibold">Nov</td>
+                    <td class="text-end">
+                      
+                        280234
+                      
+                    </td>
+                    <td class="text-end">
+                      336281
+                    </td>
+                    <td class="text-end">
+                      0
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          0.0%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          0.0%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        
+                          <span class="text-danger" title="Prag neîndeplinit — bonus strategic blocat">
+                            0.0% <i class="bi bi-lock-fill"></i>
+                          </span>
+                        
+                      
+                    </td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end fw-semibold text-muted">
+                      —
+                    </td>
+                  </tr>
+                  
+                  
+                  <tr class="">
+                    <td class="fw-semibold">Dec</td>
+                    <td class="text-end">
+                      
+                        309850
+                      
+                    </td>
+                    <td class="text-end">
+                      371821
+                    </td>
+                    <td class="text-end">
+                      0
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          0.0%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          0.0%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        
+                          <span class="text-danger" title="Prag neîndeplinit — bonus strategic blocat">
+                            0.0% <i class="bi bi-lock-fill"></i>
+                          </span>
+                        
+                      
+                    </td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end fw-semibold text-muted">
+                      —
+                    </td>
+                  </tr>
+                  
+                </tbody>
+                <tfoot class="table-light fw-semibold">
+                  <tr>
+                    <td colspan="7" class="text-end">Total</td>
+                    <td class="text-end">4650</td>
+                    <td class="text-end">2280</td>
+                    <td class="text-end">3150</td>
+                    <td class="text-end text-success">10080 RON</td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+          </td>
+        </tr>
+        
+        
+        
+        
+        <tr>
+          <td>
+            <div class="fw-semibold">Ionut</div>
+            <div class="text-muted small">CONSTANTIN IONUT</div>
+          </td>
+          <td class="text-end">2000 RON</td>
+          <td class="text-end">24000 RON</td>
+          <td class="text-end fw-semibold">
+            
+              <span class="text-success">4200 RON</span>
+            
+          </td>
+          <td class="text-center">
+            
+              <span class="badge bg-danger">17.5%</span>
+            
+          </td>
+          <td class="text-center text-muted">3 / 12</td>
+          <td class="text-end">
+            <button class="btn btn-sm btn-outline-secondary py-0"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#detail-4">
+              <i class="bi bi-chevron-down"></i>
+            </button>
+          </td>
+        </tr>
+        <!-- Monthly detail row -->
+        <tr class="collapse" id="detail-4">
+          <td colspan="7" class="p-0">
+            <div class="px-3 py-2 bg-light border-top border-bottom">
+              <table class="table table-xs table-sm mb-0 small">
+                <thead class="table-secondary">
+                  <tr>
+                    <th>Lună</th>
+                    <th class="text-end">Bază Vânz.</th>
+                    <th class="text-end">Target Vânz.</th>
+                    <th class="text-end">Actual Vânz.</th>
+                    <th class="text-center">Realiz. Vânz.</th>
+                    <th class="text-center">Realiz. Marjă</th>
+                    <th class="text-center">Strategic</th>
+                    <th class="text-end">Bonus Vânz.</th>
+                    <th class="text-end">Bonus Marjă</th>
+                    <th class="text-end">Bonus Strat.</th>
+                    <th class="text-end fw-semibold">Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                  
+                  <tr class="">
+                    <td class="fw-semibold">Ian</td>
+                    <td class="text-end">
+                      
+                        33193
+                      
+                    </td>
+                    <td class="text-end">
+                      39832
+                    </td>
+                    <td class="text-end">
+                      34693
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-warning fw-semibold">
+                          87.1%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-warning fw-semibold">
+                          86.9%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        
+                          <span class="text-warning fw-semibold">
+                            90.3%
+                          </span>
+                        
+                      
+                    </td>
+                    <td class="text-end">500</td>
+                    <td class="text-end">200</td>
+                    <td class="text-end">300</td>
+                    <td class="text-end fw-semibold text-success">
+                      1000
+                    </td>
+                  </tr>
+                  
+                  
+                  <tr class="">
+                    <td class="fw-semibold">Feb</td>
+                    <td class="text-end">
+                      
+                        46403
+                      
+                    </td>
+                    <td class="text-end">
+                      55684
+                    </td>
+                    <td class="text-end">
+                      37653
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          67.6%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          84.1%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        
+                          <span class="text-danger" title="Prag neîndeplinit — bonus strategic blocat">
+                            88.3% <i class="bi bi-lock-fill"></i>
+                          </span>
+                        
+                      
+                    </td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">200</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end fw-semibold text-success">
+                      200
+                    </td>
+                  </tr>
+                  
+                  
+                  <tr class="">
+                    <td class="fw-semibold">Mar</td>
+                    <td class="text-end">
+                      
+                        52795
+                      
+                    </td>
+                    <td class="text-end">
+                      63354
+                    </td>
+                    <td class="text-end">
+                      40812
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          64.4%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          64.4%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        
+                          <span class="text-danger" title="Prag neîndeplinit — bonus strategic blocat">
+                            123.3% <i class="bi bi-lock-fill"></i>
+                          </span>
+                        
+                      
+                    </td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end fw-semibold text-muted">
+                      —
+                    </td>
+                  </tr>
+                  
+                  
+                  <tr class="">
+                    <td class="fw-semibold">Apr</td>
+                    <td class="text-end">
+                      
+                        24214
+                      
+                    </td>
+                    <td class="text-end">
+                      29057
+                    </td>
+                    <td class="text-end">
+                      36245
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-success fw-semibold">
+                          124.7%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-success fw-semibold">
+                          174.2%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        
+                          <span class="text-success fw-semibold">
+                            183.7%
+                          </span>
+                        
+                      
+                    </td>
+                    <td class="text-end">1500</td>
+                    <td class="text-end">600</td>
+                    <td class="text-end">900</td>
+                    <td class="text-end fw-semibold text-success">
+                      3000
+                    </td>
+                  </tr>
+                  
+                  
+                  <tr class="">
+                    <td class="fw-semibold">Mai</td>
+                    <td class="text-end">
+                      
+                        38460
+                      
+                    </td>
+                    <td class="text-end">
+                      46153
+                    </td>
+                    <td class="text-end">
+                      0
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          0.0%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          0.0%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        
+                          <span class="text-danger" title="Prag neîndeplinit — bonus strategic blocat">
+                            0.0% <i class="bi bi-lock-fill"></i>
+                          </span>
+                        
+                      
+                    </td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end fw-semibold text-muted">
+                      —
+                    </td>
+                  </tr>
+                  
+                  
+                  <tr class="">
+                    <td class="fw-semibold">Iun</td>
+                    <td class="text-end">
+                      
+                        15211
+                      
+                    </td>
+                    <td class="text-end">
+                      18254
+                    </td>
+                    <td class="text-end">
+                      0
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          0.0%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          0.0%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        
+                          <span class="text-danger" title="Prag neîndeplinit — bonus strategic blocat">
+                            0.0% <i class="bi bi-lock-fill"></i>
+                          </span>
+                        
+                      
+                    </td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end fw-semibold text-muted">
+                      —
+                    </td>
+                  </tr>
+                  
+                  
+                  <tr class="">
+                    <td class="fw-semibold">Iul</td>
+                    <td class="text-end">
+                      
+                        681
+                      
+                    </td>
+                    <td class="text-end">
+                      818
+                    </td>
+                    <td class="text-end">
+                      0
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          0.0%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      —
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        
+                          <span class="text-danger" title="Prag neîndeplinit — bonus strategic blocat">
+                            0.0% <i class="bi bi-lock-fill"></i>
+                          </span>
+                        
+                      
+                    </td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end fw-semibold text-muted">
+                      —
+                    </td>
+                  </tr>
+                  
+                  
+                  <tr class="">
+                    <td class="fw-semibold">Aug</td>
+                    <td class="text-end">
+                      
+                        13566
+                      
+                    </td>
+                    <td class="text-end">
+                      16280
+                    </td>
+                    <td class="text-end">
+                      0
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          0.0%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          0.0%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        
+                          <span class="text-danger" title="Prag neîndeplinit — bonus strategic blocat">
+                            0.0% <i class="bi bi-lock-fill"></i>
+                          </span>
+                        
+                      
+                    </td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end fw-semibold text-muted">
+                      —
+                    </td>
+                  </tr>
+                  
+                  
+                  <tr class="">
+                    <td class="fw-semibold">Sep</td>
+                    <td class="text-end">
+                      
+                        33070
+                      
+                    </td>
+                    <td class="text-end">
+                      39685
+                    </td>
+                    <td class="text-end">
+                      0
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          0.0%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          0.0%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        
+                          <span class="text-danger" title="Prag neîndeplinit — bonus strategic blocat">
+                            0.0% <i class="bi bi-lock-fill"></i>
+                          </span>
+                        
+                      
+                    </td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end fw-semibold text-muted">
+                      —
+                    </td>
+                  </tr>
+                  
+                  
+                  <tr class="">
+                    <td class="fw-semibold">Oct</td>
+                    <td class="text-end">
+                      
+                        44645
+                      
+                    </td>
+                    <td class="text-end">
+                      53574
+                    </td>
+                    <td class="text-end">
+                      0
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          0.0%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          0.0%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        
+                          <span class="text-danger" title="Prag neîndeplinit — bonus strategic blocat">
+                            0.0% <i class="bi bi-lock-fill"></i>
+                          </span>
+                        
+                      
+                    </td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end fw-semibold text-muted">
+                      —
+                    </td>
+                  </tr>
+                  
+                  
+                  <tr class="">
+                    <td class="fw-semibold">Nov</td>
+                    <td class="text-end">
+                      
+                        48761
+                      
+                    </td>
+                    <td class="text-end">
+                      58514
+                    </td>
+                    <td class="text-end">
+                      0
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          0.0%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          0.0%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        
+                          <span class="text-danger" title="Prag neîndeplinit — bonus strategic blocat">
+                            0.0% <i class="bi bi-lock-fill"></i>
+                          </span>
+                        
+                      
+                    </td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end fw-semibold text-muted">
+                      —
+                    </td>
+                  </tr>
+                  
+                  
+                  <tr class="">
+                    <td class="fw-semibold">Dec</td>
+                    <td class="text-end">
+                      
+                        46201
+                      
+                    </td>
+                    <td class="text-end">
+                      55442
+                    </td>
+                    <td class="text-end">
+                      0
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          0.0%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        <span class="text-danger fw-semibold">
+                          0.0%
+                        </span>
+                      
+                    </td>
+                    <td class="text-center">
+                      
+                        
+                        
+                          <span class="text-danger" title="Prag neîndeplinit — bonus strategic blocat">
+                            0.0% <i class="bi bi-lock-fill"></i>
+                          </span>
+                        
+                      
+                    </td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end fw-semibold text-muted">
+                      —
+                    </td>
+                  </tr>
+                  
+                </tbody>
+                <tfoot class="table-light fw-semibold">
+                  <tr>
+                    <td colspan="7" class="text-end">Total</td>
+                    <td class="text-end">2000</td>
+                    <td class="text-end">1000</td>
+                    <td class="text-end">1200</td>
+                    <td class="text-end text-success">4200 RON</td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+          </td>
+        </tr>
+        
+        
+        
+        
+        <tr>
+          <td>
+            <div class="fw-semibold">Teo</div>
+            <div class="text-muted small">—</div>
+          </td>
+          <td class="text-end">500 RON</td>
+          <td class="text-end">6000 RON</td>
+          <td class="text-end fw-semibold">
+            
+              <span class="text-muted">0 RON</span>
+            
+          </td>
+          <td class="text-center">
+            
+              <span class="badge bg-secondary">—</span>
+            
+          </td>
+          <td class="text-center text-muted">0 / 12</td>
+          <td class="text-end">
+            <button class="btn btn-sm btn-outline-secondary py-0"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#detail-5">
+              <i class="bi bi-chevron-down"></i>
+            </button>
+          </td>
+        </tr>
+        <!-- Monthly detail row -->
+        <tr class="collapse" id="detail-5">
+          <td colspan="7" class="p-0">
+            <div class="px-3 py-2 bg-light border-top border-bottom">
+              <table class="table table-xs table-sm mb-0 small">
+                <thead class="table-secondary">
+                  <tr>
+                    <th>Lună</th>
+                    <th class="text-end">Bază Vânz.</th>
+                    <th class="text-end">Target Vânz.</th>
+                    <th class="text-end">Actual Vânz.</th>
+                    <th class="text-center">Realiz. Vânz.</th>
+                    <th class="text-center">Realiz. Marjă</th>
+                    <th class="text-center">Strategic</th>
+                    <th class="text-end">Bonus Vânz.</th>
+                    <th class="text-end">Bonus Marjă</th>
+                    <th class="text-end">Bonus Strat.</th>
+                    <th class="text-end fw-semibold">Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                  
+                  <tr class="text-muted">
+                    <td class="fw-semibold">Ian</td>
+                    <td class="text-end">
+                      —
+                    </td>
+                    <td class="text-end">
+                      —
+                    </td>
+                    <td class="text-end">
+                      —
+                    </td>
+                    <td class="text-center">
+                      —
+                    </td>
+                    <td class="text-center">
+                      —
+                    </td>
+                    <td class="text-center">
+                      —
+                    </td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end fw-semibold text-muted">
+                      —
+                    </td>
+                  </tr>
+                  
+                  
+                  <tr class="text-muted">
+                    <td class="fw-semibold">Feb</td>
+                    <td class="text-end">
+                      —
+                    </td>
+                    <td class="text-end">
+                      —
+                    </td>
+                    <td class="text-end">
+                      —
+                    </td>
+                    <td class="text-center">
+                      —
+                    </td>
+                    <td class="text-center">
+                      —
+                    </td>
+                    <td class="text-center">
+                      —
+                    </td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end fw-semibold text-muted">
+                      —
+                    </td>
+                  </tr>
+                  
+                  
+                  <tr class="text-muted">
+                    <td class="fw-semibold">Mar</td>
+                    <td class="text-end">
+                      —
+                    </td>
+                    <td class="text-end">
+                      —
+                    </td>
+                    <td class="text-end">
+                      —
+                    </td>
+                    <td class="text-center">
+                      —
+                    </td>
+                    <td class="text-center">
+                      —
+                    </td>
+                    <td class="text-center">
+                      —
+                    </td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end fw-semibold text-muted">
+                      —
+                    </td>
+                  </tr>
+                  
+                  
+                  <tr class="text-muted">
+                    <td class="fw-semibold">Apr</td>
+                    <td class="text-end">
+                      —
+                    </td>
+                    <td class="text-end">
+                      —
+                    </td>
+                    <td class="text-end">
+                      —
+                    </td>
+                    <td class="text-center">
+                      —
+                    </td>
+                    <td class="text-center">
+                      —
+                    </td>
+                    <td class="text-center">
+                      —
+                    </td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end fw-semibold text-muted">
+                      —
+                    </td>
+                  </tr>
+                  
+                  
+                  <tr class="text-muted">
+                    <td class="fw-semibold">Mai</td>
+                    <td class="text-end">
+                      —
+                    </td>
+                    <td class="text-end">
+                      —
+                    </td>
+                    <td class="text-end">
+                      —
+                    </td>
+                    <td class="text-center">
+                      —
+                    </td>
+                    <td class="text-center">
+                      —
+                    </td>
+                    <td class="text-center">
+                      —
+                    </td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end fw-semibold text-muted">
+                      —
+                    </td>
+                  </tr>
+                  
+                  
+                  <tr class="text-muted">
+                    <td class="fw-semibold">Iun</td>
+                    <td class="text-end">
+                      —
+                    </td>
+                    <td class="text-end">
+                      —
+                    </td>
+                    <td class="text-end">
+                      —
+                    </td>
+                    <td class="text-center">
+                      —
+                    </td>
+                    <td class="text-center">
+                      —
+                    </td>
+                    <td class="text-center">
+                      —
+                    </td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end fw-semibold text-muted">
+                      —
+                    </td>
+                  </tr>
+                  
+                  
+                  <tr class="text-muted">
+                    <td class="fw-semibold">Iul</td>
+                    <td class="text-end">
+                      —
+                    </td>
+                    <td class="text-end">
+                      —
+                    </td>
+                    <td class="text-end">
+                      —
+                    </td>
+                    <td class="text-center">
+                      —
+                    </td>
+                    <td class="text-center">
+                      —
+                    </td>
+                    <td class="text-center">
+                      —
+                    </td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end fw-semibold text-muted">
+                      —
+                    </td>
+                  </tr>
+                  
+                  
+                  <tr class="text-muted">
+                    <td class="fw-semibold">Aug</td>
+                    <td class="text-end">
+                      —
+                    </td>
+                    <td class="text-end">
+                      —
+                    </td>
+                    <td class="text-end">
+                      —
+                    </td>
+                    <td class="text-center">
+                      —
+                    </td>
+                    <td class="text-center">
+                      —
+                    </td>
+                    <td class="text-center">
+                      —
+                    </td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end fw-semibold text-muted">
+                      —
+                    </td>
+                  </tr>
+                  
+                  
+                  <tr class="text-muted">
+                    <td class="fw-semibold">Sep</td>
+                    <td class="text-end">
+                      —
+                    </td>
+                    <td class="text-end">
+                      —
+                    </td>
+                    <td class="text-end">
+                      —
+                    </td>
+                    <td class="text-center">
+                      —
+                    </td>
+                    <td class="text-center">
+                      —
+                    </td>
+                    <td class="text-center">
+                      —
+                    </td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end fw-semibold text-muted">
+                      —
+                    </td>
+                  </tr>
+                  
+                  
+                  <tr class="text-muted">
+                    <td class="fw-semibold">Oct</td>
+                    <td class="text-end">
+                      —
+                    </td>
+                    <td class="text-end">
+                      —
+                    </td>
+                    <td class="text-end">
+                      —
+                    </td>
+                    <td class="text-center">
+                      —
+                    </td>
+                    <td class="text-center">
+                      —
+                    </td>
+                    <td class="text-center">
+                      —
+                    </td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end fw-semibold text-muted">
+                      —
+                    </td>
+                  </tr>
+                  
+                  
+                  <tr class="text-muted">
+                    <td class="fw-semibold">Nov</td>
+                    <td class="text-end">
+                      —
+                    </td>
+                    <td class="text-end">
+                      —
+                    </td>
+                    <td class="text-end">
+                      —
+                    </td>
+                    <td class="text-center">
+                      —
+                    </td>
+                    <td class="text-center">
+                      —
+                    </td>
+                    <td class="text-center">
+                      —
+                    </td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end fw-semibold text-muted">
+                      —
+                    </td>
+                  </tr>
+                  
+                  
+                  <tr class="text-muted">
+                    <td class="fw-semibold">Dec</td>
+                    <td class="text-end">
+                      —
+                    </td>
+                    <td class="text-end">
+                      —
+                    </td>
+                    <td class="text-end">
+                      —
+                    </td>
+                    <td class="text-center">
+                      —
+                    </td>
+                    <td class="text-center">
+                      —
+                    </td>
+                    <td class="text-center">
+                      —
+                    </td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end">—</td>
+                    <td class="text-end fw-semibold text-muted">
+                      —
+                    </td>
+                  </tr>
+                  
+                </tbody>
+                <tfoot class="table-light fw-semibold">
+                  <tr>
+                    <td colspan="7" class="text-end">Total</td>
+                    <td class="text-end">0</td>
+                    <td class="text-end">0</td>
+                    <td class="text-end">0</td>
+                    <td class="text-end text-success">0 RON</td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+          </td>
+        </tr>
+        
+      </tbody>
+      <tfoot class="table-light fw-semibold">
+        <tr>
+          <td>Total echipă</td>
+          <td class="text-end">13500 RON</td>
+          <td class="text-end">162000 RON</td>
+          <td class="text-end text-success">26780 RON</td>
+          <td colspan="3"></td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+</div>
+
+<!-- Legend -->
+<div class="d-flex gap-3 text-muted small">
+  <span><i class="bi bi-lock-fill text-danger me-1"></i>Bonus strategic blocat — prag vânzări sau marjă neîndeplinit</span>
+  <span><span class="badge bg-success me-1">≥100%</span>
+        <span class="badge bg-warning text-dark me-1">85–99%</span>
+        <span class="badge bg-danger me-1">&lt;85%</span> Realizare</span>
+</div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+</body>
+</html>

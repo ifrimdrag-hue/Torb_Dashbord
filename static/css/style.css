@@ -1,0 +1,72 @@
+/* Torb Logistic — App Styles */
+
+body {
+  font-size: 0.9rem;
+}
+
+/* Navbar tweaks */
+.navbar-brand {
+  letter-spacing: -0.3px;
+}
+
+/* KPI cards */
+.card {
+  transition: box-shadow 0.15s;
+}
+.card:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.09) !important;
+}
+
+/* Table improvements */
+.table-sm td, .table-sm th {
+  padding: 0.45rem 0.6rem;
+  vertical-align: middle;
+}
+
+/* Truncate long text in tables */
+.cell-truncate {
+  max-width: 220px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Badge tweaks */
+.badge {
+  font-weight: 500;
+}
+
+/* Chart containers */
+canvas {
+  max-width: 100%;
+}
+
+/* Ask page */
+#result .card {
+  border-left: 3px solid #0d6efd;
+}
+
+#result details summary {
+  cursor: pointer;
+  user-select: none;
+}
+
+#result details summary:hover {
+  color: #0d6efd;
+}
+
+/* Code blocks */
+pre {
+  font-size: 0.8rem;
+  border-radius: 6px;
+}
+
+/* Scrollable tables on small screens */
+.table-responsive {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Risk alert badges on dashboard */
+.alert .badge {
+  font-size: 0.85rem;
+}

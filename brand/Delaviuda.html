@@ -1,0 +1,2586 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Delaviuda — Torb Logistic</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../static/css/style.css">
+
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#212529">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('../sw.js').catch(function(){});
+    }
+  </script>
+</head>
+<body class="bg-light">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+  <div class="container-fluid px-4">
+    <a class="navbar-brand fw-bold fs-5" href="../index.html">
+      <i class="bi bi-bar-chart-fill text-success me-1"></i>Torb Logistic
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navmenu">
+      <ul class="navbar-nav ms-auto gap-1">
+        <li class="nav-item">
+          <a class="nav-link "
+             href="../index.html">
+            <i class="bi bi-speedometer2"></i> Dashboard
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "
+             href="../team.html">
+            <i class="bi bi-people-fill"></i> Echipă
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "
+             href="../clients.html">
+            <i class="bi bi-building"></i> Clienți
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "
+             href="../products.html">
+            <i class="bi bi-box-seam-fill"></i> Produse
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "
+             href="../profitabilitate.html">
+            <i class="bi bi-graph-up-arrow"></i> Profitabilitate
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "
+             href="../ask.html">
+            <i class="bi bi-chat-dots-fill"></i> AI
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "
+             href="../bonus.html">
+            <i class="bi bi-trophy-fill"></i> Bonus
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "
+             href="../conditii.html">
+            <i class="bi bi-file-earmark-text-fill"></i> Condiții
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "
+             href="../preturi.html">
+            <i class="bi bi-tags-fill"></i> Prețuri
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "
+             href="../forecast.html">
+            <i class="bi bi-boxes"></i> Stoc / Forecast
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid px-4 py-4">
+  
+<nav aria-label="breadcrumb" class="mb-3">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="../products.html">Produse</a></li>
+    <li class="breadcrumb-item active">Delaviuda</li>
+  </ol>
+</nav>
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h4 class="mb-0 fw-bold">
+    <i class="bi bi-award-fill text-warning me-1"></i>Delaviuda
+  </h4>
+  <div class="d-flex gap-2 align-items-center">
+    
+    <a href="../brand/Delaviuda.html"
+       class="btn btn-sm btn-outline-secondary">2024</a>
+    
+    <a href="../brand/Delaviuda.html"
+       class="btn btn-sm btn-outline-secondary">2025</a>
+    
+    <a href="../brand/Delaviuda.html"
+       class="btn btn-sm btn-primary">2026</a>
+    
+  </div>
+</div>
+
+<!-- KPI cards -->
+
+<div class="row g-3 mb-4">
+  <div class="col-6 col-md-4 col-xl-2">
+    <div class="card border-0 shadow-sm h-100 text-center p-2">
+      <i class="bi bi-currency-exchange text-primary fs-4 mt-2"></i>
+      <p class="text-muted small mb-1 mt-1">Val Netă YTD</p>
+      <p class="fw-bold mb-1">205.228 RON</p>
+      
+      <small class="text-danger">
+        ▼30.2% vs 2025
+      </small>
+      
+    </div>
+  </div>
+  <div class="col-6 col-md-4 col-xl-2">
+    <div class="card border-0 shadow-sm h-100 text-center p-2">
+      <i class="bi bi-graph-up text-success fs-4 mt-2"></i>
+      <p class="text-muted small mb-1 mt-1">Marjă Brută</p>
+      <p class="fw-bold mb-1">77.970 RON</p>
+      <small class="text-success fw-semibold">38.0%</small>
+      
+      <small class="text-danger small">
+        -1.0pp
+      </small>
+      
+    </div>
+  </div>
+  <div class="col-6 col-md-4 col-xl-2">
+    <div class="card border-0 shadow-sm h-100 text-center p-2">
+      <i class="bi bi-graph-down-arrow text-warning fs-4 mt-2"></i>
+      <p class="text-muted small mb-1 mt-1">Marjă Netă</p>
+      <p class="fw-bold mb-1">70.456 RON</p>
+      <small class="text-success fw-semibold">
+        34.3%
+      </small>
+    </div>
+  </div>
+  <div class="col-6 col-md-4 col-xl-2">
+    <div class="card border-0 shadow-sm h-100 text-center p-2">
+      <i class="bi bi-people text-secondary fs-4 mt-2"></i>
+      <p class="text-muted small mb-1 mt-1">Clienți</p>
+      <p class="fw-bold mb-1">51</p>
+    </div>
+  </div>
+  <div class="col-6 col-md-4 col-xl-2">
+    <div class="card border-0 shadow-sm h-100 text-center p-2">
+      <i class="bi bi-box-seam text-dark fs-4 mt-2"></i>
+      <p class="text-muted small mb-1 mt-1">SKU-uri</p>
+      <p class="fw-bold mb-1">33</p>
+    </div>
+  </div>
+  <div class="col-6 col-md-4 col-xl-2">
+    <div class="card border-0 shadow-sm h-100 text-center p-2">
+      <i class="bi bi-receipt text-info fs-4 mt-2"></i>
+      <p class="text-muted small mb-1 mt-1">Tranzacții</p>
+      <p class="fw-bold mb-1">1108</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- Trend chart -->
+<div class="card shadow-sm border-0 mb-4">
+  <div class="card-header bg-white d-flex justify-content-between align-items-center">
+    <span class="fw-semibold"><i class="bi bi-bar-chart-line text-primary me-1"></i> Evoluție Lunară (2024 / 2025 / 2026)</span>
+    <div class="btn-group btn-group-sm" role="group" id="brandTrend">
+      <button class="btn btn-outline-primary active" onclick="showMetric('vn',this)">Val Netă</button>
+      <button class="btn btn-outline-success" onclick="showMetric('mb',this)">Marjă Brută</button>
+    </div>
+  </div>
+  <div class="card-body">
+    <canvas id="trendChart" height="80"></canvas>
+  </div>
+</div>
+
+<!-- Clients table -->
+<div class="card shadow-sm border-0 mb-4">
+  <div class="card-header bg-white fw-semibold">
+    <i class="bi bi-people-fill me-1 text-info"></i>
+    Clienți Delaviuda — pondere &amp; comparativ 2025 YTD
+  </div>
+  <div class="table-responsive">
+    <table class="table table-sm table-hover mb-0 align-middle">
+      <thead class="table-dark">
+        <tr>
+          <th>#</th>
+          <th>Client</th>
+          <th>Agent</th>
+          <th class="text-end">Val Netă 2026</th>
+          <th class="text-end">Pondere</th>
+          <th class="text-end">vs 2025 YTD</th>
+          <th class="text-end">MB (RON)</th>
+          <th class="text-end">MB%</th>
+          <th class="text-end">SKU-uri</th>
+          <th>Ultima Livrare</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <tr>
+          <td class="text-muted small">1</td>
+          <td>
+            <a href="../client/888.html"
+               class="text-decoration-none fw-semibold">CARREFOUR ROMANIA SA</a>
+          </td>
+          <td class="small text-muted">Oana Filip</td>
+          <td class="text-end fw-semibold">121.947 RON</td>
+          <td class="text-end">
+            <div class="d-flex align-items-center justify-content-end gap-2">
+              <div class="progress" style="height:6px;width:60px">
+                <div class="progress-bar bg-info" style="width:59.42%"></div>
+              </div>
+              <span class="small fw-semibold" style="min-width:50px">59.42%</span>
+            </div>
+          </td>
+          <td class="text-end small">
+            
+            <span class="text-danger">
+              -19.0%
+            </span>
+            <div class="text-muted" style="font-size:0.7rem">150.547 RON</div>
+            
+          </td>
+          <td class="text-end small">40.558 RON</td>
+          <td class="text-end small
+            text-warning
+            ">
+            33.3%
+          </td>
+          <td class="text-end text-muted small">10</td>
+          <td class="text-muted small">2026-04-29</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted small">2</td>
+          <td>
+            <a href="../client/977.html"
+               class="text-decoration-none fw-semibold">SELGROS CASH &amp; CARRY SRL</a>
+          </td>
+          <td class="small text-muted">DRAGNEA BOGDAN</td>
+          <td class="text-end fw-semibold">36.700 RON</td>
+          <td class="text-end">
+            <div class="d-flex align-items-center justify-content-end gap-2">
+              <div class="progress" style="height:6px;width:60px">
+                <div class="progress-bar bg-info" style="width:17.88%"></div>
+              </div>
+              <span class="small fw-semibold" style="min-width:50px">17.88%</span>
+            </div>
+          </td>
+          <td class="text-end small">
+            
+            <span class="text-danger">
+              -12.0%
+            </span>
+            <div class="text-muted" style="font-size:0.7rem">41.701 RON</div>
+            
+          </td>
+          <td class="text-end small">17.431 RON</td>
+          <td class="text-end small
+            text-success fw-semibold
+            ">
+            47.5%
+          </td>
+          <td class="text-end text-muted small">7</td>
+          <td class="text-muted small">2026-04-27</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted small">3</td>
+          <td>
+            <a href="../client/1306.html"
+               class="text-decoration-none fw-semibold">UNITATEA MILITARA 0461</a>
+          </td>
+          <td class="small text-muted">BRINZA CLAUDIU</td>
+          <td class="text-end fw-semibold">16.905 RON</td>
+          <td class="text-end">
+            <div class="d-flex align-items-center justify-content-end gap-2">
+              <div class="progress" style="height:6px;width:60px">
+                <div class="progress-bar bg-info" style="width:8.24%"></div>
+              </div>
+              <span class="small fw-semibold" style="min-width:50px">8.24%</span>
+            </div>
+          </td>
+          <td class="text-end small">
+            
+            <span class="text-success">
+              +105.9%
+            </span>
+            <div class="text-muted" style="font-size:0.7rem">8.212 RON</div>
+            
+          </td>
+          <td class="text-end small">7.642 RON</td>
+          <td class="text-end small
+            text-success fw-semibold
+            ">
+            45.2%
+          </td>
+          <td class="text-end text-muted small">3</td>
+          <td class="text-muted small">2026-04-07</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted small">4</td>
+          <td>
+            <a href="../client/996.html"
+               class="text-decoration-none fw-semibold">COMPANIA DE LIBRARII BUCURESTI SA</a>
+          </td>
+          <td class="small text-muted">GURAMULTA GHEORGHE</td>
+          <td class="text-end fw-semibold">6.891 RON</td>
+          <td class="text-end">
+            <div class="d-flex align-items-center justify-content-end gap-2">
+              <div class="progress" style="height:6px;width:60px">
+                <div class="progress-bar bg-info" style="width:3.36%"></div>
+              </div>
+              <span class="small fw-semibold" style="min-width:50px">3.36%</span>
+            </div>
+          </td>
+          <td class="text-end small">
+            
+            <span class="text-danger">
+              -73.4%
+            </span>
+            <div class="text-muted" style="font-size:0.7rem">25.913 RON</div>
+            
+          </td>
+          <td class="text-end small">3.585 RON</td>
+          <td class="text-end small
+            text-success fw-semibold
+            ">
+            52.0%
+          </td>
+          <td class="text-end text-muted small">31</td>
+          <td class="text-muted small">2026-04-30</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted small">5</td>
+          <td>
+            <a href="../client/2029.html"
+               class="text-decoration-none fw-semibold">BARTA ATI SRL</a>
+          </td>
+          <td class="small text-muted">DRAGNEA BOGDAN</td>
+          <td class="text-end fw-semibold">3.832 RON</td>
+          <td class="text-end">
+            <div class="d-flex align-items-center justify-content-end gap-2">
+              <div class="progress" style="height:6px;width:60px">
+                <div class="progress-bar bg-info" style="width:1.87%"></div>
+              </div>
+              <span class="small fw-semibold" style="min-width:50px">1.87%</span>
+            </div>
+          </td>
+          <td class="text-end small">
+            
+            <span class="text-success">
+              +15.9%
+            </span>
+            <div class="text-muted" style="font-size:0.7rem">3.305 RON</div>
+            
+          </td>
+          <td class="text-end small">999 RON</td>
+          <td class="text-end small
+            text-danger">
+            26.1%
+          </td>
+          <td class="text-end text-muted small">12</td>
+          <td class="text-muted small">2026-03-25</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted small">6</td>
+          <td>
+            <a href="../client/1449.html"
+               class="text-decoration-none fw-semibold">SEZAMO S.R.L.</a>
+          </td>
+          <td class="small text-muted">DRAGNEA BOGDAN</td>
+          <td class="text-end fw-semibold">2.897 RON</td>
+          <td class="text-end">
+            <div class="d-flex align-items-center justify-content-end gap-2">
+              <div class="progress" style="height:6px;width:60px">
+                <div class="progress-bar bg-info" style="width:1.41%"></div>
+              </div>
+              <span class="small fw-semibold" style="min-width:50px">1.41%</span>
+            </div>
+          </td>
+          <td class="text-end small">
+            
+            <span class="text-danger">
+              -4.1%
+            </span>
+            <div class="text-muted" style="font-size:0.7rem">3.020 RON</div>
+            
+          </td>
+          <td class="text-end small">1.009 RON</td>
+          <td class="text-end small
+            text-warning
+            ">
+            34.8%
+          </td>
+          <td class="text-end text-muted small">2</td>
+          <td class="text-muted small">2026-04-29</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted small">7</td>
+          <td>
+            <a href="../client/850.html"
+               class="text-decoration-none fw-semibold">NO SUGAR SHOP  SRL</a>
+          </td>
+          <td class="small text-muted">CONSTANTIN IONUT</td>
+          <td class="text-end fw-semibold">2.865 RON</td>
+          <td class="text-end">
+            <div class="d-flex align-items-center justify-content-end gap-2">
+              <div class="progress" style="height:6px;width:60px">
+                <div class="progress-bar bg-info" style="width:1.4%"></div>
+              </div>
+              <span class="small fw-semibold" style="min-width:50px">1.4%</span>
+            </div>
+          </td>
+          <td class="text-end small">
+            
+            <span class="text-danger">
+              -15.4%
+            </span>
+            <div class="text-muted" style="font-size:0.7rem">3.388 RON</div>
+            
+          </td>
+          <td class="text-end small">1.252 RON</td>
+          <td class="text-end small
+            text-warning
+            ">
+            43.7%
+          </td>
+          <td class="text-end text-muted small">4</td>
+          <td class="text-muted small">2026-04-30</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted small">8</td>
+          <td>
+            <a href="../client/1437.html"
+               class="text-decoration-none fw-semibold">EMAG RETAIL S.R.L.</a>
+          </td>
+          <td class="small text-muted">Oana Filip</td>
+          <td class="text-end fw-semibold">2.501 RON</td>
+          <td class="text-end">
+            <div class="d-flex align-items-center justify-content-end gap-2">
+              <div class="progress" style="height:6px;width:60px">
+                <div class="progress-bar bg-info" style="width:1.22%"></div>
+              </div>
+              <span class="small fw-semibold" style="min-width:50px">1.22%</span>
+            </div>
+          </td>
+          <td class="text-end small">
+            
+            <span class="text-success">
+              +113.4%
+            </span>
+            <div class="text-muted" style="font-size:0.7rem">1.172 RON</div>
+            
+          </td>
+          <td class="text-end small">882 RON</td>
+          <td class="text-end small
+            text-warning
+            ">
+            35.3%
+          </td>
+          <td class="text-end text-muted small">4</td>
+          <td class="text-muted small">2026-04-22</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted small">9</td>
+          <td>
+            <a href="../client/1201.html"
+               class="text-decoration-none fw-semibold">SAFE BUSINESS MARKET S.R.L.</a>
+          </td>
+          <td class="small text-muted">DRAGNEA BOGDAN</td>
+          <td class="text-end fw-semibold">2.227 RON</td>
+          <td class="text-end">
+            <div class="d-flex align-items-center justify-content-end gap-2">
+              <div class="progress" style="height:6px;width:60px">
+                <div class="progress-bar bg-info" style="width:1.09%"></div>
+              </div>
+              <span class="small fw-semibold" style="min-width:50px">1.09%</span>
+            </div>
+          </td>
+          <td class="text-end small">
+            
+            <span class="text-danger">
+              -64.9%
+            </span>
+            <div class="text-muted" style="font-size:0.7rem">6.347 RON</div>
+            
+          </td>
+          <td class="text-end small">1.041 RON</td>
+          <td class="text-end small
+            text-success fw-semibold
+            ">
+            46.7%
+          </td>
+          <td class="text-end text-muted small">11</td>
+          <td class="text-muted small">2026-04-02</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted small">10</td>
+          <td>
+            <a href="../client/1309.html"
+               class="text-decoration-none fw-semibold">BELLFLOWER ART  SRL</a>
+          </td>
+          <td class="small text-muted">DRAGNEA BOGDAN</td>
+          <td class="text-end fw-semibold">1.764 RON</td>
+          <td class="text-end">
+            <div class="d-flex align-items-center justify-content-end gap-2">
+              <div class="progress" style="height:6px;width:60px">
+                <div class="progress-bar bg-info" style="width:0.86%"></div>
+              </div>
+              <span class="small fw-semibold" style="min-width:50px">0.86%</span>
+            </div>
+          </td>
+          <td class="text-end small">
+            
+            <span class="text-danger">
+              -47.4%
+            </span>
+            <div class="text-muted" style="font-size:0.7rem">3.353 RON</div>
+            
+          </td>
+          <td class="text-end small">922 RON</td>
+          <td class="text-end small
+            text-success fw-semibold
+            ">
+            52.3%
+          </td>
+          <td class="text-end text-muted small">9</td>
+          <td class="text-muted small">2026-02-26</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted small">11</td>
+          <td>
+            <a href="../client/1264.html"
+               class="text-decoration-none fw-semibold">IRIA FLORAL DESIGN SRL</a>
+          </td>
+          <td class="small text-muted">DRAGNEA BOGDAN</td>
+          <td class="text-end fw-semibold">1.214 RON</td>
+          <td class="text-end">
+            <div class="d-flex align-items-center justify-content-end gap-2">
+              <div class="progress" style="height:6px;width:60px">
+                <div class="progress-bar bg-info" style="width:0.59%"></div>
+              </div>
+              <span class="small fw-semibold" style="min-width:50px">0.59%</span>
+            </div>
+          </td>
+          <td class="text-end small">
+            
+            <span class="text-danger">
+              -12.7%
+            </span>
+            <div class="text-muted" style="font-size:0.7rem">1.391 RON</div>
+            
+          </td>
+          <td class="text-end small">565 RON</td>
+          <td class="text-end small
+            text-success fw-semibold
+            ">
+            46.5%
+          </td>
+          <td class="text-end text-muted small">14</td>
+          <td class="text-muted small">2026-02-24</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted small">12</td>
+          <td>
+            <a href="../client/4854.html"
+               class="text-decoration-none fw-semibold">GSAD TRIUMF S.R.L.</a>
+          </td>
+          <td class="small text-muted">CONSTANTIN IONUT</td>
+          <td class="text-end fw-semibold">1.134 RON</td>
+          <td class="text-end">
+            <div class="d-flex align-items-center justify-content-end gap-2">
+              <div class="progress" style="height:6px;width:60px">
+                <div class="progress-bar bg-info" style="width:0.55%"></div>
+              </div>
+              <span class="small fw-semibold" style="min-width:50px">0.55%</span>
+            </div>
+          </td>
+          <td class="text-end small">
+            —
+          </td>
+          <td class="text-end small">602 RON</td>
+          <td class="text-end small
+            text-success fw-semibold
+            ">
+            53.1%
+          </td>
+          <td class="text-end text-muted small">11</td>
+          <td class="text-muted small">2026-04-30</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted small">13</td>
+          <td>
+            <a href="../client/2244.html"
+               class="text-decoration-none fw-semibold">ANDAL GREEN MARKET S.R.L.</a>
+          </td>
+          <td class="small text-muted">GURAMULTA GHEORGHE</td>
+          <td class="text-end fw-semibold">1.056 RON</td>
+          <td class="text-end">
+            <div class="d-flex align-items-center justify-content-end gap-2">
+              <div class="progress" style="height:6px;width:60px">
+                <div class="progress-bar bg-info" style="width:0.51%"></div>
+              </div>
+              <span class="small fw-semibold" style="min-width:50px">0.51%</span>
+            </div>
+          </td>
+          <td class="text-end small">
+            
+            <span class="text-danger">
+              -20.6%
+            </span>
+            <div class="text-muted" style="font-size:0.7rem">1.330 RON</div>
+            
+          </td>
+          <td class="text-end small">-197 RON</td>
+          <td class="text-end small
+            text-danger">
+            -18.6%
+          </td>
+          <td class="text-end text-muted small">4</td>
+          <td class="text-muted small">2026-03-13</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted small">14</td>
+          <td>
+            <a href="../client/1404.html"
+               class="text-decoration-none fw-semibold">LIBRARIILE COMPAS S.R.L.</a>
+          </td>
+          <td class="small text-muted">DRAGNEA BOGDAN</td>
+          <td class="text-end fw-semibold">544 RON</td>
+          <td class="text-end">
+            <div class="d-flex align-items-center justify-content-end gap-2">
+              <div class="progress" style="height:6px;width:60px">
+                <div class="progress-bar bg-info" style="width:0.27%"></div>
+              </div>
+              <span class="small fw-semibold" style="min-width:50px">0.27%</span>
+            </div>
+          </td>
+          <td class="text-end small">
+            
+            <span class="text-danger">
+              -82.8%
+            </span>
+            <div class="text-muted" style="font-size:0.7rem">3.168 RON</div>
+            
+          </td>
+          <td class="text-end small">271 RON</td>
+          <td class="text-end small
+            text-success fw-semibold
+            ">
+            49.8%
+          </td>
+          <td class="text-end text-muted small">5</td>
+          <td class="text-muted small">2026-02-12</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted small">15</td>
+          <td>
+            <a href="../client/831.html"
+               class="text-decoration-none fw-semibold">FARMACIA ANA-MARIA SRL</a>
+          </td>
+          <td class="small text-muted">GURAMULTA GHEORGHE</td>
+          <td class="text-end fw-semibold">392 RON</td>
+          <td class="text-end">
+            <div class="d-flex align-items-center justify-content-end gap-2">
+              <div class="progress" style="height:6px;width:60px">
+                <div class="progress-bar bg-info" style="width:0.19%"></div>
+              </div>
+              <span class="small fw-semibold" style="min-width:50px">0.19%</span>
+            </div>
+          </td>
+          <td class="text-end small">
+            —
+          </td>
+          <td class="text-end small">182 RON</td>
+          <td class="text-end small
+            text-success fw-semibold
+            ">
+            46.4%
+          </td>
+          <td class="text-end text-muted small">6</td>
+          <td class="text-muted small">2026-04-08</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted small">16</td>
+          <td>
+            <a href="../client/1509.html"
+               class="text-decoration-none fw-semibold">SMART BOX TRADING S.R.L.</a>
+          </td>
+          <td class="small text-muted">BRINZA CLAUDIU</td>
+          <td class="text-end fw-semibold">312 RON</td>
+          <td class="text-end">
+            <div class="d-flex align-items-center justify-content-end gap-2">
+              <div class="progress" style="height:6px;width:60px">
+                <div class="progress-bar bg-info" style="width:0.15%"></div>
+              </div>
+              <span class="small fw-semibold" style="min-width:50px">0.15%</span>
+            </div>
+          </td>
+          <td class="text-end small">
+            
+            <span class="text-danger">
+              -216.0%
+            </span>
+            <div class="text-muted" style="font-size:0.7rem">-269 RON</div>
+            
+          </td>
+          <td class="text-end small">97 RON</td>
+          <td class="text-end small
+            text-warning
+            ">
+            31.1%
+          </td>
+          <td class="text-end text-muted small">1</td>
+          <td class="text-muted small">2026-04-03</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted small">17</td>
+          <td>
+            <a href="../client/3208.html"
+               class="text-decoration-none fw-semibold">VECTOR AS COM 05 SRL</a>
+          </td>
+          <td class="small text-muted">CONSTANTIN IONUT</td>
+          <td class="text-end fw-semibold">302 RON</td>
+          <td class="text-end">
+            <div class="d-flex align-items-center justify-content-end gap-2">
+              <div class="progress" style="height:6px;width:60px">
+                <div class="progress-bar bg-info" style="width:0.15%"></div>
+              </div>
+              <span class="small fw-semibold" style="min-width:50px">0.15%</span>
+            </div>
+          </td>
+          <td class="text-end small">
+            —
+          </td>
+          <td class="text-end small">146 RON</td>
+          <td class="text-end small
+            text-success fw-semibold
+            ">
+            48.4%
+          </td>
+          <td class="text-end text-muted small">4</td>
+          <td class="text-muted small">2026-04-20</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted small">18</td>
+          <td>
+            <a href="../client/753.html"
+               class="text-decoration-none fw-semibold">GEDAL PRODUCTION S.R.L.</a>
+          </td>
+          <td class="small text-muted">CONSTANTIN IONUT</td>
+          <td class="text-end fw-semibold">277 RON</td>
+          <td class="text-end">
+            <div class="d-flex align-items-center justify-content-end gap-2">
+              <div class="progress" style="height:6px;width:60px">
+                <div class="progress-bar bg-info" style="width:0.13%"></div>
+              </div>
+              <span class="small fw-semibold" style="min-width:50px">0.13%</span>
+            </div>
+          </td>
+          <td class="text-end small">
+            
+            <span class="text-danger">
+              -4.5%
+            </span>
+            <div class="text-muted" style="font-size:0.7rem">290 RON</div>
+            
+          </td>
+          <td class="text-end small">117 RON</td>
+          <td class="text-end small
+            text-warning
+            ">
+            42.2%
+          </td>
+          <td class="text-end text-muted small">5</td>
+          <td class="text-muted small">2026-04-30</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted small">19</td>
+          <td>
+            <a href="../client/936.html"
+               class="text-decoration-none fw-semibold">FARMACIA TEI SRL</a>
+          </td>
+          <td class="small text-muted">BRINZA CLAUDIU</td>
+          <td class="text-end fw-semibold">231 RON</td>
+          <td class="text-end">
+            <div class="d-flex align-items-center justify-content-end gap-2">
+              <div class="progress" style="height:6px;width:60px">
+                <div class="progress-bar bg-info" style="width:0.11%"></div>
+              </div>
+              <span class="small fw-semibold" style="min-width:50px">0.11%</span>
+            </div>
+          </td>
+          <td class="text-end small">
+            —
+          </td>
+          <td class="text-end small">87 RON</td>
+          <td class="text-end small
+            text-warning
+            ">
+            37.8%
+          </td>
+          <td class="text-end text-muted small">1</td>
+          <td class="text-muted small">2026-02-09</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted small">20</td>
+          <td>
+            <a href="../client/854.html"
+               class="text-decoration-none fw-semibold">SERV-CONEX 2000 S.R.L.</a>
+          </td>
+          <td class="small text-muted">CONSTANTIN IONUT</td>
+          <td class="text-end fw-semibold">222 RON</td>
+          <td class="text-end">
+            <div class="d-flex align-items-center justify-content-end gap-2">
+              <div class="progress" style="height:6px;width:60px">
+                <div class="progress-bar bg-info" style="width:0.11%"></div>
+              </div>
+              <span class="small fw-semibold" style="min-width:50px">0.11%</span>
+            </div>
+          </td>
+          <td class="text-end small">
+            
+            <span class="text-danger">
+              -81.4%
+            </span>
+            <div class="text-muted" style="font-size:0.7rem">1.196 RON</div>
+            
+          </td>
+          <td class="text-end small">116 RON</td>
+          <td class="text-end small
+            text-success fw-semibold
+            ">
+            52.2%
+          </td>
+          <td class="text-end text-muted small">4</td>
+          <td class="text-muted small">2026-04-08</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted small">21</td>
+          <td>
+            <a href="../client/873.html"
+               class="text-decoration-none fw-semibold">AMD MARIA MEDICAL SRL</a>
+          </td>
+          <td class="small text-muted">CONSTANTIN IONUT</td>
+          <td class="text-end fw-semibold">211 RON</td>
+          <td class="text-end">
+            <div class="d-flex align-items-center justify-content-end gap-2">
+              <div class="progress" style="height:6px;width:60px">
+                <div class="progress-bar bg-info" style="width:0.1%"></div>
+              </div>
+              <span class="small fw-semibold" style="min-width:50px">0.1%</span>
+            </div>
+          </td>
+          <td class="text-end small">
+            
+            <span class="text-success">
+              +48.6%
+            </span>
+            <div class="text-muted" style="font-size:0.7rem">142 RON</div>
+            
+          </td>
+          <td class="text-end small">107 RON</td>
+          <td class="text-end small
+            text-success fw-semibold
+            ">
+            50.9%
+          </td>
+          <td class="text-end text-muted small">4</td>
+          <td class="text-muted small">2026-03-27</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted small">22</td>
+          <td>
+            <a href="../client/1383.html"
+               class="text-decoration-none fw-semibold">SUPERB KIDS S.R.L.</a>
+          </td>
+          <td class="small text-muted">CONSTANTIN IONUT</td>
+          <td class="text-end fw-semibold">206 RON</td>
+          <td class="text-end">
+            <div class="d-flex align-items-center justify-content-end gap-2">
+              <div class="progress" style="height:6px;width:60px">
+                <div class="progress-bar bg-info" style="width:0.1%"></div>
+              </div>
+              <span class="small fw-semibold" style="min-width:50px">0.1%</span>
+            </div>
+          </td>
+          <td class="text-end small">
+            
+            <span class="text-danger">
+              -14.2%
+            </span>
+            <div class="text-muted" style="font-size:0.7rem">240 RON</div>
+            
+          </td>
+          <td class="text-end small">113 RON</td>
+          <td class="text-end small
+            text-success fw-semibold
+            ">
+            54.8%
+          </td>
+          <td class="text-end text-muted small">4</td>
+          <td class="text-muted small">2026-04-20</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted small">23</td>
+          <td>
+            <a href="../client/1295.html"
+               class="text-decoration-none fw-semibold">PALADIUM COM SRL</a>
+          </td>
+          <td class="small text-muted">CONSTANTIN IONUT</td>
+          <td class="text-end fw-semibold">193 RON</td>
+          <td class="text-end">
+            <div class="d-flex align-items-center justify-content-end gap-2">
+              <div class="progress" style="height:6px;width:60px">
+                <div class="progress-bar bg-info" style="width:0.09%"></div>
+              </div>
+              <span class="small fw-semibold" style="min-width:50px">0.09%</span>
+            </div>
+          </td>
+          <td class="text-end small">
+            
+            <span class="text-success">
+              +179.7%
+            </span>
+            <div class="text-muted" style="font-size:0.7rem">69 RON</div>
+            
+          </td>
+          <td class="text-end small">103 RON</td>
+          <td class="text-end small
+            text-success fw-semibold
+            ">
+            53.3%
+          </td>
+          <td class="text-end text-muted small">8</td>
+          <td class="text-muted small">2026-04-23</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted small">24</td>
+          <td>
+            <a href="../client/968.html"
+               class="text-decoration-none fw-semibold">MOV-GANG S.R.L.</a>
+          </td>
+          <td class="small text-muted">CONSTANTIN IONUT</td>
+          <td class="text-end fw-semibold">173 RON</td>
+          <td class="text-end">
+            <div class="d-flex align-items-center justify-content-end gap-2">
+              <div class="progress" style="height:6px;width:60px">
+                <div class="progress-bar bg-info" style="width:0.08%"></div>
+              </div>
+              <span class="small fw-semibold" style="min-width:50px">0.08%</span>
+            </div>
+          </td>
+          <td class="text-end small">
+            —
+          </td>
+          <td class="text-end small">88 RON</td>
+          <td class="text-end small
+            text-success fw-semibold
+            ">
+            50.9%
+          </td>
+          <td class="text-end text-muted small">7</td>
+          <td class="text-muted small">2026-04-17</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted small">25</td>
+          <td>
+            <a href="../client/1386.html"
+               class="text-decoration-none fw-semibold">CID 2002 SERVCOM CATERING SRL</a>
+          </td>
+          <td class="small text-muted">CONSTANTIN IONUT</td>
+          <td class="text-end fw-semibold">165 RON</td>
+          <td class="text-end">
+            <div class="d-flex align-items-center justify-content-end gap-2">
+              <div class="progress" style="height:6px;width:60px">
+                <div class="progress-bar bg-info" style="width:0.08%"></div>
+              </div>
+              <span class="small fw-semibold" style="min-width:50px">0.08%</span>
+            </div>
+          </td>
+          <td class="text-end small">
+            
+            <span class="text-danger">
+              -45.5%
+            </span>
+            <div class="text-muted" style="font-size:0.7rem">303 RON</div>
+            
+          </td>
+          <td class="text-end small">88 RON</td>
+          <td class="text-end small
+            text-success fw-semibold
+            ">
+            53.7%
+          </td>
+          <td class="text-end text-muted small">7</td>
+          <td class="text-muted small">2026-04-30</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted small">26</td>
+          <td>
+            <a href="../client/1824.html"
+               class="text-decoration-none fw-semibold">MIGHIU DANIELA</a>
+          </td>
+          <td class="small text-muted">GURAMULTA GHEORGHE</td>
+          <td class="text-end fw-semibold">163 RON</td>
+          <td class="text-end">
+            <div class="d-flex align-items-center justify-content-end gap-2">
+              <div class="progress" style="height:6px;width:60px">
+                <div class="progress-bar bg-info" style="width:0.08%"></div>
+              </div>
+              <span class="small fw-semibold" style="min-width:50px">0.08%</span>
+            </div>
+          </td>
+          <td class="text-end small">
+            
+            <span class="text-success">
+              +32.5%
+            </span>
+            <div class="text-muted" style="font-size:0.7rem">123 RON</div>
+            
+          </td>
+          <td class="text-end small">84 RON</td>
+          <td class="text-end small
+            text-success fw-semibold
+            ">
+            51.3%
+          </td>
+          <td class="text-end text-muted small">3</td>
+          <td class="text-muted small">2026-03-17</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted small">27</td>
+          <td>
+            <a href="../client/1153.html"
+               class="text-decoration-none fw-semibold">TAMIVAL DOLCE SRL</a>
+          </td>
+          <td class="small text-muted">CONSTANTIN IONUT</td>
+          <td class="text-end fw-semibold">150 RON</td>
+          <td class="text-end">
+            <div class="d-flex align-items-center justify-content-end gap-2">
+              <div class="progress" style="height:6px;width:60px">
+                <div class="progress-bar bg-info" style="width:0.07%"></div>
+              </div>
+              <span class="small fw-semibold" style="min-width:50px">0.07%</span>
+            </div>
+          </td>
+          <td class="text-end small">
+            
+            <span class="text-danger">
+              -58.6%
+            </span>
+            <div class="text-muted" style="font-size:0.7rem">362 RON</div>
+            
+          </td>
+          <td class="text-end small">79 RON</td>
+          <td class="text-end small
+            text-success fw-semibold
+            ">
+            52.4%
+          </td>
+          <td class="text-end text-muted small">1</td>
+          <td class="text-muted small">2026-03-20</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted small">28</td>
+          <td>
+            <a href="../client/1388.html"
+               class="text-decoration-none fw-semibold">TERRAN CID SRL</a>
+          </td>
+          <td class="small text-muted">CONSTANTIN IONUT</td>
+          <td class="text-end fw-semibold">130 RON</td>
+          <td class="text-end">
+            <div class="d-flex align-items-center justify-content-end gap-2">
+              <div class="progress" style="height:6px;width:60px">
+                <div class="progress-bar bg-info" style="width:0.06%"></div>
+              </div>
+              <span class="small fw-semibold" style="min-width:50px">0.06%</span>
+            </div>
+          </td>
+          <td class="text-end small">
+            
+            <span class="text-danger">
+              -57.1%
+            </span>
+            <div class="text-muted" style="font-size:0.7rem">303 RON</div>
+            
+          </td>
+          <td class="text-end small">70 RON</td>
+          <td class="text-end small
+            text-success fw-semibold
+            ">
+            53.5%
+          </td>
+          <td class="text-end text-muted small">7</td>
+          <td class="text-muted small">2026-04-30</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted small">29</td>
+          <td>
+            <a href="../client/1332.html"
+               class="text-decoration-none fw-semibold">POPA-MIRCEA SERV S.R.L.</a>
+          </td>
+          <td class="small text-muted">CONSTANTIN IONUT</td>
+          <td class="text-end fw-semibold">130 RON</td>
+          <td class="text-end">
+            <div class="d-flex align-items-center justify-content-end gap-2">
+              <div class="progress" style="height:6px;width:60px">
+                <div class="progress-bar bg-info" style="width:0.06%"></div>
+              </div>
+              <span class="small fw-semibold" style="min-width:50px">0.06%</span>
+            </div>
+          </td>
+          <td class="text-end small">
+            
+            <span class="text-danger">
+              -15.0%
+            </span>
+            <div class="text-muted" style="font-size:0.7rem">153 RON</div>
+            
+          </td>
+          <td class="text-end small">68 RON</td>
+          <td class="text-end small
+            text-success fw-semibold
+            ">
+            52.2%
+          </td>
+          <td class="text-end text-muted small">4</td>
+          <td class="text-muted small">2026-04-06</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted small">30</td>
+          <td>
+            <a href="../client/4980.html"
+               class="text-decoration-none fw-semibold">HANGANU RODICA</a>
+          </td>
+          <td class="small text-muted">CONSTANTIN IONUT</td>
+          <td class="text-end fw-semibold">112 RON</td>
+          <td class="text-end">
+            <div class="d-flex align-items-center justify-content-end gap-2">
+              <div class="progress" style="height:6px;width:60px">
+                <div class="progress-bar bg-info" style="width:0.05%"></div>
+              </div>
+              <span class="small fw-semibold" style="min-width:50px">0.05%</span>
+            </div>
+          </td>
+          <td class="text-end small">
+            —
+          </td>
+          <td class="text-end small">55 RON</td>
+          <td class="text-end small
+            text-success fw-semibold
+            ">
+            49.6%
+          </td>
+          <td class="text-end text-muted small">1</td>
+          <td class="text-muted small">2026-04-30</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted small">31</td>
+          <td>
+            <a href="../client/819.html"
+               class="text-decoration-none fw-semibold">COROLA ROSA SRL</a>
+          </td>
+          <td class="small text-muted">GURAMULTA GHEORGHE</td>
+          <td class="text-end fw-semibold">109 RON</td>
+          <td class="text-end">
+            <div class="d-flex align-items-center justify-content-end gap-2">
+              <div class="progress" style="height:6px;width:60px">
+                <div class="progress-bar bg-info" style="width:0.05%"></div>
+              </div>
+              <span class="small fw-semibold" style="min-width:50px">0.05%</span>
+            </div>
+          </td>
+          <td class="text-end small">
+            
+            <span class="text-danger">
+              -53.0%
+            </span>
+            <div class="text-muted" style="font-size:0.7rem">232 RON</div>
+            
+          </td>
+          <td class="text-end small">56 RON</td>
+          <td class="text-end small
+            text-success fw-semibold
+            ">
+            51.0%
+          </td>
+          <td class="text-end text-muted small">1</td>
+          <td class="text-muted small">2026-03-18</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted small">32</td>
+          <td>
+            <a href="../client/4855.html"
+               class="text-decoration-none fw-semibold">VIORICA APOSTOL</a>
+          </td>
+          <td class="small text-muted">EMAG</td>
+          <td class="text-end fw-semibold">109 RON</td>
+          <td class="text-end">
+            <div class="d-flex align-items-center justify-content-end gap-2">
+              <div class="progress" style="height:6px;width:60px">
+                <div class="progress-bar bg-info" style="width:0.05%"></div>
+              </div>
+              <span class="small fw-semibold" style="min-width:50px">0.05%</span>
+            </div>
+          </td>
+          <td class="text-end small">
+            —
+          </td>
+          <td class="text-end small">82 RON</td>
+          <td class="text-end small
+            text-success fw-semibold
+            ">
+            75.5%
+          </td>
+          <td class="text-end text-muted small">1</td>
+          <td class="text-muted small">2026-04-02</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted small">33</td>
+          <td>
+            <a href="../client/963.html"
+               class="text-decoration-none fw-semibold">CRISTIN N L IMPEX SRL</a>
+          </td>
+          <td class="small text-muted">CONSTANTIN IONUT</td>
+          <td class="text-end fw-semibold">103 RON</td>
+          <td class="text-end">
+            <div class="d-flex align-items-center justify-content-end gap-2">
+              <div class="progress" style="height:6px;width:60px">
+                <div class="progress-bar bg-info" style="width:0.05%"></div>
+              </div>
+              <span class="small fw-semibold" style="min-width:50px">0.05%</span>
+            </div>
+          </td>
+          <td class="text-end small">
+            
+            <span class="text-danger">
+              -62.7%
+            </span>
+            <div class="text-muted" style="font-size:0.7rem">276 RON</div>
+            
+          </td>
+          <td class="text-end small">56 RON</td>
+          <td class="text-end small
+            text-success fw-semibold
+            ">
+            54.6%
+          </td>
+          <td class="text-end text-muted small">4</td>
+          <td class="text-muted small">2026-04-16</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted small">34</td>
+          <td>
+            <a href="../client/848.html"
+               class="text-decoration-none fw-semibold">ROM SEP SRL</a>
+          </td>
+          <td class="small text-muted">CONSTANTIN IONUT</td>
+          <td class="text-end fw-semibold">103 RON</td>
+          <td class="text-end">
+            <div class="d-flex align-items-center justify-content-end gap-2">
+              <div class="progress" style="height:6px;width:60px">
+                <div class="progress-bar bg-info" style="width:0.05%"></div>
+              </div>
+              <span class="small fw-semibold" style="min-width:50px">0.05%</span>
+            </div>
+          </td>
+          <td class="text-end small">
+            
+            <span class="text-danger">
+              -64.0%
+            </span>
+            <div class="text-muted" style="font-size:0.7rem">286 RON</div>
+            
+          </td>
+          <td class="text-end small">56 RON</td>
+          <td class="text-end small
+            text-success fw-semibold
+            ">
+            54.6%
+          </td>
+          <td class="text-end text-muted small">4</td>
+          <td class="text-muted small">2026-04-16</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted small">35</td>
+          <td>
+            <a href="../client/989.html"
+               class="text-decoration-none fw-semibold">OZANA MARKET SRL</a>
+          </td>
+          <td class="small text-muted">CONSTANTIN IONUT</td>
+          <td class="text-end fw-semibold">98 RON</td>
+          <td class="text-end">
+            <div class="d-flex align-items-center justify-content-end gap-2">
+              <div class="progress" style="height:6px;width:60px">
+                <div class="progress-bar bg-info" style="width:0.05%"></div>
+              </div>
+              <span class="small fw-semibold" style="min-width:50px">0.05%</span>
+            </div>
+          </td>
+          <td class="text-end small">
+            —
+          </td>
+          <td class="text-end small">51 RON</td>
+          <td class="text-end small
+            text-success fw-semibold
+            ">
+            52.2%
+          </td>
+          <td class="text-end text-muted small">4</td>
+          <td class="text-muted small">2026-04-07</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted small">36</td>
+          <td>
+            <a href="../client/1266.html"
+               class="text-decoration-none fw-semibold">NEPTUN SA</a>
+          </td>
+          <td class="small text-muted">DRAGNEA BOGDAN</td>
+          <td class="text-end fw-semibold">95 RON</td>
+          <td class="text-end">
+            <div class="d-flex align-items-center justify-content-end gap-2">
+              <div class="progress" style="height:6px;width:60px">
+                <div class="progress-bar bg-info" style="width:0.05%"></div>
+              </div>
+              <span class="small fw-semibold" style="min-width:50px">0.05%</span>
+            </div>
+          </td>
+          <td class="text-end small">
+            —
+          </td>
+          <td class="text-end small">50 RON</td>
+          <td class="text-end small
+            text-success fw-semibold
+            ">
+            52.6%
+          </td>
+          <td class="text-end text-muted small">2</td>
+          <td class="text-muted small">2026-01-29</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted small">37</td>
+          <td>
+            <a href="../client/4935.html"
+               class="text-decoration-none fw-semibold">COSMY MAG S.R.L.</a>
+          </td>
+          <td class="small text-muted">CONSTANTIN IONUT</td>
+          <td class="text-end fw-semibold">82 RON</td>
+          <td class="text-end">
+            <div class="d-flex align-items-center justify-content-end gap-2">
+              <div class="progress" style="height:6px;width:60px">
+                <div class="progress-bar bg-info" style="width:0.04%"></div>
+              </div>
+              <span class="small fw-semibold" style="min-width:50px">0.04%</span>
+            </div>
+          </td>
+          <td class="text-end small">
+            —
+          </td>
+          <td class="text-end small">43 RON</td>
+          <td class="text-end small
+            text-success fw-semibold
+            ">
+            53.1%
+          </td>
+          <td class="text-end text-muted small">2</td>
+          <td class="text-muted small">2026-04-21</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted small">38</td>
+          <td>
+            <a href="../client/1662.html"
+               class="text-decoration-none fw-semibold">DINU MADALINA</a>
+          </td>
+          <td class="small text-muted">GURAMULTA GHEORGHE</td>
+          <td class="text-end fw-semibold">78 RON</td>
+          <td class="text-end">
+            <div class="d-flex align-items-center justify-content-end gap-2">
+              <div class="progress" style="height:6px;width:60px">
+                <div class="progress-bar bg-info" style="width:0.04%"></div>
+              </div>
+              <span class="small fw-semibold" style="min-width:50px">0.04%</span>
+            </div>
+          </td>
+          <td class="text-end small">
+            
+            <span class="text-danger">
+              -43.9%
+            </span>
+            <div class="text-muted" style="font-size:0.7rem">139 RON</div>
+            
+          </td>
+          <td class="text-end small">40 RON</td>
+          <td class="text-end small
+            text-success fw-semibold
+            ">
+            50.8%
+          </td>
+          <td class="text-end text-muted small">1</td>
+          <td class="text-muted small">2026-03-05</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted small">39</td>
+          <td>
+            <a href="../client/886.html"
+               class="text-decoration-none fw-semibold">R-THEO FAMILY SRL</a>
+          </td>
+          <td class="small text-muted">CONSTANTIN IONUT</td>
+          <td class="text-end fw-semibold">69 RON</td>
+          <td class="text-end">
+            <div class="d-flex align-items-center justify-content-end gap-2">
+              <div class="progress" style="height:6px;width:60px">
+                <div class="progress-bar bg-info" style="width:0.03%"></div>
+              </div>
+              <span class="small fw-semibold" style="min-width:50px">0.03%</span>
+            </div>
+          </td>
+          <td class="text-end small">
+            —
+          </td>
+          <td class="text-end small">37 RON</td>
+          <td class="text-end small
+            text-success fw-semibold
+            ">
+            54.6%
+          </td>
+          <td class="text-end text-muted small">4</td>
+          <td class="text-muted small">2026-04-06</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted small">40</td>
+          <td>
+            <a href="../client/883.html"
+               class="text-decoration-none fw-semibold">AXINCOM IMPEX S.R.L.</a>
+          </td>
+          <td class="small text-muted">CONSTANTIN IONUT</td>
+          <td class="text-end fw-semibold">69 RON</td>
+          <td class="text-end">
+            <div class="d-flex align-items-center justify-content-end gap-2">
+              <div class="progress" style="height:6px;width:60px">
+                <div class="progress-bar bg-info" style="width:0.03%"></div>
+              </div>
+              <span class="small fw-semibold" style="min-width:50px">0.03%</span>
+            </div>
+          </td>
+          <td class="text-end small">
+            —
+          </td>
+          <td class="text-end small">37 RON</td>
+          <td class="text-end small
+            text-success fw-semibold
+            ">
+            54.6%
+          </td>
+          <td class="text-end text-muted small">4</td>
+          <td class="text-muted small">2026-02-23</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted small">41</td>
+          <td>
+            <a href="../client/4583.html"
+               class="text-decoration-none fw-semibold">GHEORGHE MARIN</a>
+          </td>
+          <td class="small text-muted">EMAG</td>
+          <td class="text-end fw-semibold">53 RON</td>
+          <td class="text-end">
+            <div class="d-flex align-items-center justify-content-end gap-2">
+              <div class="progress" style="height:6px;width:60px">
+                <div class="progress-bar bg-info" style="width:0.03%"></div>
+              </div>
+              <span class="small fw-semibold" style="min-width:50px">0.03%</span>
+            </div>
+          </td>
+          <td class="text-end small">
+            —
+          </td>
+          <td class="text-end small">35 RON</td>
+          <td class="text-end small
+            text-success fw-semibold
+            ">
+            65.8%
+          </td>
+          <td class="text-end text-muted small">2</td>
+          <td class="text-muted small">2026-02-17</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted small">42</td>
+          <td>
+            <a href="../client/952.html"
+               class="text-decoration-none fw-semibold">CONSTANTIN IONUT</a>
+          </td>
+          <td class="small text-muted">REICH LEOPOLD</td>
+          <td class="text-end fw-semibold">45 RON</td>
+          <td class="text-end">
+            <div class="d-flex align-items-center justify-content-end gap-2">
+              <div class="progress" style="height:6px;width:60px">
+                <div class="progress-bar bg-info" style="width:0.02%"></div>
+              </div>
+              <span class="small fw-semibold" style="min-width:50px">0.02%</span>
+            </div>
+          </td>
+          <td class="text-end small">
+            
+            <span class="text-danger">
+              -76.4%
+            </span>
+            <div class="text-muted" style="font-size:0.7rem">191 RON</div>
+            
+          </td>
+          <td class="text-end small">14 RON</td>
+          <td class="text-end small
+            text-warning
+            ">
+            31.1%
+          </td>
+          <td class="text-end text-muted small">2</td>
+          <td class="text-muted small">2026-03-30</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted small">43</td>
+          <td>
+            <a href="../client/1312.html"
+               class="text-decoration-none fw-semibold">GURAMULTA GHEORGHE</a>
+          </td>
+          <td class="small text-muted">BOTEA DANIEL</td>
+          <td class="text-end fw-semibold">45 RON</td>
+          <td class="text-end">
+            <div class="d-flex align-items-center justify-content-end gap-2">
+              <div class="progress" style="height:6px;width:60px">
+                <div class="progress-bar bg-info" style="width:0.02%"></div>
+              </div>
+              <span class="small fw-semibold" style="min-width:50px">0.02%</span>
+            </div>
+          </td>
+          <td class="text-end small">
+            
+            <span class="text-danger">
+              -76.6%
+            </span>
+            <div class="text-muted" style="font-size:0.7rem">192 RON</div>
+            
+          </td>
+          <td class="text-end small">17 RON</td>
+          <td class="text-end small
+            text-warning
+            ">
+            37.0%
+          </td>
+          <td class="text-end text-muted small">1</td>
+          <td class="text-muted small">2026-01-23</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted small">44</td>
+          <td>
+            <a href="../client/1326.html"
+               class="text-decoration-none fw-semibold">ALEGRO MARKET COMP S.R.L.</a>
+          </td>
+          <td class="small text-muted">CONSTANTIN IONUT</td>
+          <td class="text-end fw-semibold">33 RON</td>
+          <td class="text-end">
+            <div class="d-flex align-items-center justify-content-end gap-2">
+              <div class="progress" style="height:6px;width:60px">
+                <div class="progress-bar bg-info" style="width:0.02%"></div>
+              </div>
+              <span class="small fw-semibold" style="min-width:50px">0.02%</span>
+            </div>
+          </td>
+          <td class="text-end small">
+            
+            <span class="text-danger">
+              -90.4%
+            </span>
+            <div class="text-muted" style="font-size:0.7rem">342 RON</div>
+            
+          </td>
+          <td class="text-end small">17 RON</td>
+          <td class="text-end small
+            text-success fw-semibold
+            ">
+            51.2%
+          </td>
+          <td class="text-end text-muted small">2</td>
+          <td class="text-muted small">2026-04-24</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted small">45</td>
+          <td>
+            <a href="../client/2198.html"
+               class="text-decoration-none fw-semibold">MANOLACHE MADALINA</a>
+          </td>
+          <td class="small text-muted">SITE</td>
+          <td class="text-end fw-semibold">21 RON</td>
+          <td class="text-end">
+            <div class="d-flex align-items-center justify-content-end gap-2">
+              <div class="progress" style="height:6px;width:60px">
+                <div class="progress-bar bg-info" style="width:0.01%"></div>
+              </div>
+              <span class="small fw-semibold" style="min-width:50px">0.01%</span>
+            </div>
+          </td>
+          <td class="text-end small">
+            
+            <span class="text-danger">
+              -63.2%
+            </span>
+            <div class="text-muted" style="font-size:0.7rem">57 RON</div>
+            
+          </td>
+          <td class="text-end small">11 RON</td>
+          <td class="text-end small
+            text-success fw-semibold
+            ">
+            52.3%
+          </td>
+          <td class="text-end text-muted small">1</td>
+          <td class="text-muted small">2026-01-23</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted small">46</td>
+          <td>
+            <a href="../client/927.html"
+               class="text-decoration-none fw-semibold">DELICATESE FLORESCU S.R.L.</a>
+          </td>
+          <td class="small text-muted">GURAMULTA GHEORGHE</td>
+          <td class="text-end fw-semibold">0 RON</td>
+          <td class="text-end">
+            <div class="d-flex align-items-center justify-content-end gap-2">
+              <div class="progress" style="height:6px;width:60px">
+                <div class="progress-bar bg-info" style="width:0.0%"></div>
+              </div>
+              <span class="small fw-semibold" style="min-width:50px">0.0%</span>
+            </div>
+          </td>
+          <td class="text-end small">
+            
+            <span class="text-danger">
+              -100.0%
+            </span>
+            <div class="text-muted" style="font-size:0.7rem">3.377 RON</div>
+            
+          </td>
+          <td class="text-end small">0 RON</td>
+          <td class="text-end small
+            text-danger">
+            —
+          </td>
+          <td class="text-end text-muted small">5</td>
+          <td class="text-muted small">2026-03-18</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted small">47</td>
+          <td>
+            <a href="../client/1417.html"
+               class="text-decoration-none fw-semibold">VIASAN BIO S.R.L.</a>
+          </td>
+          <td class="small text-muted">CONSTANTIN IONUT</td>
+          <td class="text-end fw-semibold">-53 RON</td>
+          <td class="text-end">
+            <div class="d-flex align-items-center justify-content-end gap-2">
+              <div class="progress" style="height:6px;width:60px">
+                <div class="progress-bar bg-info" style="width:-0.03%"></div>
+              </div>
+              <span class="small fw-semibold" style="min-width:50px">-0.03%</span>
+            </div>
+          </td>
+          <td class="text-end small">
+            —
+          </td>
+          <td class="text-end small">11 RON</td>
+          <td class="text-end small
+            text-danger">
+            -21.2%
+          </td>
+          <td class="text-end text-muted small">4</td>
+          <td class="text-muted small">2026-01-19</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted small">48</td>
+          <td>
+            <a href="../client/1399.html"
+               class="text-decoration-none fw-semibold">GREEN HILLS MARKET S.R.L.</a>
+          </td>
+          <td class="small text-muted">GURAMULTA GHEORGHE</td>
+          <td class="text-end fw-semibold">-122 RON</td>
+          <td class="text-end">
+            <div class="d-flex align-items-center justify-content-end gap-2">
+              <div class="progress" style="height:6px;width:60px">
+                <div class="progress-bar bg-info" style="width:-0.06%"></div>
+              </div>
+              <span class="small fw-semibold" style="min-width:50px">-0.06%</span>
+            </div>
+          </td>
+          <td class="text-end small">
+            
+            <span class="text-danger">
+              -165.2%
+            </span>
+            <div class="text-muted" style="font-size:0.7rem">187 RON</div>
+            
+          </td>
+          <td class="text-end small">-73 RON</td>
+          <td class="text-end small
+            text-success fw-semibold
+            ">
+            59.4%
+          </td>
+          <td class="text-end text-muted small">7</td>
+          <td class="text-muted small">2026-03-11</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted small">49</td>
+          <td>
+            <a href="../client/2157.html"
+               class="text-decoration-none fw-semibold">PMM FAMSERR MARKDIS S.R.L.</a>
+          </td>
+          <td class="small text-muted">CONSTANTIN IONUT</td>
+          <td class="text-end fw-semibold">-225 RON</td>
+          <td class="text-end">
+            <div class="d-flex align-items-center justify-content-end gap-2">
+              <div class="progress" style="height:6px;width:60px">
+                <div class="progress-bar bg-info" style="width:-0.11%"></div>
+              </div>
+              <span class="small fw-semibold" style="min-width:50px">-0.11%</span>
+            </div>
+          </td>
+          <td class="text-end small">
+            —
+          </td>
+          <td class="text-end small">-116 RON</td>
+          <td class="text-end small
+            text-success fw-semibold
+            ">
+            51.4%
+          </td>
+          <td class="text-end text-muted small">4</td>
+          <td class="text-muted small">2026-02-17</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted small">50</td>
+          <td>
+            <a href="../client/861.html"
+               class="text-decoration-none fw-semibold">COMAT COMSERV SRL</a>
+          </td>
+          <td class="small text-muted">GURAMULTA GHEORGHE</td>
+          <td class="text-end fw-semibold">-396 RON</td>
+          <td class="text-end">
+            <div class="d-flex align-items-center justify-content-end gap-2">
+              <div class="progress" style="height:6px;width:60px">
+                <div class="progress-bar bg-info" style="width:-0.19%"></div>
+              </div>
+              <span class="small fw-semibold" style="min-width:50px">-0.19%</span>
+            </div>
+          </td>
+          <td class="text-end small">
+            
+            <span class="text-danger">
+              -153.3%
+            </span>
+            <div class="text-muted" style="font-size:0.7rem">743 RON</div>
+            
+          </td>
+          <td class="text-end small">-209 RON</td>
+          <td class="text-end small
+            text-success fw-semibold
+            ">
+            52.8%
+          </td>
+          <td class="text-end text-muted small">3</td>
+          <td class="text-muted small">2026-04-23</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted small">51</td>
+          <td>
+            <a href="../client/913.html"
+               class="text-decoration-none fw-semibold">ISSA INTERNET SRL</a>
+          </td>
+          <td class="small text-muted">GURAMULTA GHEORGHE</td>
+          <td class="text-end fw-semibold">-933 RON</td>
+          <td class="text-end">
+            <div class="d-flex align-items-center justify-content-end gap-2">
+              <div class="progress" style="height:6px;width:60px">
+                <div class="progress-bar bg-info" style="width:-0.45%"></div>
+              </div>
+              <span class="small fw-semibold" style="min-width:50px">-0.45%</span>
+            </div>
+          </td>
+          <td class="text-end small">
+            
+            <span class="text-danger">
+              -169.6%
+            </span>
+            <div class="text-muted" style="font-size:0.7rem">1.340 RON</div>
+            
+          </td>
+          <td class="text-end small">-408 RON</td>
+          <td class="text-end small
+            text-warning
+            ">
+            43.7%
+          </td>
+          <td class="text-end text-muted small">14</td>
+          <td class="text-muted small">2026-04-15</td>
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Top SKUs for this brand -->
+<div class="card shadow-sm border-0">
+  <div class="card-header bg-white fw-semibold d-flex justify-content-between align-items-center flex-wrap gap-2">
+    <span>
+      <i class="bi bi-list-stars me-1 text-secondary"></i> Top SKU-uri Delaviuda 2026
+      
+    </span>
+    <form method="get" class="d-flex gap-2">
+      <input type="hidden" name="an" value="2026">
+      <div class="input-group input-group-sm" style="width:260px">
+        <span class="input-group-text"><i class="bi bi-search"></i></span>
+        <input type="text" name="q" value=""
+               placeholder="cod sau denumire SKU"
+               class="form-control form-control-sm">
+        <button type="submit" class="btn btn-outline-primary btn-sm">Caută</button>
+        
+      </div>
+    </form>
+  </div>
+  <div class="table-responsive">
+    <table class="table table-sm table-hover mb-0">
+      <thead class="table-light">
+        <tr>
+          <th>#</th>
+          <th style="width:80px">Cod</th>
+          <th>SKU</th>
+          <th class="text-end">Val Netă</th>
+          <th class="text-end">Cant.</th>
+          <th class="text-end">MB (RON)</th>
+          <th class="text-end">MB%</th>
+          <th class="text-end">MN%</th>
+          <th class="text-end">Clienți</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <tr>
+          <td class="text-muted">1</td>
+          <td class="text-muted small fw-semibold">1770</td>
+          <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="DEL.PRALINE CREATIONS ALUNE PADURE 168G 70463 8410223703695">
+            <a href="../produs/DEL_PRALINE_CREATIONS_ALUNE_PADURE_168G_70463_8410223703695.html" class="text-decoration-none">
+              DEL.PRALINE CREATIONS ALUNE PADURE 168G 70463 8…
+            </a>
+          </td>
+          <td class="text-end fw-semibold small">44.928 RON</td>
+          <td class="text-end text-muted small">1101</td>
+          <td class="text-end small">15.364 RON</td>
+          <td class="text-end small text-warning">
+            34.2%
+          </td>
+          <td class="text-end small text-success">
+            28.7%
+          </td>
+          <td class="text-end text-muted small">9</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted">2</td>
+          <td class="text-muted small fw-semibold">1768</td>
+          <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="DEL.PRALINE ASSORTED CREATIONS 180G 70453 8410223602943">
+            <a href="../produs/DEL_PRALINE_ASSORTED_CREATIONS_180G_70453_8410223602943.html" class="text-decoration-none">
+              DEL.PRALINE ASSORTED CREATIONS 180G 70453 84102…
+            </a>
+          </td>
+          <td class="text-end fw-semibold small">21.688 RON</td>
+          <td class="text-end text-muted small">446</td>
+          <td class="text-end small">9.223 RON</td>
+          <td class="text-end small text-warning">
+            42.5%
+          </td>
+          <td class="text-end small text-success">
+            42.4%
+          </td>
+          <td class="text-end text-muted small">14</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted">3</td>
+          <td class="text-muted small fw-semibold">1776</td>
+          <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="DEL.PRALINE GIFT BOX SELECTION (ALUNE PADURE CARAMEL 70% CACAO LAPTE) 250G 70761 8410223706573">
+            <a href="../produs/DEL_PRALINE_GIFT_BOX_SELECTION__ALUNE_PADURE_CARAMEL_70__CACAO_LAPTE__250G_70761_8410223706573.html" class="text-decoration-none">
+              DEL.PRALINE GIFT BOX SELECTION (ALUNE PADURE CA…
+            </a>
+          </td>
+          <td class="text-end fw-semibold small">19.345 RON</td>
+          <td class="text-end text-muted small">871</td>
+          <td class="text-end small">8.421 RON</td>
+          <td class="text-end small text-warning">
+            43.5%
+          </td>
+          <td class="text-end small text-success">
+            37.7%
+          </td>
+          <td class="text-end text-muted small">6</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted">4</td>
+          <td class="text-muted small fw-semibold">1767</td>
+          <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="DEL.PRALINE ASORTATE (LAPTE, ALUNE PAD, NEAGRA 70% CACAO) 200G 70759 8410223601793">
+            <a href="../produs/DEL_PRALINE_ASORTATE__LAPTE__ALUNE_PAD__NEAGRA_70__CACAO__200G_70759_8410223601793.html" class="text-decoration-none">
+              DEL.PRALINE ASORTATE (LAPTE, ALUNE PAD, NEAGRA …
+            </a>
+          </td>
+          <td class="text-end fw-semibold small">13.126 RON</td>
+          <td class="text-end text-muted small">669</td>
+          <td class="text-end small">5.393 RON</td>
+          <td class="text-end small text-warning">
+            41.1%
+          </td>
+          <td class="text-end small text-success">
+            36.3%
+          </td>
+          <td class="text-end text-muted small">8</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted">5</td>
+          <td class="text-muted small fw-semibold">1759</td>
+          <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="DEL.PRALINE CIOCOLATA NEAGRA 70% CACAO 150G 70728 8410223602912">
+            <a href="../produs/DEL_PRALINE_CIOCOLATA_NEAGRA_70__CACAO_150G_70728_8410223602912.html" class="text-decoration-none">
+              DEL.PRALINE CIOCOLATA NEAGRA 70% CACAO 150G 707…
+            </a>
+          </td>
+          <td class="text-end fw-semibold small">12.471 RON</td>
+          <td class="text-end text-muted small">989</td>
+          <td class="text-end small">3.789 RON</td>
+          <td class="text-end small text-warning">
+            30.4%
+          </td>
+          <td class="text-end small text-success">
+            24.8%
+          </td>
+          <td class="text-end text-muted small">12</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted">6</td>
+          <td class="text-muted small fw-semibold">1764</td>
+          <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="DEL.PRALINE CIOCOLATA CU LAPTE FARA ZAHAR 150G 70472 8410223602738">
+            <a href="../produs/DEL_PRALINE_CIOCOLATA_CU_LAPTE_FARA_ZAHAR_150G_70472_8410223602738.html" class="text-decoration-none">
+              DEL.PRALINE CIOCOLATA CU LAPTE FARA ZAHAR 150G …
+            </a>
+          </td>
+          <td class="text-end fw-semibold small">11.116 RON</td>
+          <td class="text-end text-muted small">618</td>
+          <td class="text-end small">5.274 RON</td>
+          <td class="text-end small text-success">
+            47.4%
+          </td>
+          <td class="text-end small text-success">
+            47.4%
+          </td>
+          <td class="text-end text-muted small">10</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted">7</td>
+          <td class="text-muted small fw-semibold">1765</td>
+          <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="DEL.PRALINE CIOCOLATA NEAGRA FARA ZAHAR 150G 70474 8410223608099">
+            <a href="../produs/DEL_PRALINE_CIOCOLATA_NEAGRA_FARA_ZAHAR_150G_70474_8410223608099.html" class="text-decoration-none">
+              DEL.PRALINE CIOCOLATA NEAGRA FARA ZAHAR 150G 70…
+            </a>
+          </td>
+          <td class="text-end fw-semibold small">10.846 RON</td>
+          <td class="text-end text-muted small">600</td>
+          <td class="text-end small">4.943 RON</td>
+          <td class="text-end small text-success">
+            45.6%
+          </td>
+          <td class="text-end small text-success">
+            45.1%
+          </td>
+          <td class="text-end text-muted small">13</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted">8</td>
+          <td class="text-muted small fw-semibold">1758</td>
+          <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="DEL.PRALINE CIOCOLATA CU LAPTE 150G 70726 8410223602493">
+            <a href="../produs/DEL_PRALINE_CIOCOLATA_CU_LAPTE_150G_70726_8410223602493.html" class="text-decoration-none">
+              DEL.PRALINE CIOCOLATA CU LAPTE 150G 70726 84102…
+            </a>
+          </td>
+          <td class="text-end fw-semibold small">10.383 RON</td>
+          <td class="text-end text-muted small">826</td>
+          <td class="text-end small">3.092 RON</td>
+          <td class="text-end small text-danger">
+            29.8%
+          </td>
+          <td class="text-end small text-success">
+            24.4%
+          </td>
+          <td class="text-end text-muted small">8</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted">9</td>
+          <td class="text-muted small fw-semibold">1766</td>
+          <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="DEL.PRALINE CIOC CU LAPTE SI CR ALUNE PAD FARA ZAHAR 150G 70470 8410223601786">
+            <a href="../produs/DEL_PRALINE_CIOC_CU_LAPTE_SI_CR_ALUNE_PAD_FARA_ZAHAR_150G_70470_8410223601786.html" class="text-decoration-none">
+              DEL.PRALINE CIOC CU LAPTE SI CR ALUNE PAD FARA …
+            </a>
+          </td>
+          <td class="text-end fw-semibold small">9.259 RON</td>
+          <td class="text-end text-muted small">518</td>
+          <td class="text-end small">4.378 RON</td>
+          <td class="text-end small text-success">
+            47.3%
+          </td>
+          <td class="text-end small text-success">
+            47.3%
+          </td>
+          <td class="text-end text-muted small">12</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted">10</td>
+          <td class="text-muted small fw-semibold">1760</td>
+          <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="DEL.PRALINE CIOCOLATA CU LAPTE SI CARAMEL SARAT 150G 70601 8410223706016">
+            <a href="../produs/DEL_PRALINE_CIOCOLATA_CU_LAPTE_SI_CARAMEL_SARAT_150G_70601_8410223706016.html" class="text-decoration-none">
+              DEL.PRALINE CIOCOLATA CU LAPTE SI CARAMEL SARAT…
+            </a>
+          </td>
+          <td class="text-end fw-semibold small">8.550 RON</td>
+          <td class="text-end text-muted small">674</td>
+          <td class="text-end small">2.522 RON</td>
+          <td class="text-end small text-danger">
+            29.5%
+          </td>
+          <td class="text-end small text-success">
+            24.2%
+          </td>
+          <td class="text-end text-muted small">8</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted">11</td>
+          <td class="text-muted small fw-semibold">1763</td>
+          <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="DEL.PRALINE CIOCOLATA ALBA 150G 70727 8410223602523">
+            <a href="../produs/DEL_PRALINE_CIOCOLATA_ALBA_150G_70727_8410223602523.html" class="text-decoration-none">
+              DEL.PRALINE CIOCOLATA ALBA 150G 70727 8410223602523
+            </a>
+          </td>
+          <td class="text-end fw-semibold small">8.528 RON</td>
+          <td class="text-end text-muted small">664</td>
+          <td class="text-end small">2.608 RON</td>
+          <td class="text-end small text-warning">
+            30.6%
+          </td>
+          <td class="text-end small text-success">
+            25.3%
+          </td>
+          <td class="text-end text-muted small">10</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted">12</td>
+          <td class="text-muted small fw-semibold">1762</td>
+          <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="DEL.PRALINE CIOCOLATA CU LAPTE SI CARAMEL 150G 70475 8410223606705">
+            <a href="../produs/DEL_PRALINE_CIOCOLATA_CU_LAPTE_SI_CARAMEL_150G_70475_8410223606705.html" class="text-decoration-none">
+              DEL.PRALINE CIOCOLATA CU LAPTE SI CARAMEL 150G …
+            </a>
+          </td>
+          <td class="text-end fw-semibold small">8.403 RON</td>
+          <td class="text-end text-muted small">650</td>
+          <td class="text-end small">2.540 RON</td>
+          <td class="text-end small text-warning">
+            30.2%
+          </td>
+          <td class="text-end small text-success">
+            25.1%
+          </td>
+          <td class="text-end text-muted small">7</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted">13</td>
+          <td class="text-muted small fw-semibold">1775</td>
+          <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="DEL.PRALINE ASORTATE (LAPTE, ALUNE PAD, NEAGRA 70% CACAO) 70G 70760 8410223608068">
+            <a href="../produs/DEL_PRALINE_ASORTATE__LAPTE__ALUNE_PAD__NEAGRA_70__CACAO__70G_70760_8410223608068.html" class="text-decoration-none">
+              DEL.PRALINE ASORTATE (LAPTE, ALUNE PAD, NEAGRA …
+            </a>
+          </td>
+          <td class="text-end fw-semibold small">8.141 RON</td>
+          <td class="text-end text-muted small">1019</td>
+          <td class="text-end small">2.573 RON</td>
+          <td class="text-end small text-warning">
+            31.6%
+          </td>
+          <td class="text-end small text-success">
+            26.9%
+          </td>
+          <td class="text-end text-muted small">9</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted">14</td>
+          <td class="text-muted small fw-semibold">1769</td>
+          <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="DEL.PRALINE ASSORTED CREATIONS DARK 70% CACAO 185G 70449 8410223704494">
+            <a href="../produs/DEL_PRALINE_ASSORTED_CREATIONS_DARK_70__CACAO_185G_70449_8410223704494.html" class="text-decoration-none">
+              DEL.PRALINE ASSORTED CREATIONS DARK 70% CACAO 1…
+            </a>
+          </td>
+          <td class="text-end fw-semibold small">6.558 RON</td>
+          <td class="text-end text-muted small">119</td>
+          <td class="text-end small">2.998 RON</td>
+          <td class="text-end small text-success">
+            45.7%
+          </td>
+          <td class="text-end small text-success">
+            45.7%
+          </td>
+          <td class="text-end text-muted small">4</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted">15</td>
+          <td class="text-muted small fw-semibold">1761</td>
+          <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="DEL.PRALINE CIOCOLATA CU LAPTE SI CREMA ALUNE PADURE 150G 70757 8410223607726">
+            <a href="../produs/DEL_PRALINE_CIOCOLATA_CU_LAPTE_SI_CREMA_ALUNE_PADURE_150G_70757_8410223607726.html" class="text-decoration-none">
+              DEL.PRALINE CIOCOLATA CU LAPTE SI CREMA ALUNE P…
+            </a>
+          </td>
+          <td class="text-end fw-semibold small">6.404 RON</td>
+          <td class="text-end text-muted small">471</td>
+          <td class="text-end small">2.157 RON</td>
+          <td class="text-end small text-warning">
+            33.7%
+          </td>
+          <td class="text-end small text-success">
+            29.9%
+          </td>
+          <td class="text-end text-muted small">10</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted">16</td>
+          <td class="text-muted small fw-semibold">1774</td>
+          <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="DEL.PRALINE ASORTATE FARA ZAHAR (LAPTE, ALUNE PAD, NEAGRA 70% CACAO) 200G 70476 8410223704036">
+            <a href="../produs/DEL_PRALINE_ASORTATE_FARA_ZAHAR__LAPTE__ALUNE_PAD__NEAGRA_70__CACAO__200G_70476_8410223704036.html" class="text-decoration-none">
+              DEL.PRALINE ASORTATE FARA ZAHAR (LAPTE, ALUNE P…
+            </a>
+          </td>
+          <td class="text-end fw-semibold small">2.566 RON</td>
+          <td class="text-end text-muted small">93</td>
+          <td class="text-end small">1.251 RON</td>
+          <td class="text-end small text-success">
+            48.8%
+          </td>
+          <td class="text-end small text-success">
+            48.8%
+          </td>
+          <td class="text-end text-muted small">8</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted">17</td>
+          <td class="text-muted small fw-semibold">1968</td>
+          <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="DEL.TRUFE CACAO SI CAFEA 100G 70481 8410223606484">
+            <a href="../produs/DEL_TRUFE_CACAO_SI_CAFEA_100G_70481_8410223606484.html" class="text-decoration-none">
+              DEL.TRUFE CACAO SI CAFEA 100G 70481 8410223606484
+            </a>
+          </td>
+          <td class="text-end fw-semibold small">1.130 RON</td>
+          <td class="text-end text-muted small">136</td>
+          <td class="text-end small">589 RON</td>
+          <td class="text-end small text-success">
+            52.2%
+          </td>
+          <td class="text-end small text-success">
+            52.2%
+          </td>
+          <td class="text-end text-muted small">22</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted">18</td>
+          <td class="text-muted small fw-semibold">1970</td>
+          <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="DEL.TRUFE CACAO SI CARAMEL 100G 70483 8410223703497">
+            <a href="../produs/DEL_TRUFE_CACAO_SI_CARAMEL_100G_70483_8410223703497.html" class="text-decoration-none">
+              DEL.TRUFE CACAO SI CARAMEL 100G 70483 8410223703497
+            </a>
+          </td>
+          <td class="text-end fw-semibold small">1.089 RON</td>
+          <td class="text-end text-muted small">134</td>
+          <td class="text-end small">558 RON</td>
+          <td class="text-end small text-success">
+            51.2%
+          </td>
+          <td class="text-end small text-success">
+            51.2%
+          </td>
+          <td class="text-end text-muted small">24</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted">19</td>
+          <td class="text-muted small fw-semibold">1967</td>
+          <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="DEL.TRUFE CACAO SI PORTOCALA 100G 70480 8410223608105">
+            <a href="../produs/DEL_TRUFE_CACAO_SI_PORTOCALA_100G_70480_8410223608105.html" class="text-decoration-none">
+              DEL.TRUFE CACAO SI PORTOCALA 100G 70480 8410223608105
+            </a>
+          </td>
+          <td class="text-end fw-semibold small">1.071 RON</td>
+          <td class="text-end text-muted small">129</td>
+          <td class="text-end small">559 RON</td>
+          <td class="text-end small text-success">
+            52.2%
+          </td>
+          <td class="text-end small text-success">
+            52.2%
+          </td>
+          <td class="text-end text-muted small">22</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted">20</td>
+          <td class="text-muted small fw-semibold">1966</td>
+          <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="DEL.TRUFE CACAO 100G 70482 8410223605913">
+            <a href="../produs/DEL_TRUFE_CACAO_100G_70482_8410223605913.html" class="text-decoration-none">
+              DEL.TRUFE CACAO 100G 70482 8410223605913
+            </a>
+          </td>
+          <td class="text-end fw-semibold small">931 RON</td>
+          <td class="text-end text-muted small">113</td>
+          <td class="text-end small">517 RON</td>
+          <td class="text-end small text-success">
+            55.6%
+          </td>
+          <td class="text-end small text-success">
+            55.6%
+          </td>
+          <td class="text-end text-muted small">20</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted">21</td>
+          <td class="text-muted small fw-semibold">1974</td>
+          <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="ALM.TURRON MIGDALE SI SARE DE MARE 75G 87468 8410223905389">
+            <a href="../produs/ALM_TURRON_MIGDALE_SI_SARE_DE_MARE_75G_87468_8410223905389.html" class="text-decoration-none">
+              ALM.TURRON MIGDALE SI SARE DE MARE 75G 87468 84…
+            </a>
+          </td>
+          <td class="text-end fw-semibold small">265 RON</td>
+          <td class="text-end text-muted small">43</td>
+          <td class="text-end small">72 RON</td>
+          <td class="text-end small text-danger">
+            27.2%
+          </td>
+          <td class="text-end small text-success">
+            27.2%
+          </td>
+          <td class="text-end text-muted small">6</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted">22</td>
+          <td class="text-muted small fw-semibold">1972</td>
+          <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="ALM.TURRON MIGDALE SI CIOCOLATA 75G 87466 8410223872995">
+            <a href="../produs/ALM_TURRON_MIGDALE_SI_CIOCOLATA_75G_87466_8410223872995.html" class="text-decoration-none">
+              ALM.TURRON MIGDALE SI CIOCOLATA 75G 87466 84102…
+            </a>
+          </td>
+          <td class="text-end fw-semibold small">90 RON</td>
+          <td class="text-end text-muted small">10</td>
+          <td class="text-end small">45 RON</td>
+          <td class="text-end small text-success">
+            50.0%
+          </td>
+          <td class="text-end small text-success">
+            50.0%
+          </td>
+          <td class="text-end text-muted small">4</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted">23</td>
+          <td class="text-muted small fw-semibold">1975</td>
+          <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="ALM.TURRON MIGDALE SI PORTOCALA 75G 87469 8410223905594">
+            <a href="../produs/ALM_TURRON_MIGDALE_SI_PORTOCALA_75G_87469_8410223905594.html" class="text-decoration-none">
+              ALM.TURRON MIGDALE SI PORTOCALA 75G 87469 84102…
+            </a>
+          </td>
+          <td class="text-end fw-semibold small">20 RON</td>
+          <td class="text-end text-muted small">4</td>
+          <td class="text-end small">2 RON</td>
+          <td class="text-end small text-danger">
+            12.1%
+          </td>
+          <td class="text-end small text-success">
+            12.1%
+          </td>
+          <td class="text-end text-muted small">5</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted">24</td>
+          <td class="text-muted small fw-semibold">1848</td>
+          <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="DEL.STICKSURI 3 CIOCOLATE (LAPTE, ALBA, NEAGRA) 120G 70437 8410223704371">
+            <a href="../produs/DEL_STICKSURI_3_CIOCOLATE__LAPTE__ALBA__NEAGRA__120G_70437_8410223704371.html" class="text-decoration-none">
+              DEL.STICKSURI 3 CIOCOLATE (LAPTE, ALBA, NEAGRA)…
+            </a>
+          </td>
+          <td class="text-end fw-semibold small">0 RON</td>
+          <td class="text-end text-muted small">-2</td>
+          <td class="text-end small">15 RON</td>
+          <td class="text-end small text-danger">
+            —
+          </td>
+          <td class="text-end small text-warning">
+            —
+          </td>
+          <td class="text-end text-muted small">1</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted">25</td>
+          <td class="text-muted small fw-semibold">1983</td>
+          <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="ALM.STICKS MIGDALE SI CARAMEL 45G 90899 8410223908991">
+            <a href="../produs/ALM_STICKS_MIGDALE_SI_CARAMEL_45G_90899_8410223908991.html" class="text-decoration-none">
+              ALM.STICKS MIGDALE SI CARAMEL 45G 90899 8410223908991
+            </a>
+          </td>
+          <td class="text-end fw-semibold small">-12 RON</td>
+          <td class="text-end text-muted small">-1</td>
+          <td class="text-end small">-6 RON</td>
+          <td class="text-end small text-success">
+            54.8%
+          </td>
+          <td class="text-end small text-success">
+            54.8%
+          </td>
+          <td class="text-end text-muted small">1</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted">26</td>
+          <td class="text-muted small fw-semibold">1971</td>
+          <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="ALM.TURRON MIGDALE 75G 87465 8410223872971">
+            <a href="../produs/ALM_TURRON_MIGDALE_75G_87465_8410223872971.html" class="text-decoration-none">
+              ALM.TURRON MIGDALE 75G 87465 8410223872971
+            </a>
+          </td>
+          <td class="text-end fw-semibold small">-40 RON</td>
+          <td class="text-end text-muted small">-4</td>
+          <td class="text-end small">-22 RON</td>
+          <td class="text-end small text-success">
+            54.7%
+          </td>
+          <td class="text-end small text-success">
+            54.7%
+          </td>
+          <td class="text-end text-muted small">2</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted">27</td>
+          <td class="text-muted small fw-semibold">1981</td>
+          <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="ALM.STICKS MIGDALE 50G 90897 8410223908977">
+            <a href="../produs/ALM_STICKS_MIGDALE_50G_90897_8410223908977.html" class="text-decoration-none">
+              ALM.STICKS MIGDALE 50G 90897 8410223908977
+            </a>
+          </td>
+          <td class="text-end fw-semibold small">-69 RON</td>
+          <td class="text-end text-muted small">-6</td>
+          <td class="text-end small">-38 RON</td>
+          <td class="text-end small text-success">
+            54.8%
+          </td>
+          <td class="text-end small text-success">
+            54.8%
+          </td>
+          <td class="text-end text-muted small">1</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted">28</td>
+          <td class="text-muted small fw-semibold">1982</td>
+          <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="ALM.STICKS MIGDALE SI CARAMEL 50G 90898 8410223908984">
+            <a href="../produs/ALM_STICKS_MIGDALE_SI_CARAMEL_50G_90898_8410223908984.html" class="text-decoration-none">
+              ALM.STICKS MIGDALE SI CARAMEL 50G 90898 8410223908984
+            </a>
+          </td>
+          <td class="text-end fw-semibold small">-81 RON</td>
+          <td class="text-end text-muted small">-7</td>
+          <td class="text-end small">-44 RON</td>
+          <td class="text-end small text-success">
+            54.7%
+          </td>
+          <td class="text-end small text-success">
+            54.7%
+          </td>
+          <td class="text-end text-muted small">1</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted">29</td>
+          <td class="text-muted small fw-semibold">1976</td>
+          <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="ALM.TURRON CREMA DE MIGDALE 75G 87470 8410223905396">
+            <a href="../produs/ALM_TURRON_CREMA_DE_MIGDALE_75G_87470_8410223905396.html" class="text-decoration-none">
+              ALM.TURRON CREMA DE MIGDALE 75G 87470 8410223905396
+            </a>
+          </td>
+          <td class="text-end fw-semibold small">-129 RON</td>
+          <td class="text-end text-muted small">-13</td>
+          <td class="text-end small">-70 RON</td>
+          <td class="text-end small text-success">
+            54.7%
+          </td>
+          <td class="text-end small text-success">
+            54.7%
+          </td>
+          <td class="text-end text-muted small">2</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted">30</td>
+          <td class="text-muted small fw-semibold">1973</td>
+          <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="ALM.TURRON MIGDALE SI CARAMEL 75G 87467 8400223873015">
+            <a href="../produs/ALM_TURRON_MIGDALE_SI_CARAMEL_75G_87467_8400223873015.html" class="text-decoration-none">
+              ALM.TURRON MIGDALE SI CARAMEL 75G 87467 8400223873015
+            </a>
+          </td>
+          <td class="text-end fw-semibold small">-129 RON</td>
+          <td class="text-end text-muted small">-13</td>
+          <td class="text-end small">-70 RON</td>
+          <td class="text-end small text-success">
+            54.7%
+          </td>
+          <td class="text-end small text-success">
+            54.7%
+          </td>
+          <td class="text-end text-muted small">1</td>
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+</div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+<script>
+const MONTHS   = ["Ian", "Feb", "Mar", "Apr", "Mai", "Iun", "Iul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const TREND_VN = {"2024": [0, 0, 0, 150240.0, 46228.0, 54905.0, 65072.0, 67898.0, 56453.0, 103138.0, 99139.0, 177422.0], "2025": [59642.0, 65162.0, 115194.0, 54200.0, 33246.0, 16708.0, 5286.0, 14306.0, 36639.0, 22537.0, 81913.0, 112690.0], "2026": [31531.0, 70479.0, 55397.0, 47821.0, 0, 0, 0, 0, 0, 0, 0, 0]};
+const TREND_MB = {"2024": [0, 0, 0, 61827.0, 19995.0, 21911.0, 26067.0, 26931.0, 24549.0, 43679.0, 43045.0, 71657.0], "2025": [24222.0, 27545.0, 48605.0, 14331.0, 14881.0, 5674.0, -4513.0, -3953.0, 8367.0, -7775.0, 31450.0, 33493.0], "2026": [10993.0, 27035.0, 22876.0, 17066.0, 0, 0, 0, 0, 0, 0, 0, 0]};
+
+const PALETTE = {
+  2024: {vn:'rgba(173,181,189,0.7)', mb:'rgba(173,181,189,0.55)'},
+  2025: {vn:'rgba(13,110,253,0.65)', mb:'rgba(13,202,240,0.65)'},
+  2026: {vn:'rgba(25,135,84,0.85)',  mb:'rgba(25,135,84,0.6)'},
+};
+
+let chart;
+
+function buildDatasets(metric) {
+  const src = metric === 'vn' ? TREND_VN : TREND_MB;
+  return Object.entries(src).sort(([a],[b])=>a-b).map(([yr, data]) => ({
+    label: yr,
+    data,
+    backgroundColor: (PALETTE[yr] || {})[metric] || '#adb5bd',
+    borderRadius: 3,
+  }));
+}
+
+function showMetric(metric, btn) {
+  document.querySelectorAll('#brandTrend .btn').forEach(b => {
+    b.classList.remove('active','btn-primary','btn-success');
+    b.classList.add('btn-outline-primary','btn-outline-success');
+  });
+  if (btn) {
+    const map = {vn:'primary',mb:'success'};
+    btn.classList.remove(`btn-outline-${map[metric]}`);
+    btn.classList.add(`btn-${map[metric]}`, 'active');
+  }
+  chart.data.datasets = buildDatasets(metric);
+  chart.update();
+}
+
+(function () {
+  const ctx = document.getElementById('trendChart').getContext('2d');
+  chart = new Chart(ctx, {
+    type: 'bar',
+    data: {labels: MONTHS, datasets: buildDatasets('vn')},
+    options: {
+      responsive: true,
+      plugins: {legend: {position: 'top'}},
+      scales: {
+        y: {beginAtZero: true, ticks: {callback: v => v >= 1e6 ? (v/1e6).toFixed(1)+'M' : v >= 1e3 ? (v/1e3).toFixed(0)+'K' : v}},
+      },
+    },
+  });
+})();
+</script>
+
+</body>
+</html>
