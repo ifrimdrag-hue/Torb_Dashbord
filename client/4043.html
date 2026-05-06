@@ -143,15 +143,15 @@
     <div class="card border-0 shadow-sm text-center p-2">
       <i class="bi bi-currency-euro text-primary fs-4 mt-2"></i>
       <p class="text-muted small mb-1 mt-1">Val Netă 2026</p>
-      <p class="fw-bold mb-0">—</p>
+      <p class="fw-bold mb-0">35 RON</p>
     </div>
   </div>
   <div class="col-6 col-md-3">
     <div class="card border-0 shadow-sm text-center p-2">
       <i class="bi bi-graph-up text-success fs-4 mt-2"></i>
       <p class="text-muted small mb-1 mt-1">Marjă Brută 2026</p>
-      <p class="fw-bold mb-0">—</p>
-      <small class="text-success"></small>
+      <p class="fw-bold mb-0">27 RON</p>
+      <small class="text-success">75.7%</small>
     </div>
   </div>
   <div class="col-6 col-md-3">
@@ -159,10 +159,10 @@
       <i class="bi bi-graph-down-arrow text-warning fs-4 mt-2"></i>
       <p class="text-muted small mb-1 mt-1">Marjă Netă 2026</p>
       <p class="fw-bold mb-0 ">
-        —
+        27 RON
       </p>
-      <small class="text-warning">
-        
+      <small class="text-success">
+        75.7%
       </small>
     </div>
   </div>
@@ -170,7 +170,7 @@
     <div class="card border-0 shadow-sm text-center p-2">
       <i class="bi bi-file-earmark-text text-dark fs-4 mt-2"></i>
       <p class="text-muted small mb-1 mt-1">Total Facturi</p>
-      <p class="fw-bold mb-0">1</p>
+      <p class="fw-bold mb-0">2</p>
       <small class="text-muted">Prima: 2025-12-16</small>
     </div>
   </div>
@@ -219,6 +219,16 @@
               </td>
             </tr>
             
+            <tr class="table-active fw-semibold">
+              <td>2026</td>
+              <td class="text-end small">35 RON</td>
+              <td class="text-end small text-success">75.7%</td>
+              <td class="text-end small ">27 RON</td>
+              <td class="text-end small text-success">
+                75.7%
+              </td>
+            </tr>
+            
           </tbody>
         </table>
       </div>
@@ -234,7 +244,7 @@
   <div class="card-header bg-white d-flex justify-content-between align-items-center fw-semibold">
     <span><i class="bi bi-box-seam text-secondary me-1"></i>
       Produse Cumpărate 2026
-      <span class="badge bg-secondary ms-1">0</span>
+      <span class="badge bg-secondary ms-1">2</span>
     </span>
     <input type="text" id="prodSearch" class="form-control form-control-sm w-auto"
            placeholder="Filtrare produs…" oninput="filterProds(this.value)">
@@ -255,7 +265,39 @@
       </thead>
       <tbody>
         
-        <tr><td colspan="8" class="text-center text-muted py-3">Nicio dată pentru 2026</td></tr>
+        <tr>
+          <td class="small" style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="B.CEAI FRUIT INFUSIONS ASSORTED VOL.1 (1.8X25) 71629-4792252936317">
+            <a href="../produs/B_CEAI_FRUIT_INFUSIONS_ASSORTED_VOL_1__1_8X25__71629-4792252936317.html" class="text-decoration-none">
+              B.CEAI FRUIT INFUSIONS ASSORTED VOL.1 (…
+            </a>
+          </td>
+          <td class="small"><span class="badge bg-light text-dark">Basilur</span></td>
+          <td class="text-end small">1.0</td>
+          <td class="text-end small fw-semibold">18 RON</td>
+          <td class="text-end small">13 RON</td>
+          <td class="text-end small text-success">75.4%</td>
+          <td class="text-end small fw-semibold ">13 RON</td>
+          <td class="text-end small text-success">
+            75.4%
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="small" style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="B.CEAI FRUIT INFUSIONS ASSORTED VOL.2 (1.8X25) 71630-4792252936324">
+            <a href="../produs/B_CEAI_FRUIT_INFUSIONS_ASSORTED_VOL_2__1_8X25__71630-4792252936324.html" class="text-decoration-none">
+              B.CEAI FRUIT INFUSIONS ASSORTED VOL.2 (…
+            </a>
+          </td>
+          <td class="small"><span class="badge bg-light text-dark">Basilur</span></td>
+          <td class="text-end small">1.0</td>
+          <td class="text-end small fw-semibold">18 RON</td>
+          <td class="text-end small">13 RON</td>
+          <td class="text-end small text-success">76.0%</td>
+          <td class="text-end small fw-semibold ">13 RON</td>
+          <td class="text-end small text-success">
+            76.0%
+          </td>
+        </tr>
         
       </tbody>
     </table>
@@ -269,9 +311,9 @@
 
 <script>
 const MONTHS    = ["Ian", "Feb", "Mar", "Apr", "Mai", "Iun", "Iul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-const M_VN      = {"2025": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20.0]};
-const M_MB      = {"2025": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 16.0]};
-const BRAND_MIX = [];
+const M_VN      = {"2025": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20.0], "2026": [0, 0, 0, 0, 35.0, 0, 0, 0, 0, 0, 0, 0]};
+const M_MB      = {"2025": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 16.0], "2026": [0, 0, 0, 0, 27.0, 0, 0, 0, 0, 0, 0, 0]};
+const BRAND_MIX = [{"label": "Basilur", "value": 35.0}];
 
 const PALETTE = {
   2024: {vn:'rgba(173,181,189,0.6)', mb:'rgba(173,181,189,0.45)'},
