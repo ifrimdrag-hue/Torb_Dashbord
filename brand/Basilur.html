@@ -7087,5 +7087,26 @@ function showMetric(metric, btn) {
 })();
 </script>
 
+<script>
+(function() {
+  var _pn = "brand/Basilur";
+  var _py = 2026;
+  var _cy = 2026;
+  var _px = "../";
+  window.torbSetAn = function(y) {
+    var s = (y === _cy) ? '' : ('-' + y);
+    window.location = _px + _pn + s + '.html';
+  };
+  window.torbSetLuna = function(m) {
+    if (m === null) {
+      var s = (_py === _cy) ? '' : ('-' + _py);
+      window.location = _px + _pn + s + '.html';
+    } else {
+      alert('Filtrarea pe lună nu este disponibilă în versiunea statică.
+Utilizaţi aplicaţia locală pentru această funcţie.');
+    }
+  };
+})();
+</script>
 </body>
 </html>

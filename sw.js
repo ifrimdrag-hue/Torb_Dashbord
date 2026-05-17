@@ -1,5 +1,5 @@
 
-const CACHE = 'torb-v20260517-1207';
+const CACHE = 'torb-v20260518-0211';
 const PRECACHE = ['./index.html'];
 
 self.addEventListener('install', e => {

@@ -4,9 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>DR.MAX SRL — Torb Logistic</title>
-  <link rel="icon" type="image/svg+xml" href="../static/favicon.svg">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../static/css/bootstrap-icons.min.css">
   <link rel="stylesheet" href="../static/css/style.css">
 
   <link rel="manifest" href="../manifest.json">
@@ -86,10 +85,24 @@
             <i class="bi bi-tags-fill"></i> Prețuri
           </a>
         </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle "
+             href="#" data-bs-toggle="dropdown">
+            <i class="bi bi-boxes"></i> Stoc / Forecast
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="../forecast.html">
+              <i class="bi bi-bar-chart-steps"></i> Stoc &amp; Comenzi
+            </a></li>
+            <li><a class="dropdown-item" href="/forecast/setari">
+              <i class="bi bi-gear"></i> Setări Forecast
+            </a></li>
+          </ul>
+        </li>
         <li class="nav-item">
           <a class="nav-link "
-             href="../forecast.html">
-            <i class="bi bi-boxes"></i> Stoc / Forecast
+             href="../raportare-basilur.html">
+            <i class="bi bi-file-earmark-bar-graph-fill"></i> Basilur
           </a>
         </li>
       </ul>
@@ -115,18 +128,8 @@
     </small>
   </div>
   <div class="d-flex gap-2 align-items-center">
-    
-    <a href="../client/1347.html"
-       class="btn btn-sm btn-outline-secondary">2024</a>
-    
-    <a href="../client/1347.html"
-       class="btn btn-sm btn-outline-secondary">2025</a>
-    
-    <a href="../client/1347.html"
-       class="btn btn-sm btn-primary">2026</a>
-    
     <a href="#" onclick="alert('Export disponibil doar în aplicația locală.');return false;"
-       class="btn btn-sm btn-outline-success ms-2">
+       class="btn btn-sm btn-outline-success">
       <i class="bi bi-file-earmark-excel"></i> Excel
     </a>
     <a href="#" onclick="alert('Export disponibil doar în aplicația locală.');return false;"
@@ -135,6 +138,96 @@
     </a>
   </div>
 </div>
+
+
+<div class="d-flex align-items-center gap-2 mb-3 flex-wrap">
+  <div class="btn-group btn-group-sm" role="group">
+    <button type="button"
+            class="btn btn-primary"
+            onclick="torbSetLuna(null)">YTD</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(1)">Ian</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(2)">Feb</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(3)">Mar</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(4)">Apr</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(5)">Mai</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(6)">Iun</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(7)">Iul</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(8)">Aug</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(9)">Sep</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(10)">Oct</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(11)">Nov</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(12)">Dec</button>
+    
+  </div>
+  <div class="btn-group btn-group-sm ms-1" role="group">
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetAn(2024)">2024</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetAn(2025)">2025</button>
+    
+    <button type="button"
+            class="btn btn-dark"
+            onclick="torbSetAn(2026)">2026</button>
+    
+  </div>
+</div>
+<script>
+(function () {
+  function torbSetLuna(m) {
+    var u = new URL(window.location.href);
+    if (m === null) u.searchParams.delete('luna');
+    else u.searchParams.set('luna', m);
+    window.location = u.toString();
+  }
+  function torbSetAn(y) {
+    var u = new URL(window.location.href);
+    u.searchParams.set('an', y);
+    window.location = u.toString();
+  }
+  window.torbSetLuna = torbSetLuna;
+  window.torbSetAn   = torbSetAn;
+}());
+</script>
 
 <!-- KPI cards -->
 <div class="row g-3 mb-4">
@@ -253,7 +346,7 @@
 <div class="card shadow-sm border-0">
   <div class="card-header bg-white d-flex justify-content-between align-items-center fw-semibold">
     <span><i class="bi bi-box-seam text-secondary me-1"></i>
-      Produse Cumpărate 2026
+      Produse Cumpărate 
       <span class="badge bg-secondary ms-1">55</span>
     </span>
     <input type="text" id="prodSearch" class="form-control form-control-sm w-auto"
@@ -266,7 +359,9 @@
           <th>Produs</th>
           <th>Brand</th>
           <th class="text-end">Cant.</th>
+          <th class="text-end text-warning-emphasis">Δ Cant %</th>
           <th class="text-end">Val Netă</th>
+          <th class="text-end text-warning-emphasis">Δ VN %</th>
           <th class="text-end">MB (RON)</th>
           <th class="text-end">MB%</th>
           <th class="text-end">MN (RON)</th>
@@ -283,7 +378,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Toras</span></td>
           <td class="text-end small">2162.0</td>
+          <td class="text-end small text-danger">
+            -8.2%
+          </td>
           <td class="text-end small fw-semibold">38.894 RON</td>
+          <td class="text-end small text-success">
+            +11.2%
+          </td>
           <td class="text-end small">11.501 RON</td>
           <td class="text-end small text-success">29.6%</td>
           <td class="text-end small fw-semibold ">11.501 RON</td>
@@ -300,7 +401,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Toras</span></td>
           <td class="text-end small">1008.0</td>
+          <td class="text-end small text-success">
+            +32.6%
+          </td>
           <td class="text-end small fw-semibold">14.172 RON</td>
+          <td class="text-end small text-success">
+            +36.8%
+          </td>
           <td class="text-end small">3.411 RON</td>
           <td class="text-end small text-success">24.1%</td>
           <td class="text-end small fw-semibold ">3.411 RON</td>
@@ -317,7 +424,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Toras</span></td>
           <td class="text-end small">694.0</td>
+          <td class="text-end small text-success">
+            +8.9%
+          </td>
           <td class="text-end small fw-semibold">11.284 RON</td>
+          <td class="text-end small text-success">
+            +14.1%
+          </td>
           <td class="text-end small">5.262 RON</td>
           <td class="text-end small text-success">46.6%</td>
           <td class="text-end small fw-semibold ">5.262 RON</td>
@@ -334,7 +447,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Toras</span></td>
           <td class="text-end small">689.0</td>
+          <td class="text-end small text-success">
+            +11.0%
+          </td>
           <td class="text-end small fw-semibold">8.351 RON</td>
+          <td class="text-end small text-success">
+            +14.3%
+          </td>
           <td class="text-end small">2.640 RON</td>
           <td class="text-end small text-success">31.6%</td>
           <td class="text-end small fw-semibold ">2.640 RON</td>
@@ -351,7 +470,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Toras</span></td>
           <td class="text-end small">538.0</td>
+          <td class="text-end small text-danger">
+            -21.2%
+          </td>
           <td class="text-end small fw-semibold">7.564 RON</td>
+          <td class="text-end small text-danger">
+            -18.7%
+          </td>
           <td class="text-end small">3.384 RON</td>
           <td class="text-end small text-success">44.7%</td>
           <td class="text-end small fw-semibold ">3.384 RON</td>
@@ -368,7 +493,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Toras</span></td>
           <td class="text-end small">450.0</td>
+          <td class="text-end small text-danger">
+            -39.7%
+          </td>
           <td class="text-end small fw-semibold">7.317 RON</td>
+          <td class="text-end small text-danger">
+            -36.1%
+          </td>
           <td class="text-end small">3.520 RON</td>
           <td class="text-end small text-success">48.1%</td>
           <td class="text-end small fw-semibold ">3.520 RON</td>
@@ -385,7 +516,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Toras</span></td>
           <td class="text-end small">258.0</td>
+          <td class="text-end small text-success">
+            +15.2%
+          </td>
           <td class="text-end small fw-semibold">4.040 RON</td>
+          <td class="text-end small text-success">
+            +14.6%
+          </td>
           <td class="text-end small">1.488 RON</td>
           <td class="text-end small text-success">36.8%</td>
           <td class="text-end small fw-semibold ">1.488 RON</td>
@@ -402,7 +539,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Basilur</span></td>
           <td class="text-end small">104.0</td>
+          <td class="text-end small text-danger">
+            -34.6%
+          </td>
           <td class="text-end small fw-semibold">3.018 RON</td>
+          <td class="text-end small text-danger">
+            -29.1%
+          </td>
           <td class="text-end small">1.740 RON</td>
           <td class="text-end small text-success">57.6%</td>
           <td class="text-end small fw-semibold ">1.740 RON</td>
@@ -419,7 +562,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Toras</span></td>
           <td class="text-end small">249.0</td>
+          <td class="text-end small text-danger">
+            -26.1%
+          </td>
           <td class="text-end small fw-semibold">3.018 RON</td>
+          <td class="text-end small text-danger">
+            -23.8%
+          </td>
           <td class="text-end small">1.674 RON</td>
           <td class="text-end small text-success">55.5%</td>
           <td class="text-end small fw-semibold ">1.674 RON</td>
@@ -436,7 +585,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Toras</span></td>
           <td class="text-end small">233.0</td>
+          <td class="text-end small text-success">
+            +11.5%
+          </td>
           <td class="text-end small fw-semibold">2.824 RON</td>
+          <td class="text-end small text-success">
+            +15.6%
+          </td>
           <td class="text-end small">985 RON</td>
           <td class="text-end small text-success">34.9%</td>
           <td class="text-end small fw-semibold ">985 RON</td>
@@ -453,7 +608,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Toras</span></td>
           <td class="text-end small">168.0</td>
+          <td class="text-end small text-danger">
+            -38.5%
+          </td>
           <td class="text-end small fw-semibold">2.631 RON</td>
+          <td class="text-end small text-danger">
+            -35.6%
+          </td>
           <td class="text-end small">1.064 RON</td>
           <td class="text-end small text-success">40.4%</td>
           <td class="text-end small fw-semibold ">1.064 RON</td>
@@ -470,7 +631,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Toras</span></td>
           <td class="text-end small">181.0</td>
+          <td class="text-end small text-danger">
+            -28.2%
+          </td>
           <td class="text-end small fw-semibold">2.545 RON</td>
+          <td class="text-end small text-danger">
+            -22.8%
+          </td>
           <td class="text-end small">1.024 RON</td>
           <td class="text-end small text-success">40.2%</td>
           <td class="text-end small fw-semibold ">1.024 RON</td>
@@ -487,7 +654,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Toras</span></td>
           <td class="text-end small">178.0</td>
+          <td class="text-end small text-danger">
+            -8.7%
+          </td>
           <td class="text-end small fw-semibold">2.157 RON</td>
+          <td class="text-end small text-danger">
+            -4.5%
+          </td>
           <td class="text-end small">662 RON</td>
           <td class="text-end small text-success">30.7%</td>
           <td class="text-end small fw-semibold ">662 RON</td>
@@ -504,7 +677,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Basilur</span></td>
           <td class="text-end small">122.0</td>
+          <td class="text-end small text-danger">
+            -34.8%
+          </td>
           <td class="text-end small fw-semibold">2.107 RON</td>
+          <td class="text-end small text-danger">
+            -11.2%
+          </td>
           <td class="text-end small">1.402 RON</td>
           <td class="text-end small text-success">66.6%</td>
           <td class="text-end small fw-semibold ">1.402 RON</td>
@@ -521,7 +700,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Toras</span></td>
           <td class="text-end small">131.0</td>
+          <td class="text-end small text-danger">
+            -50.2%
+          </td>
           <td class="text-end small fw-semibold">2.051 RON</td>
+          <td class="text-end small text-danger">
+            -50.2%
+          </td>
           <td class="text-end small">976 RON</td>
           <td class="text-end small text-success">47.6%</td>
           <td class="text-end small fw-semibold ">976 RON</td>
@@ -538,7 +723,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Basilur</span></td>
           <td class="text-end small">248.0</td>
+          <td class="text-end small text-success">
+            +342.9%
+          </td>
           <td class="text-end small fw-semibold">2.021 RON</td>
+          <td class="text-end small text-success">
+            +364.8%
+          </td>
           <td class="text-end small">1.163 RON</td>
           <td class="text-end small text-success">57.5%</td>
           <td class="text-end small fw-semibold ">1.163 RON</td>
@@ -555,7 +746,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Toras</span></td>
           <td class="text-end small">108.0</td>
+          <td class="text-end small text-danger">
+            -28.5%
+          </td>
           <td class="text-end small fw-semibold">1.981 RON</td>
+          <td class="text-end small text-danger">
+            -24.5%
+          </td>
           <td class="text-end small">951 RON</td>
           <td class="text-end small text-success">48.0%</td>
           <td class="text-end small fw-semibold ">951 RON</td>
@@ -572,7 +769,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Basilur</span></td>
           <td class="text-end small">68.0</td>
+          <td class="text-end small text-success">
+            +11.5%
+          </td>
           <td class="text-end small fw-semibold">1.973 RON</td>
+          <td class="text-end small text-success">
+            +19.2%
+          </td>
           <td class="text-end small">1.095 RON</td>
           <td class="text-end small text-success">55.5%</td>
           <td class="text-end small fw-semibold ">1.095 RON</td>
@@ -589,7 +792,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Basilur</span></td>
           <td class="text-end small">84.0</td>
+          <td class="text-end small text-danger">
+            -22.2%
+          </td>
           <td class="text-end small fw-semibold">1.914 RON</td>
+          <td class="text-end small text-danger">
+            -15.9%
+          </td>
           <td class="text-end small">1.073 RON</td>
           <td class="text-end small text-success">56.0%</td>
           <td class="text-end small fw-semibold ">1.073 RON</td>
@@ -606,7 +815,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Basilur</span></td>
           <td class="text-end small">315.0</td>
+          <td class="text-end small text-success">
+            +4.3%
+          </td>
           <td class="text-end small fw-semibold">1.899 RON</td>
+          <td class="text-end small text-success">
+            +11.6%
+          </td>
           <td class="text-end small">1.093 RON</td>
           <td class="text-end small text-success">57.5%</td>
           <td class="text-end small fw-semibold ">1.093 RON</td>
@@ -623,7 +838,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Basilur</span></td>
           <td class="text-end small">220.0</td>
+          <td class="text-end small text-danger">
+            -25.4%
+          </td>
           <td class="text-end small fw-semibold">1.793 RON</td>
+          <td class="text-end small text-danger">
+            -19.4%
+          </td>
           <td class="text-end small">678 RON</td>
           <td class="text-end small text-success">37.8%</td>
           <td class="text-end small fw-semibold ">678 RON</td>
@@ -640,7 +861,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Basilur</span></td>
           <td class="text-end small">85.0</td>
+          <td class="text-end small text-danger">
+            -21.3%
+          </td>
           <td class="text-end small fw-semibold">1.788 RON</td>
+          <td class="text-end small text-danger">
+            -15.0%
+          </td>
           <td class="text-end small">968 RON</td>
           <td class="text-end small text-success">54.1%</td>
           <td class="text-end small fw-semibold ">968 RON</td>
@@ -657,7 +884,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Toras</span></td>
           <td class="text-end small">113.0</td>
+          <td class="text-end small text-success">
+            +11.9%
+          </td>
           <td class="text-end small fw-semibold">1.770 RON</td>
+          <td class="text-end small text-success">
+            +23.4%
+          </td>
           <td class="text-end small">505 RON</td>
           <td class="text-end small text-success">28.5%</td>
           <td class="text-end small fw-semibold ">505 RON</td>
@@ -674,7 +907,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Basilur</span></td>
           <td class="text-end small">154.0</td>
+          <td class="text-end small text-danger">
+            -15.8%
+          </td>
           <td class="text-end small fw-semibold">1.635 RON</td>
+          <td class="text-end small text-danger">
+            -10.0%
+          </td>
           <td class="text-end small">856 RON</td>
           <td class="text-end small text-success">52.3%</td>
           <td class="text-end small fw-semibold ">856 RON</td>
@@ -691,7 +930,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Basilur</span></td>
           <td class="text-end small">136.0</td>
+          <td class="text-end small text-danger">
+            -20.9%
+          </td>
           <td class="text-end small fw-semibold">1.488 RON</td>
+          <td class="text-end small text-danger">
+            -15.7%
+          </td>
           <td class="text-end small">646 RON</td>
           <td class="text-end small text-success">43.4%</td>
           <td class="text-end small fw-semibold ">646 RON</td>
@@ -708,7 +953,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Basilur</span></td>
           <td class="text-end small">51.0</td>
+          <td class="text-end small text-success">
+            +34.2%
+          </td>
           <td class="text-end small fw-semibold">1.480 RON</td>
+          <td class="text-end small text-success">
+            +44.6%
+          </td>
           <td class="text-end small">745 RON</td>
           <td class="text-end small text-success">50.4%</td>
           <td class="text-end small fw-semibold ">745 RON</td>
@@ -725,7 +976,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Basilur</span></td>
           <td class="text-end small">139.0</td>
+          <td class="text-end small text-success">
+            +46.3%
+          </td>
           <td class="text-end small fw-semibold">1.469 RON</td>
+          <td class="text-end small text-success">
+            +57.5%
+          </td>
           <td class="text-end small">784 RON</td>
           <td class="text-end small text-success">53.4%</td>
           <td class="text-end small fw-semibold ">784 RON</td>
@@ -742,7 +999,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Basilur</span></td>
           <td class="text-end small">50.0</td>
+          <td class="text-end small text-danger">
+            -39.0%
+          </td>
           <td class="text-end small fw-semibold">1.451 RON</td>
+          <td class="text-end small text-danger">
+            -34.4%
+          </td>
           <td class="text-end small">794 RON</td>
           <td class="text-end small text-success">54.7%</td>
           <td class="text-end small fw-semibold ">794 RON</td>
@@ -759,7 +1022,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Basilur</span></td>
           <td class="text-end small">130.0</td>
+          <td class="text-end small text-danger">
+            -21.2%
+          </td>
           <td class="text-end small fw-semibold">1.381 RON</td>
+          <td class="text-end small text-danger">
+            -15.2%
+          </td>
           <td class="text-end small">733 RON</td>
           <td class="text-end small text-success">53.1%</td>
           <td class="text-end small fw-semibold ">733 RON</td>
@@ -776,7 +1045,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Basilur</span></td>
           <td class="text-end small">126.0</td>
+          <td class="text-end small text-danger">
+            -31.1%
+          </td>
           <td class="text-end small fw-semibold">1.338 RON</td>
+          <td class="text-end small text-danger">
+            -25.6%
+          </td>
           <td class="text-end small">705 RON</td>
           <td class="text-end small text-success">52.7%</td>
           <td class="text-end small fw-semibold ">705 RON</td>
@@ -793,7 +1068,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Basilur</span></td>
           <td class="text-end small">125.0</td>
+          <td class="text-end small text-danger">
+            -24.2%
+          </td>
           <td class="text-end small fw-semibold">1.328 RON</td>
+          <td class="text-end small text-danger">
+            -19.0%
+          </td>
           <td class="text-end small">699 RON</td>
           <td class="text-end small text-success">52.7%</td>
           <td class="text-end small fw-semibold ">699 RON</td>
@@ -810,7 +1091,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Basilur</span></td>
           <td class="text-end small">120.0</td>
+          <td class="text-end small text-success">
+            +51.9%
+          </td>
           <td class="text-end small fw-semibold">1.268 RON</td>
+          <td class="text-end small text-success">
+            +63.5%
+          </td>
           <td class="text-end small">667 RON</td>
           <td class="text-end small text-success">52.6%</td>
           <td class="text-end small fw-semibold ">667 RON</td>
@@ -827,7 +1114,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Basilur</span></td>
           <td class="text-end small">43.0</td>
+          <td class="text-end small text-danger">
+            -52.2%
+          </td>
           <td class="text-end small fw-semibold">1.248 RON</td>
+          <td class="text-end small text-danger">
+            -48.4%
+          </td>
           <td class="text-end small">720 RON</td>
           <td class="text-end small text-success">57.7%</td>
           <td class="text-end small fw-semibold ">720 RON</td>
@@ -844,7 +1137,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Basilur</span></td>
           <td class="text-end small">96.0</td>
+          <td class="text-end small text-danger">
+            -22.0%
+          </td>
           <td class="text-end small fw-semibold">1.243 RON</td>
+          <td class="text-end small text-danger">
+            -16.6%
+          </td>
           <td class="text-end small">689 RON</td>
           <td class="text-end small text-success">55.4%</td>
           <td class="text-end small fw-semibold ">689 RON</td>
@@ -861,7 +1160,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Basilur</span></td>
           <td class="text-end small">65.0</td>
+          <td class="text-end small text-danger">
+            -44.4%
+          </td>
           <td class="text-end small fw-semibold">1.212 RON</td>
+          <td class="text-end small text-danger">
+            -40.0%
+          </td>
           <td class="text-end small">565 RON</td>
           <td class="text-end small text-success">46.7%</td>
           <td class="text-end small fw-semibold ">565 RON</td>
@@ -878,7 +1183,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Basilur</span></td>
           <td class="text-end small">35.0</td>
+          <td class="text-end small text-danger">
+            -60.7%
+          </td>
           <td class="text-end small fw-semibold">1.197 RON</td>
+          <td class="text-end small text-danger">
+            -58.1%
+          </td>
           <td class="text-end small">692 RON</td>
           <td class="text-end small text-success">57.8%</td>
           <td class="text-end small fw-semibold ">692 RON</td>
@@ -895,7 +1206,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Basilur</span></td>
           <td class="text-end small">106.0</td>
+          <td class="text-end small text-danger">
+            -49.0%
+          </td>
           <td class="text-end small fw-semibold">1.126 RON</td>
+          <td class="text-end small text-danger">
+            -45.6%
+          </td>
           <td class="text-end small">596 RON</td>
           <td class="text-end small text-success">53.0%</td>
           <td class="text-end small fw-semibold ">596 RON</td>
@@ -912,7 +1229,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Toras</span></td>
           <td class="text-end small">92.0</td>
+          <td class="text-end small text-success">
+            +7.0%
+          </td>
           <td class="text-end small fw-semibold">1.115 RON</td>
+          <td class="text-end small text-success">
+            +12.4%
+          </td>
           <td class="text-end small">507 RON</td>
           <td class="text-end small text-success">45.5%</td>
           <td class="text-end small fw-semibold ">507 RON</td>
@@ -929,7 +1252,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Basilur</span></td>
           <td class="text-end small">100.0</td>
+          <td class="text-end small text-danger">
+            -18.0%
+          </td>
           <td class="text-end small fw-semibold">1.062 RON</td>
+          <td class="text-end small text-danger">
+            -11.7%
+          </td>
           <td class="text-end small">561 RON</td>
           <td class="text-end small text-success">52.8%</td>
           <td class="text-end small fw-semibold ">561 RON</td>
@@ -946,7 +1275,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Toras</span></td>
           <td class="text-end small">73.0</td>
+          <td class="text-end small text-danger">
+            -6.4%
+          </td>
           <td class="text-end small fw-semibold">1.026 RON</td>
+          <td class="text-end small text-danger">
+            -3.7%
+          </td>
           <td class="text-end small">419 RON</td>
           <td class="text-end small text-success">40.8%</td>
           <td class="text-end small fw-semibold ">419 RON</td>
@@ -963,7 +1298,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Basilur</span></td>
           <td class="text-end small">33.0</td>
+          <td class="text-end small text-success">
+            +6.5%
+          </td>
           <td class="text-end small fw-semibold">958 RON</td>
+          <td class="text-end small text-success">
+            +12.5%
+          </td>
           <td class="text-end small">500 RON</td>
           <td class="text-end small text-success">52.2%</td>
           <td class="text-end small fw-semibold ">500 RON</td>
@@ -980,7 +1321,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Toras</span></td>
           <td class="text-end small">61.0</td>
+          <td class="text-end small text-danger">
+            -14.1%
+          </td>
           <td class="text-end small fw-semibold">934 RON</td>
+          <td class="text-end small text-danger">
+            -8.3%
+          </td>
           <td class="text-end small">413 RON</td>
           <td class="text-end small text-success">44.2%</td>
           <td class="text-end small fw-semibold ">413 RON</td>
@@ -997,7 +1344,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Basilur</span></td>
           <td class="text-end small">32.0</td>
+          <td class="text-end small text-danger">
+            -68.9%
+          </td>
           <td class="text-end small fw-semibold">929 RON</td>
+          <td class="text-end small text-danger">
+            -66.3%
+          </td>
           <td class="text-end small">515 RON</td>
           <td class="text-end small text-success">55.4%</td>
           <td class="text-end small fw-semibold ">515 RON</td>
@@ -1014,7 +1367,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Toras</span></td>
           <td class="text-end small">58.0</td>
+          <td class="text-end small text-danger">
+            -31.8%
+          </td>
           <td class="text-end small fw-semibold">908 RON</td>
+          <td class="text-end small text-danger">
+            -29.9%
+          </td>
           <td class="text-end small">340 RON</td>
           <td class="text-end small text-success">37.4%</td>
           <td class="text-end small fw-semibold ">340 RON</td>
@@ -1031,7 +1390,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Basilur</span></td>
           <td class="text-end small">147.0</td>
+          <td class="text-end small text-danger">
+            -8.7%
+          </td>
           <td class="text-end small fw-semibold">886 RON</td>
+          <td class="text-end small text-danger">
+            -1.6%
+          </td>
           <td class="text-end small">500 RON</td>
           <td class="text-end small text-success">56.5%</td>
           <td class="text-end small fw-semibold ">500 RON</td>
@@ -1048,7 +1413,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Toras</span></td>
           <td class="text-end small">48.0</td>
+          <td class="text-end small text-danger">
+            -2.0%
+          </td>
           <td class="text-end small fw-semibold">814 RON</td>
+          <td class="text-end small text-success">
+            +1.0%
+          </td>
           <td class="text-end small">277 RON</td>
           <td class="text-end small text-success">34.0%</td>
           <td class="text-end small fw-semibold ">277 RON</td>
@@ -1065,7 +1436,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Basilur</span></td>
           <td class="text-end small">92.0</td>
+          <td class="text-end small text-danger">
+            -14.8%
+          </td>
           <td class="text-end small fw-semibold">750 RON</td>
+          <td class="text-end small text-danger">
+            -9.3%
+          </td>
           <td class="text-end small">386 RON</td>
           <td class="text-end small text-success">51.5%</td>
           <td class="text-end small fw-semibold ">386 RON</td>
@@ -1082,7 +1459,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Basilur</span></td>
           <td class="text-end small">76.0</td>
+          <td class="text-end small text-danger">
+            -58.0%
+          </td>
           <td class="text-end small fw-semibold">619 RON</td>
+          <td class="text-end small text-danger">
+            -54.7%
+          </td>
           <td class="text-end small">310 RON</td>
           <td class="text-end small text-success">50.1%</td>
           <td class="text-end small fw-semibold ">310 RON</td>
@@ -1099,7 +1482,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Basilur</span></td>
           <td class="text-end small">74.0</td>
+          <td class="text-end small text-danger">
+            -69.2%
+          </td>
           <td class="text-end small fw-semibold">603 RON</td>
+          <td class="text-end small text-danger">
+            -66.8%
+          </td>
           <td class="text-end small">297 RON</td>
           <td class="text-end small text-success">49.3%</td>
           <td class="text-end small fw-semibold ">297 RON</td>
@@ -1116,7 +1505,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Basilur</span></td>
           <td class="text-end small">65.0</td>
+          <td class="text-end small text-danger">
+            -27.0%
+          </td>
           <td class="text-end small fw-semibold">530 RON</td>
+          <td class="text-end small text-danger">
+            -20.8%
+          </td>
           <td class="text-end small">226 RON</td>
           <td class="text-end small text-success">42.7%</td>
           <td class="text-end small fw-semibold ">226 RON</td>
@@ -1133,7 +1528,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Basilur</span></td>
           <td class="text-end small">56.0</td>
+          <td class="text-end small text-danger">
+            -6.7%
+          </td>
           <td class="text-end small fw-semibold">456 RON</td>
+          <td class="text-end small text-success">
+            +0.7%
+          </td>
           <td class="text-end small">219 RON</td>
           <td class="text-end small text-success">48.1%</td>
           <td class="text-end small fw-semibold ">219 RON</td>
@@ -1150,7 +1551,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Toras</span></td>
           <td class="text-end small">33.0</td>
+          <td class="text-end small text-danger">
+            -70.8%
+          </td>
           <td class="text-end small fw-semibold">293 RON</td>
+          <td class="text-end small text-danger">
+            -70.0%
+          </td>
           <td class="text-end small">107 RON</td>
           <td class="text-end small text-success">36.5%</td>
           <td class="text-end small fw-semibold ">107 RON</td>
@@ -1167,7 +1574,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Basilur</span></td>
           <td class="text-end small">6.0</td>
+          <td class="text-end small text-danger">
+            -64.7%
+          </td>
           <td class="text-end small fw-semibold">137 RON</td>
+          <td class="text-end small text-danger">
+            -61.5%
+          </td>
           <td class="text-end small">75 RON</td>
           <td class="text-end small text-success">55.1%</td>
           <td class="text-end small fw-semibold ">75 RON</td>
@@ -1184,7 +1597,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Toras</span></td>
           <td class="text-end small">4.0</td>
+          <td class="text-end small text-danger">
+            -75.0%
+          </td>
           <td class="text-end small fw-semibold">72 RON</td>
+          <td class="text-end small text-danger">
+            -74.8%
+          </td>
           <td class="text-end small">48 RON</td>
           <td class="text-end small text-success">67.2%</td>
           <td class="text-end small fw-semibold ">48 RON</td>
@@ -1201,7 +1620,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Toras</span></td>
           <td class="text-end small">3.0</td>
+          <td class="text-end small text-danger">
+            -96.7%
+          </td>
           <td class="text-end small fw-semibold">46 RON</td>
+          <td class="text-end small text-danger">
+            -96.6%
+          </td>
           <td class="text-end small">21 RON</td>
           <td class="text-end small text-success">45.2%</td>
           <td class="text-end small fw-semibold ">21 RON</td>
@@ -1217,8 +1642,8 @@
 
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="../static/js/bootstrap.bundle.min.js"></script>
+<script src="../static/js/chart.umd.min.js"></script>
 
 <script>
 const MONTHS    = ["Ian", "Feb", "Mar", "Apr", "Mai", "Iun", "Iul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -1289,5 +1714,15 @@ function filterProds(q) {
 }
 </script>
 
+<script>
+(function() {
+  window.torbSetAn = function() {
+    alert('Schimbarea anului este disponibilă doar în aplicaţia locală.');
+  };
+  window.torbSetLuna = function() {
+    alert('Filtrarea pe lună este disponibilă doar în aplicaţia locală.');
+  };
+})();
+</script>
 </body>
 </html>

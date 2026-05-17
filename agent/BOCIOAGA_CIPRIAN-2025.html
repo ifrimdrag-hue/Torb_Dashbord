@@ -1,0 +1,1354 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BOCIOAGA CIPRIAN — Torb Logistic</title>
+  <link rel="icon" type="image/svg+xml" href="../static/favicon.svg">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../static/css/style.css">
+
+  <link rel="manifest" href="../manifest.json">
+  <meta name="theme-color" content="#212529">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('../sw.js').catch(function(){});
+    }
+  </script>
+</head>
+<body class="bg-light">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+  <div class="container-fluid px-4">
+    <a class="navbar-brand fw-bold fs-5" href="../index.html">
+      <i class="bi bi-bar-chart-fill text-success me-1"></i>Torb Logistic
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navmenu">
+      <ul class="navbar-nav ms-auto gap-1">
+        <li class="nav-item">
+          <a class="nav-link "
+             href="../index.html">
+            <i class="bi bi-speedometer2"></i> Dashboard
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active"
+             href="../team.html">
+            <i class="bi bi-people-fill"></i> Echipă
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "
+             href="../clients.html">
+            <i class="bi bi-building"></i> Clienți
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "
+             href="../products.html">
+            <i class="bi bi-box-seam-fill"></i> Produse
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "
+             href="../profitabilitate.html">
+            <i class="bi bi-graph-up-arrow"></i> Profitabilitate
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "
+             href="../ask.html">
+            <i class="bi bi-chat-dots-fill"></i> AI
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "
+             href="../bonus.html">
+            <i class="bi bi-trophy-fill"></i> Bonus
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "
+             href="../conditii.html">
+            <i class="bi bi-file-earmark-text-fill"></i> Condiții
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "
+             href="../preturi.html">
+            <i class="bi bi-tags-fill"></i> Prețuri
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link "
+             href="../forecast.html">
+            <i class="bi bi-boxes"></i> Stoc / Forecast
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid px-4 py-4">
+  
+<nav aria-label="breadcrumb" class="mb-3">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="../team.html">Echipă</a></li>
+    <li class="breadcrumb-item active">BOCIOAGA CIPRIAN</li>
+  </ol>
+</nav>
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h4 class="mb-0 fw-bold">
+    <i class="bi bi-person-circle text-primary me-1"></i>BOCIOAGA CIPRIAN
+  </h4>
+  <div class="d-flex gap-2 align-items-center">
+    
+    <a href="../agent/BOCIOAGA_CIPRIAN.html"
+       class="btn btn-sm btn-outline-secondary">2024</a>
+    
+    <a href="../agent/BOCIOAGA_CIPRIAN.html"
+       class="btn btn-sm btn-primary">2025</a>
+    
+    <a href="../agent/BOCIOAGA_CIPRIAN.html"
+       class="btn btn-sm btn-outline-secondary">2026</a>
+    
+    <a href="#" onclick="alert('Export disponibil doar în aplicația locală.');return false;"
+       class="btn btn-sm btn-outline-success ms-2" title="Export Excel">
+      <i class="bi bi-file-earmark-excel"></i> Excel
+    </a>
+    <a href="#" onclick="alert('Export disponibil doar în aplicația locală.');return false;"
+       class="btn btn-sm btn-outline-danger" title="Export PPT">
+      <i class="bi bi-file-earmark-slides"></i> PPT
+    </a>
+  </div>
+</div>
+
+<!-- KPI cards -->
+
+<div class="row g-3 mb-4">
+  <div class="col-6 col-md-4 col-xl-2">
+    <div class="card border-0 shadow-sm h-100 text-center p-2">
+      <i class="bi bi-currency-euro text-primary fs-4 mt-2"></i>
+      <p class="text-muted small mb-1 mt-1">Val Factură Netă</p>
+      <p class="fw-bold mb-1">-283 RON</p>
+      
+      <small class="text-danger">
+        ▼394.8% vs 2024
+      </small>
+      
+    </div>
+  </div>
+  <div class="col-6 col-md-4 col-xl-2">
+    <div class="card border-0 shadow-sm h-100 text-center p-2">
+      <i class="bi bi-graph-up text-success fs-4 mt-2"></i>
+      <p class="text-muted small mb-1 mt-1">Marjă Brută</p>
+      <p class="fw-bold mb-1">-113 RON</p>
+      <small class="text-success fw-semibold">39.8%</small>
+    </div>
+  </div>
+  <div class="col-6 col-md-4 col-xl-2">
+    <div class="card border-0 shadow-sm h-100 text-center p-2">
+      <i class="bi bi-graph-down-arrow text-warning fs-4 mt-2"></i>
+      <p class="text-muted small mb-1 mt-1">Marjă Netă</p>
+      <p class="fw-bold mb-1">-113 RON</p>
+      <small class="text-success fw-semibold">
+        39.9%
+      </small>
+    </div>
+  </div>
+  <div class="col-6 col-md-4 col-xl-2">
+    <div class="card border-0 shadow-sm h-100 text-center p-2">
+      <i class="bi bi-people text-secondary fs-4 mt-2"></i>
+      <p class="text-muted small mb-1 mt-1">Clienți Activi</p>
+      <p class="fw-bold mb-1">2</p>
+    </div>
+  </div>
+  <div class="col-6 col-md-4 col-xl-2">
+    <div class="card border-0 shadow-sm h-100 text-center p-2">
+      <i class="bi bi-file-earmark-text text-dark fs-4 mt-2"></i>
+      <p class="text-muted small mb-1 mt-1">Nr Facturi</p>
+      <p class="fw-bold mb-1">2</p>
+    </div>
+  </div>
+  <div class="col-6 col-md-4 col-xl-2">
+    <div class="card border-0 shadow-sm h-100 text-center p-2">
+      <i class="bi bi-calendar-check text-info fs-4 mt-2"></i>
+      <p class="text-muted small mb-1 mt-1">Ultima Livrare</p>
+      <p class="fw-bold mb-1 small">2025-03-03</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- Charts row -->
+<div class="row g-3 mb-4">
+  <!-- Trend chart -->
+  <div class="col-xl-7">
+    <div class="card shadow-sm border-0 h-100">
+      <div class="card-header bg-white d-flex justify-content-between align-items-center">
+        <span class="fw-semibold"><i class="bi bi-bar-chart-line text-primary me-1"></i> Trend Lunar</span>
+        <div class="btn-group btn-group-sm" role="group">
+          <button class="btn btn-outline-primary active" onclick="showMetric('vn',this)">Val Netă</button>
+          <button class="btn btn-outline-success" onclick="showMetric('mb',this)">Marjă Brută</button>
+          <button class="btn btn-outline-warning" onclick="showMetric('mn',this)">Marjă Netă</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <canvas id="trendChart" height="130"></canvas>
+      </div>
+    </div>
+  </div>
+  <!-- Brand mix -->
+  <div class="col-xl-5">
+    <div class="card shadow-sm border-0 h-100">
+      <div class="card-header bg-white fw-semibold">
+        <i class="bi bi-pie-chart text-info me-1"></i> Brand Mix 2025
+      </div>
+      <div class="table-responsive">
+        <table class="table table-sm mb-0">
+          <thead class="table-light">
+            <tr>
+              <th>Brand</th>
+              <th class="text-end">Val Netă</th>
+              <th class="text-end">MB%</th>
+              <th class="text-end">MN%</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr>
+              <td class="small fw-semibold">Basilur</td>
+              <td class="text-end small">-283 RON</td>
+              <td class="text-end small text-success">39.8%</td>
+              <td class="text-end small text-success">
+                39.8%
+              </td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Clients + SKUs + Lunar tabs -->
+<ul class="nav nav-tabs mb-3" id="agentTabs">
+  <li class="nav-item">
+    <a class="nav-link active" data-bs-toggle="tab" href="#tabClienti">
+      <i class="bi bi-building me-1"></i> Clienți <span class="badge bg-secondary">2</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-bs-toggle="tab" href="#tabSkus">
+      <i class="bi bi-box-seam me-1"></i> Produse <span class="badge bg-secondary">3</span>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-bs-toggle="tab" href="#tabLunar">
+      <i class="bi bi-calendar3 me-1"></i> Analiză Lunară
+      <span class="badge bg-secondary">3 branduri</span>
+    </a>
+  </li>
+</ul>
+
+<div class="tab-content">
+  <!-- Clienți tab -->
+  <div class="tab-pane fade show active" id="tabClienti">
+    <div class="card shadow-sm border-0">
+      <div class="table-responsive">
+        <table class="table table-sm table-hover mb-0">
+          <thead class="table-dark">
+            <tr>
+              <th>Client</th>
+              <th class="text-end">Val Netă</th>
+              <th class="text-end" title="YTD vs aceeași perioadă din 2024">vs 2024 YTD</th>
+              <th class="text-end">MB (RON)</th>
+              <th class="text-end">MB%</th>
+              <th class="text-end">MN (RON)</th>
+              <th class="text-end">MN%</th>
+              <th>Churn</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr>
+              <td>
+                <a href="../client/955.html"
+                   class="text-decoration-none">BOGDAN DRAGNEA</a>
+              </td>
+              <td class="text-end fw-semibold small">55 RON</td>
+              <td class="text-end small">
+                
+                
+                <span class="text-danger">-42.7%</span>
+                
+              </td>
+              <td class="text-end small">0 RON</td>
+              <td class="text-end small text-success">0.0%</td>
+              <td class="text-end small fw-semibold ">
+                0 RON
+              </td>
+              <td class="text-end small text-warning">
+                0.0%
+              </td>
+              <td><span class="badge bg-danger">31z</span></td>
+            </tr>
+            
+            <tr>
+              <td>
+                <a href="../client/1290.html"
+                   class="text-decoration-none">DIRECT PLAY S.R.L.</a>
+              </td>
+              <td class="text-end fw-semibold small">-338 RON</td>
+              <td class="text-end small">
+                —
+              </td>
+              <td class="text-end small">-113 RON</td>
+              <td class="text-end small text-success">33.3%</td>
+              <td class="text-end small fw-semibold text-danger">
+                -113 RON
+              </td>
+              <td class="text-end small text-success">
+                33.3%
+              </td>
+              <td><span class="badge bg-danger">181z</span></td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Produse tab -->
+  <div class="tab-pane fade" id="tabSkus">
+    <div class="card shadow-sm border-0">
+      <div class="table-responsive">
+        <table class="table table-sm table-hover mb-0">
+          <thead class="table-dark">
+            <tr>
+              <th>Produs</th>
+              <th>Brand</th>
+              <th class="text-end">Cant.</th>
+              <th class="text-end">Val Netă</th>
+              <th class="text-end">MB (RON)</th>
+              <th class="text-end">MB%</th>
+              <th class="text-end">MN (RON)</th>
+              <th class="text-end">MN%</th>
+              <th class="text-end">Clienți</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr>
+              <td class="small" style="max-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="B.REFILL GREEN FRESHNESS 70135-4792252100268">
+                <a href="../produs/B_REFILL_GREEN_FRESHNESS_70135-4792252100268.html" class="text-decoration-none">
+                  B.REFILL GREEN FRESHNESS 70135-479…
+                </a>
+              </td>
+              <td class="small"><span class="badge bg-light text-dark">Basilur</span></td>
+              <td class="text-end small">5.0</td>
+              <td class="text-end small fw-semibold">28 RON</td>
+              <td class="text-end small">3 RON</td>
+              <td class="text-end small text-success">9.1%</td>
+              <td class="text-end small ">
+                3 RON
+              </td>
+              <td class="text-end small text-success">
+                9.1%
+              </td>
+              <td class="text-end small">1</td>
+            </tr>
+            
+            <tr>
+              <td class="small" style="max-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="B.REFILL WHITE MAGIC 70140-4792252100220">
+                <a href="../produs/B_REFILL_WHITE_MAGIC_70140-4792252100220.html" class="text-decoration-none">
+                  B.REFILL WHITE MAGIC 70140-4792252100220
+                </a>
+              </td>
+              <td class="small"><span class="badge bg-light text-dark">Basilur</span></td>
+              <td class="text-end small">5.0</td>
+              <td class="text-end small fw-semibold">28 RON</td>
+              <td class="text-end small">-3 RON</td>
+              <td class="text-end small text-success">-9.1%</td>
+              <td class="text-end small text-danger fw-semibold">
+                -3 RON
+              </td>
+              <td class="text-end small text-danger">
+                -9.1%
+              </td>
+              <td class="text-end small">1</td>
+            </tr>
+            
+            <tr>
+              <td class="small" style="max-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="B.CHRISTMAS HOUSE 100G 70275-4792252100756">
+                <a href="../produs/B_CHRISTMAS_HOUSE_100G_70275-4792252100756.html" class="text-decoration-none">
+                  B.CHRISTMAS HOUSE 100G 70275-47922…
+                </a>
+              </td>
+              <td class="small"><span class="badge bg-light text-dark">Basilur</span></td>
+              <td class="text-end small">-12.0</td>
+              <td class="text-end small fw-semibold">-338 RON</td>
+              <td class="text-end small">-113 RON</td>
+              <td class="text-end small text-success">33.3%</td>
+              <td class="text-end small text-danger fw-semibold">
+                -113 RON
+              </td>
+              <td class="text-end small text-success">
+                33.3%
+              </td>
+              <td class="text-end small">1</td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="tab-pane fade" id="tabLunar">
+    <div class="card shadow-sm border-0">
+      <div class="card-header bg-white d-flex flex-wrap gap-3 align-items-center">
+        <span class="fw-semibold">
+          <i class="bi bi-grid-3x3 me-1 text-info"></i>
+          Pivot lunar: Brand → SKU · 2025 vs 2024
+        </span>
+        <div class="btn-group btn-group-sm ms-auto" role="group">
+          <button class="btn btn-outline-primary active" id="lunarMetricVN"
+                  onclick="setLunarMetric('vn',this)">Val Netă</button>
+          <button class="btn btn-outline-secondary" id="lunarMetricQty"
+                  onclick="setLunarMetric('qty',this)">Cantitate</button>
+        </div>
+        <div class="btn-group btn-group-sm" role="group">
+          <button class="btn btn-outline-success active" id="lunarYearCY"
+                  onclick="setLunarYear('cy',this)">2025</button>
+          <button class="btn btn-outline-secondary" id="lunarYearPY"
+                  onclick="setLunarYear('py',this)">2024</button>
+          <button class="btn btn-outline-warning" id="lunarYearDelta"
+                  onclick="setLunarYear('delta',this)">Δ% vs 2024</button>
+        </div>
+        <button class="btn btn-sm btn-outline-secondary" onclick="toggleAllSkus()" id="btnExpandAll">
+          <i class="bi bi-arrows-expand me-1"></i>Expandează toate
+        </button>
+      </div>
+      <div class="table-responsive" style="max-height:70vh">
+        <table class="table table-sm table-hover align-middle mb-0" id="lunarTable" style="font-size:.78rem">
+          <thead class="table-dark sticky-top">
+            <tr>
+              <th style="min-width:240px">Brand / SKU</th>
+              
+              <th class="text-end">Ian</th><th class="text-end">Feb</th><th class="text-end">Mar</th><th class="text-end">Apr</th><th class="text-end">Mai</th><th class="text-end">Iun</th><th class="text-end">Iul</th><th class="text-end">Aug</th><th class="text-end">Sep</th><th class="text-end">Oct</th><th class="text-end">Nov</th><th class="text-end">Dec</th>
+              <th class="text-end fw-bold">Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            
+            <tr class="table-secondary brand-row" data-brand="Basilur"
+                style="cursor:pointer" onclick="toggleBrand('Basilur', this)">
+              <td class="fw-bold">
+                <i class="bi bi-caret-right-fill brand-arrow me-1" id="arrow-Basilur"></i>
+                Basilur
+                <span class="badge bg-light text-dark ms-1">5 SKU</span>
+              </td>
+              
+              <td class="text-end month-cell"
+                  data-cy-vn="-338.16"  data-py-vn="0"
+                  data-cy-qty="-12.0" data-py-qty="0">—</td>
+              
+              <td class="text-end month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end month-cell"
+                  data-cy-vn="55.0"  data-py-vn="0"
+                  data-cy-qty="10.0" data-py-qty="0">—</td>
+              
+              <td class="text-end month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end month-cell"
+                  data-cy-vn="0"  data-py-vn="45.79"
+                  data-cy-qty="0" data-py-qty="4.0">—</td>
+              
+              <td class="text-end month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end fw-bold total-cell"
+                  data-cy-vn="-283.16"  data-py-vn="45.79"
+                  data-cy-qty="-2.0" data-py-qty="4.0">—</td>
+            </tr>
+            
+            <tr class="sku-row sku-of-Basilur" style="display:none">
+              <td class="ps-4 small text-truncate" style="max-width:240px" title="B.CEAI STRAWBERRY &amp; RASPBERRY (25X1,8G) 71406-4792252933354">
+                <i class="bi bi-dot text-muted"></i>B.CEAI STRAWBERRY &amp; RASPBERRY (25X1,8G)…
+              </td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="7.99"
+                  data-cy-qty="0" data-py-qty="1.0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small fw-semibold total-cell"
+                  data-cy-vn="0"  data-py-vn="7.99"
+                  data-cy-qty="0" data-py-qty="1.0">—</td>
+            </tr>
+            
+            <tr class="sku-row sku-of-Basilur" style="display:none">
+              <td class="ps-4 small text-truncate" style="max-width:240px" title="B.WHITE TEA FOREST FRUIT (1,5GX20E) 72165-4792252944916">
+                <i class="bi bi-dot text-muted"></i>B.WHITE TEA FOREST FRUIT (1,5GX20E) 721…
+              </td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="37.8"
+                  data-cy-qty="0" data-py-qty="3.0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small fw-semibold total-cell"
+                  data-cy-vn="0"  data-py-vn="37.8"
+                  data-cy-qty="0" data-py-qty="3.0">—</td>
+            </tr>
+            
+            <tr class="sku-row sku-of-Basilur" style="display:none">
+              <td class="ps-4 small text-truncate" style="max-width:240px" title="B.CHRISTMAS HOUSE 100G 70275-4792252100756">
+                <i class="bi bi-dot text-muted"></i>B.CHRISTMAS HOUSE 100G 70275-4792252100756
+              </td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="-338.16"  data-py-vn="0"
+                  data-cy-qty="-12.0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small fw-semibold total-cell"
+                  data-cy-vn="-338.16"  data-py-vn="0"
+                  data-cy-qty="-12.0" data-py-qty="0">—</td>
+            </tr>
+            
+            <tr class="sku-row sku-of-Basilur" style="display:none">
+              <td class="ps-4 small text-truncate" style="max-width:240px" title="B.REFILL GREEN FRESHNESS 70135-4792252100268">
+                <i class="bi bi-dot text-muted"></i>B.REFILL GREEN FRESHNESS 70135-4792252100268
+              </td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="27.5"  data-py-vn="0"
+                  data-cy-qty="5.0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small fw-semibold total-cell"
+                  data-cy-vn="27.5"  data-py-vn="0"
+                  data-cy-qty="5.0" data-py-qty="0">—</td>
+            </tr>
+            
+            <tr class="sku-row sku-of-Basilur" style="display:none">
+              <td class="ps-4 small text-truncate" style="max-width:240px" title="B.REFILL WHITE MAGIC 70140-4792252100220">
+                <i class="bi bi-dot text-muted"></i>B.REFILL WHITE MAGIC 70140-4792252100220
+              </td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="27.5"  data-py-vn="0"
+                  data-cy-qty="5.0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small fw-semibold total-cell"
+                  data-cy-vn="27.5"  data-py-vn="0"
+                  data-cy-qty="5.0" data-py-qty="0">—</td>
+            </tr>
+            
+            
+            
+            <tr class="table-secondary brand-row" data-brand="Celmar"
+                style="cursor:pointer" onclick="toggleBrand('Celmar', this)">
+              <td class="fw-bold">
+                <i class="bi bi-caret-right-fill brand-arrow me-1" id="arrow-Celmar"></i>
+                Celmar
+                <span class="badge bg-light text-dark ms-1">2 SKU</span>
+              </td>
+              
+              <td class="text-end month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end month-cell"
+                  data-cy-vn="0"  data-py-vn="23.9"
+                  data-cy-qty="0" data-py-qty="10.0">—</td>
+              
+              <td class="text-end month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end fw-bold total-cell"
+                  data-cy-vn="0"  data-py-vn="23.9"
+                  data-cy-qty="0" data-py-qty="10.0">—</td>
+            </tr>
+            
+            <tr class="sku-row sku-of-Celmar" style="display:none">
+              <td class="ps-4 small text-truncate" style="max-width:240px" title="CELMAR VISINE 5947226224139">
+                <i class="bi bi-dot text-muted"></i>CELMAR VISINE 5947226224139
+              </td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="11.95"
+                  data-cy-qty="0" data-py-qty="5.0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small fw-semibold total-cell"
+                  data-cy-vn="0"  data-py-vn="11.95"
+                  data-cy-qty="0" data-py-qty="5.0">—</td>
+            </tr>
+            
+            <tr class="sku-row sku-of-Celmar" style="display:none">
+              <td class="ps-4 small text-truncate" style="max-width:240px" title="CELMAR ZMEURA 5947226224153">
+                <i class="bi bi-dot text-muted"></i>CELMAR ZMEURA 5947226224153
+              </td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="11.95"
+                  data-cy-qty="0" data-py-qty="5.0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small fw-semibold total-cell"
+                  data-cy-vn="0"  data-py-vn="11.95"
+                  data-cy-qty="0" data-py-qty="5.0">—</td>
+            </tr>
+            
+            
+            
+            <tr class="table-secondary brand-row" data-brand="Delaviuda"
+                style="cursor:pointer" onclick="toggleBrand('Delaviuda', this)">
+              <td class="fw-bold">
+                <i class="bi bi-caret-right-fill brand-arrow me-1" id="arrow-Delaviuda"></i>
+                Delaviuda
+                <span class="badge bg-light text-dark ms-1">2 SKU</span>
+              </td>
+              
+              <td class="text-end month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end month-cell"
+                  data-cy-vn="0"  data-py-vn="26.240000000000002"
+                  data-cy-qty="0" data-py-qty="2.0">—</td>
+              
+              <td class="text-end month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end fw-bold total-cell"
+                  data-cy-vn="0"  data-py-vn="26.240000000000002"
+                  data-cy-qty="0" data-py-qty="2.0">—</td>
+            </tr>
+            
+            <tr class="sku-row sku-of-Delaviuda" style="display:none">
+              <td class="ps-4 small text-truncate" style="max-width:240px" title="DEL.PRALINE CIOCOLATA CU LAPTE SI CARAMEL 150G 70475 8410223606705">
+                <i class="bi bi-dot text-muted"></i>DEL.PRALINE CIOCOLATA CU LAPTE SI CARAM…
+              </td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="13.52"
+                  data-cy-qty="0" data-py-qty="1.0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small fw-semibold total-cell"
+                  data-cy-vn="0"  data-py-vn="13.52"
+                  data-cy-qty="0" data-py-qty="1.0">—</td>
+            </tr>
+            
+            <tr class="sku-row sku-of-Delaviuda" style="display:none">
+              <td class="ps-4 small text-truncate" style="max-width:240px" title="DEL.STICKSURI CIOCOLATA LAPTE CU AROMA CHEESECAKE 120G 70347  8410223703473">
+                <i class="bi bi-dot text-muted"></i>DEL.STICKSURI CIOCOLATA LAPTE CU AROMA …
+              </td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="12.72"
+                  data-cy-qty="0" data-py-qty="1.0">—</td>
+              
+              <td class="text-end small month-cell"
+                  data-cy-vn="0"  data-py-vn="0"
+                  data-cy-qty="0" data-py-qty="0">—</td>
+              
+              <td class="text-end small fw-semibold total-cell"
+                  data-cy-vn="0"  data-py-vn="12.72"
+                  data-cy-qty="0" data-py-qty="1.0">—</td>
+            </tr>
+            
+            
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+<script>
+const MONTHS  = ["Ian", "Feb", "Mar", "Apr", "Mai", "Iun", "Iul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const TREND_VN = {"2024": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 96.0, 0], "2025": [-338.0, 0, 55.0, 0, 0, 0, 0, 0, 0, 0, 0, 0]};
+const TREND_MB = {"2024": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 46.0, 0], "2025": [-113.0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]};
+const TREND_MN = {"2024": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 46.0, 0], "2025": [-113.0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]};
+
+const PALETTE = {
+  2024: {vn:'rgba(173,181,189,0.7)', mb:'rgba(173,181,189,0.55)', mn:'rgba(173,181,189,0.4)'},
+  2025: {vn:'rgba(13,110,253,0.65)', mb:'rgba(13,202,240,0.65)',  mn:'rgba(13,110,253,0.4)'},
+  2026: {vn:'rgba(25,135,84,0.85)',  mb:'rgba(25,135,84,0.6)',    mn:'rgba(255,193,7,0.85)'},
+};
+
+let currentMetric = 'vn';
+let chart;
+
+function buildDatasets(metric) {
+  const src = metric === 'vn' ? TREND_VN : metric === 'mb' ? TREND_MB : TREND_MN;
+  return Object.entries(src).sort(([a],[b])=>a-b).map(([yr, data]) => ({
+    label: yr,
+    data,
+    backgroundColor: (PALETTE[yr] || {})[metric] || '#adb5bd',
+    borderRadius: 3,
+  }));
+}
+
+function showMetric(metric, btn) {
+  currentMetric = metric;
+  document.querySelectorAll('#agentTrend .btn').forEach(b => {
+    b.classList.remove('active','btn-primary','btn-success','btn-warning');
+    b.classList.add('btn-outline-primary','btn-outline-success','btn-outline-warning');
+  });
+  if (btn) {
+    const map = {vn:'primary',mb:'success',mn:'warning'};
+    btn.classList.remove(`btn-outline-${map[metric]}`);
+    btn.classList.add(`btn-${map[metric]}`, 'active');
+  }
+  chart.data.datasets = buildDatasets(metric);
+  chart.update();
+}
+
+(function () {
+  const ctx = document.getElementById('trendChart').getContext('2d');
+  chart = new Chart(ctx, {
+    type: 'bar',
+    data: {labels: MONTHS, datasets: buildDatasets('vn')},
+    options: {
+      responsive: true,
+      plugins: {legend: {position: 'top'}},
+      scales: {
+        y: {beginAtZero: true, ticks: {callback: v => v >= 1e6 ? (v/1e6).toFixed(1)+'M' : v >= 1e3 ? (v/1e3).toFixed(0)+'K' : v}},
+      },
+    },
+  });
+  // Attach the btn-group in the card header via id
+  document.querySelector('.card-header .btn-group') && (() => {
+    document.querySelector('.card-header .btn-group').id = 'agentTrend';
+  })();
+})();
+
+// ── Lunar pivot: metric (vn/qty) × year (cy/py/delta) ────────────────────────
+let lunarMetric = 'vn';
+let lunarYear   = 'cy';
+
+function fmtVN(v)  {
+  if (!v || Math.abs(v) < 0.5) return '—';
+  if (Math.abs(v) >= 1e6) return (v/1e6).toFixed(2) + 'M';
+  if (Math.abs(v) >= 1e3) return (v/1e3).toFixed(1) + 'K';
+  return Math.round(v).toLocaleString('ro-RO');
+}
+function fmtQty(v) {
+  if (!v || Math.abs(v) < 0.5) return '—';
+  return Math.round(v).toLocaleString('ro-RO');
+}
+function fmtDelta(cy, py) {
+  if (!py) return cy ? '<span class="text-success small">nou</span>' : '—';
+  const pct = (cy - py) / py * 100;
+  if (Math.abs(pct) < 0.5) return '<span class="text-muted small">±0%</span>';
+  const cls = pct > 0 ? 'text-success' : 'text-danger';
+  const sign = pct > 0 ? '+' : '';
+  return `<span class="${cls} small">${sign}${pct.toFixed(0)}%</span>`;
+}
+
+function renderLunarCell(cell) {
+  const cyV = parseFloat(cell.dataset[lunarMetric === 'vn' ? 'cyVn' : 'cyQty']) || 0;
+  const pyV = parseFloat(cell.dataset[lunarMetric === 'vn' ? 'pyVn' : 'pyQty']) || 0;
+  const fmt = lunarMetric === 'vn' ? fmtVN : fmtQty;
+  if (lunarYear === 'cy')      cell.innerHTML = fmt(cyV);
+  else if (lunarYear === 'py') cell.innerHTML = fmt(pyV);
+  else                          cell.innerHTML = fmtDelta(cyV, pyV);
+}
+
+function refreshLunar() {
+  document.querySelectorAll('#lunarTable .month-cell, #lunarTable .total-cell')
+          .forEach(renderLunarCell);
+}
+
+function setLunarMetric(m, btn) {
+  lunarMetric = m;
+  document.querySelectorAll('#lunarMetricVN,#lunarMetricQty').forEach(b => b.classList.remove('active','btn-primary','btn-secondary'));
+  document.querySelectorAll('#lunarMetricVN,#lunarMetricQty').forEach(b => b.classList.add('btn-outline-' + (b.id === 'lunarMetricVN' ? 'primary' : 'secondary')));
+  btn.classList.remove('btn-outline-primary','btn-outline-secondary');
+  btn.classList.add('active', m === 'vn' ? 'btn-primary' : 'btn-secondary');
+  refreshLunar();
+}
+
+function setLunarYear(y, btn) {
+  lunarYear = y;
+  ['lunarYearCY','lunarYearPY','lunarYearDelta'].forEach(id => {
+    const b = document.getElementById(id);
+    b.classList.remove('active','btn-success','btn-secondary','btn-warning');
+    b.classList.add('btn-outline-' + (id === 'lunarYearCY' ? 'success' : id === 'lunarYearPY' ? 'secondary' : 'warning'));
+  });
+  btn.classList.remove('btn-outline-success','btn-outline-secondary','btn-outline-warning');
+  btn.classList.add('active', y === 'cy' ? 'btn-success' : y === 'py' ? 'btn-secondary' : 'btn-warning');
+  refreshLunar();
+}
+
+function toggleBrand(brandId, row) {
+  const arrow = document.getElementById('arrow-' + brandId);
+  const skuRows = document.querySelectorAll('.sku-of-' + brandId);
+  const expanded = arrow.classList.contains('bi-caret-down-fill');
+  arrow.classList.toggle('bi-caret-right-fill', expanded);
+  arrow.classList.toggle('bi-caret-down-fill', !expanded);
+  skuRows.forEach(r => r.style.display = expanded ? 'none' : '');
+}
+
+function toggleAllSkus() {
+  const btn = document.getElementById('btnExpandAll');
+  const anyCollapsed = !!document.querySelector('.brand-arrow.bi-caret-right-fill');
+  document.querySelectorAll('.brand-row').forEach(row => {
+    const id = row.dataset.brand;
+    const arrow = document.getElementById('arrow-' + id);
+    const skuRows = document.querySelectorAll('.sku-of-' + id);
+    if (anyCollapsed) {
+      arrow.classList.remove('bi-caret-right-fill');
+      arrow.classList.add('bi-caret-down-fill');
+      skuRows.forEach(r => r.style.display = '');
+    } else {
+      arrow.classList.remove('bi-caret-down-fill');
+      arrow.classList.add('bi-caret-right-fill');
+      skuRows.forEach(r => r.style.display = 'none');
+    }
+  });
+  btn.innerHTML = anyCollapsed
+    ? '<i class="bi bi-arrows-collapse me-1"></i>Restrânge toate'
+    : '<i class="bi bi-arrows-expand me-1"></i>Expandează toate';
+}
+
+// Render initial
+refreshLunar();
+</script>
+
+<script>
+(function() {
+  var _pn = "agent/BOCIOAGA_CIPRIAN";
+  var _py = 2025;
+  var _cy = 2026;
+  var _px = "../";
+  window.torbSetAn = function(y) {
+    var s = (y === _cy) ? '' : ('-' + y);
+    window.location = _px + _pn + s + '.html';
+  };
+  window.torbSetLuna = function(m) {
+    if (m === null) {
+      var s = (_py === _cy) ? '' : ('-' + _py);
+      window.location = _px + _pn + s + '.html';
+    } else {
+      alert('Filtrarea pe lună nu este disponibilă în versiunea statică.
+Utilizaţi aplicaţia locală pentru această funcţie.');
+    }
+  };
+})();
+</script>
+</body>
+</html>

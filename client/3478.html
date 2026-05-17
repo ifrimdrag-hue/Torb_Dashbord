@@ -4,9 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>PASCUPAS PRO S.R.L. — Torb Logistic</title>
-  <link rel="icon" type="image/svg+xml" href="../static/favicon.svg">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../static/css/bootstrap-icons.min.css">
   <link rel="stylesheet" href="../static/css/style.css">
 
   <link rel="manifest" href="../manifest.json">
@@ -86,10 +85,24 @@
             <i class="bi bi-tags-fill"></i> Prețuri
           </a>
         </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle "
+             href="#" data-bs-toggle="dropdown">
+            <i class="bi bi-boxes"></i> Stoc / Forecast
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="../forecast.html">
+              <i class="bi bi-bar-chart-steps"></i> Stoc &amp; Comenzi
+            </a></li>
+            <li><a class="dropdown-item" href="/forecast/setari">
+              <i class="bi bi-gear"></i> Setări Forecast
+            </a></li>
+          </ul>
+        </li>
         <li class="nav-item">
           <a class="nav-link "
-             href="../forecast.html">
-            <i class="bi bi-boxes"></i> Stoc / Forecast
+             href="../raportare-basilur.html">
+            <i class="bi bi-file-earmark-bar-graph-fill"></i> Basilur
           </a>
         </li>
       </ul>
@@ -115,18 +128,8 @@
     </small>
   </div>
   <div class="d-flex gap-2 align-items-center">
-    
-    <a href="../client/3478.html"
-       class="btn btn-sm btn-outline-secondary">2024</a>
-    
-    <a href="../client/3478.html"
-       class="btn btn-sm btn-outline-secondary">2025</a>
-    
-    <a href="../client/3478.html"
-       class="btn btn-sm btn-primary">2026</a>
-    
     <a href="#" onclick="alert('Export disponibil doar în aplicația locală.');return false;"
-       class="btn btn-sm btn-outline-success ms-2">
+       class="btn btn-sm btn-outline-success">
       <i class="bi bi-file-earmark-excel"></i> Excel
     </a>
     <a href="#" onclick="alert('Export disponibil doar în aplicația locală.');return false;"
@@ -135,6 +138,96 @@
     </a>
   </div>
 </div>
+
+
+<div class="d-flex align-items-center gap-2 mb-3 flex-wrap">
+  <div class="btn-group btn-group-sm" role="group">
+    <button type="button"
+            class="btn btn-primary"
+            onclick="torbSetLuna(null)">YTD</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(1)">Ian</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(2)">Feb</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(3)">Mar</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(4)">Apr</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(5)">Mai</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(6)">Iun</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(7)">Iul</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(8)">Aug</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(9)">Sep</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(10)">Oct</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(11)">Nov</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(12)">Dec</button>
+    
+  </div>
+  <div class="btn-group btn-group-sm ms-1" role="group">
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetAn(2024)">2024</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetAn(2025)">2025</button>
+    
+    <button type="button"
+            class="btn btn-dark"
+            onclick="torbSetAn(2026)">2026</button>
+    
+  </div>
+</div>
+<script>
+(function () {
+  function torbSetLuna(m) {
+    var u = new URL(window.location.href);
+    if (m === null) u.searchParams.delete('luna');
+    else u.searchParams.set('luna', m);
+    window.location = u.toString();
+  }
+  function torbSetAn(y) {
+    var u = new URL(window.location.href);
+    u.searchParams.set('an', y);
+    window.location = u.toString();
+  }
+  window.torbSetLuna = torbSetLuna;
+  window.torbSetAn   = torbSetAn;
+}());
+</script>
 
 <!-- KPI cards -->
 <div class="row g-3 mb-4">
@@ -243,7 +336,7 @@
 <div class="card shadow-sm border-0">
   <div class="card-header bg-white d-flex justify-content-between align-items-center fw-semibold">
     <span><i class="bi bi-box-seam text-secondary me-1"></i>
-      Produse Cumpărate 2026
+      Produse Cumpărate 
       <span class="badge bg-secondary ms-1">13</span>
     </span>
     <input type="text" id="prodSearch" class="form-control form-control-sm w-auto"
@@ -256,7 +349,9 @@
           <th>Produs</th>
           <th>Brand</th>
           <th class="text-end">Cant.</th>
+          <th class="text-end text-warning-emphasis">Δ Cant %</th>
           <th class="text-end">Val Netă</th>
+          <th class="text-end text-warning-emphasis">Δ VN %</th>
           <th class="text-end">MB (RON)</th>
           <th class="text-end">MB%</th>
           <th class="text-end">MN (RON)</th>
@@ -273,7 +368,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Celmar</span></td>
           <td class="text-end small">156.0</td>
+          <td class="text-end small text-muted">
+            —
+          </td>
           <td class="text-end small fw-semibold">396 RON</td>
+          <td class="text-end small text-muted">
+            —
+          </td>
           <td class="text-end small">178 RON</td>
           <td class="text-end small text-success">44.9%</td>
           <td class="text-end small fw-semibold ">178 RON</td>
@@ -290,7 +391,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Celmar</span></td>
           <td class="text-end small">108.0</td>
+          <td class="text-end small text-muted">
+            —
+          </td>
           <td class="text-end small fw-semibold">274 RON</td>
+          <td class="text-end small text-muted">
+            —
+          </td>
           <td class="text-end small">129 RON</td>
           <td class="text-end small text-success">47.0%</td>
           <td class="text-end small fw-semibold ">129 RON</td>
@@ -307,7 +414,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Celmar</span></td>
           <td class="text-end small">72.0</td>
+          <td class="text-end small text-muted">
+            —
+          </td>
           <td class="text-end small fw-semibold">256 RON</td>
+          <td class="text-end small text-muted">
+            —
+          </td>
           <td class="text-end small">110 RON</td>
           <td class="text-end small text-success">42.9%</td>
           <td class="text-end small fw-semibold ">110 RON</td>
@@ -324,7 +437,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Celmar</span></td>
           <td class="text-end small">72.0</td>
+          <td class="text-end small text-muted">
+            —
+          </td>
           <td class="text-end small fw-semibold">256 RON</td>
+          <td class="text-end small text-muted">
+            —
+          </td>
           <td class="text-end small">87 RON</td>
           <td class="text-end small text-success">33.8%</td>
           <td class="text-end small fw-semibold ">87 RON</td>
@@ -341,7 +460,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Celmar</span></td>
           <td class="text-end small">120.0</td>
+          <td class="text-end small text-muted">
+            —
+          </td>
           <td class="text-end small fw-semibold">228 RON</td>
+          <td class="text-end small text-muted">
+            —
+          </td>
           <td class="text-end small">86 RON</td>
           <td class="text-end small text-success">37.7%</td>
           <td class="text-end small fw-semibold ">86 RON</td>
@@ -358,7 +483,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Celmar</span></td>
           <td class="text-end small">72.0</td>
+          <td class="text-end small text-muted">
+            —
+          </td>
           <td class="text-end small fw-semibold">202 RON</td>
+          <td class="text-end small text-muted">
+            —
+          </td>
           <td class="text-end small">73 RON</td>
           <td class="text-end small text-success">36.2%</td>
           <td class="text-end small fw-semibold ">73 RON</td>
@@ -375,7 +506,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Celmar</span></td>
           <td class="text-end small">72.0</td>
+          <td class="text-end small text-muted">
+            —
+          </td>
           <td class="text-end small fw-semibold">202 RON</td>
+          <td class="text-end small text-muted">
+            —
+          </td>
           <td class="text-end small">71 RON</td>
           <td class="text-end small text-success">35.1%</td>
           <td class="text-end small fw-semibold ">71 RON</td>
@@ -392,7 +529,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Celmar</span></td>
           <td class="text-end small">72.0</td>
+          <td class="text-end small text-muted">
+            —
+          </td>
           <td class="text-end small fw-semibold">183 RON</td>
+          <td class="text-end small text-muted">
+            —
+          </td>
           <td class="text-end small">80 RON</td>
           <td class="text-end small text-success">44.0%</td>
           <td class="text-end small fw-semibold ">80 RON</td>
@@ -409,7 +552,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Celmar</span></td>
           <td class="text-end small">72.0</td>
+          <td class="text-end small text-muted">
+            —
+          </td>
           <td class="text-end small fw-semibold">183 RON</td>
+          <td class="text-end small text-muted">
+            —
+          </td>
           <td class="text-end small">79 RON</td>
           <td class="text-end small text-success">43.4%</td>
           <td class="text-end small fw-semibold ">79 RON</td>
@@ -426,7 +575,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Celmar</span></td>
           <td class="text-end small">72.0</td>
+          <td class="text-end small text-muted">
+            —
+          </td>
           <td class="text-end small fw-semibold">183 RON</td>
+          <td class="text-end small text-muted">
+            —
+          </td>
           <td class="text-end small">83 RON</td>
           <td class="text-end small text-success">45.4%</td>
           <td class="text-end small fw-semibold ">83 RON</td>
@@ -443,7 +598,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Celmar</span></td>
           <td class="text-end small">72.0</td>
+          <td class="text-end small text-muted">
+            —
+          </td>
           <td class="text-end small fw-semibold">183 RON</td>
+          <td class="text-end small text-muted">
+            —
+          </td>
           <td class="text-end small">84 RON</td>
           <td class="text-end small text-success">45.9%</td>
           <td class="text-end small fw-semibold ">84 RON</td>
@@ -460,7 +621,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Celmar</span></td>
           <td class="text-end small">72.0</td>
+          <td class="text-end small text-muted">
+            —
+          </td>
           <td class="text-end small fw-semibold">181 RON</td>
+          <td class="text-end small text-muted">
+            —
+          </td>
           <td class="text-end small">61 RON</td>
           <td class="text-end small text-success">33.8%</td>
           <td class="text-end small fw-semibold ">61 RON</td>
@@ -477,7 +644,13 @@
           </td>
           <td class="small"><span class="badge bg-light text-dark">Celmar</span></td>
           <td class="text-end small">72.0</td>
+          <td class="text-end small text-muted">
+            —
+          </td>
           <td class="text-end small fw-semibold">137 RON</td>
+          <td class="text-end small text-muted">
+            —
+          </td>
           <td class="text-end small">45 RON</td>
           <td class="text-end small text-success">32.6%</td>
           <td class="text-end small fw-semibold ">45 RON</td>
@@ -493,8 +666,8 @@
 
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="../static/js/bootstrap.bundle.min.js"></script>
+<script src="../static/js/chart.umd.min.js"></script>
 
 <script>
 const MONTHS    = ["Ian", "Feb", "Mar", "Apr", "Mai", "Iun", "Iul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -565,5 +738,15 @@ function filterProds(q) {
 }
 </script>
 
+<script>
+(function() {
+  window.torbSetAn = function() {
+    alert('Schimbarea anului este disponibilă doar în aplicaţia locală.');
+  };
+  window.torbSetLuna = function() {
+    alert('Filtrarea pe lună este disponibilă doar în aplicaţia locală.');
+  };
+})();
+</script>
 </body>
 </html>
