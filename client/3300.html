@@ -143,15 +143,15 @@
     <div class="card border-0 shadow-sm text-center p-2">
       <i class="bi bi-currency-euro text-primary fs-4 mt-2"></i>
       <p class="text-muted small mb-1 mt-1">Val Netă 2026</p>
-      <p class="fw-bold mb-0">67 RON</p>
+      <p class="fw-bold mb-0">96 RON</p>
     </div>
   </div>
   <div class="col-6 col-md-3">
     <div class="card border-0 shadow-sm text-center p-2">
       <i class="bi bi-graph-up text-success fs-4 mt-2"></i>
       <p class="text-muted small mb-1 mt-1">Marjă Brută 2026</p>
-      <p class="fw-bold mb-0">52 RON</p>
-      <small class="text-success">77.0%</small>
+      <p class="fw-bold mb-0">73 RON</p>
+      <small class="text-success">76.1%</small>
     </div>
   </div>
   <div class="col-6 col-md-3">
@@ -159,10 +159,10 @@
       <i class="bi bi-graph-down-arrow text-warning fs-4 mt-2"></i>
       <p class="text-muted small mb-1 mt-1">Marjă Netă 2026</p>
       <p class="fw-bold mb-0 ">
-        52 RON
+        73 RON
       </p>
       <small class="text-success">
-        77.0%
+        76.1%
       </small>
     </div>
   </div>
@@ -170,7 +170,7 @@
     <div class="card border-0 shadow-sm text-center p-2">
       <i class="bi bi-file-earmark-text text-dark fs-4 mt-2"></i>
       <p class="text-muted small mb-1 mt-1">Total Facturi</p>
-      <p class="fw-bold mb-0">4</p>
+      <p class="fw-bold mb-0">5</p>
       <small class="text-muted">Prima: 2025-09-23</small>
     </div>
   </div>
@@ -221,11 +221,11 @@
             
             <tr class="table-active fw-semibold">
               <td>2026</td>
-              <td class="text-end small">67 RON</td>
-              <td class="text-end small text-success">77.0%</td>
-              <td class="text-end small ">52 RON</td>
+              <td class="text-end small">96 RON</td>
+              <td class="text-end small text-success">76.1%</td>
+              <td class="text-end small ">73 RON</td>
               <td class="text-end small text-success">
-                77.0%
+                76.1%
               </td>
             </tr>
             
@@ -244,7 +244,7 @@
   <div class="card-header bg-white d-flex justify-content-between align-items-center fw-semibold">
     <span><i class="bi bi-box-seam text-secondary me-1"></i>
       Produse Cumpărate 2026
-      <span class="badge bg-secondary ms-1">2</span>
+      <span class="badge bg-secondary ms-1">4</span>
     </span>
     <input type="text" id="prodSearch" class="form-control form-control-sm w-auto"
            placeholder="Filtrare produs…" oninput="filterProds(this.value)">
@@ -299,6 +299,40 @@
           </td>
         </tr>
         
+        <tr>
+          <td class="small" style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="TS WELLNESS DETOX TEA (1,3GX20) 80174-4792252936607">
+            <a href="../produs/TS_WELLNESS_DETOX_TEA__1_3GX20__80174-4792252936607.html" class="text-decoration-none">
+              TS WELLNESS DETOX TEA (1,3GX20) 80174-4…
+            </a>
+          </td>
+          <td class="small"><span class="badge bg-light text-dark">Tipson</span></td>
+          <td class="text-end small">1.0</td>
+          <td class="text-end small fw-semibold">14 RON</td>
+          <td class="text-end small">10 RON</td>
+          <td class="text-end small text-success">71.8%</td>
+          <td class="text-end small fw-semibold ">10 RON</td>
+          <td class="text-end small text-success">
+            71.8%
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="small" style="max-width:250px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="TS WELLNESS SLIM TEA (1,3GX20) 80170-4792252936560">
+            <a href="../produs/TS_WELLNESS_SLIM_TEA__1_3GX20__80170-4792252936560.html" class="text-decoration-none">
+              TS WELLNESS SLIM TEA (1,3GX20) 80170-47…
+            </a>
+          </td>
+          <td class="small"><span class="badge bg-light text-dark">Tipson</span></td>
+          <td class="text-end small">1.0</td>
+          <td class="text-end small fw-semibold">14 RON</td>
+          <td class="text-end small">11 RON</td>
+          <td class="text-end small text-success">76.2%</td>
+          <td class="text-end small fw-semibold ">11 RON</td>
+          <td class="text-end small text-success">
+            76.2%
+          </td>
+        </tr>
+        
       </tbody>
     </table>
   </div>
@@ -311,9 +345,9 @@
 
 <script>
 const MONTHS    = ["Ian", "Feb", "Mar", "Apr", "Mai", "Iun", "Iul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-const M_VN      = {"2025": [0, 0, 0, 0, 0, 0, 0, 0, 66.0, 41.0, 50.0, 0], "2026": [0, 0, 0, 67.0, 0, 0, 0, 0, 0, 0, 0, 0]};
-const M_MB      = {"2025": [0, 0, 0, 0, 0, 0, 0, 0, 48.0, 31.0, 37.0, 0], "2026": [0, 0, 0, 52.0, 0, 0, 0, 0, 0, 0, 0, 0]};
-const BRAND_MIX = [{"label": "Tipson", "value": 67.0}];
+const M_VN      = {"2025": [0, 0, 0, 0, 0, 0, 0, 0, 66.0, 41.0, 50.0, 0], "2026": [0, 0, 0, 67.0, 28.0, 0, 0, 0, 0, 0, 0, 0]};
+const M_MB      = {"2025": [0, 0, 0, 0, 0, 0, 0, 0, 48.0, 31.0, 37.0, 0], "2026": [0, 0, 0, 52.0, 21.0, 0, 0, 0, 0, 0, 0, 0]};
+const BRAND_MIX = [{"label": "Tipson", "value": 96.0}];
 
 const PALETTE = {
   2024: {vn:'rgba(173,181,189,0.6)', mb:'rgba(173,181,189,0.45)'},
