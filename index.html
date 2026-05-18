@@ -4,9 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Dashboard — Torb Logistic</title>
-  <link rel="icon" type="image/svg+xml" href="static/favicon.svg">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="static/css/bootstrap.min.css">
+  <link rel="stylesheet" href="static/css/bootstrap-icons.min.css">
   <link rel="stylesheet" href="static/css/style.css">
 
   <link rel="manifest" href="./manifest.json">
@@ -86,10 +85,24 @@
             <i class="bi bi-tags-fill"></i> Prețuri
           </a>
         </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle "
+             href="#" data-bs-toggle="dropdown">
+            <i class="bi bi-boxes"></i> Stoc / Forecast
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="forecast.html">
+              <i class="bi bi-bar-chart-steps"></i> Stoc &amp; Comenzi
+            </a></li>
+            <li><a class="dropdown-item" href="/forecast/setari">
+              <i class="bi bi-gear"></i> Setări Forecast
+            </a></li>
+          </ul>
+        </li>
         <li class="nav-item">
           <a class="nav-link "
-             href="forecast.html">
-            <i class="bi bi-boxes"></i> Stoc / Forecast
+             href="raportare-basilur.html">
+            <i class="bi bi-file-earmark-bar-graph-fill"></i> Basilur
           </a>
         </li>
       </ul>
@@ -121,16 +134,16 @@
         <div class="d-flex justify-content-between align-items-start">
           <div>
             <p class="text-muted small mb-1">Vânzări Nete YTD</p>
-            <h4 class="mb-0 fw-bold">5.93M RON</h4>
+            <h4 class="mb-0 fw-bold">5.44M RON</h4>
           </div>
           <div class="rounded-circle bg-primary bg-opacity-10 p-2">
             <i class="bi bi-currency-euro text-primary fs-5"></i>
           </div>
         </div>
         
-        <p class="mt-2 mb-0 small text-success">
-          <i class="bi bi-arrow-up-short"></i>
-          +-0.0% față de 2025
+        <p class="mt-2 mb-0 small text-danger">
+          <i class="bi bi-arrow-down-short"></i>
+          -3.4% față de 2025
         </p>
         
       </div>
@@ -143,7 +156,7 @@
         <div class="d-flex justify-content-between align-items-start">
           <div>
             <p class="text-muted small mb-1">Marjă Brută YTD</p>
-            <h4 class="mb-0 fw-bold">2.60M RON</h4>
+            <h4 class="mb-0 fw-bold">2.47M RON</h4>
           </div>
           <div class="rounded-circle bg-success bg-opacity-10 p-2">
             <i class="bi bi-graph-up-arrow text-success fs-5"></i>
@@ -152,7 +165,7 @@
         
         <p class="mt-2 mb-0 small text-danger">
           <i class="bi bi-arrow-down-short"></i>
-          -2.2% față de 2025
+          -6.2% față de 2025
         </p>
         
       </div>
@@ -165,7 +178,7 @@
         <div class="d-flex justify-content-between align-items-start">
           <div>
             <p class="text-muted small mb-1">Marjă Netă YTD</p>
-            <h4 class="mb-0 fw-bold">2.60M RON</h4>
+            <h4 class="mb-0 fw-bold">2.47M RON</h4>
           </div>
           <div class="rounded-circle bg-warning bg-opacity-10 p-2">
             <i class="bi bi-graph-down-arrow text-warning fs-5"></i>
@@ -174,7 +187,7 @@
         
         <p class="mt-2 mb-0 small text-danger">
           <i class="bi bi-arrow-down-short"></i>
-          -2.2% față de 2025
+          -6.2% față de 2025
         </p>
         
       </div>
@@ -187,7 +200,7 @@
         <div class="d-flex justify-content-between align-items-start">
           <div>
             <p class="text-muted small mb-1">Marjă %</p>
-            <h4 class="mb-0 fw-bold">43.8%</h4>
+            <h4 class="mb-0 fw-bold">45.4%</h4>
           </div>
           <div class="rounded-circle bg-info bg-opacity-10 p-2">
             <i class="bi bi-percent text-info fs-5"></i>
@@ -196,7 +209,7 @@
         
         <p class="mt-2 mb-0 small text-danger">
           <i class="bi bi-arrow-down-short"></i>
-          -1.0% față de 2025
+          -1.4% față de 2025
         </p>
         
       </div>
@@ -209,7 +222,7 @@
         <div class="d-flex justify-content-between align-items-start">
           <div>
             <p class="text-muted small mb-1">Clienți Activi</p>
-            <h4 class="mb-0 fw-bold">1090</h4>
+            <h4 class="mb-0 fw-bold">1093</h4>
           </div>
           <div class="rounded-circle bg-secondary bg-opacity-10 p-2">
             <i class="bi bi-people-fill text-secondary fs-5"></i>
@@ -218,7 +231,7 @@
         
         <p class="mt-2 mb-0 small text-success">
           <i class="bi bi-arrow-up-short"></i>
-          +313 față de 2025
+          +316 față de 2025
         </p>
         
       </div>
@@ -234,15 +247,15 @@
   </div>
   <div class="card-body d-flex flex-wrap gap-3 align-items-center py-3">
     <span class="badge bg-danger fs-6 px-3 py-2">
-      <i class="bi bi-building me-1"></i>Kaufland 40.4% din vânzări
+      <i class="bi bi-building me-1"></i>Kaufland 44.0% din vânzări
        — RISC RIDICAT
     </span>
     <span class="badge bg-danger fs-6 px-3 py-2">
-      <i class="bi bi-person-fill me-1"></i>Bogdan Dragnea 56.6% din vânzări
+      <i class="bi bi-person-fill me-1"></i>Bogdan Dragnea 61.9% din vânzări
        — RISC CONCENTRARE
     </span>
     <a href="clients.html" class="badge bg-danger fs-6 px-3 py-2 text-decoration-none">
-      <i class="bi bi-clock-history me-1"></i>3155 clienți inactivi >60 zile
+      <i class="bi bi-clock-history me-1"></i>3157 clienți inactivi >60 zile
     </a>
   </div>
 </div>
@@ -332,89 +345,68 @@
             <tr>
               <td class="text-muted">2</td>
               <td>
-                <a href="client/732.html" class="text-decoration-none">
-                  AUCHAN ROMANIA SA
-                </a>
-              </td>
-              <td><span class="badge bg-secondary">Oana Filip</span></td>
-              <td class="text-end fw-semibold">588.649 RON</td>
-              <td class="text-end small text-warning">
-                29.5%
-              </td>
-              <td class="text-end fw-semibold text-success">
-                173.546 RON
-              </td>
-              <td class="text-end small text-success">
-                29.5%
-              </td>
-              <td class="text-muted small">2026-05-12</td>
-            </tr>
-            
-            <tr>
-              <td class="text-muted">3</td>
-              <td>
                 <a href="client/888.html" class="text-decoration-none">
                   CARREFOUR ROMANIA SA
                 </a>
               </td>
               <td><span class="badge bg-secondary">Oana Filip</span></td>
-              <td class="text-end fw-semibold">305.960 RON</td>
+              <td class="text-end fw-semibold">307.115 RON</td>
               <td class="text-end small text-warning">
                 32.1%
               </td>
               <td class="text-end fw-semibold text-success">
-                98.153 RON
+                98.505 RON
               </td>
               <td class="text-end small text-success">
                 32.1%
               </td>
-              <td class="text-muted small">2026-05-12</td>
+              <td class="text-muted small">2026-05-15</td>
             </tr>
             
             <tr>
-              <td class="text-muted">4</td>
+              <td class="text-muted">3</td>
               <td>
                 <a href="client/977.html" class="text-decoration-none">
                   SELGROS CASH &amp; CARRY SRL
                 </a>
               </td>
               <td><span class="badge bg-secondary">DRAGNEA BOGDAN</span></td>
-              <td class="text-end fw-semibold">241.735 RON</td>
+              <td class="text-end fw-semibold">246.852 RON</td>
               <td class="text-end small text-success">
                 54.4%
               </td>
               <td class="text-end fw-semibold text-success">
-                131.617 RON
+                134.387 RON
               </td>
               <td class="text-end small text-success">
                 54.4%
               </td>
-              <td class="text-muted small">2026-05-13</td>
+              <td class="text-muted small">2026-05-15</td>
             </tr>
             
             <tr>
-              <td class="text-muted">5</td>
+              <td class="text-muted">4</td>
               <td>
                 <a href="client/997.html" class="text-decoration-none">
                   BEBETEI INVESTMENTS GROUP SRL
                 </a>
               </td>
               <td><span class="badge bg-secondary">BRINZA CLAUDIU</span></td>
-              <td class="text-end fw-semibold">191.593 RON</td>
+              <td class="text-end fw-semibold">218.246 RON</td>
               <td class="text-end small text-success">
-                40.1%
+                40.5%
               </td>
               <td class="text-end fw-semibold text-success">
-                76.916 RON
+                88.399 RON
               </td>
               <td class="text-end small text-success">
-                40.1%
+                40.5%
               </td>
-              <td class="text-muted small">2026-04-16</td>
+              <td class="text-muted small">2026-05-18</td>
             </tr>
             
             <tr>
-              <td class="text-muted">6</td>
+              <td class="text-muted">5</td>
               <td>
                 <a href="client/936.html" class="text-decoration-none">
                   FARMACIA TEI SRL
@@ -435,7 +427,7 @@
             </tr>
             
             <tr>
-              <td class="text-muted">7</td>
+              <td class="text-muted">6</td>
               <td>
                 <a href="client/809.html" class="text-decoration-none">
                   FILDAS TRADING SRL
@@ -456,7 +448,7 @@
             </tr>
             
             <tr>
-              <td class="text-muted">8</td>
+              <td class="text-muted">7</td>
               <td>
                 <a href="client/1347.html" class="text-decoration-none">
                   DR.MAX SRL
@@ -477,28 +469,28 @@
             </tr>
             
             <tr>
-              <td class="text-muted">9</td>
+              <td class="text-muted">8</td>
               <td>
                 <a href="client/872.html" class="text-decoration-none">
                   METRO CASH &amp; CARRY ROMANIA SRL
                 </a>
               </td>
               <td><span class="badge bg-secondary">Oana Filip</span></td>
-              <td class="text-end fw-semibold">121.508 RON</td>
+              <td class="text-end fw-semibold">126.908 RON</td>
               <td class="text-end small text-warning">
-                34.8%
+                34.9%
               </td>
               <td class="text-end fw-semibold text-success">
-                42.294 RON
+                44.240 RON
               </td>
               <td class="text-end small text-success">
-                34.8%
+                34.9%
               </td>
-              <td class="text-muted small">2026-05-06</td>
+              <td class="text-muted small">2026-05-13</td>
             </tr>
             
             <tr>
-              <td class="text-muted">10</td>
+              <td class="text-muted">9</td>
               <td>
                 <a href="client/794.html" class="text-decoration-none">
                   URANUS DISTRIBUTION S.R.L.
@@ -518,6 +510,27 @@
               <td class="text-muted small">2026-05-14</td>
             </tr>
             
+            <tr>
+              <td class="text-muted">10</td>
+              <td>
+                <a href="client/973.html" class="text-decoration-none">
+                  PROFI ROM FOOD SRL
+                </a>
+              </td>
+              <td><span class="badge bg-secondary">Oana Filip</span></td>
+              <td class="text-end fw-semibold">103.815 RON</td>
+              <td class="text-end small text-success">
+                53.9%
+              </td>
+              <td class="text-end fw-semibold text-success">
+                55.994 RON
+              </td>
+              <td class="text-end small text-success">
+                53.9%
+              </td>
+              <td class="text-muted small">2026-03-27</td>
+            </tr>
+            
           </tbody>
         </table>
       </div>
@@ -527,14 +540,14 @@
 
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="static/js/bootstrap.bundle.min.js"></script>
+<script src="static/js/chart.umd.min.js"></script>
 
 <script>
 const MONTHS  = ["Ian", "Feb", "Mar", "Apr", "Mai", "Iun", "Iul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-const TREND   = {"2024": [1040252.0, 861374.0, 908426.0, 1081228.0, 678630.0, 614256.0, 824599.0, 890547.0, 1141424.0, 1490786.0, 1571585.0, 1761950.0], "2025": [1591067.0, 1370998.0, 1675577.0, 886864.0, 972753.0, 949462.0, 936279.0, 938042.0, 1113632.0, 1714362.0, 1324291.0, 1547095.0], "2026": [1395466.0, 1569570.0, 1396725.0, 1168852.0, 398872.0, 0, 0, 0, 0, 0, 0, 0]};
-const BRANDS  = [{"label": "Basilur", "value": 1853598.0}, {"label": "Toras", "value": 1287119.0}, {"label": "Celmar", "value": 1262967.0}, {"label": "Leonex", "value": 1017824.0}, {"label": "Delaviuda", "value": 214932.0}, {"label": "KingsLeaf", "value": 185401.0}, {"label": "Tipson", "value": 66849.0}, {"label": "Solvex", "value": 22687.0}, {"label": "Cosmetice", "value": 18106.0}];
-const CHANNELS = [{"label": "DRAGNEA BOGDAN", "value": 3358720.0}, {"label": "Oana Filip", "value": 1241356.0}, {"label": "BRINZA CLAUDIU", "value": 1038589.0}, {"label": "CONSTANTIN IONUT", "value": 186605.0}, {"label": "EMAG", "value": 32369.0}, {"label": "SITE", "value": 28749.0}, {"label": "GURAMULTA GHEORGHE", "value": 23325.0}, {"label": "BOTEA DANIEL", "value": 18327.0}, {"label": "ALTEX", "value": 840.0}, {"label": "TRENDYOL", "value": 407.0}, {"label": "LOGISTICA", "value": 142.0}, {"label": "REICH LEOPOLD", "value": 54.0}];
+const TREND   = {"2024": [918639.0, 809271.0, 816880.0, 1016851.0, 601572.0, 561459.0, 753625.0, 849581.0, 1091582.0, 1424003.0, 1505859.0, 1672492.0], "2025": [1475078.0, 1326060.0, 1622006.0, 865961.0, 874274.0, 872029.0, 881684.0, 883551.0, 1043396.0, 1642020.0, 1241370.0, 1464709.0], "2026": [1237037.0, 1473882.0, 1303215.0, 1012919.0, 420615.0, 0, 0, 0, 0, 0, 0, 0]};
+const BRANDS  = [{"label": "Basilur", "value": 1696396.0}, {"label": "Celmar", "value": 1244210.0}, {"label": "Leonex", "value": 1023156.0}, {"label": "Toras", "value": 1022065.0}, {"label": "Delaviuda", "value": 218107.0}, {"label": "KingsLeaf", "value": 187824.0}, {"label": "Solvex", "value": 23646.0}, {"label": "Cosmetice", "value": 18106.0}, {"label": "Tipson", "value": 14157.0}];
+const CHANNELS = [{"label": "DRAGNEA BOGDAN", "value": 3370425.0}, {"label": "BRINZA CLAUDIU", "value": 1068084.0}, {"label": "Oana Filip", "value": 715733.0}, {"label": "CONSTANTIN IONUT", "value": 188940.0}, {"label": "EMAG", "value": 32541.0}, {"label": "SITE", "value": 28849.0}, {"label": "GURAMULTA GHEORGHE", "value": 23325.0}, {"label": "BOTEA DANIEL", "value": 18327.0}, {"label": "ALTEX", "value": 840.0}, {"label": "TRENDYOL", "value": 407.0}, {"label": "LOGISTICA", "value": 142.0}, {"label": "REICH LEOPOLD", "value": 54.0}];
 
 const PALETTE = [
   '#0d6efd','#198754','#0dcaf0','#ffc107','#dc3545',

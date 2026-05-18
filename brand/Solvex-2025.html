@@ -4,9 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Solvex — Torb Logistic</title>
-  <link rel="icon" type="image/svg+xml" href="../static/favicon.svg">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../static/css/bootstrap-icons.min.css">
   <link rel="stylesheet" href="../static/css/style.css">
 
   <link rel="manifest" href="../manifest.json">
@@ -86,10 +85,24 @@
             <i class="bi bi-tags-fill"></i> Prețuri
           </a>
         </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle "
+             href="#" data-bs-toggle="dropdown">
+            <i class="bi bi-boxes"></i> Stoc / Forecast
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="../forecast.html">
+              <i class="bi bi-bar-chart-steps"></i> Stoc &amp; Comenzi
+            </a></li>
+            <li><a class="dropdown-item" href="/forecast/setari">
+              <i class="bi bi-gear"></i> Setări Forecast
+            </a></li>
+          </ul>
+        </li>
         <li class="nav-item">
           <a class="nav-link "
-             href="../forecast.html">
-            <i class="bi bi-boxes"></i> Stoc / Forecast
+             href="../raportare-basilur.html">
+            <i class="bi bi-file-earmark-bar-graph-fill"></i> Basilur
           </a>
         </li>
       </ul>
@@ -110,19 +123,97 @@
   <h4 class="mb-0 fw-bold">
     <i class="bi bi-award-fill text-warning me-1"></i>Solvex
   </h4>
-  <div class="d-flex gap-2 align-items-center">
+</div>
+
+
+<div class="d-flex align-items-center gap-2 mb-3 flex-wrap">
+  <div class="btn-group btn-group-sm" role="group">
+    <button type="button"
+            class="btn btn-primary"
+            onclick="torbSetLuna(null)">YTD</button>
     
-    <a href="../brand/Solvex.html"
-       class="btn btn-sm btn-outline-secondary">2024</a>
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(1)">Ian</button>
     
-    <a href="../brand/Solvex.html"
-       class="btn btn-sm btn-primary">2025</a>
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(2)">Feb</button>
     
-    <a href="../brand/Solvex.html"
-       class="btn btn-sm btn-outline-secondary">2026</a>
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(3)">Mar</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(4)">Apr</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(5)">Mai</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(6)">Iun</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(7)">Iul</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(8)">Aug</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(9)">Sep</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(10)">Oct</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(11)">Nov</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(12)">Dec</button>
+    
+  </div>
+  <div class="btn-group btn-group-sm ms-1" role="group">
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetAn(2024)">2024</button>
+    
+    <button type="button"
+            class="btn btn-dark"
+            onclick="torbSetAn(2025)">2025</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetAn(2026)">2026</button>
     
   </div>
 </div>
+<script>
+(function () {
+  function torbSetLuna(m) {
+    var u = new URL(window.location.href);
+    if (m === null) u.searchParams.delete('luna');
+    else u.searchParams.set('luna', m);
+    window.location = u.toString();
+  }
+  function torbSetAn(y) {
+    var u = new URL(window.location.href);
+    u.searchParams.set('an', y);
+    window.location = u.toString();
+  }
+  window.torbSetLuna = torbSetLuna;
+  window.torbSetAn   = torbSetAn;
+}());
+</script>
 
 <!-- KPI cards -->
 
@@ -134,7 +225,7 @@
       <p class="fw-bold mb-1">412.578 RON</p>
       
       <small class="text-success">
-        ▲13.9% vs 2024
+        ▲16.0% vs 2024
       </small>
       
     </div>
@@ -147,7 +238,7 @@
       <small class="text-success fw-semibold">63.2%</small>
       
       <small class="text-success small">
-        +5.1pp
+        +3.7pp
       </small>
       
     </div>
@@ -204,7 +295,7 @@
 <div class="card shadow-sm border-0 mb-4">
   <div class="card-header bg-white fw-semibold">
     <i class="bi bi-people-fill me-1 text-info"></i>
-    Clienți Solvex — pondere &amp; comparativ 2024
+    Clienți Solvex — pondere &amp; comparativ 
   </div>
   <div class="table-responsive">
     <table class="table table-sm table-hover mb-0 align-middle">
@@ -213,9 +304,9 @@
           <th>#</th>
           <th>Client</th>
           <th>Agent</th>
-          <th class="text-end">Val Netă 2025</th>
+          <th class="text-end">Val Netă </th>
           <th class="text-end">Pondere</th>
-          <th class="text-end">vs 2024</th>
+          <th class="text-end">vs </th>
           <th class="text-end">MB (RON)</th>
           <th class="text-end">MB%</th>
           <th class="text-end">SKU-uri</th>
@@ -277,9 +368,9 @@
           <td class="text-end small">
             
             <span class="text-success">
-              +170.5%
+              +302.7%
             </span>
-            <div class="text-muted" style="font-size:0.7rem">20.261 RON</div>
+            <div class="text-muted" style="font-size:0.7rem">13.611 RON</div>
             
           </td>
           <td class="text-end small">35.871 RON</td>
@@ -2265,11 +2356,12 @@
 <div class="card shadow-sm border-0">
   <div class="card-header bg-white fw-semibold d-flex justify-content-between align-items-center flex-wrap gap-2">
     <span>
-      <i class="bi bi-list-stars me-1 text-secondary"></i> Top SKU-uri Solvex 2025
+      <i class="bi bi-list-stars me-1 text-secondary"></i> Top SKU-uri Solvex 
       
     </span>
     <form method="get" class="d-flex gap-2">
       <input type="hidden" name="an" value="2025">
+      
       <div class="input-group input-group-sm" style="width:260px">
         <span class="input-group-text"><i class="bi bi-search"></i></span>
         <input type="text" name="q" value=""
@@ -2824,13 +2916,13 @@
 
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="../static/js/bootstrap.bundle.min.js"></script>
+<script src="../static/js/chart.umd.min.js"></script>
 
 <script>
 const MONTHS   = ["Ian", "Feb", "Mar", "Apr", "Mai", "Iun", "Iul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-const TREND_VN = {"2024": [11353.0, 14934.0, 13791.0, 15840.0, 13023.0, 10869.0, 7096.0, 44478.0, 112715.0, 26156.0, 36284.0, 55685.0], "2025": [44610.0, 55934.0, 49248.0, 76119.0, 18810.0, 60991.0, 34655.0, 36329.0, 10796.0, 14396.0, 7149.0, 3541.0], "2026": [4556.0, 5368.0, 4867.0, 4999.0, 2898.0, 0, 0, 0, 0, 0, 0, 0]};
-const TREND_MB = {"2024": [4464.0, 6169.0, 5711.0, 6334.0, 5168.0, 4304.0, 2692.0, 27449.0, 74019.0, 14155.0, 22850.0, 37295.0], "2025": [29058.0, 36327.0, 32234.0, 50939.0, 10414.0, 40572.0, 21906.0, 22132.0, 5380.0, 7772.0, 2824.0, 1234.0], "2026": [1587.0, 1771.0, 1430.0, 1838.0, 1035.0, 0, 0, 0, 0, 0, 0, 0]};
+const TREND_VN = {"2024": [10490.0, 14179.0, 12928.0, 15624.0, 11874.0, 10016.0, 6486.0, 44356.0, 111740.0, 25912.0, 36284.0, 55685.0], "2025": [44610.0, 55934.0, 49248.0, 76119.0, 18810.0, 60991.0, 34655.0, 36329.0, 10796.0, 14396.0, 7149.0, 3541.0], "2026": [4556.0, 5368.0, 4867.0, 4999.0, 3856.0, 0, 0, 0, 0, 0, 0, 0]};
+const TREND_MB = {"2024": [4635.0, 6318.0, 5882.0, 6376.0, 5311.0, 4356.0, 2745.0, 27473.0, 74212.0, 14203.0, 22850.0, 37295.0], "2025": [29058.0, 36327.0, 32234.0, 50939.0, 10414.0, 40572.0, 21906.0, 22132.0, 5380.0, 7772.0, 2824.0, 1234.0], "2026": [1587.0, 1771.0, 1430.0, 1838.0, 1321.0, 0, 0, 0, 0, 0, 0, 0]};
 
 const PALETTE = {
   2024: {vn:'rgba(173,181,189,0.7)', mb:'rgba(173,181,189,0.55)'},

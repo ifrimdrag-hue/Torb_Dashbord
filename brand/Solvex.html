@@ -4,9 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Solvex — Torb Logistic</title>
-  <link rel="icon" type="image/svg+xml" href="../static/favicon.svg">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../static/css/bootstrap-icons.min.css">
   <link rel="stylesheet" href="../static/css/style.css">
 
   <link rel="manifest" href="../manifest.json">
@@ -86,10 +85,24 @@
             <i class="bi bi-tags-fill"></i> Prețuri
           </a>
         </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle "
+             href="#" data-bs-toggle="dropdown">
+            <i class="bi bi-boxes"></i> Stoc / Forecast
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="../forecast.html">
+              <i class="bi bi-bar-chart-steps"></i> Stoc &amp; Comenzi
+            </a></li>
+            <li><a class="dropdown-item" href="/forecast/setari">
+              <i class="bi bi-gear"></i> Setări Forecast
+            </a></li>
+          </ul>
+        </li>
         <li class="nav-item">
           <a class="nav-link "
-             href="../forecast.html">
-            <i class="bi bi-boxes"></i> Stoc / Forecast
+             href="../raportare-basilur.html">
+            <i class="bi bi-file-earmark-bar-graph-fill"></i> Basilur
           </a>
         </li>
       </ul>
@@ -110,19 +123,97 @@
   <h4 class="mb-0 fw-bold">
     <i class="bi bi-award-fill text-warning me-1"></i>Solvex
   </h4>
-  <div class="d-flex gap-2 align-items-center">
+</div>
+
+
+<div class="d-flex align-items-center gap-2 mb-3 flex-wrap">
+  <div class="btn-group btn-group-sm" role="group">
+    <button type="button"
+            class="btn btn-primary"
+            onclick="torbSetLuna(null)">YTD</button>
     
-    <a href="../brand/Solvex.html"
-       class="btn btn-sm btn-outline-secondary">2024</a>
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(1)">Ian</button>
     
-    <a href="../brand/Solvex.html"
-       class="btn btn-sm btn-outline-secondary">2025</a>
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(2)">Feb</button>
     
-    <a href="../brand/Solvex.html"
-       class="btn btn-sm btn-primary">2026</a>
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(3)">Mar</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(4)">Apr</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(5)">Mai</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(6)">Iun</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(7)">Iul</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(8)">Aug</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(9)">Sep</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(10)">Oct</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(11)">Nov</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(12)">Dec</button>
+    
+  </div>
+  <div class="btn-group btn-group-sm ms-1" role="group">
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetAn(2024)">2024</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetAn(2025)">2025</button>
+    
+    <button type="button"
+            class="btn btn-dark"
+            onclick="torbSetAn(2026)">2026</button>
     
   </div>
 </div>
+<script>
+(function () {
+  function torbSetLuna(m) {
+    var u = new URL(window.location.href);
+    if (m === null) u.searchParams.delete('luna');
+    else u.searchParams.set('luna', m);
+    window.location = u.toString();
+  }
+  function torbSetAn(y) {
+    var u = new URL(window.location.href);
+    u.searchParams.set('an', y);
+    window.location = u.toString();
+  }
+  window.torbSetLuna = torbSetLuna;
+  window.torbSetAn   = torbSetAn;
+}());
+</script>
 
 <!-- KPI cards -->
 
@@ -130,11 +221,11 @@
   <div class="col-6 col-md-4 col-xl-2">
     <div class="card border-0 shadow-sm h-100 text-center p-2">
       <i class="bi bi-currency-exchange text-primary fs-4 mt-2"></i>
-      <p class="text-muted small mb-1 mt-1">Val Netă YTD</p>
-      <p class="fw-bold mb-1">22.687 RON</p>
+      <p class="text-muted small mb-1 mt-1">Val Netă</p>
+      <p class="fw-bold mb-1">23.646 RON</p>
       
       <small class="text-danger">
-        ▼90.7% vs 2025
+        ▼90.3% vs 2025
       </small>
       
     </div>
@@ -143,11 +234,11 @@
     <div class="card border-0 shadow-sm h-100 text-center p-2">
       <i class="bi bi-graph-up text-success fs-4 mt-2"></i>
       <p class="text-muted small mb-1 mt-1">Marjă Brută</p>
-      <p class="fw-bold mb-1">7.661 RON</p>
-      <small class="text-success fw-semibold">33.8%</small>
+      <p class="fw-bold mb-1">7.946 RON</p>
+      <small class="text-success fw-semibold">33.6%</small>
       
       <small class="text-danger small">
-        -31.2pp
+        -31.4pp
       </small>
       
     </div>
@@ -156,9 +247,9 @@
     <div class="card border-0 shadow-sm h-100 text-center p-2">
       <i class="bi bi-graph-down-arrow text-warning fs-4 mt-2"></i>
       <p class="text-muted small mb-1 mt-1">Marjă Netă</p>
-      <p class="fw-bold mb-1">7.661 RON</p>
+      <p class="fw-bold mb-1">7.946 RON</p>
       <small class="text-success fw-semibold">
-        33.8%
+        33.6%
       </small>
     </div>
   </div>
@@ -180,7 +271,7 @@
     <div class="card border-0 shadow-sm h-100 text-center p-2">
       <i class="bi bi-receipt text-info fs-4 mt-2"></i>
       <p class="text-muted small mb-1 mt-1">Tranzacții</p>
-      <p class="fw-bold mb-1">865</p>
+      <p class="fw-bold mb-1">881</p>
     </div>
   </div>
 </div>
@@ -204,7 +295,7 @@
 <div class="card shadow-sm border-0 mb-4">
   <div class="card-header bg-white fw-semibold">
     <i class="bi bi-people-fill me-1 text-info"></i>
-    Clienți Solvex — pondere &amp; comparativ 2025 YTD
+    Clienți Solvex — pondere &amp; comparativ 
   </div>
   <div class="table-responsive">
     <table class="table table-sm table-hover mb-0 align-middle">
@@ -213,9 +304,9 @@
           <th>#</th>
           <th>Client</th>
           <th>Agent</th>
-          <th class="text-end">Val Netă 2026</th>
+          <th class="text-end">Val Netă </th>
           <th class="text-end">Pondere</th>
-          <th class="text-end">vs 2025 YTD</th>
+          <th class="text-end">vs </th>
           <th class="text-end">MB (RON)</th>
           <th class="text-end">MB%</th>
           <th class="text-end">SKU-uri</th>
@@ -235,9 +326,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:12.36%"></div>
+                <div class="progress-bar bg-info" style="width:11.86%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">12.36%</span>
+              <span class="small fw-semibold" style="min-width:50px">11.86%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -260,6 +351,40 @@
         <tr>
           <td class="text-muted small">2</td>
           <td>
+            <a href="../client/857.html"
+               class="text-decoration-none fw-semibold">BROTACEL SRL</a>
+          </td>
+          <td class="small text-muted">CONSTANTIN IONUT</td>
+          <td class="text-end fw-semibold">2.460 RON</td>
+          <td class="text-end">
+            <div class="d-flex align-items-center justify-content-end gap-2">
+              <div class="progress" style="height:6px;width:60px">
+                <div class="progress-bar bg-info" style="width:10.4%"></div>
+              </div>
+              <span class="small fw-semibold" style="min-width:50px">10.4%</span>
+            </div>
+          </td>
+          <td class="text-end small">
+            
+            <span class="text-success">
+              +101.6%
+            </span>
+            <div class="text-muted" style="font-size:0.7rem">1.220 RON</div>
+            
+          </td>
+          <td class="text-end small">860 RON</td>
+          <td class="text-end small
+            text-warning
+            ">
+            35.0%
+          </td>
+          <td class="text-end text-muted small">23</td>
+          <td class="text-muted small">2026-05-18</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted small">3</td>
+          <td>
             <a href="../client/769.html"
                class="text-decoration-none fw-semibold">BENAN PROGRESS S.R.L.</a>
           </td>
@@ -268,9 +393,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:10.27%"></div>
+                <div class="progress-bar bg-info" style="width:9.85%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">10.27%</span>
+              <span class="small fw-semibold" style="min-width:50px">9.85%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -292,40 +417,6 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">3</td>
-          <td>
-            <a href="../client/857.html"
-               class="text-decoration-none fw-semibold">BROTACEL SRL</a>
-          </td>
-          <td class="small text-muted">CONSTANTIN IONUT</td>
-          <td class="text-end fw-semibold">2.287 RON</td>
-          <td class="text-end">
-            <div class="d-flex align-items-center justify-content-end gap-2">
-              <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:10.08%"></div>
-              </div>
-              <span class="small fw-semibold" style="min-width:50px">10.08%</span>
-            </div>
-          </td>
-          <td class="text-end small">
-            
-            <span class="text-success">
-              +87.5%
-            </span>
-            <div class="text-muted" style="font-size:0.7rem">1.220 RON</div>
-            
-          </td>
-          <td class="text-end small">797 RON</td>
-          <td class="text-end small
-            text-warning
-            ">
-            34.9%
-          </td>
-          <td class="text-end text-muted small">23</td>
-          <td class="text-muted small">2026-05-13</td>
-        </tr>
-        
-        <tr>
           <td class="text-muted small">4</td>
           <td>
             <a href="../client/913.html"
@@ -336,9 +427,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:8.85%"></div>
+                <div class="progress-bar bg-info" style="width:8.49%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">8.85%</span>
+              <span class="small fw-semibold" style="min-width:50px">8.49%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -362,6 +453,40 @@
         <tr>
           <td class="text-muted small">5</td>
           <td>
+            <a href="../client/763.html"
+               class="text-decoration-none fw-semibold">MAIALEX SRL</a>
+          </td>
+          <td class="small text-muted">DRAGNEA BOGDAN</td>
+          <td class="text-end fw-semibold">1.872 RON</td>
+          <td class="text-end">
+            <div class="d-flex align-items-center justify-content-end gap-2">
+              <div class="progress" style="height:6px;width:60px">
+                <div class="progress-bar bg-info" style="width:7.92%"></div>
+              </div>
+              <span class="small fw-semibold" style="min-width:50px">7.92%</span>
+            </div>
+          </td>
+          <td class="text-end small">
+            
+            <span class="text-success">
+              +16.7%
+            </span>
+            <div class="text-muted" style="font-size:0.7rem">1.604 RON</div>
+            
+          </td>
+          <td class="text-end small">567 RON</td>
+          <td class="text-end small
+            text-warning
+            ">
+            30.3%
+          </td>
+          <td class="text-end text-muted small">13</td>
+          <td class="text-muted small">2026-05-20</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted small">6</td>
+          <td>
             <a href="../client/1219.html"
                class="text-decoration-none fw-semibold">DADDA COMPUTER 2000 S.R.L.</a>
           </td>
@@ -370,9 +495,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:6.79%"></div>
+                <div class="progress-bar bg-info" style="width:6.51%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">6.79%</span>
+              <span class="small fw-semibold" style="min-width:50px">6.51%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -393,40 +518,6 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">6</td>
-          <td>
-            <a href="../client/763.html"
-               class="text-decoration-none fw-semibold">MAIALEX SRL</a>
-          </td>
-          <td class="small text-muted">DRAGNEA BOGDAN</td>
-          <td class="text-end fw-semibold">1.184 RON</td>
-          <td class="text-end">
-            <div class="d-flex align-items-center justify-content-end gap-2">
-              <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:5.22%"></div>
-              </div>
-              <span class="small fw-semibold" style="min-width:50px">5.22%</span>
-            </div>
-          </td>
-          <td class="text-end small">
-            
-            <span class="text-danger">
-              -26.2%
-            </span>
-            <div class="text-muted" style="font-size:0.7rem">1.604 RON</div>
-            
-          </td>
-          <td class="text-end small">380 RON</td>
-          <td class="text-end small
-            text-warning
-            ">
-            32.1%
-          </td>
-          <td class="text-end text-muted small">7</td>
-          <td class="text-muted small">2026-02-10</td>
-        </tr>
-        
-        <tr>
           <td class="text-muted small">7</td>
           <td>
             <a href="../client/1334.html"
@@ -437,9 +528,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:4.15%"></div>
+                <div class="progress-bar bg-info" style="width:3.98%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">4.15%</span>
+              <span class="small fw-semibold" style="min-width:50px">3.98%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -467,31 +558,31 @@
                class="text-decoration-none fw-semibold">OZANA MARKET SRL</a>
           </td>
           <td class="small text-muted">CONSTANTIN IONUT</td>
-          <td class="text-end fw-semibold">800 RON</td>
+          <td class="text-end fw-semibold">897 RON</td>
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:3.53%"></div>
+                <div class="progress-bar bg-info" style="width:3.79%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">3.53%</span>
+              <span class="small fw-semibold" style="min-width:50px">3.79%</span>
             </div>
           </td>
           <td class="text-end small">
             
             <span class="text-danger">
-              -42.9%
+              -36.0%
             </span>
             <div class="text-muted" style="font-size:0.7rem">1.402 RON</div>
             
           </td>
-          <td class="text-end small">289 RON</td>
+          <td class="text-end small">324 RON</td>
           <td class="text-end small
             text-warning
             ">
-            36.2%
+            36.1%
           </td>
           <td class="text-end text-muted small">23</td>
-          <td class="text-muted small">2026-05-11</td>
+          <td class="text-muted small">2026-05-18</td>
         </tr>
         
         <tr>
@@ -505,9 +596,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:3.4%"></div>
+                <div class="progress-bar bg-info" style="width:3.26%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">3.4%</span>
+              <span class="small fw-semibold" style="min-width:50px">3.26%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -539,9 +630,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:3.28%"></div>
+                <div class="progress-bar bg-info" style="width:3.15%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">3.28%</span>
+              <span class="small fw-semibold" style="min-width:50px">3.15%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -573,9 +664,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:3.16%"></div>
+                <div class="progress-bar bg-info" style="width:3.04%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">3.16%</span>
+              <span class="small fw-semibold" style="min-width:50px">3.04%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -606,9 +697,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:2.75%"></div>
+                <div class="progress-bar bg-info" style="width:2.64%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">2.75%</span>
+              <span class="small fw-semibold" style="min-width:50px">2.64%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -640,9 +731,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:2.65%"></div>
+                <div class="progress-bar bg-info" style="width:2.55%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">2.65%</span>
+              <span class="small fw-semibold" style="min-width:50px">2.55%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -674,9 +765,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:2.34%"></div>
+                <div class="progress-bar bg-info" style="width:2.24%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">2.34%</span>
+              <span class="small fw-semibold" style="min-width:50px">2.24%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -708,9 +799,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:2.1%"></div>
+                <div class="progress-bar bg-info" style="width:2.02%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">2.1%</span>
+              <span class="small fw-semibold" style="min-width:50px">2.02%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -742,9 +833,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:2.05%"></div>
+                <div class="progress-bar bg-info" style="width:1.97%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">2.05%</span>
+              <span class="small fw-semibold" style="min-width:50px">1.97%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -776,9 +867,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:1.73%"></div>
+                <div class="progress-bar bg-info" style="width:1.66%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">1.73%</span>
+              <span class="small fw-semibold" style="min-width:50px">1.66%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -810,9 +901,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:1.43%"></div>
+                <div class="progress-bar bg-info" style="width:1.37%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">1.43%</span>
+              <span class="small fw-semibold" style="min-width:50px">1.37%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -844,9 +935,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:1.42%"></div>
+                <div class="progress-bar bg-info" style="width:1.37%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">1.42%</span>
+              <span class="small fw-semibold" style="min-width:50px">1.37%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -878,9 +969,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:1.19%"></div>
+                <div class="progress-bar bg-info" style="width:1.14%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">1.19%</span>
+              <span class="small fw-semibold" style="min-width:50px">1.14%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -912,9 +1003,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:1.19%"></div>
+                <div class="progress-bar bg-info" style="width:1.14%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">1.19%</span>
+              <span class="small fw-semibold" style="min-width:50px">1.14%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -941,9 +1032,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:1.17%"></div>
+                <div class="progress-bar bg-info" style="width:1.12%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">1.17%</span>
+              <span class="small fw-semibold" style="min-width:50px">1.12%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -974,9 +1065,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.95%"></div>
+                <div class="progress-bar bg-info" style="width:0.91%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.95%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.91%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -1008,9 +1099,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.83%"></div>
+                <div class="progress-bar bg-info" style="width:0.8%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.83%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.8%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -1037,9 +1128,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.81%"></div>
+                <div class="progress-bar bg-info" style="width:0.78%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.81%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.78%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -1071,9 +1162,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.79%"></div>
+                <div class="progress-bar bg-info" style="width:0.76%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.79%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.76%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -1105,9 +1196,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.79%"></div>
+                <div class="progress-bar bg-info" style="width:0.76%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.79%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.76%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -1139,9 +1230,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.75%"></div>
+                <div class="progress-bar bg-info" style="width:0.72%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.75%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.72%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -1173,9 +1264,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.69%"></div>
+                <div class="progress-bar bg-info" style="width:0.66%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.69%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.66%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -1207,9 +1298,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.61%"></div>
+                <div class="progress-bar bg-info" style="width:0.59%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.61%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.59%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -1241,9 +1332,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.48%"></div>
+                <div class="progress-bar bg-info" style="width:0.46%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.48%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.46%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -1270,9 +1361,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.44%"></div>
+                <div class="progress-bar bg-info" style="width:0.42%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.44%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.42%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -1299,9 +1390,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.4%"></div>
+                <div class="progress-bar bg-info" style="width:0.38%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.4%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.38%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -1333,9 +1424,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.28%"></div>
+                <div class="progress-bar bg-info" style="width:0.27%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.28%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.27%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -1362,9 +1453,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.27%"></div>
+                <div class="progress-bar bg-info" style="width:0.26%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.27%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.26%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -1391,9 +1482,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.24%"></div>
+                <div class="progress-bar bg-info" style="width:0.23%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.24%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.23%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -1425,9 +1516,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.2%"></div>
+                <div class="progress-bar bg-info" style="width:0.19%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.2%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.19%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -1454,9 +1545,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.2%"></div>
+                <div class="progress-bar bg-info" style="width:0.19%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.2%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.19%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -1483,9 +1574,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.1%"></div>
+                <div class="progress-bar bg-info" style="width:0.09%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.1%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.09%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -1601,11 +1692,12 @@
 <div class="card shadow-sm border-0">
   <div class="card-header bg-white fw-semibold d-flex justify-content-between align-items-center flex-wrap gap-2">
     <span>
-      <i class="bi bi-list-stars me-1 text-secondary"></i> Top SKU-uri Solvex 2026
+      <i class="bi bi-list-stars me-1 text-secondary"></i> Top SKU-uri Solvex 
       
     </span>
     <form method="get" class="d-flex gap-2">
       <input type="hidden" name="an" value="2026">
+      
       <div class="input-group input-group-sm" style="width:260px">
         <span class="input-group-text"><i class="bi bi-search"></i></span>
         <input type="text" name="q" value=""
@@ -1641,9 +1733,9 @@
               331 MISS MAGIC CREATIVE NEGRU 3800708381947
             </a>
           </td>
-          <td class="text-end fw-semibold small">5.108 RON</td>
-          <td class="text-end text-muted small">1376</td>
-          <td class="text-end small">1.547 RON</td>
+          <td class="text-end fw-semibold small">5.418 RON</td>
+          <td class="text-end text-muted small">1460</td>
+          <td class="text-end small">1.640 RON</td>
           <td class="text-end small text-warning">
             30.3%
           </td>
@@ -1661,16 +1753,16 @@
               307 MISS MAGIC CREATIVE PLATINA NOBILA 3800708381770
             </a>
           </td>
-          <td class="text-end fw-semibold small">1.762 RON</td>
-          <td class="text-end text-muted small">449</td>
-          <td class="text-end small">590 RON</td>
+          <td class="text-end fw-semibold small">1.838 RON</td>
+          <td class="text-end text-muted small">469</td>
+          <td class="text-end small">614 RON</td>
           <td class="text-end small text-warning">
-            33.5%
+            33.4%
           </td>
           <td class="text-end small text-success">
-            33.5%
+            33.4%
           </td>
-          <td class="text-end text-muted small">31</td>
+          <td class="text-end text-muted small">32</td>
         </tr>
         
         <tr>
@@ -1681,14 +1773,14 @@
               310 MISS MAGIC CREATIVE CASTANIU DESCHIS 380070…
             </a>
           </td>
-          <td class="text-end fw-semibold small">1.606 RON</td>
-          <td class="text-end text-muted small">397</td>
-          <td class="text-end small">568 RON</td>
+          <td class="text-end fw-semibold small">1.682 RON</td>
+          <td class="text-end text-muted small">417</td>
+          <td class="text-end small">592 RON</td>
           <td class="text-end small text-warning">
-            35.4%
+            35.2%
           </td>
           <td class="text-end small text-success">
-            35.4%
+            35.2%
           </td>
           <td class="text-end text-muted small">27</td>
         </tr>
@@ -1701,16 +1793,16 @@
               301 MISS MAGIC CREATIVE BLOND SCANDINAV 3800708381718
             </a>
           </td>
-          <td class="text-end fw-semibold small">1.457 RON</td>
-          <td class="text-end text-muted small">361</td>
-          <td class="text-end small">523 RON</td>
+          <td class="text-end fw-semibold small">1.598 RON</td>
+          <td class="text-end text-muted small">397</td>
+          <td class="text-end small">571 RON</td>
           <td class="text-end small text-warning">
-            35.9%
+            35.7%
           </td>
           <td class="text-end small text-success">
-            35.9%
+            35.7%
           </td>
-          <td class="text-end text-muted small">30</td>
+          <td class="text-end text-muted small">31</td>
         </tr>
         
         <tr>
@@ -1721,14 +1813,14 @@
               300 MISS MAGIC CREATIVE BLOND DESCHIS 3800708381701
             </a>
           </td>
-          <td class="text-end fw-semibold small">1.363 RON</td>
-          <td class="text-end text-muted small">335</td>
-          <td class="text-end small">510 RON</td>
+          <td class="text-end fw-semibold small">1.504 RON</td>
+          <td class="text-end text-muted small">371</td>
+          <td class="text-end small">560 RON</td>
           <td class="text-end small text-warning">
-            37.4%
+            37.2%
           </td>
           <td class="text-end small text-success">
-            37.4%
+            37.2%
           </td>
           <td class="text-end text-muted small">30</td>
         </tr>
@@ -1741,9 +1833,9 @@
               303 MISS MAGIC CREATIVE CULOAREA NISIPULUI 3800…
             </a>
           </td>
-          <td class="text-end fw-semibold small">1.199 RON</td>
-          <td class="text-end text-muted small">296</td>
-          <td class="text-end small">432 RON</td>
+          <td class="text-end fw-semibold small">1.251 RON</td>
+          <td class="text-end text-muted small">309</td>
+          <td class="text-end small">451 RON</td>
           <td class="text-end small text-warning">
             36.1%
           </td>
@@ -1801,16 +1893,16 @@
               305 MISS MAGIC CREATIVE BLOND NATURAL 3800708381756
             </a>
           </td>
-          <td class="text-end fw-semibold small">985 RON</td>
-          <td class="text-end text-muted small">256</td>
-          <td class="text-end small">252 RON</td>
+          <td class="text-end fw-semibold small">1.061 RON</td>
+          <td class="text-end text-muted small">276</td>
+          <td class="text-end small">266 RON</td>
           <td class="text-end small text-danger">
-            25.6%
+            25.0%
           </td>
           <td class="text-end small text-success">
-            25.6%
+            25.0%
           </td>
-          <td class="text-end text-muted small">24</td>
+          <td class="text-end text-muted small">25</td>
         </tr>
         
         <tr>
@@ -1821,9 +1913,9 @@
               321 MISS MAGIC CREATIVE MAHOGANY 3800708381879
             </a>
           </td>
-          <td class="text-end fw-semibold small">743 RON</td>
-          <td class="text-end text-muted small">185</td>
-          <td class="text-end small">262 RON</td>
+          <td class="text-end fw-semibold small">751 RON</td>
+          <td class="text-end text-muted small">187</td>
+          <td class="text-end small">265 RON</td>
           <td class="text-end small text-warning">
             35.2%
           </td>
@@ -1835,6 +1927,26 @@
         
         <tr>
           <td class="text-muted">11</td>
+          <td class="text-muted small fw-semibold">617</td>
+          <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="324 MISS MAGIC CREATIVE BORDEAUX 3800708381909">
+            <a href="../produs/324_MISS_MAGIC_CREATIVE_BORDEAUX_3800708381909.html" class="text-decoration-none">
+              324 MISS MAGIC CREATIVE BORDEAUX 3800708381909
+            </a>
+          </td>
+          <td class="text-end fw-semibold small">632 RON</td>
+          <td class="text-end text-muted small">160</td>
+          <td class="text-end small">218 RON</td>
+          <td class="text-end small text-warning">
+            34.5%
+          </td>
+          <td class="text-end small text-success">
+            34.5%
+          </td>
+          <td class="text-end text-muted small">15</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted">12</td>
           <td class="text-muted small fw-semibold">858</td>
           <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="302 MISS MAGIC ARGINT POLAR 3800708381725">
             <a href="../produs/302_MISS_MAGIC_ARGINT_POLAR_3800708381725.html" class="text-decoration-none">
@@ -1854,7 +1966,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted">12</td>
+          <td class="text-muted">13</td>
           <td class="text-muted small fw-semibold">616</td>
           <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="322 MISS MAGIC CREATIVE MAHOGANY INCHIS 3800708381886">
             <a href="../produs/322_MISS_MAGIC_CREATIVE_MAHOGANY_INCHIS_3800708381886.html" class="text-decoration-none">
@@ -1871,26 +1983,6 @@
             33.4%
           </td>
           <td class="text-end text-muted small">15</td>
-        </tr>
-        
-        <tr>
-          <td class="text-muted">13</td>
-          <td class="text-muted small fw-semibold">617</td>
-          <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="324 MISS MAGIC CREATIVE BORDEAUX 3800708381909">
-            <a href="../produs/324_MISS_MAGIC_CREATIVE_BORDEAUX_3800708381909.html" class="text-decoration-none">
-              324 MISS MAGIC CREATIVE BORDEAUX 3800708381909
-            </a>
-          </td>
-          <td class="text-end fw-semibold small">556 RON</td>
-          <td class="text-end text-muted small">140</td>
-          <td class="text-end small">193 RON</td>
-          <td class="text-end small text-warning">
-            34.8%
-          </td>
-          <td class="text-end small text-success">
-            34.8%
-          </td>
-          <td class="text-end text-muted small">14</td>
         </tr>
         
         <tr>
@@ -1922,15 +2014,15 @@
             </a>
           </td>
           <td class="text-end fw-semibold small">483 RON</td>
-          <td class="text-end text-muted small">122</td>
-          <td class="text-end small">163 RON</td>
+          <td class="text-end text-muted small">125</td>
+          <td class="text-end small">155 RON</td>
           <td class="text-end small text-warning">
-            33.7%
+            32.1%
           </td>
           <td class="text-end small text-success">
-            33.7%
+            32.1%
           </td>
-          <td class="text-end text-muted small">11</td>
+          <td class="text-end text-muted small">12</td>
         </tr>
         
         <tr>
@@ -1982,15 +2074,15 @@
             </a>
           </td>
           <td class="text-end fw-semibold small">410 RON</td>
-          <td class="text-end text-muted small">98</td>
-          <td class="text-end small">152 RON</td>
+          <td class="text-end text-muted small">100</td>
+          <td class="text-end small">147 RON</td>
           <td class="text-end small text-warning">
-            37.1%
+            35.8%
           </td>
           <td class="text-end small text-success">
-            37.1%
+            35.8%
           </td>
-          <td class="text-end text-muted small">12</td>
+          <td class="text-end text-muted small">13</td>
         </tr>
         
         <tr>
@@ -2140,13 +2232,13 @@
 
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="../static/js/bootstrap.bundle.min.js"></script>
+<script src="../static/js/chart.umd.min.js"></script>
 
 <script>
 const MONTHS   = ["Ian", "Feb", "Mar", "Apr", "Mai", "Iun", "Iul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-const TREND_VN = {"2024": [11353.0, 14934.0, 13791.0, 15840.0, 13023.0, 10869.0, 7096.0, 44478.0, 112715.0, 26156.0, 36284.0, 55685.0], "2025": [44610.0, 55934.0, 49248.0, 76119.0, 18810.0, 60991.0, 34655.0, 36329.0, 10796.0, 14396.0, 7149.0, 3541.0], "2026": [4556.0, 5368.0, 4867.0, 4999.0, 2898.0, 0, 0, 0, 0, 0, 0, 0]};
-const TREND_MB = {"2024": [4464.0, 6169.0, 5711.0, 6334.0, 5168.0, 4304.0, 2692.0, 27449.0, 74019.0, 14155.0, 22850.0, 37295.0], "2025": [29058.0, 36327.0, 32234.0, 50939.0, 10414.0, 40572.0, 21906.0, 22132.0, 5380.0, 7772.0, 2824.0, 1234.0], "2026": [1587.0, 1771.0, 1430.0, 1838.0, 1035.0, 0, 0, 0, 0, 0, 0, 0]};
+const TREND_VN = {"2024": [10490.0, 14179.0, 12928.0, 15624.0, 11874.0, 10016.0, 6486.0, 44356.0, 111740.0, 25912.0, 36284.0, 55685.0], "2025": [44610.0, 55934.0, 49248.0, 76119.0, 18810.0, 60991.0, 34655.0, 36329.0, 10796.0, 14396.0, 7149.0, 3541.0], "2026": [4556.0, 5368.0, 4867.0, 4999.0, 3856.0, 0, 0, 0, 0, 0, 0, 0]};
+const TREND_MB = {"2024": [4635.0, 6318.0, 5882.0, 6376.0, 5311.0, 4356.0, 2745.0, 27473.0, 74212.0, 14203.0, 22850.0, 37295.0], "2025": [29058.0, 36327.0, 32234.0, 50939.0, 10414.0, 40572.0, 21906.0, 22132.0, 5380.0, 7772.0, 2824.0, 1234.0], "2026": [1587.0, 1771.0, 1430.0, 1838.0, 1321.0, 0, 0, 0, 0, 0, 0, 0]};
 
 const PALETTE = {
   2024: {vn:'rgba(173,181,189,0.7)', mb:'rgba(173,181,189,0.55)'},

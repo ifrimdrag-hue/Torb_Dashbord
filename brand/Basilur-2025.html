@@ -4,9 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Basilur — Torb Logistic</title>
-  <link rel="icon" type="image/svg+xml" href="../static/favicon.svg">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../static/css/bootstrap-icons.min.css">
   <link rel="stylesheet" href="../static/css/style.css">
 
   <link rel="manifest" href="../manifest.json">
@@ -86,10 +85,24 @@
             <i class="bi bi-tags-fill"></i> Prețuri
           </a>
         </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle "
+             href="#" data-bs-toggle="dropdown">
+            <i class="bi bi-boxes"></i> Stoc / Forecast
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="../forecast.html">
+              <i class="bi bi-bar-chart-steps"></i> Stoc &amp; Comenzi
+            </a></li>
+            <li><a class="dropdown-item" href="/forecast/setari">
+              <i class="bi bi-gear"></i> Setări Forecast
+            </a></li>
+          </ul>
+        </li>
         <li class="nav-item">
           <a class="nav-link "
-             href="../forecast.html">
-            <i class="bi bi-boxes"></i> Stoc / Forecast
+             href="../raportare-basilur.html">
+            <i class="bi bi-file-earmark-bar-graph-fill"></i> Basilur
           </a>
         </li>
       </ul>
@@ -110,19 +123,97 @@
   <h4 class="mb-0 fw-bold">
     <i class="bi bi-award-fill text-warning me-1"></i>Basilur
   </h4>
-  <div class="d-flex gap-2 align-items-center">
+</div>
+
+
+<div class="d-flex align-items-center gap-2 mb-3 flex-wrap">
+  <div class="btn-group btn-group-sm" role="group">
+    <button type="button"
+            class="btn btn-primary"
+            onclick="torbSetLuna(null)">YTD</button>
     
-    <a href="../brand/Basilur.html"
-       class="btn btn-sm btn-outline-secondary">2024</a>
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(1)">Ian</button>
     
-    <a href="../brand/Basilur.html"
-       class="btn btn-sm btn-primary">2025</a>
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(2)">Feb</button>
     
-    <a href="../brand/Basilur.html"
-       class="btn btn-sm btn-outline-secondary">2026</a>
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(3)">Mar</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(4)">Apr</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(5)">Mai</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(6)">Iun</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(7)">Iul</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(8)">Aug</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(9)">Sep</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(10)">Oct</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(11)">Nov</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(12)">Dec</button>
+    
+  </div>
+  <div class="btn-group btn-group-sm ms-1" role="group">
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetAn(2024)">2024</button>
+    
+    <button type="button"
+            class="btn btn-dark"
+            onclick="torbSetAn(2025)">2025</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetAn(2026)">2026</button>
     
   </div>
 </div>
+<script>
+(function () {
+  function torbSetLuna(m) {
+    var u = new URL(window.location.href);
+    if (m === null) u.searchParams.delete('luna');
+    else u.searchParams.set('luna', m);
+    window.location = u.toString();
+  }
+  function torbSetAn(y) {
+    var u = new URL(window.location.href);
+    u.searchParams.set('an', y);
+    window.location = u.toString();
+  }
+  window.torbSetLuna = torbSetLuna;
+  window.torbSetAn   = torbSetAn;
+}());
+</script>
 
 <!-- KPI cards -->
 
@@ -131,10 +222,10 @@
     <div class="card border-0 shadow-sm h-100 text-center p-2">
       <i class="bi bi-currency-exchange text-primary fs-4 mt-2"></i>
       <p class="text-muted small mb-1 mt-1">Val Netă</p>
-      <p class="fw-bold mb-1">4.52M RON</p>
+      <p class="fw-bold mb-1">4.32M RON</p>
       
       <small class="text-success">
-        ▲7.8% vs 2024
+        ▲10.5% vs 2024
       </small>
       
     </div>
@@ -143,11 +234,11 @@
     <div class="card border-0 shadow-sm h-100 text-center p-2">
       <i class="bi bi-graph-up text-success fs-4 mt-2"></i>
       <p class="text-muted small mb-1 mt-1">Marjă Brută</p>
-      <p class="fw-bold mb-1">1.93M RON</p>
-      <small class="text-success fw-semibold">42.8%</small>
+      <p class="fw-bold mb-1">1.91M RON</p>
+      <small class="text-success fw-semibold">44.3%</small>
       
       <small class="text-success small">
-        +5.3pp
+        +4.6pp
       </small>
       
     </div>
@@ -156,9 +247,9 @@
     <div class="card border-0 shadow-sm h-100 text-center p-2">
       <i class="bi bi-graph-down-arrow text-warning fs-4 mt-2"></i>
       <p class="text-muted small mb-1 mt-1">Marjă Netă</p>
-      <p class="fw-bold mb-1">1.93M RON</p>
+      <p class="fw-bold mb-1">1.91M RON</p>
       <small class="text-success fw-semibold">
-        42.8%
+        44.3%
       </small>
     </div>
   </div>
@@ -166,21 +257,21 @@
     <div class="card border-0 shadow-sm h-100 text-center p-2">
       <i class="bi bi-people text-secondary fs-4 mt-2"></i>
       <p class="text-muted small mb-1 mt-1">Clienți</p>
-      <p class="fw-bold mb-1">1820</p>
+      <p class="fw-bold mb-1">1819</p>
     </div>
   </div>
   <div class="col-6 col-md-4 col-xl-2">
     <div class="card border-0 shadow-sm h-100 text-center p-2">
       <i class="bi bi-box-seam text-dark fs-4 mt-2"></i>
       <p class="text-muted small mb-1 mt-1">SKU-uri</p>
-      <p class="fw-bold mb-1">374</p>
+      <p class="fw-bold mb-1">368</p>
     </div>
   </div>
   <div class="col-6 col-md-4 col-xl-2">
     <div class="card border-0 shadow-sm h-100 text-center p-2">
       <i class="bi bi-receipt text-info fs-4 mt-2"></i>
       <p class="text-muted small mb-1 mt-1">Tranzacții</p>
-      <p class="fw-bold mb-1">20893</p>
+      <p class="fw-bold mb-1">20281</p>
     </div>
   </div>
 </div>
@@ -204,7 +295,7 @@
 <div class="card shadow-sm border-0 mb-4">
   <div class="card-header bg-white fw-semibold">
     <i class="bi bi-people-fill me-1 text-info"></i>
-    Clienți Basilur — pondere &amp; comparativ 2024
+    Clienți Basilur — pondere &amp; comparativ 
   </div>
   <div class="table-responsive">
     <table class="table table-sm table-hover mb-0 align-middle">
@@ -213,9 +304,9 @@
           <th>#</th>
           <th>Client</th>
           <th>Agent</th>
-          <th class="text-end">Val Netă 2025</th>
+          <th class="text-end">Val Netă </th>
           <th class="text-end">Pondere</th>
-          <th class="text-end">vs 2024</th>
+          <th class="text-end">vs </th>
           <th class="text-end">MB (RON)</th>
           <th class="text-end">MB%</th>
           <th class="text-end">SKU-uri</th>
@@ -235,9 +326,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:43.65%"></div>
+                <div class="progress-bar bg-info" style="width:45.73%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">43.65%</span>
+              <span class="small fw-semibold" style="min-width:50px">45.73%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -269,9 +360,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:7.78%"></div>
+                <div class="progress-bar bg-info" style="width:8.16%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">7.78%</span>
+              <span class="small fw-semibold" style="min-width:50px">8.16%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -303,9 +394,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:7.72%"></div>
+                <div class="progress-bar bg-info" style="width:8.09%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">7.72%</span>
+              <span class="small fw-semibold" style="min-width:50px">8.09%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -337,9 +428,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:6.42%"></div>
+                <div class="progress-bar bg-info" style="width:6.72%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">6.42%</span>
+              <span class="small fw-semibold" style="min-width:50px">6.72%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -371,9 +462,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:4.7%"></div>
+                <div class="progress-bar bg-info" style="width:4.92%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">4.7%</span>
+              <span class="small fw-semibold" style="min-width:50px">4.92%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -397,39 +488,6 @@
         <tr>
           <td class="text-muted small">6</td>
           <td>
-            <a href="../client/732.html"
-               class="text-decoration-none fw-semibold">AUCHAN ROMANIA SA</a>
-          </td>
-          <td class="small text-muted">Oana Filip</td>
-          <td class="text-end fw-semibold">200.731 RON</td>
-          <td class="text-end">
-            <div class="d-flex align-items-center justify-content-end gap-2">
-              <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:4.55%"></div>
-              </div>
-              <span class="small fw-semibold" style="min-width:50px">4.55%</span>
-            </div>
-          </td>
-          <td class="text-end small">
-            
-            <span class="text-danger">
-              -29.4%
-            </span>
-            <div class="text-muted" style="font-size:0.7rem">284.488 RON</div>
-            
-          </td>
-          <td class="text-end small">20.357 RON</td>
-          <td class="text-end small
-            text-danger">
-            10.1%
-          </td>
-          <td class="text-end text-muted small">15</td>
-          <td class="text-muted small">2025-12-29</td>
-        </tr>
-        
-        <tr>
-          <td class="text-muted small">7</td>
-          <td>
             <a href="../client/888.html"
                class="text-decoration-none fw-semibold">CARREFOUR ROMANIA SA</a>
           </td>
@@ -438,9 +496,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:4.37%"></div>
+                <div class="progress-bar bg-info" style="width:4.58%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">4.37%</span>
+              <span class="small fw-semibold" style="min-width:50px">4.58%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -462,7 +520,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">8</td>
+          <td class="text-muted small">7</td>
           <td>
             <a href="../client/1430.html"
                class="text-decoration-none fw-semibold">HUN-TRADE KFT</a>
@@ -472,9 +530,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:3.71%"></div>
+                <div class="progress-bar bg-info" style="width:3.89%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">3.71%</span>
+              <span class="small fw-semibold" style="min-width:50px">3.89%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -496,7 +554,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">9</td>
+          <td class="text-muted small">8</td>
           <td>
             <a href="../client/1347.html"
                class="text-decoration-none fw-semibold">DR.MAX SRL</a>
@@ -506,9 +564,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:2.51%"></div>
+                <div class="progress-bar bg-info" style="width:2.63%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">2.51%</span>
+              <span class="small fw-semibold" style="min-width:50px">2.63%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -530,7 +588,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">10</td>
+          <td class="text-muted small">9</td>
           <td>
             <a href="../client/1404.html"
                class="text-decoration-none fw-semibold">LIBRARIILE COMPAS S.R.L.</a>
@@ -540,9 +598,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:1.75%"></div>
+                <div class="progress-bar bg-info" style="width:1.84%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">1.75%</span>
+              <span class="small fw-semibold" style="min-width:50px">1.84%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -564,7 +622,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">11</td>
+          <td class="text-muted small">10</td>
           <td>
             <a href="../client/996.html"
                class="text-decoration-none fw-semibold">COMPANIA DE LIBRARII BUCURESTI SA</a>
@@ -574,9 +632,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:1.65%"></div>
+                <div class="progress-bar bg-info" style="width:1.73%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">1.65%</span>
+              <span class="small fw-semibold" style="min-width:50px">1.73%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -598,7 +656,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">12</td>
+          <td class="text-muted small">11</td>
           <td>
             <a href="../client/1446.html"
                class="text-decoration-none fw-semibold">JULIUS MEINL AM GRABEN GMBH</a>
@@ -608,9 +666,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:1.41%"></div>
+                <div class="progress-bar bg-info" style="width:1.47%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">1.41%</span>
+              <span class="small fw-semibold" style="min-width:50px">1.47%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -632,7 +690,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">13</td>
+          <td class="text-muted small">12</td>
           <td>
             <a href="../client/857.html"
                class="text-decoration-none fw-semibold">BROTACEL SRL</a>
@@ -642,9 +700,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:1.35%"></div>
+                <div class="progress-bar bg-info" style="width:1.41%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">1.35%</span>
+              <span class="small fw-semibold" style="min-width:50px">1.41%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -666,7 +724,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">14</td>
+          <td class="text-muted small">13</td>
           <td>
             <a href="../client/999.html"
                class="text-decoration-none fw-semibold">ONE DISTRIBUTION COMPANY SRL</a>
@@ -676,9 +734,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.61%"></div>
+                <div class="progress-bar bg-info" style="width:0.64%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.61%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.64%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -700,7 +758,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">15</td>
+          <td class="text-muted small">14</td>
           <td>
             <a href="../client/1300.html"
                class="text-decoration-none fw-semibold">MIRALI BAZZAR S.R.L.</a>
@@ -710,9 +768,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.57%"></div>
+                <div class="progress-bar bg-info" style="width:0.6%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.57%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.6%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -734,7 +792,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">16</td>
+          <td class="text-muted small">15</td>
           <td>
             <a href="../client/1449.html"
                class="text-decoration-none fw-semibold">SEZAMO S.R.L.</a>
@@ -744,9 +802,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.57%"></div>
+                <div class="progress-bar bg-info" style="width:0.6%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.57%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.6%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -768,7 +826,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">17</td>
+          <td class="text-muted small">16</td>
           <td>
             <a href="../client/945.html"
                class="text-decoration-none fw-semibold">PLANT FESTIN SRL</a>
@@ -778,9 +836,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.37%"></div>
+                <div class="progress-bar bg-info" style="width:0.38%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.37%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.38%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -802,7 +860,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">18</td>
+          <td class="text-muted small">17</td>
           <td>
             <a href="../client/3859.html"
                class="text-decoration-none fw-semibold">PERSOANE FIZICE TARG GAUDEAMUS</a>
@@ -812,9 +870,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.36%"></div>
+                <div class="progress-bar bg-info" style="width:0.38%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.36%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.38%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -831,7 +889,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">19</td>
+          <td class="text-muted small">18</td>
           <td>
             <a href="../client/1266.html"
                class="text-decoration-none fw-semibold">NEPTUN SA</a>
@@ -841,9 +899,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.33%"></div>
+                <div class="progress-bar bg-info" style="width:0.35%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.33%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.35%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -865,7 +923,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">20</td>
+          <td class="text-muted small">19</td>
           <td>
             <a href="../client/1306.html"
                class="text-decoration-none fw-semibold">UNITATEA MILITARA 0461</a>
@@ -875,9 +933,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.3%"></div>
+                <div class="progress-bar bg-info" style="width:0.31%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.3%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.31%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -893,7 +951,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">21</td>
+          <td class="text-muted small">20</td>
           <td>
             <a href="../client/1437.html"
                class="text-decoration-none fw-semibold">EMAG RETAIL S.R.L.</a>
@@ -903,9 +961,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.22%"></div>
+                <div class="progress-bar bg-info" style="width:0.23%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.22%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.23%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -927,7 +985,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">22</td>
+          <td class="text-muted small">21</td>
           <td>
             <a href="../client/809.html"
                class="text-decoration-none fw-semibold">FILDAS TRADING SRL</a>
@@ -937,9 +995,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.21%"></div>
+                <div class="progress-bar bg-info" style="width:0.22%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.21%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.22%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -961,7 +1019,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">23</td>
+          <td class="text-muted small">22</td>
           <td>
             <a href="../client/2029.html"
                class="text-decoration-none fw-semibold">BARTA ATI SRL</a>
@@ -971,9 +1029,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.21%"></div>
+                <div class="progress-bar bg-info" style="width:0.22%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.21%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.22%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -995,7 +1053,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">24</td>
+          <td class="text-muted small">23</td>
           <td>
             <a href="../client/1412.html"
                class="text-decoration-none fw-semibold">POPACART SRL</a>
@@ -1029,7 +1087,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">25</td>
+          <td class="text-muted small">24</td>
           <td>
             <a href="../client/760.html"
                class="text-decoration-none fw-semibold">ZIMEX SRL</a>
@@ -1039,9 +1097,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.15%"></div>
+                <div class="progress-bar bg-info" style="width:0.16%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.15%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.16%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -1063,7 +1121,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">26</td>
+          <td class="text-muted small">25</td>
           <td>
             <a href="../client/1415.html"
                class="text-decoration-none fw-semibold">VOGH PER AQUA S.R.L.</a>
@@ -1073,9 +1131,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.14%"></div>
+                <div class="progress-bar bg-info" style="width:0.15%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.14%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.15%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -1097,7 +1155,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">27</td>
+          <td class="text-muted small">26</td>
           <td>
             <a href="../client/3374.html"
                class="text-decoration-none fw-semibold">CB-CREATION S.R.L.</a>
@@ -1107,9 +1165,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.14%"></div>
+                <div class="progress-bar bg-info" style="width:0.15%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.14%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.15%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -1126,7 +1184,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">28</td>
+          <td class="text-muted small">27</td>
           <td>
             <a href="../client/969.html"
                class="text-decoration-none fw-semibold">TIPO S.R.L.</a>
@@ -1160,7 +1218,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">29</td>
+          <td class="text-muted small">28</td>
           <td>
             <a href="../client/1201.html"
                class="text-decoration-none fw-semibold">SAFE BUSINESS MARKET S.R.L.</a>
@@ -1170,9 +1228,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.13%"></div>
+                <div class="progress-bar bg-info" style="width:0.14%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.13%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.14%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -1194,7 +1252,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">30</td>
+          <td class="text-muted small">29</td>
           <td>
             <a href="../client/1509.html"
                class="text-decoration-none fw-semibold">SMART BOX TRADING S.R.L.</a>
@@ -1204,9 +1262,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.13%"></div>
+                <div class="progress-bar bg-info" style="width:0.14%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.13%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.14%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -1228,7 +1286,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">31</td>
+          <td class="text-muted small">30</td>
           <td>
             <a href="../client/1436.html"
                class="text-decoration-none fw-semibold">E.ON BUSINESS SERVICES CLUJ SRL</a>
@@ -1238,9 +1296,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.12%"></div>
+                <div class="progress-bar bg-info" style="width:0.13%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.12%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.13%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -1262,7 +1320,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">32</td>
+          <td class="text-muted small">31</td>
           <td>
             <a href="../client/2245.html"
                class="text-decoration-none fw-semibold">ADV DAVID S.R.L.</a>
@@ -1296,7 +1354,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">33</td>
+          <td class="text-muted small">32</td>
           <td>
             <a href="../client/1356.html"
                class="text-decoration-none fw-semibold">ELIANA NICOLETA FARM SRL</a>
@@ -1330,7 +1388,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">34</td>
+          <td class="text-muted small">33</td>
           <td>
             <a href="../client/1799.html"
                class="text-decoration-none fw-semibold">ELSTAR GROUP S.R.L.</a>
@@ -1340,9 +1398,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.1%"></div>
+                <div class="progress-bar bg-info" style="width:0.11%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.1%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.11%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -1364,7 +1422,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">35</td>
+          <td class="text-muted small">34</td>
           <td>
             <a href="../client/763.html"
                class="text-decoration-none fw-semibold">MAIALEX SRL</a>
@@ -1398,7 +1456,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">36</td>
+          <td class="text-muted small">35</td>
           <td>
             <a href="../client/843.html"
                class="text-decoration-none fw-semibold">NEW STARS IMPEX SRL</a>
@@ -1431,7 +1489,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">37</td>
+          <td class="text-muted small">36</td>
           <td>
             <a href="../client/3055.html"
                class="text-decoration-none fw-semibold">MIX-TEE VELKOOBCHOD S.R.O.</a>
@@ -1441,9 +1499,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.09%"></div>
+                <div class="progress-bar bg-info" style="width:0.1%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.09%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.1%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -1459,7 +1517,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">38</td>
+          <td class="text-muted small">37</td>
           <td>
             <a href="../client/1573.html"
                class="text-decoration-none fw-semibold">BUCEGI S.R.L.</a>
@@ -1469,9 +1527,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.09%"></div>
+                <div class="progress-bar bg-info" style="width:0.1%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.09%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.1%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -1493,7 +1551,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">39</td>
+          <td class="text-muted small">38</td>
           <td>
             <a href="../client/961.html"
                class="text-decoration-none fw-semibold">PADRINO DRINKS SRL</a>
@@ -1503,9 +1561,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.08%"></div>
+                <div class="progress-bar bg-info" style="width:0.09%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.08%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.09%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -1527,7 +1585,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">40</td>
+          <td class="text-muted small">39</td>
           <td>
             <a href="../client/1641.html"
                class="text-decoration-none fw-semibold">PREVIOUS PRODCOM SRL</a>
@@ -1561,7 +1619,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">41</td>
+          <td class="text-muted small">40</td>
           <td>
             <a href="../client/852.html"
                class="text-decoration-none fw-semibold">EUROMIB CONCEPT STORE SRL</a>
@@ -1590,7 +1648,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">42</td>
+          <td class="text-muted small">41</td>
           <td>
             <a href="../client/1759.html"
                class="text-decoration-none fw-semibold">INSIDE MEDIA COMMUNICATION SRL</a>
@@ -1624,7 +1682,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">43</td>
+          <td class="text-muted small">42</td>
           <td>
             <a href="../client/864.html"
                class="text-decoration-none fw-semibold">TEODAL PLANT SRL</a>
@@ -1653,7 +1711,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">44</td>
+          <td class="text-muted small">43</td>
           <td>
             <a href="../client/1444.html"
                class="text-decoration-none fw-semibold">DOLCE CAFFE   VENDING SRL</a>
@@ -1687,7 +1745,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">45</td>
+          <td class="text-muted small">44</td>
           <td>
             <a href="../client/854.html"
                class="text-decoration-none fw-semibold">SERV-CONEX 2000 S.R.L.</a>
@@ -1720,7 +1778,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">46</td>
+          <td class="text-muted small">45</td>
           <td>
             <a href="../client/1313.html"
                class="text-decoration-none fw-semibold">FLONY GIFT S.R.L.</a>
@@ -1754,7 +1812,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">47</td>
+          <td class="text-muted small">46</td>
           <td>
             <a href="../client/927.html"
                class="text-decoration-none fw-semibold">DELICATESE FLORESCU S.R.L.</a>
@@ -1788,7 +1846,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">48</td>
+          <td class="text-muted small">47</td>
           <td>
             <a href="../client/879.html"
                class="text-decoration-none fw-semibold">GRATIA IMOB SRL</a>
@@ -1822,7 +1880,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">49</td>
+          <td class="text-muted small">48</td>
           <td>
             <a href="../client/3716.html"
                class="text-decoration-none fw-semibold">ANA HOTELS S.R.L.</a>
@@ -1851,7 +1909,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">50</td>
+          <td class="text-muted small">49</td>
           <td>
             <a href="../client/940.html"
                class="text-decoration-none fw-semibold">MONA IMPEX 93 S.R.L.</a>
@@ -1861,9 +1919,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.05%"></div>
+                <div class="progress-bar bg-info" style="width:0.06%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.05%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.06%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -1885,7 +1943,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">51</td>
+          <td class="text-muted small">50</td>
           <td>
             <a href="../client/3488.html"
                class="text-decoration-none fw-semibold">PRIME SOLUTIONS SRL</a>
@@ -1895,9 +1953,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.05%"></div>
+                <div class="progress-bar bg-info" style="width:0.06%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.05%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.06%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -1914,7 +1972,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">52</td>
+          <td class="text-muted small">51</td>
           <td>
             <a href="../client/869.html"
                class="text-decoration-none fw-semibold">UNIVERSALIA S.R.L.</a>
@@ -1948,7 +2006,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">53</td>
+          <td class="text-muted small">52</td>
           <td>
             <a href="../client/3441.html"
                class="text-decoration-none fw-semibold">IOANA PALAGHIA</a>
@@ -1977,7 +2035,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">54</td>
+          <td class="text-muted small">53</td>
           <td>
             <a href="../client/859.html"
                class="text-decoration-none fw-semibold">SARA INEDIT S.R.L.</a>
@@ -2011,7 +2069,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">55</td>
+          <td class="text-muted small">54</td>
           <td>
             <a href="../client/1290.html"
                class="text-decoration-none fw-semibold">DIRECT PLAY S.R.L.</a>
@@ -2045,7 +2103,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">56</td>
+          <td class="text-muted small">55</td>
           <td>
             <a href="../client/3154.html"
                class="text-decoration-none fw-semibold">ASOCIATIA EDUCATIA PENTRU VIITOR SANATOS</a>
@@ -2074,7 +2132,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">57</td>
+          <td class="text-muted small">56</td>
           <td>
             <a href="../client/835.html"
                class="text-decoration-none fw-semibold">EDEN MARKET IMPEX SRL</a>
@@ -2108,7 +2166,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">58</td>
+          <td class="text-muted small">57</td>
           <td>
             <a href="../client/1585.html"
                class="text-decoration-none fw-semibold">UNI DOOR EXPERT SRL</a>
@@ -2142,7 +2200,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">59</td>
+          <td class="text-muted small">58</td>
           <td>
             <a href="../client/3155.html"
                class="text-decoration-none fw-semibold">CERES COM S.R.L.</a>
@@ -2171,7 +2229,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">60</td>
+          <td class="text-muted small">59</td>
           <td>
             <a href="../client/1323.html"
                class="text-decoration-none fw-semibold">BOOKSHOP INTERNATIONAL S.R.L.</a>
@@ -2205,7 +2263,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">61</td>
+          <td class="text-muted small">60</td>
           <td>
             <a href="../client/1035.html"
                class="text-decoration-none fw-semibold">WHITE STORE CONCEPT SRL</a>
@@ -2215,9 +2273,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.03%"></div>
+                <div class="progress-bar bg-info" style="width:0.04%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.03%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.04%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -2238,7 +2296,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">62</td>
+          <td class="text-muted small">61</td>
           <td>
             <a href="../client/1684.html"
                class="text-decoration-none fw-semibold">CEZAR POLEAC</a>
@@ -2248,9 +2306,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.03%"></div>
+                <div class="progress-bar bg-info" style="width:0.04%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.03%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.04%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -2272,7 +2330,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">63</td>
+          <td class="text-muted small">62</td>
           <td>
             <a href="../client/1368.html"
                class="text-decoration-none fw-semibold">GAVRILA   ASOCIATII-SOCIETATE PROFESIONALA DE AVOCATI CU R</a>
@@ -2282,9 +2340,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.03%"></div>
+                <div class="progress-bar bg-info" style="width:0.04%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.03%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.04%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -2301,7 +2359,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">64</td>
+          <td class="text-muted small">63</td>
           <td>
             <a href="../client/1630.html"
                class="text-decoration-none fw-semibold">ALINA VANA</a>
@@ -2335,7 +2393,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">65</td>
+          <td class="text-muted small">64</td>
           <td>
             <a href="../client/3717.html"
                class="text-decoration-none fw-semibold">PROMOTEART INTERNATIONAL SRL</a>
@@ -2364,7 +2422,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">66</td>
+          <td class="text-muted small">65</td>
           <td>
             <a href="../client/1247.html"
                class="text-decoration-none fw-semibold">SORINA MARCU</a>
@@ -2392,7 +2450,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">67</td>
+          <td class="text-muted small">66</td>
           <td>
             <a href="../client/819.html"
                class="text-decoration-none fw-semibold">COROLA ROSA SRL</a>
@@ -2426,7 +2484,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">68</td>
+          <td class="text-muted small">67</td>
           <td>
             <a href="../client/2244.html"
                class="text-decoration-none fw-semibold">ANDAL GREEN MARKET S.R.L.</a>
@@ -2460,7 +2518,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">69</td>
+          <td class="text-muted small">68</td>
           <td>
             <a href="../client/3186.html"
                class="text-decoration-none fw-semibold">CAMELIA SIMION</a>
@@ -2489,7 +2547,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">70</td>
+          <td class="text-muted small">69</td>
           <td>
             <a href="../client/1443.html"
                class="text-decoration-none fw-semibold">CAMI INVEST S.R.L.</a>
@@ -2523,7 +2581,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">71</td>
+          <td class="text-muted small">70</td>
           <td>
             <a href="../client/1317.html"
                class="text-decoration-none fw-semibold">MARIA PHARMAMED SRL</a>
@@ -2557,7 +2615,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">72</td>
+          <td class="text-muted small">71</td>
           <td>
             <a href="../client/951.html"
                class="text-decoration-none fw-semibold">ELAN-TRIO SRL</a>
@@ -2567,9 +2625,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.02%"></div>
+                <div class="progress-bar bg-info" style="width:0.03%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.02%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.03%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -2591,7 +2649,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">73</td>
+          <td class="text-muted small">72</td>
           <td>
             <a href="../client/753.html"
                class="text-decoration-none fw-semibold">GEDAL PRODUCTION S.R.L.</a>
@@ -2625,7 +2683,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">74</td>
+          <td class="text-muted small">73</td>
           <td>
             <a href="../client/1451.html"
                class="text-decoration-none fw-semibold">ALMIRA TRADE SRL</a>
@@ -2659,7 +2717,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">75</td>
+          <td class="text-muted small">74</td>
           <td>
             <a href="../client/3296.html"
                class="text-decoration-none fw-semibold">INVESTAR PROPERTY S.R.L.</a>
@@ -2688,7 +2746,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">76</td>
+          <td class="text-muted small">75</td>
           <td>
             <a href="../client/2592.html"
                class="text-decoration-none fw-semibold">CALIAN ALEXANDRU</a>
@@ -2717,7 +2775,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">77</td>
+          <td class="text-muted small">76</td>
           <td>
             <a href="../client/790.html"
                class="text-decoration-none fw-semibold">PREXICO SRL</a>
@@ -2751,7 +2809,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">78</td>
+          <td class="text-muted small">77</td>
           <td>
             <a href="../client/804.html"
                class="text-decoration-none fw-semibold">TOTAL S.R.L.</a>
@@ -2785,7 +2843,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">79</td>
+          <td class="text-muted small">78</td>
           <td>
             <a href="../client/1535.html"
                class="text-decoration-none fw-semibold">ANAMARIA MOLDOVAN</a>
@@ -2819,7 +2877,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">80</td>
+          <td class="text-muted small">79</td>
           <td>
             <a href="../client/1445.html"
                class="text-decoration-none fw-semibold">ETALON CAFE S.R.L.</a>
@@ -2852,7 +2910,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">81</td>
+          <td class="text-muted small">80</td>
           <td>
             <a href="../client/2701.html"
                class="text-decoration-none fw-semibold">BELCEANU ALINA</a>
@@ -2881,7 +2939,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">82</td>
+          <td class="text-muted small">81</td>
           <td>
             <a href="../client/972.html"
                class="text-decoration-none fw-semibold">ANDREEA GREEN PHARM SRL</a>
@@ -2915,7 +2973,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">83</td>
+          <td class="text-muted small">82</td>
           <td>
             <a href="../client/2733.html"
                class="text-decoration-none fw-semibold">TIBERIU PAUN</a>
@@ -2944,7 +3002,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">84</td>
+          <td class="text-muted small">83</td>
           <td>
             <a href="../client/958.html"
                class="text-decoration-none fw-semibold">RUBIN FARM S.R.L.</a>
@@ -2977,7 +3035,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">85</td>
+          <td class="text-muted small">84</td>
           <td>
             <a href="../client/1327.html"
                class="text-decoration-none fw-semibold">GIULI &amp; DAVID VISION SRL</a>
@@ -3011,7 +3069,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">86</td>
+          <td class="text-muted small">85</td>
           <td>
             <a href="../client/1439.html"
                class="text-decoration-none fw-semibold">ADRIDAN SRL</a>
@@ -3045,7 +3103,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">87</td>
+          <td class="text-muted small">86</td>
           <td>
             <a href="../client/2094.html"
                class="text-decoration-none fw-semibold">RAUL TACIU</a>
@@ -3079,7 +3137,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">88</td>
+          <td class="text-muted small">87</td>
           <td>
             <a href="../client/1417.html"
                class="text-decoration-none fw-semibold">VIASAN BIO S.R.L.</a>
@@ -3113,7 +3171,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">89</td>
+          <td class="text-muted small">88</td>
           <td>
             <a href="../client/2178.html"
                class="text-decoration-none fw-semibold">CARMEN EPURE</a>
@@ -3147,7 +3205,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">90</td>
+          <td class="text-muted small">89</td>
           <td>
             <a href="../client/1322.html"
                class="text-decoration-none fw-semibold">UNITATEA MILITARA 0461 - COMPLEX VÂLCEA</a>
@@ -3180,7 +3238,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">91</td>
+          <td class="text-muted small">90</td>
           <td>
             <a href="../client/2036.html"
                class="text-decoration-none fw-semibold">DANIEL SIMION</a>
@@ -3214,7 +3272,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">92</td>
+          <td class="text-muted small">91</td>
           <td>
             <a href="../client/2925.html"
                class="text-decoration-none fw-semibold">SORIN IORDAN</a>
@@ -3243,7 +3301,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">93</td>
+          <td class="text-muted small">92</td>
           <td>
             <a href="../client/955.html"
                class="text-decoration-none fw-semibold">BOGDAN DRAGNEA</a>
@@ -3277,7 +3335,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">94</td>
+          <td class="text-muted small">93</td>
           <td>
             <a href="../client/943.html"
                class="text-decoration-none fw-semibold">ACCENTURE SERVICES SRL</a>
@@ -3306,7 +3364,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">95</td>
+          <td class="text-muted small">94</td>
           <td>
             <a href="../client/924.html"
                class="text-decoration-none fw-semibold">BEST IMAGE AGENCY SRL</a>
@@ -3335,7 +3393,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">96</td>
+          <td class="text-muted small">95</td>
           <td>
             <a href="../client/850.html"
                class="text-decoration-none fw-semibold">NO SUGAR SHOP  SRL</a>
@@ -3345,9 +3403,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.01%"></div>
+                <div class="progress-bar bg-info" style="width:0.02%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.01%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.02%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -3369,7 +3427,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">97</td>
+          <td class="text-muted small">96</td>
           <td>
             <a href="../client/3044.html"
                class="text-decoration-none fw-semibold">MARIAN CALIN</a>
@@ -3398,7 +3456,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">98</td>
+          <td class="text-muted small">97</td>
           <td>
             <a href="../client/1802.html"
                class="text-decoration-none fw-semibold">ROMICA FEDOR</a>
@@ -3432,7 +3490,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">99</td>
+          <td class="text-muted small">98</td>
           <td>
             <a href="../client/3361.html"
                class="text-decoration-none fw-semibold">SODEXO SRL</a>
@@ -3461,7 +3519,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">100</td>
+          <td class="text-muted small">99</td>
           <td>
             <a href="../client/1487.html"
                class="text-decoration-none fw-semibold">CARMEN VASILOIU</a>
@@ -3495,7 +3553,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">101</td>
+          <td class="text-muted small">100</td>
           <td>
             <a href="../client/1383.html"
                class="text-decoration-none fw-semibold">SUPERB KIDS S.R.L.</a>
@@ -3528,7 +3586,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">102</td>
+          <td class="text-muted small">101</td>
           <td>
             <a href="../client/1534.html"
                class="text-decoration-none fw-semibold">CNN MIRA BOUTIQUE S.R.L.</a>
@@ -3562,7 +3620,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">103</td>
+          <td class="text-muted small">102</td>
           <td>
             <a href="../client/2514.html"
                class="text-decoration-none fw-semibold">ECATERINA VISAN</a>
@@ -3591,7 +3649,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">104</td>
+          <td class="text-muted small">103</td>
           <td>
             <a href="../client/3161.html"
                class="text-decoration-none fw-semibold">LIVIU JOLDEA</a>
@@ -3620,7 +3678,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">105</td>
+          <td class="text-muted small">104</td>
           <td>
             <a href="../client/3428.html"
                class="text-decoration-none fw-semibold">ALEXANDRU EBERVEIN</a>
@@ -3649,7 +3707,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">106</td>
+          <td class="text-muted small">105</td>
           <td>
             <a href="../client/2692.html"
                class="text-decoration-none fw-semibold">SIMONA ATOMEI</a>
@@ -3678,7 +3736,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">107</td>
+          <td class="text-muted small">106</td>
           <td>
             <a href="../client/3173.html"
                class="text-decoration-none fw-semibold">EDUARD BOSTAN</a>
@@ -3707,7 +3765,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">108</td>
+          <td class="text-muted small">107</td>
           <td>
             <a href="../client/1267.html"
                class="text-decoration-none fw-semibold">ERROS FASHION DESIGN 2004 SRL</a>
@@ -3741,7 +3799,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">109</td>
+          <td class="text-muted small">108</td>
           <td>
             <a href="../client/3523.html"
                class="text-decoration-none fw-semibold">ROXANA BURLACU</a>
@@ -3770,7 +3828,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">110</td>
+          <td class="text-muted small">109</td>
           <td>
             <a href="../client/3349.html"
                class="text-decoration-none fw-semibold">STEFANIA PASARE</a>
@@ -3799,7 +3857,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">111</td>
+          <td class="text-muted small">110</td>
           <td>
             <a href="../client/1770.html"
                class="text-decoration-none fw-semibold">MICHAEL MUNTEANU</a>
@@ -3833,7 +3891,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">112</td>
+          <td class="text-muted small">111</td>
           <td>
             <a href="../client/2718.html"
                class="text-decoration-none fw-semibold">LAVINIA VACARESCU</a>
@@ -3862,7 +3920,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">113</td>
+          <td class="text-muted small">112</td>
           <td>
             <a href="../client/2216.html"
                class="text-decoration-none fw-semibold">ELENA CRUSOS</a>
@@ -3896,7 +3954,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">114</td>
+          <td class="text-muted small">113</td>
           <td>
             <a href="../client/2795.html"
                class="text-decoration-none fw-semibold">LAURENTIU APOSTOL</a>
@@ -3925,7 +3983,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">115</td>
+          <td class="text-muted small">114</td>
           <td>
             <a href="../client/4223.html"
                class="text-decoration-none fw-semibold">MANOLESCU CATALINA</a>
@@ -3954,7 +4012,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">116</td>
+          <td class="text-muted small">115</td>
           <td>
             <a href="../client/1434.html"
                class="text-decoration-none fw-semibold">LIBRARIA CORINA SRL</a>
@@ -3988,7 +4046,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">117</td>
+          <td class="text-muted small">116</td>
           <td>
             <a href="../client/2897.html"
                class="text-decoration-none fw-semibold">VALENTIN ANDREI TACIOPOL</a>
@@ -4017,7 +4075,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">118</td>
+          <td class="text-muted small">117</td>
           <td>
             <a href="../client/1310.html"
                class="text-decoration-none fw-semibold">UNITATEA MILITARA 0418 BUCURESTI</a>
@@ -4051,7 +4109,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">119</td>
+          <td class="text-muted small">118</td>
           <td>
             <a href="../client/1381.html"
                class="text-decoration-none fw-semibold">LE CHATEAU EVENEMENTS SRL</a>
@@ -4085,7 +4143,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">120</td>
+          <td class="text-muted small">119</td>
           <td>
             <a href="../client/3639.html"
                class="text-decoration-none fw-semibold">TABITA GABOR</a>
@@ -4114,7 +4172,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">121</td>
+          <td class="text-muted small">120</td>
           <td>
             <a href="../client/1488.html"
                class="text-decoration-none fw-semibold">BIOMEDICAL REMED  SRL</a>
@@ -4148,7 +4206,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">122</td>
+          <td class="text-muted small">121</td>
           <td>
             <a href="../client/3394.html"
                class="text-decoration-none fw-semibold">GNC BUSSINESS S.R.L.</a>
@@ -4177,7 +4235,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">123</td>
+          <td class="text-muted small">122</td>
           <td>
             <a href="../client/832.html"
                class="text-decoration-none fw-semibold">INTER MACEDONIA C.R. SRL</a>
@@ -4206,7 +4264,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">124</td>
+          <td class="text-muted small">123</td>
           <td>
             <a href="../client/3024.html"
                class="text-decoration-none fw-semibold">DOLY COM DISTRIBUTIE SRL</a>
@@ -4235,7 +4293,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">125</td>
+          <td class="text-muted small">124</td>
           <td>
             <a href="../client/2724.html"
                class="text-decoration-none fw-semibold">LAURA STIUBIANU</a>
@@ -4264,7 +4322,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">126</td>
+          <td class="text-muted small">125</td>
           <td>
             <a href="../client/3733.html"
                class="text-decoration-none fw-semibold">STANESCU MIRUNA</a>
@@ -4293,7 +4351,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">127</td>
+          <td class="text-muted small">126</td>
           <td>
             <a href="../client/2226.html"
                class="text-decoration-none fw-semibold">EMILIA DRAGOMIR</a>
@@ -4327,7 +4385,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">128</td>
+          <td class="text-muted small">127</td>
           <td>
             <a href="../client/2492.html"
                class="text-decoration-none fw-semibold">RALUCA RUSU</a>
@@ -4356,7 +4414,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">129</td>
+          <td class="text-muted small">128</td>
           <td>
             <a href="../client/2552.html"
                class="text-decoration-none fw-semibold">ANA CRISTESCU</a>
@@ -4385,7 +4443,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">130</td>
+          <td class="text-muted small">129</td>
           <td>
             <a href="../client/2157.html"
                class="text-decoration-none fw-semibold">PMM FAMSERR MARKDIS S.R.L.</a>
@@ -4419,7 +4477,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">131</td>
+          <td class="text-muted small">130</td>
           <td>
             <a href="../client/827.html"
                class="text-decoration-none fw-semibold">VLADU EURO INVESTMENT SRL</a>
@@ -4447,7 +4505,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">132</td>
+          <td class="text-muted small">131</td>
           <td>
             <a href="../client/848.html"
                class="text-decoration-none fw-semibold">ROM SEP SRL</a>
@@ -4480,7 +4538,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">133</td>
+          <td class="text-muted small">132</td>
           <td>
             <a href="../client/3021.html"
                class="text-decoration-none fw-semibold">PLANTAVER SRL</a>
@@ -4509,7 +4567,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">134</td>
+          <td class="text-muted small">133</td>
           <td>
             <a href="../client/4213.html"
                class="text-decoration-none fw-semibold">NICOLAE GEORGIANA</a>
@@ -4538,7 +4596,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">135</td>
+          <td class="text-muted small">134</td>
           <td>
             <a href="../client/1218.html"
                class="text-decoration-none fw-semibold">CBN PREST SRL</a>
@@ -4572,7 +4630,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">136</td>
+          <td class="text-muted small">135</td>
           <td>
             <a href="../client/2796.html"
                class="text-decoration-none fw-semibold">PAULA GHERASIM</a>
@@ -4601,7 +4659,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">137</td>
+          <td class="text-muted small">136</td>
           <td>
             <a href="../client/1426.html"
                class="text-decoration-none fw-semibold">ZENOCART S.R.L.</a>
@@ -4634,7 +4692,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">138</td>
+          <td class="text-muted small">137</td>
           <td>
             <a href="../client/3061.html"
                class="text-decoration-none fw-semibold">STACKERS STUDIO SRL</a>
@@ -4663,7 +4721,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">139</td>
+          <td class="text-muted small">138</td>
           <td>
             <a href="../client/3779.html"
                class="text-decoration-none fw-semibold">BARRIER S.R.L.</a>
@@ -4692,7 +4750,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">140</td>
+          <td class="text-muted small">139</td>
           <td>
             <a href="../client/3050.html"
                class="text-decoration-none fw-semibold">COZMA ADRIAN</a>
@@ -4721,7 +4779,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">141</td>
+          <td class="text-muted small">140</td>
           <td>
             <a href="../client/2375.html"
                class="text-decoration-none fw-semibold">ADRIANA CHIRILAS</a>
@@ -4755,7 +4813,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">142</td>
+          <td class="text-muted small">141</td>
           <td>
             <a href="../client/2706.html"
                class="text-decoration-none fw-semibold">BARSAN MIHAELA-ZINA PERSOANA FIZICA AUTORIZATA</a>
@@ -4784,7 +4842,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">143</td>
+          <td class="text-muted small">142</td>
           <td>
             <a href="../client/3638.html"
                class="text-decoration-none fw-semibold">GHEORGHE (PORUMBELU) CIRSTEAN</a>
@@ -4813,7 +4871,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">144</td>
+          <td class="text-muted small">143</td>
           <td>
             <a href="../client/1241.html"
                class="text-decoration-none fw-semibold">SORONGA FLORIN INTREPRINDERE INDIVIDUALA</a>
@@ -4842,7 +4900,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">145</td>
+          <td class="text-muted small">144</td>
           <td>
             <a href="../client/2695.html"
                class="text-decoration-none fw-semibold">MARCEL MORCAN</a>
@@ -4871,7 +4929,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">146</td>
+          <td class="text-muted small">145</td>
           <td>
             <a href="../client/3863.html"
                class="text-decoration-none fw-semibold">FLORENTINA SERSEA</a>
@@ -4900,7 +4958,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">147</td>
+          <td class="text-muted small">146</td>
           <td>
             <a href="../client/2636.html"
                class="text-decoration-none fw-semibold">CIRCU NADIA</a>
@@ -4929,7 +4987,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">148</td>
+          <td class="text-muted small">147</td>
           <td>
             <a href="../client/2553.html"
                class="text-decoration-none fw-semibold">MATEI LEONARD DAN</a>
@@ -4958,7 +5016,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">149</td>
+          <td class="text-muted small">148</td>
           <td>
             <a href="../client/2534.html"
                class="text-decoration-none fw-semibold">STEFAN TUICA</a>
@@ -4987,7 +5045,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">150</td>
+          <td class="text-muted small">149</td>
           <td>
             <a href="../client/4036.html"
                class="text-decoration-none fw-semibold">CRISTINA BICLEASANU</a>
@@ -5016,7 +5074,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">151</td>
+          <td class="text-muted small">150</td>
           <td>
             <a href="../client/2727.html"
                class="text-decoration-none fw-semibold">ALINA MIHAELA ATODIRESEI</a>
@@ -5044,7 +5102,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">152</td>
+          <td class="text-muted small">151</td>
           <td>
             <a href="../client/1485.html"
                class="text-decoration-none fw-semibold">CSABA SZAKAL</a>
@@ -5078,7 +5136,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">153</td>
+          <td class="text-muted small">152</td>
           <td>
             <a href="../client/1214.html"
                class="text-decoration-none fw-semibold">B&amp;A PLANT EXTRACT S.R.L.</a>
@@ -5112,7 +5170,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">154</td>
+          <td class="text-muted small">153</td>
           <td>
             <a href="../client/2588.html"
                class="text-decoration-none fw-semibold">PUESCU DANIEL</a>
@@ -5141,7 +5199,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">155</td>
+          <td class="text-muted small">154</td>
           <td>
             <a href="../client/2215.html"
                class="text-decoration-none fw-semibold">ALINA FIZITE</a>
@@ -5175,7 +5233,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">156</td>
+          <td class="text-muted small">155</td>
           <td>
             <a href="../client/2296.html"
                class="text-decoration-none fw-semibold">STOICA IULIANA</a>
@@ -5209,7 +5267,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">157</td>
+          <td class="text-muted small">156</td>
           <td>
             <a href="../client/2799.html"
                class="text-decoration-none fw-semibold">OPREA-ILIE CORINA-DANIELA INTREPRINDERE INDIVIDUALA</a>
@@ -5238,7 +5296,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">158</td>
+          <td class="text-muted small">157</td>
           <td>
             <a href="../client/2179.html"
                class="text-decoration-none fw-semibold">RODICA BUIUC</a>
@@ -5272,7 +5330,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">159</td>
+          <td class="text-muted small">158</td>
           <td>
             <a href="../client/823.html"
                class="text-decoration-none fw-semibold">MARA-LIBRIS S.A.</a>
@@ -5306,7 +5364,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">160</td>
+          <td class="text-muted small">159</td>
           <td>
             <a href="../client/3273.html"
                class="text-decoration-none fw-semibold">MIRE MIRE</a>
@@ -5335,7 +5393,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">161</td>
+          <td class="text-muted small">160</td>
           <td>
             <a href="../client/1812.html"
                class="text-decoration-none fw-semibold">BIROU INDIVIDUAL NOTARIAL  -  MANOLESCU F. LUCIANA</a>
@@ -5369,7 +5427,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">162</td>
+          <td class="text-muted small">161</td>
           <td>
             <a href="../client/1686.html"
                class="text-decoration-none fw-semibold">CAMELIA UNGUREANU</a>
@@ -5403,7 +5461,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">163</td>
+          <td class="text-muted small">162</td>
           <td>
             <a href="../client/3851.html"
                class="text-decoration-none fw-semibold">CHISU D. MONICA - CABINET DE  AVOCAT</a>
@@ -5432,7 +5490,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">164</td>
+          <td class="text-muted small">163</td>
           <td>
             <a href="../client/3225.html"
                class="text-decoration-none fw-semibold">FINTA OTILIA</a>
@@ -5461,7 +5519,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">165</td>
+          <td class="text-muted small">164</td>
           <td>
             <a href="../client/3062.html"
                class="text-decoration-none fw-semibold">APOSTOL CRISTIAN</a>
@@ -5490,7 +5548,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">166</td>
+          <td class="text-muted small">165</td>
           <td>
             <a href="../client/2818.html"
                class="text-decoration-none fw-semibold">CATONA ROBERT</a>
@@ -5519,7 +5577,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">167</td>
+          <td class="text-muted small">166</td>
           <td>
             <a href="../client/3531.html"
                class="text-decoration-none fw-semibold">STRACHINAR ADRIAN</a>
@@ -5548,7 +5606,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">168</td>
+          <td class="text-muted small">167</td>
           <td>
             <a href="../client/3794.html"
                class="text-decoration-none fw-semibold">RALUCA MOISE</a>
@@ -5577,7 +5635,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">169</td>
+          <td class="text-muted small">168</td>
           <td>
             <a href="../client/1764.html"
                class="text-decoration-none fw-semibold">OANA BUTA</a>
@@ -5611,7 +5669,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">170</td>
+          <td class="text-muted small">169</td>
           <td>
             <a href="../client/2800.html"
                class="text-decoration-none fw-semibold">CRISTINA DAESCU</a>
@@ -5640,7 +5698,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">171</td>
+          <td class="text-muted small">170</td>
           <td>
             <a href="../client/3210.html"
                class="text-decoration-none fw-semibold">BIOLAN NICOLAE</a>
@@ -5668,7 +5726,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">172</td>
+          <td class="text-muted small">171</td>
           <td>
             <a href="../client/3832.html"
                class="text-decoration-none fw-semibold">ANDREI-MIHAI ANDREITA</a>
@@ -5697,7 +5755,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">173</td>
+          <td class="text-muted small">172</td>
           <td>
             <a href="../client/3421.html"
                class="text-decoration-none fw-semibold">MARIA CAZAN</a>
@@ -5726,7 +5784,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">174</td>
+          <td class="text-muted small">173</td>
           <td>
             <a href="../client/1278.html"
                class="text-decoration-none fw-semibold">TINOS FARM SRL</a>
@@ -5760,7 +5818,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">175</td>
+          <td class="text-muted small">174</td>
           <td>
             <a href="../client/3204.html"
                class="text-decoration-none fw-semibold">BOGDAN RADU</a>
@@ -5789,7 +5847,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">176</td>
+          <td class="text-muted small">175</td>
           <td>
             <a href="../client/1135.html"
                class="text-decoration-none fw-semibold">ALEAC S.R.L.</a>
@@ -5823,7 +5881,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">177</td>
+          <td class="text-muted small">176</td>
           <td>
             <a href="../client/3140.html"
                class="text-decoration-none fw-semibold">NICULA BOGDAN</a>
@@ -5852,7 +5910,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">178</td>
+          <td class="text-muted small">177</td>
           <td>
             <a href="../client/2741.html"
                class="text-decoration-none fw-semibold">PASCARIU MIHAI</a>
@@ -5881,7 +5939,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">179</td>
+          <td class="text-muted small">178</td>
           <td>
             <a href="../client/3200.html"
                class="text-decoration-none fw-semibold">CLEMENT SAVA</a>
@@ -5910,7 +5968,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">180</td>
+          <td class="text-muted small">179</td>
           <td>
             <a href="../client/1421.html"
                class="text-decoration-none fw-semibold">ALFA 98 S.R.L.</a>
@@ -5944,7 +6002,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">181</td>
+          <td class="text-muted small">180</td>
           <td>
             <a href="../client/4071.html"
                class="text-decoration-none fw-semibold">CIOBANU NARCISA</a>
@@ -5973,7 +6031,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">182</td>
+          <td class="text-muted small">181</td>
           <td>
             <a href="../client/2590.html"
                class="text-decoration-none fw-semibold">RAISA ZAMFIRESCU</a>
@@ -6002,7 +6060,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">183</td>
+          <td class="text-muted small">182</td>
           <td>
             <a href="../client/3028.html"
                class="text-decoration-none fw-semibold">ROMAN TSIUPA</a>
@@ -6031,7 +6089,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">184</td>
+          <td class="text-muted small">183</td>
           <td>
             <a href="../client/1500.html"
                class="text-decoration-none fw-semibold">DAN TOPALA</a>
@@ -6064,7 +6122,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">185</td>
+          <td class="text-muted small">184</td>
           <td>
             <a href="../client/1370.html"
                class="text-decoration-none fw-semibold">BUCHAREST COFFEE PROJECT SRL</a>
@@ -6097,7 +6155,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">186</td>
+          <td class="text-muted small">185</td>
           <td>
             <a href="../client/3376.html"
                class="text-decoration-none fw-semibold">CRETU IULIA</a>
@@ -6126,7 +6184,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">187</td>
+          <td class="text-muted small">186</td>
           <td>
             <a href="../client/2935.html"
                class="text-decoration-none fw-semibold">VASILE DANILOAIA</a>
@@ -6154,7 +6212,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">188</td>
+          <td class="text-muted small">187</td>
           <td>
             <a href="../client/2952.html"
                class="text-decoration-none fw-semibold">GODS COFFEE   TEA S.R.L.</a>
@@ -6183,7 +6241,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">189</td>
+          <td class="text-muted small">188</td>
           <td>
             <a href="../client/2646.html"
                class="text-decoration-none fw-semibold">DIANA CIRSTEA</a>
@@ -6212,7 +6270,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">190</td>
+          <td class="text-muted small">189</td>
           <td>
             <a href="../client/2562.html"
                class="text-decoration-none fw-semibold">SORIN DIACONESCU</a>
@@ -6241,7 +6299,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">191</td>
+          <td class="text-muted small">190</td>
           <td>
             <a href="../client/4048.html"
                class="text-decoration-none fw-semibold">DANIEL OATU</a>
@@ -6270,7 +6328,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">192</td>
+          <td class="text-muted small">191</td>
           <td>
             <a href="../client/3614.html"
                class="text-decoration-none fw-semibold">RODICA BABOI</a>
@@ -6299,7 +6357,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">193</td>
+          <td class="text-muted small">192</td>
           <td>
             <a href="../client/3895.html"
                class="text-decoration-none fw-semibold">BOIAN CRISTINA</a>
@@ -6328,7 +6386,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">194</td>
+          <td class="text-muted small">193</td>
           <td>
             <a href="../client/2753.html"
                class="text-decoration-none fw-semibold">CATALIN CAZACU</a>
@@ -6356,7 +6414,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">195</td>
+          <td class="text-muted small">194</td>
           <td>
             <a href="../client/1427.html"
                class="text-decoration-none fw-semibold">LORIS PLANT S.R.L.</a>
@@ -6390,7 +6448,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">196</td>
+          <td class="text-muted small">195</td>
           <td>
             <a href="../client/3528.html"
                class="text-decoration-none fw-semibold">ASIA RESTAURANT</a>
@@ -6419,7 +6477,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">197</td>
+          <td class="text-muted small">196</td>
           <td>
             <a href="../client/3460.html"
                class="text-decoration-none fw-semibold">STEFAN GHEORGHE</a>
@@ -6448,7 +6506,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">198</td>
+          <td class="text-muted small">197</td>
           <td>
             <a href="../client/3858.html"
                class="text-decoration-none fw-semibold">CORNELIA BOBE</a>
@@ -6477,7 +6535,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">199</td>
+          <td class="text-muted small">198</td>
           <td>
             <a href="../client/2854.html"
                class="text-decoration-none fw-semibold">CENTRALISED RAIFFEISEN INTERNATIONAL SERVICES   PAYMENTS SRL</a>
@@ -6506,7 +6564,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">200</td>
+          <td class="text-muted small">199</td>
           <td>
             <a href="../client/2849.html"
                class="text-decoration-none fw-semibold">MIHAI ZAHARIA</a>
@@ -6534,6 +6592,35 @@
           <td class="text-muted small">2025-12-12</td>
         </tr>
         
+        <tr>
+          <td class="text-muted small">200</td>
+          <td>
+            <a href="../client/2691.html"
+               class="text-decoration-none fw-semibold">ANCA CIAUS</a>
+          </td>
+          <td class="small text-muted">EMAG</td>
+          <td class="text-end fw-semibold">248 RON</td>
+          <td class="text-end">
+            <div class="d-flex align-items-center justify-content-end gap-2">
+              <div class="progress" style="height:6px;width:60px">
+                <div class="progress-bar bg-info" style="width:0.01%"></div>
+              </div>
+              <span class="small fw-semibold" style="min-width:50px">0.01%</span>
+            </div>
+          </td>
+          <td class="text-end small">
+            —
+          </td>
+          <td class="text-end small">175 RON</td>
+          <td class="text-end small
+            text-success fw-semibold
+            ">
+            70.5%
+          </td>
+          <td class="text-end text-muted small">1</td>
+          <td class="text-muted small">2025-02-18</td>
+        </tr>
+        
       </tbody>
     </table>
   </div>
@@ -6543,11 +6630,12 @@
 <div class="card shadow-sm border-0">
   <div class="card-header bg-white fw-semibold d-flex justify-content-between align-items-center flex-wrap gap-2">
     <span>
-      <i class="bi bi-list-stars me-1 text-secondary"></i> Top SKU-uri Basilur 2025
+      <i class="bi bi-list-stars me-1 text-secondary"></i> Top SKU-uri Basilur 
       
     </span>
     <form method="get" class="d-flex gap-2">
       <input type="hidden" name="an" value="2025">
+      
       <div class="input-group input-group-sm" style="width:260px">
         <span class="input-group-text"><i class="bi bi-search"></i></span>
         <input type="text" name="q" value=""
@@ -6717,46 +6805,6 @@
         
         <tr>
           <td class="text-muted">8</td>
-          <td class="text-muted small fw-semibold">1650</td>
-          <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="B.COLD BREW POMEGRANATE BLUEBERRY (20*2G) 72095-4792252943391">
-            <a href="../produs/B_COLD_BREW_POMEGRANATE_BLUEBERRY__20_2G__72095-4792252943391.html" class="text-decoration-none">
-              B.COLD BREW POMEGRANATE BLUEBERRY (20*2G) 72095…
-            </a>
-          </td>
-          <td class="text-end fw-semibold small">113.524 RON</td>
-          <td class="text-end text-muted small">12942</td>
-          <td class="text-end small">37.867 RON</td>
-          <td class="text-end small text-warning">
-            33.4%
-          </td>
-          <td class="text-end small text-success">
-            33.4%
-          </td>
-          <td class="text-end text-muted small">76</td>
-        </tr>
-        
-        <tr>
-          <td class="text-muted">9</td>
-          <td class="text-muted small fw-semibold">1651</td>
-          <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="B.COLD BREW ORANGE MANGO (20*2G) 72097-4792252943414">
-            <a href="../produs/B_COLD_BREW_ORANGE_MANGO__20_2G__72097-4792252943414.html" class="text-decoration-none">
-              B.COLD BREW ORANGE MANGO (20*2G) 72097-4792252943414
-            </a>
-          </td>
-          <td class="text-end fw-semibold small">110.046 RON</td>
-          <td class="text-end text-muted small">12498</td>
-          <td class="text-end small">37.145 RON</td>
-          <td class="text-end small text-warning">
-            33.8%
-          </td>
-          <td class="text-end small text-success">
-            33.8%
-          </td>
-          <td class="text-end text-muted small">83</td>
-        </tr>
-        
-        <tr>
-          <td class="text-muted">10</td>
           <td class="text-muted small fw-semibold">1236</td>
           <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="B.CEAI STRAWBERRY &amp; RASPBERRY (25X1,8G) 71406-4792252933354">
             <a href="../produs/B_CEAI_STRAWBERRY__amp__RASPBERRY__25X1_8G__71406-4792252933354.html" class="text-decoration-none">
@@ -6776,7 +6824,27 @@
         </tr>
         
         <tr>
-          <td class="text-muted">11</td>
+          <td class="text-muted">9</td>
+          <td class="text-muted small fw-semibold">1650</td>
+          <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="B.COLD BREW POMEGRANATE BLUEBERRY (20*2G) 72095-4792252943391">
+            <a href="../produs/B_COLD_BREW_POMEGRANATE_BLUEBERRY__20_2G__72095-4792252943391.html" class="text-decoration-none">
+              B.COLD BREW POMEGRANATE BLUEBERRY (20*2G) 72095…
+            </a>
+          </td>
+          <td class="text-end fw-semibold small">92.060 RON</td>
+          <td class="text-end text-muted small">11010</td>
+          <td class="text-end small">33.651 RON</td>
+          <td class="text-end small text-warning">
+            36.6%
+          </td>
+          <td class="text-end small text-success">
+            36.6%
+          </td>
+          <td class="text-end text-muted small">75</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted">10</td>
           <td class="text-muted small fw-semibold">1056</td>
           <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="B.CEAI MOROCCAN MINT (25X1,5G) 70419-4792252916470">
             <a href="../produs/B_CEAI_MOROCCAN_MINT__25X1_5G__70419-4792252916470.html" class="text-decoration-none">
@@ -6796,7 +6864,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted">12</td>
+          <td class="text-muted">11</td>
           <td class="text-muted small fw-semibold">1558</td>
           <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="B.VINTAGE ASSORTED 40DZ (1,5GX10; 2GX30) 75G 71432 4792252934030">
             <a href="../produs/B_VINTAGE_ASSORTED_40DZ__1_5GX10__2GX30__75G_71432_4792252934030.html" class="text-decoration-none">
@@ -6816,7 +6884,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted">13</td>
+          <td class="text-muted">12</td>
           <td class="text-muted small fw-semibold">1649</td>
           <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="B.COLD BREW CHERRY LIME (20*2G) 72096-4792252943407">
             <a href="../produs/B_COLD_BREW_CHERRY_LIME__20_2G__72096-4792252943407.html" class="text-decoration-none">
@@ -6833,6 +6901,26 @@
             38.4%
           </td>
           <td class="text-end text-muted small">80</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted">13</td>
+          <td class="text-muted small fw-semibold">1651</td>
+          <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="B.COLD BREW ORANGE MANGO (20*2G) 72097-4792252943414">
+            <a href="../produs/B_COLD_BREW_ORANGE_MANGO__20_2G__72097-4792252943414.html" class="text-decoration-none">
+              B.COLD BREW ORANGE MANGO (20*2G) 72097-4792252943414
+            </a>
+          </td>
+          <td class="text-end fw-semibold small">87.115 RON</td>
+          <td class="text-end text-muted small">10434</td>
+          <td class="text-end small">32.288 RON</td>
+          <td class="text-end small text-warning">
+            37.1%
+          </td>
+          <td class="text-end small text-success">
+            37.1%
+          </td>
+          <td class="text-end text-muted small">82</td>
         </tr>
         
         <tr>
@@ -6877,26 +6965,6 @@
         
         <tr>
           <td class="text-muted">16</td>
-          <td class="text-muted small fw-semibold">1648</td>
-          <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="B.COLD BREW STRAWBERRY CUCUMBER&amp;MINT (20*2G) 72094-4792252943384">
-            <a href="../produs/B_COLD_BREW_STRAWBERRY_CUCUMBER_amp_MINT__20_2G__72094-4792252943384.html" class="text-decoration-none">
-              B.COLD BREW STRAWBERRY CUCUMBER&amp;MINT (20*2G) 72…
-            </a>
-          </td>
-          <td class="text-end fw-semibold small">82.416 RON</td>
-          <td class="text-end text-muted small">9622</td>
-          <td class="text-end small">32.028 RON</td>
-          <td class="text-end small text-warning">
-            38.9%
-          </td>
-          <td class="text-end small text-success">
-            38.9%
-          </td>
-          <td class="text-end text-muted small">53</td>
-        </tr>
-        
-        <tr>
-          <td class="text-muted">17</td>
           <td class="text-muted small fw-semibold">1647</td>
           <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="B.COLD BREW GUAVA PASSIONFRUIT (20*2G) 72092-4792252943360">
             <a href="../produs/B_COLD_BREW_GUAVA_PASSIONFRUIT__20_2G__72092-4792252943360.html" class="text-decoration-none">
@@ -6916,7 +6984,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted">18</td>
+          <td class="text-muted">17</td>
           <td class="text-muted small fw-semibold">1560</td>
           <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="B.CEAI MAGIC FRUITS ASSORTED 40E (10EX4) 80G 71560-4792252934719">
             <a href="../produs/B_CEAI_MAGIC_FRUITS_ASSORTED_40E__10EX4__80G_71560-4792252934719.html" class="text-decoration-none">
@@ -6936,7 +7004,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted">19</td>
+          <td class="text-muted">18</td>
           <td class="text-muted small fw-semibold">1646</td>
           <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="B.COLD BREW COCONUT PINEAPPLE (20*2G) 72093-4792252943377">
             <a href="../produs/B_COLD_BREW_COCONUT_PINEAPPLE__20_2G__72093-4792252943377.html" class="text-decoration-none">
@@ -6956,27 +7024,27 @@
         </tr>
         
         <tr>
-          <td class="text-muted">20</td>
-          <td class="text-muted small fw-semibold">354</td>
-          <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="B.REFILL SPRING TEA 70338-4792252915510">
-            <a href="../produs/B_REFILL_SPRING_TEA_70338-4792252915510.html" class="text-decoration-none">
-              B.REFILL SPRING TEA 70338-4792252915510
+          <td class="text-muted">19</td>
+          <td class="text-muted small fw-semibold">1648</td>
+          <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="B.COLD BREW STRAWBERRY CUCUMBER&amp;MINT (20*2G) 72094-4792252943384">
+            <a href="../produs/B_COLD_BREW_STRAWBERRY_CUCUMBER_amp_MINT__20_2G__72094-4792252943384.html" class="text-decoration-none">
+              B.COLD BREW STRAWBERRY CUCUMBER&amp;MINT (20*2G) 72…
             </a>
           </td>
-          <td class="text-end fw-semibold small">68.744 RON</td>
-          <td class="text-end text-muted small">6843</td>
-          <td class="text-end small">33.365 RON</td>
-          <td class="text-end small text-success">
-            48.5%
+          <td class="text-end fw-semibold small">72.295 RON</td>
+          <td class="text-end text-muted small">8711</td>
+          <td class="text-end small">30.017 RON</td>
+          <td class="text-end small text-warning">
+            41.5%
           </td>
           <td class="text-end small text-success">
-            48.5%
+            41.5%
           </td>
-          <td class="text-end text-muted small">76</td>
+          <td class="text-end text-muted small">52</td>
         </tr>
         
         <tr>
-          <td class="text-muted">21</td>
+          <td class="text-muted">20</td>
           <td class="text-muted small fw-semibold">1052</td>
           <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="B.CEAI MAGIC NIGHT (2X25G) 70416-4792252916418">
             <a href="../produs/B_CEAI_MAGIC_NIGHT__2X25G__70416-4792252916418.html" class="text-decoration-none">
@@ -6996,7 +7064,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted">22</td>
+          <td class="text-muted">21</td>
           <td class="text-muted small fw-semibold">1483</td>
           <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="B.CEAI REFILL WHITE TEA 71704-4792252936836">
             <a href="../produs/B_CEAI_REFILL_WHITE_TEA_71704-4792252936836.html" class="text-decoration-none">
@@ -7013,6 +7081,26 @@
             39.0%
           </td>
           <td class="text-end text-muted small">98</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted">22</td>
+          <td class="text-muted small fw-semibold">354</td>
+          <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="B.REFILL SPRING TEA 70338-4792252915510">
+            <a href="../produs/B_REFILL_SPRING_TEA_70338-4792252915510.html" class="text-decoration-none">
+              B.REFILL SPRING TEA 70338-4792252915510
+            </a>
+          </td>
+          <td class="text-end fw-semibold small">66.096 RON</td>
+          <td class="text-end text-muted small">6579</td>
+          <td class="text-end small">33.045 RON</td>
+          <td class="text-end small text-success">
+            50.0%
+          </td>
+          <td class="text-end small text-success">
+            50.0%
+          </td>
+          <td class="text-end text-muted small">75</td>
         </tr>
         
         <tr>
@@ -7057,26 +7145,6 @@
         
         <tr>
           <td class="text-muted">25</td>
-          <td class="text-muted small fw-semibold">124</td>
-          <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="B.TEA BOOK VOL III  70289-4792252100831">
-            <a href="../produs/B_TEA_BOOK_VOL_III__70289-4792252100831.html" class="text-decoration-none">
-              B.TEA BOOK VOL III  70289-4792252100831
-            </a>
-          </td>
-          <td class="text-end fw-semibold small">61.997 RON</td>
-          <td class="text-end text-muted small">2036</td>
-          <td class="text-end small">28.399 RON</td>
-          <td class="text-end small text-success">
-            45.8%
-          </td>
-          <td class="text-end small text-success">
-            45.8%
-          </td>
-          <td class="text-end text-muted small">81</td>
-        </tr>
-        
-        <tr>
-          <td class="text-muted">26</td>
           <td class="text-muted small fw-semibold">356</td>
           <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="B.CEAI FOUR SEASONS ASSORTED PLIC (1.5X12, 2X13) 70398-4792252916227">
             <a href="../produs/B_CEAI_FOUR_SEASONS_ASSORTED_PLIC__1_5X12__2X13__70398-4792252916227.html" class="text-decoration-none">
@@ -7096,7 +7164,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted">27</td>
+          <td class="text-muted">26</td>
           <td class="text-muted small fw-semibold">1098</td>
           <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="B.CEAI WHITE MOON (25X1.5G) 70417-4792252916432">
             <a href="../produs/B_CEAI_WHITE_MOON__25X1_5G__70417-4792252916432.html" class="text-decoration-none">
@@ -7113,6 +7181,26 @@
             38.3%
           </td>
           <td class="text-end text-muted small">28</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted">27</td>
+          <td class="text-muted small fw-semibold">124</td>
+          <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="B.TEA BOOK VOL III  70289-4792252100831">
+            <a href="../produs/B_TEA_BOOK_VOL_III__70289-4792252100831.html" class="text-decoration-none">
+              B.TEA BOOK VOL III  70289-4792252100831
+            </a>
+          </td>
+          <td class="text-end fw-semibold small">48.928 RON</td>
+          <td class="text-end text-muted small">1532</td>
+          <td class="text-end small">27.848 RON</td>
+          <td class="text-end small text-success">
+            56.9%
+          </td>
+          <td class="text-end small text-success">
+            56.9%
+          </td>
+          <td class="text-end text-muted small">80</td>
         </tr>
         
         <tr>
@@ -7182,13 +7270,13 @@
 
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="../static/js/bootstrap.bundle.min.js"></script>
+<script src="../static/js/chart.umd.min.js"></script>
 
 <script>
 const MONTHS   = ["Ian", "Feb", "Mar", "Apr", "Mai", "Iun", "Iul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-const TREND_VN = {"2024": [420361.0, 313682.0, 359022.0, 325866.0, 272267.0, 220947.0, 161135.0, 193742.0, 177769.0, 527815.0, 613814.0, 605788.0], "2025": [585980.0, 296466.0, 491744.0, 229618.0, 200567.0, 216733.0, 298276.0, 328555.0, 277458.0, 692239.0, 354624.0, 547033.0], "2026": [552378.0, 384688.0, 491220.0, 321856.0, 103456.0, 0, 0, 0, 0, 0, 0, 0]};
-const TREND_MB = {"2024": [146350.0, 97131.0, 121982.0, 121557.0, 102381.0, 84954.0, 60039.0, 74463.0, 70843.0, 208981.0, 242613.0, 240671.0], "2025": [214086.0, 115814.0, 220654.0, 103553.0, 88752.0, 86522.0, 112561.0, 131654.0, 116426.0, 308315.0, 178564.0, 257750.0], "2026": [249425.0, 180435.0, 210139.0, 142447.0, 50082.0, 0, 0, 0, 0, 0, 0, 0]};
+const TREND_VN = {"2024": [371557.0, 296381.0, 327322.0, 308822.0, 252258.0, 210906.0, 140677.0, 184589.0, 165746.0, 495885.0, 589614.0, 563964.0], "2025": [542240.0, 286569.0, 469433.0, 220403.0, 183841.0, 204455.0, 288351.0, 317144.0, 266538.0, 670734.0, 339533.0, 529321.0], "2026": [500561.0, 366391.0, 460292.0, 268925.0, 100227.0, 0, 0, 0, 0, 0, 0, 0]};
+const TREND_MB = {"2024": [146987.0, 98508.0, 117538.0, 120608.0, 100320.0, 83760.0, 57344.0, 73630.0, 70315.0, 206737.0, 240612.0, 236298.0], "2025": [211863.0, 114947.0, 218566.0, 102830.0, 86280.0, 83837.0, 109248.0, 129251.0, 117744.0, 308349.0, 176148.0, 255232.0], "2026": [235418.0, 176772.0, 202050.0, 128311.0, 51214.0, 0, 0, 0, 0, 0, 0, 0]};
 
 const PALETTE = {
   2024: {vn:'rgba(173,181,189,0.7)', mb:'rgba(173,181,189,0.55)'},

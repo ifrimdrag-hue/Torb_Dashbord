@@ -4,9 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>T.CIOC N CU ALUNE FZG (CU STEVIA) 125GR… — Torb Logistic</title>
-  <link rel="icon" type="image/svg+xml" href="../static/favicon.svg">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../static/css/bootstrap-icons.min.css">
   <link rel="stylesheet" href="../static/css/style.css">
 
   <link rel="manifest" href="../manifest.json">
@@ -86,10 +85,24 @@
             <i class="bi bi-tags-fill"></i> Prețuri
           </a>
         </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle "
+             href="#" data-bs-toggle="dropdown">
+            <i class="bi bi-boxes"></i> Stoc / Forecast
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="../forecast.html">
+              <i class="bi bi-bar-chart-steps"></i> Stoc &amp; Comenzi
+            </a></li>
+            <li><a class="dropdown-item" href="/forecast/setari">
+              <i class="bi bi-gear"></i> Setări Forecast
+            </a></li>
+          </ul>
+        </li>
         <li class="nav-item">
           <a class="nav-link "
-             href="../forecast.html">
-            <i class="bi bi-boxes"></i> Stoc / Forecast
+             href="../raportare-basilur.html">
+            <i class="bi bi-file-earmark-bar-graph-fill"></i> Basilur
           </a>
         </li>
       </ul>
@@ -115,26 +128,106 @@
     </h5>
     <small class="text-muted">
       <span class="badge bg-primary me-1">Toras</span>
-      1824.0 buc. vândute · 17 clienți · 4 agenți
+      877.0 buc. vândute · 17 clienți · 3 agenți
     </small>
   </div>
   <div class="d-flex gap-2 align-items-center">
-    
-    <a href="../produs/T_CIOC_N_CU_ALUNE_FZG__CU_STEVIA__125GR-041__8410342015006_.html"
-       class="btn btn-sm btn-outline-secondary">2024</a>
-    
-    <a href="../produs/T_CIOC_N_CU_ALUNE_FZG__CU_STEVIA__125GR-041__8410342015006_.html"
-       class="btn btn-sm btn-outline-secondary">2025</a>
-    
-    <a href="../produs/T_CIOC_N_CU_ALUNE_FZG__CU_STEVIA__125GR-041__8410342015006_.html"
-       class="btn btn-sm btn-primary">2026</a>
-    
     <a href="#" onclick="alert('Export disponibil doar în aplicația locală.');return false;"
-       class="btn btn-sm btn-outline-success ms-2">
+       class="btn btn-sm btn-outline-success">
       <i class="bi bi-file-earmark-excel"></i> Excel
     </a>
   </div>
 </div>
+
+
+<div class="d-flex align-items-center gap-2 mb-3 flex-wrap">
+  <div class="btn-group btn-group-sm" role="group">
+    <button type="button"
+            class="btn btn-primary"
+            onclick="torbSetLuna(null)">YTD</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(1)">Ian</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(2)">Feb</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(3)">Mar</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(4)">Apr</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(5)">Mai</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(6)">Iun</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(7)">Iul</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(8)">Aug</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(9)">Sep</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(10)">Oct</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(11)">Nov</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(12)">Dec</button>
+    
+  </div>
+  <div class="btn-group btn-group-sm ms-1" role="group">
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetAn(2024)">2024</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetAn(2025)">2025</button>
+    
+    <button type="button"
+            class="btn btn-dark"
+            onclick="torbSetAn(2026)">2026</button>
+    
+  </div>
+</div>
+<script>
+(function () {
+  function torbSetLuna(m) {
+    var u = new URL(window.location.href);
+    if (m === null) u.searchParams.delete('luna');
+    else u.searchParams.set('luna', m);
+    window.location = u.toString();
+  }
+  function torbSetAn(y) {
+    var u = new URL(window.location.href);
+    u.searchParams.set('an', y);
+    window.location = u.toString();
+  }
+  window.torbSetLuna = torbSetLuna;
+  window.torbSetAn   = torbSetAn;
+}());
+</script>
 
 <!-- KPI cards -->
 <div class="row g-3 mb-4">
@@ -142,10 +235,10 @@
     <div class="card border-0 shadow-sm text-center p-2">
       <i class="bi bi-currency-euro text-primary fs-4 mt-2"></i>
       <p class="text-muted small mb-1 mt-1">Val Factură Netă</p>
-      <p class="fw-bold mb-1">26.739 RON</p>
+      <p class="fw-bold mb-1">14.330 RON</p>
       
       <small class="text-danger">
-        ▼58.2% vs 2025
+        ▼27.5% vs 2025
       </small>
       
     </div>
@@ -154,8 +247,8 @@
     <div class="card border-0 shadow-sm text-center p-2">
       <i class="bi bi-graph-up text-success fs-4 mt-2"></i>
       <p class="text-muted small mb-1 mt-1">Marjă Brută</p>
-      <p class="fw-bold mb-1">7.610 RON</p>
-      <small class="text-success fw-semibold">28.5%</small>
+      <p class="fw-bold mb-1">6.918 RON</p>
+      <small class="text-success fw-semibold">48.3%</small>
     </div>
   </div>
   <div class="col-6 col-md-3">
@@ -163,10 +256,10 @@
       <i class="bi bi-graph-down-arrow text-warning fs-4 mt-2"></i>
       <p class="text-muted small mb-1 mt-1">Marjă Netă</p>
       <p class="fw-bold mb-1 ">
-        7.610 RON
+        6.918 RON
       </p>
       <small class="text-success fw-semibold">
-        28.5%
+        48.3%
       </small>
     </div>
   </div>
@@ -174,8 +267,8 @@
     <div class="card border-0 shadow-sm text-center p-2">
       <i class="bi bi-boxes text-secondary fs-4 mt-2"></i>
       <p class="text-muted small mb-1 mt-1">Cantitate Vândută</p>
-      <p class="fw-bold mb-1">1824.0 buc.</p>
-      <small class="text-muted">Ultima: 2026-05-14</small>
+      <p class="fw-bold mb-1">877.0 buc.</p>
+      <small class="text-muted">Ultima: 2026-05-18</small>
     </div>
   </div>
 </div>
@@ -212,42 +305,42 @@
             
             <tr >
               <td>2024</td>
-              <td class="text-end small">62.809 RON</td>
-              <td class="text-end small">5199.0</td>
-              <td class="text-end small text-success">43.4%</td>
+              <td class="text-end small">50.002 RON</td>
+              <td class="text-end small">3879.0</td>
+              <td class="text-end small text-success">59.6%</td>
               <td class="text-end small ">
-                27.232 RON
+                29.811 RON
               </td>
               <td class="text-end small text-success">
-                43.4%
+                59.6%
               </td>
-              <td class="text-end small">35</td>
+              <td class="text-end small">34</td>
             </tr>
             
             <tr >
               <td>2025</td>
-              <td class="text-end small">63.975 RON</td>
-              <td class="text-end small">4616.0</td>
-              <td class="text-end small text-success">28.1%</td>
+              <td class="text-end small">39.431 RON</td>
+              <td class="text-end small">2468.0</td>
+              <td class="text-end small text-success">55.9%</td>
               <td class="text-end small ">
-                17.958 RON
+                22.028 RON
               </td>
               <td class="text-end small text-success">
-                28.1%
+                55.9%
               </td>
-              <td class="text-end small">25</td>
+              <td class="text-end small">24</td>
             </tr>
             
             <tr class="table-active fw-semibold">
               <td>2026</td>
-              <td class="text-end small">26.739 RON</td>
-              <td class="text-end small">1824.0</td>
-              <td class="text-end small text-success">28.5%</td>
+              <td class="text-end small">14.330 RON</td>
+              <td class="text-end small">877.0</td>
+              <td class="text-end small text-success">48.3%</td>
               <td class="text-end small ">
-                7.610 RON
+                6.918 RON
               </td>
               <td class="text-end small text-success">
-                28.5%
+                48.3%
               </td>
               <td class="text-end small">17</td>
             </tr>
@@ -264,7 +357,7 @@
   <div class="card-header bg-white fw-semibold d-flex justify-content-between">
     <span>
       <i class="bi bi-building me-1 text-secondary"></i>
-      Clienți care cumpără acest produs — 2026
+      Clienți care cumpără acest produs — 
       <span class="badge bg-secondary ms-1">17</span>
     </span>
     <input type="text" class="form-control form-control-sm w-auto" id="cliSearch"
@@ -277,7 +370,9 @@
           <th>Client</th>
           <th>Agent</th>
           <th class="text-end">Cant.</th>
+          <th class="text-end text-warning-emphasis">Δ Cant %</th>
           <th class="text-end">Val Netă</th>
+          <th class="text-end text-warning-emphasis">Δ VN %</th>
           <th class="text-end">MB (RON)</th>
           <th class="text-end">MB%</th>
           <th class="text-end">MN (RON)</th>
@@ -288,30 +383,18 @@
         
         <tr>
           <td>
-            <a href="../client/732.html"
-               class="text-decoration-none small">AUCHAN ROMANIA SA</a>
-          </td>
-          <td class="small text-muted">Oana Filip</td>
-          <td class="text-end small">996.0</td>
-          <td class="text-end small fw-semibold">13.209 RON</td>
-          <td class="text-end small">1.068 RON</td>
-          <td class="text-end small text-success">8.1%</td>
-          <td class="text-end small fw-semibold ">
-            1.068 RON
-          </td>
-          <td class="text-end small text-success">
-            8.1%
-          </td>
-        </tr>
-        
-        <tr>
-          <td>
             <a href="../client/1347.html"
                class="text-decoration-none small">DR.MAX SRL</a>
           </td>
           <td class="small text-muted">BRINZA CLAUDIU</td>
           <td class="text-end small">450.0</td>
+          <td class="text-end small text-danger">
+            -39.7%
+          </td>
           <td class="text-end small fw-semibold">7.317 RON</td>
+          <td class="text-end small text-danger">
+            -36.1%
+          </td>
           <td class="text-end small">3.520 RON</td>
           <td class="text-end small text-success">48.1%</td>
           <td class="text-end small fw-semibold ">
@@ -328,15 +411,21 @@
                class="text-decoration-none small">BEBETEI INVESTMENTS GROUP SRL</a>
           </td>
           <td class="small text-muted">BRINZA CLAUDIU</td>
-          <td class="text-end small">216.0</td>
-          <td class="text-end small fw-semibold">3.508 RON</td>
-          <td class="text-end small">1.694 RON</td>
-          <td class="text-end small text-success">48.3%</td>
+          <td class="text-end small">264.0</td>
+          <td class="text-end small text-danger">
+            -17.0%
+          </td>
+          <td class="text-end small fw-semibold">4.287 RON</td>
+          <td class="text-end small text-danger">
+            -15.5%
+          </td>
+          <td class="text-end small">2.058 RON</td>
+          <td class="text-end small text-success">48.0%</td>
           <td class="text-end small fw-semibold ">
-            1.694 RON
+            2.058 RON
           </td>
           <td class="text-end small text-success">
-            48.3%
+            48.0%
           </td>
         </tr>
         
@@ -347,7 +436,13 @@
           </td>
           <td class="small text-muted">BRINZA CLAUDIU</td>
           <td class="text-end small">80.0</td>
+          <td class="text-end small text-danger">
+            -27.3%
+          </td>
           <td class="text-end small fw-semibold">1.299 RON</td>
+          <td class="text-end small text-danger">
+            -26.1%
+          </td>
           <td class="text-end small">626 RON</td>
           <td class="text-end small text-success">48.2%</td>
           <td class="text-end small fw-semibold ">
@@ -365,7 +460,13 @@
           </td>
           <td class="small text-muted">BRINZA CLAUDIU</td>
           <td class="text-end small">33.0</td>
+          <td class="text-end small text-danger">
+            -2.9%
+          </td>
           <td class="text-end small fw-semibold">537 RON</td>
+          <td class="text-end small text-success">
+            +0.3%
+          </td>
           <td class="text-end small">259 RON</td>
           <td class="text-end small text-success">48.4%</td>
           <td class="text-end small fw-semibold ">
@@ -383,7 +484,13 @@
           </td>
           <td class="small text-muted">BRINZA CLAUDIU</td>
           <td class="text-end small">12.0</td>
+          <td class="text-end small text-muted">
+            —
+          </td>
           <td class="text-end small fw-semibold">195 RON</td>
+          <td class="text-end small text-muted">
+            —
+          </td>
           <td class="text-end small">94 RON</td>
           <td class="text-end small text-success">48.4%</td>
           <td class="text-end small fw-semibold ">
@@ -401,7 +508,13 @@
           </td>
           <td class="small text-muted">CONSTANTIN IONUT</td>
           <td class="text-end small">8.0</td>
+          <td class="text-end small text-danger">
+            -11.1%
+          </td>
           <td class="text-end small fw-semibold">146 RON</td>
+          <td class="text-end small text-danger">
+            -8.3%
+          </td>
           <td class="text-end small">79 RON</td>
           <td class="text-end small text-success">53.7%</td>
           <td class="text-end small fw-semibold ">
@@ -419,7 +532,13 @@
           </td>
           <td class="small text-muted">CONSTANTIN IONUT</td>
           <td class="text-end small">8.0</td>
+          <td class="text-end small text-success">
+            +60.0%
+          </td>
           <td class="text-end small fw-semibold">146 RON</td>
+          <td class="text-end small text-success">
+            +60.1%
+          </td>
           <td class="text-end small">78 RON</td>
           <td class="text-end small text-success">53.2%</td>
           <td class="text-end small fw-semibold ">
@@ -437,7 +556,13 @@
           </td>
           <td class="small text-muted">GURAMULTA GHEORGHE</td>
           <td class="text-end small">7.0</td>
+          <td class="text-end small text-danger">
+            -240.0%
+          </td>
           <td class="text-end small fw-semibold">142 RON</td>
+          <td class="text-end small text-danger">
+            -254.0%
+          </td>
           <td class="text-end small">83 RON</td>
           <td class="text-end small text-success">58.7%</td>
           <td class="text-end small fw-semibold ">
@@ -455,7 +580,13 @@
           </td>
           <td class="small text-muted">CONSTANTIN IONUT</td>
           <td class="text-end small">5.0</td>
+          <td class="text-end small text-muted">
+            —
+          </td>
           <td class="text-end small fw-semibold">97 RON</td>
+          <td class="text-end small text-muted">
+            —
+          </td>
           <td class="text-end small">55 RON</td>
           <td class="text-end small text-success">56.5%</td>
           <td class="text-end small fw-semibold ">
@@ -473,7 +604,13 @@
           </td>
           <td class="small text-muted">GURAMULTA GHEORGHE</td>
           <td class="text-end small">4.0</td>
+          <td class="text-end small text-success">
+            +100.0%
+          </td>
           <td class="text-end small fw-semibold">73 RON</td>
+          <td class="text-end small text-success">
+            +125.1%
+          </td>
           <td class="text-end small">40 RON</td>
           <td class="text-end small text-success">54.1%</td>
           <td class="text-end small fw-semibold ">
@@ -491,7 +628,13 @@
           </td>
           <td class="small text-muted">CONSTANTIN IONUT</td>
           <td class="text-end small">4.0</td>
+          <td class="text-end small text-success">
+            +300.0%
+          </td>
           <td class="text-end small fw-semibold">62 RON</td>
+          <td class="text-end small text-success">
+            +245.7%
+          </td>
           <td class="text-end small">28 RON</td>
           <td class="text-end small text-success">45.6%</td>
           <td class="text-end small fw-semibold ">
@@ -509,7 +652,13 @@
           </td>
           <td class="small text-muted">BRINZA CLAUDIU</td>
           <td class="text-end small">3.0</td>
+          <td class="text-end small text-muted">
+            +0.0%
+          </td>
           <td class="text-end small fw-semibold">61 RON</td>
+          <td class="text-end small text-muted">
+            +0.0%
+          </td>
           <td class="text-end small">36 RON</td>
           <td class="text-end small text-success">58.7%</td>
           <td class="text-end small fw-semibold ">
@@ -527,7 +676,13 @@
           </td>
           <td class="small text-muted">GURAMULTA GHEORGHE</td>
           <td class="text-end small">2.0</td>
+          <td class="text-end small text-muted">
+            —
+          </td>
           <td class="text-end small fw-semibold">33 RON</td>
+          <td class="text-end small text-muted">
+            —
+          </td>
           <td class="text-end small">16 RON</td>
           <td class="text-end small text-success">48.4%</td>
           <td class="text-end small fw-semibold ">
@@ -540,12 +695,42 @@
         
         <tr>
           <td>
+            <a href="../client/879.html"
+               class="text-decoration-none small">GRATIA IMOB SRL</a>
+          </td>
+          <td class="small text-muted">CONSTANTIN IONUT</td>
+          <td class="text-end small">1.0</td>
+          <td class="text-end small text-muted">
+            —
+          </td>
+          <td class="text-end small fw-semibold">20 RON</td>
+          <td class="text-end small text-muted">
+            —
+          </td>
+          <td class="text-end small">12 RON</td>
+          <td class="text-end small text-success">57.4%</td>
+          <td class="text-end small fw-semibold ">
+            12 RON
+          </td>
+          <td class="text-end small text-success">
+            57.4%
+          </td>
+        </tr>
+        
+        <tr>
+          <td>
             <a href="../client/1417.html"
                class="text-decoration-none small">VIASAN BIO S.R.L.</a>
           </td>
           <td class="small text-muted">CONSTANTIN IONUT</td>
           <td class="text-end small">1.0</td>
+          <td class="text-end small text-danger">
+            -50.0%
+          </td>
           <td class="text-end small fw-semibold">18 RON</td>
+          <td class="text-end small text-danger">
+            -43.7%
+          </td>
           <td class="text-end small">10 RON</td>
           <td class="text-end small text-success">52.7%</td>
           <td class="text-end small fw-semibold ">
@@ -563,7 +748,13 @@
           </td>
           <td class="small text-muted">BRINZA CLAUDIU</td>
           <td class="text-end small">1.0</td>
+          <td class="text-end small text-muted">
+            —
+          </td>
           <td class="text-end small fw-semibold">18 RON</td>
+          <td class="text-end small text-muted">
+            —
+          </td>
           <td class="text-end small">10 RON</td>
           <td class="text-end small text-success">52.7%</td>
           <td class="text-end small fw-semibold ">
@@ -581,7 +772,13 @@
           </td>
           <td class="small text-muted">GURAMULTA GHEORGHE</td>
           <td class="text-end small">-6.0</td>
+          <td class="text-end small text-danger">
+            -250.0%
+          </td>
           <td class="text-end small fw-semibold">-122 RON</td>
+          <td class="text-end small text-danger">
+            -400.0%
+          </td>
           <td class="text-end small">-85 RON</td>
           <td class="text-end small text-success">69.4%</td>
           <td class="text-end small fw-semibold text-danger">
@@ -599,12 +796,12 @@
 
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="../static/js/bootstrap.bundle.min.js"></script>
+<script src="../static/js/chart.umd.min.js"></script>
 
 <script>
 const MONTHS = ["Ian", "Feb", "Mar", "Apr", "Mai", "Iun", "Iul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-const TREND  = {"2024": [3929.0, 4764.0, 8335.0, 8240.0, 4994.0, 3581.0, 7254.0, 5147.0, 2936.0, 4846.0, 4740.0, 4044.0], "2025": [8595.0, 6390.0, 6429.0, 4442.0, 5895.0, 3011.0, 3255.0, 4748.0, 4950.0, 3423.0, 4193.0, 8643.0], "2026": [5630.0, 4283.0, 5642.0, 9718.0, 1466.0, 0, 0, 0, 0, 0, 0, 0]};
+const TREND  = {"2024": [2743.0, 3470.0, 7580.0, 7054.0, 3681.0, 2118.0, 6157.0, 4660.0, 1961.0, 3505.0, 4130.0, 2946.0], "2025": [4815.0, 5293.0, 4478.0, 2491.0, 2677.0, 1610.0, 2695.0, 2786.0, 2568.0, 2302.0, 2486.0, 5230.0], "2026": [3241.0, 3088.0, 4618.0, 1731.0, 1651.0, 0, 0, 0, 0, 0, 0, 0]};
 const PAL = {
   2024: 'rgba(173,181,189,0.65)',
   2025: 'rgba(13,110,253,0.65)',
@@ -636,5 +833,15 @@ function filterCli(q) {
 }
 </script>
 
+<script>
+(function() {
+  window.torbSetAn = function() {
+    alert('Schimbarea anului este disponibilă doar în aplicaţia locală.');
+  };
+  window.torbSetLuna = function() {
+    alert('Filtrarea pe lună este disponibilă doar în aplicaţia locală.');
+  };
+})();
+</script>
 </body>
 </html>

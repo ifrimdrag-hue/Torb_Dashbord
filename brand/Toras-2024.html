@@ -4,9 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Toras — Torb Logistic</title>
-  <link rel="icon" type="image/svg+xml" href="../static/favicon.svg">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../static/css/bootstrap-icons.min.css">
   <link rel="stylesheet" href="../static/css/style.css">
 
   <link rel="manifest" href="../manifest.json">
@@ -86,10 +85,24 @@
             <i class="bi bi-tags-fill"></i> Prețuri
           </a>
         </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle "
+             href="#" data-bs-toggle="dropdown">
+            <i class="bi bi-boxes"></i> Stoc / Forecast
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="../forecast.html">
+              <i class="bi bi-bar-chart-steps"></i> Stoc &amp; Comenzi
+            </a></li>
+            <li><a class="dropdown-item" href="/forecast/setari">
+              <i class="bi bi-gear"></i> Setări Forecast
+            </a></li>
+          </ul>
+        </li>
         <li class="nav-item">
           <a class="nav-link "
-             href="../forecast.html">
-            <i class="bi bi-boxes"></i> Stoc / Forecast
+             href="../raportare-basilur.html">
+            <i class="bi bi-file-earmark-bar-graph-fill"></i> Basilur
           </a>
         </li>
       </ul>
@@ -110,19 +123,97 @@
   <h4 class="mb-0 fw-bold">
     <i class="bi bi-award-fill text-warning me-1"></i>Toras
   </h4>
-  <div class="d-flex gap-2 align-items-center">
+</div>
+
+
+<div class="d-flex align-items-center gap-2 mb-3 flex-wrap">
+  <div class="btn-group btn-group-sm" role="group">
+    <button type="button"
+            class="btn btn-primary"
+            onclick="torbSetLuna(null)">YTD</button>
     
-    <a href="../brand/Toras.html"
-       class="btn btn-sm btn-primary">2024</a>
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(1)">Ian</button>
     
-    <a href="../brand/Toras.html"
-       class="btn btn-sm btn-outline-secondary">2025</a>
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(2)">Feb</button>
     
-    <a href="../brand/Toras.html"
-       class="btn btn-sm btn-outline-secondary">2026</a>
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(3)">Mar</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(4)">Apr</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(5)">Mai</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(6)">Iun</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(7)">Iul</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(8)">Aug</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(9)">Sep</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(10)">Oct</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(11)">Nov</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetLuna(12)">Dec</button>
+    
+  </div>
+  <div class="btn-group btn-group-sm ms-1" role="group">
+    
+    <button type="button"
+            class="btn btn-dark"
+            onclick="torbSetAn(2024)">2024</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetAn(2025)">2025</button>
+    
+    <button type="button"
+            class="btn btn-outline-secondary"
+            onclick="torbSetAn(2026)">2026</button>
     
   </div>
 </div>
+<script>
+(function () {
+  function torbSetLuna(m) {
+    var u = new URL(window.location.href);
+    if (m === null) u.searchParams.delete('luna');
+    else u.searchParams.set('luna', m);
+    window.location = u.toString();
+  }
+  function torbSetAn(y) {
+    var u = new URL(window.location.href);
+    u.searchParams.set('an', y);
+    window.location = u.toString();
+  }
+  window.torbSetLuna = torbSetLuna;
+  window.torbSetAn   = torbSetAn;
+}());
+</script>
 
 <!-- KPI cards -->
 
@@ -131,7 +222,7 @@
     <div class="card border-0 shadow-sm h-100 text-center p-2">
       <i class="bi bi-currency-exchange text-primary fs-4 mt-2"></i>
       <p class="text-muted small mb-1 mt-1">Val Netă</p>
-      <p class="fw-bold mb-1">2.62M RON</p>
+      <p class="fw-bold mb-1">2.18M RON</p>
       
       <small class="text-muted">—</small>
       
@@ -141,8 +232,8 @@
     <div class="card border-0 shadow-sm h-100 text-center p-2">
       <i class="bi bi-graph-up text-success fs-4 mt-2"></i>
       <p class="text-muted small mb-1 mt-1">Marjă Brută</p>
-      <p class="fw-bold mb-1">1.10M RON</p>
-      <small class="text-success fw-semibold">41.9%</small>
+      <p class="fw-bold mb-1">1.09M RON</p>
+      <small class="text-success fw-semibold">49.9%</small>
       
     </div>
   </div>
@@ -150,9 +241,9 @@
     <div class="card border-0 shadow-sm h-100 text-center p-2">
       <i class="bi bi-graph-down-arrow text-warning fs-4 mt-2"></i>
       <p class="text-muted small mb-1 mt-1">Marjă Netă</p>
-      <p class="fw-bold mb-1">1.10M RON</p>
+      <p class="fw-bold mb-1">1.09M RON</p>
       <small class="text-success fw-semibold">
-        41.9%
+        49.9%
       </small>
     </div>
   </div>
@@ -160,21 +251,21 @@
     <div class="card border-0 shadow-sm h-100 text-center p-2">
       <i class="bi bi-people text-secondary fs-4 mt-2"></i>
       <p class="text-muted small mb-1 mt-1">Clienți</p>
-      <p class="fw-bold mb-1">104</p>
+      <p class="fw-bold mb-1">103</p>
     </div>
   </div>
   <div class="col-6 col-md-4 col-xl-2">
     <div class="card border-0 shadow-sm h-100 text-center p-2">
       <i class="bi bi-box-seam text-dark fs-4 mt-2"></i>
       <p class="text-muted small mb-1 mt-1">SKU-uri</p>
-      <p class="fw-bold mb-1">80</p>
+      <p class="fw-bold mb-1">51</p>
     </div>
   </div>
   <div class="col-6 col-md-4 col-xl-2">
     <div class="card border-0 shadow-sm h-100 text-center p-2">
       <i class="bi bi-receipt text-info fs-4 mt-2"></i>
       <p class="text-muted small mb-1 mt-1">Tranzacții</p>
-      <p class="fw-bold mb-1">17011</p>
+      <p class="fw-bold mb-1">15201</p>
     </div>
   </div>
 </div>
@@ -198,7 +289,7 @@
 <div class="card shadow-sm border-0 mb-4">
   <div class="card-header bg-white fw-semibold">
     <i class="bi bi-people-fill me-1 text-info"></i>
-    Clienți Toras — pondere &amp; comparativ 2023
+    Clienți Toras — pondere &amp; comparativ 
   </div>
   <div class="table-responsive">
     <table class="table table-sm table-hover mb-0 align-middle">
@@ -207,9 +298,9 @@
           <th>#</th>
           <th>Client</th>
           <th>Agent</th>
-          <th class="text-end">Val Netă 2024</th>
+          <th class="text-end">Val Netă </th>
           <th class="text-end">Pondere</th>
-          <th class="text-end">vs 2023</th>
+          <th class="text-end">vs </th>
           <th class="text-end">MB (RON)</th>
           <th class="text-end">MB%</th>
           <th class="text-end">SKU-uri</th>
@@ -221,34 +312,6 @@
         <tr>
           <td class="text-muted small">1</td>
           <td>
-            <a href="../client/732.html"
-               class="text-decoration-none fw-semibold">AUCHAN ROMANIA SA</a>
-          </td>
-          <td class="small text-muted">Oana Filip</td>
-          <td class="text-end fw-semibold">433.090 RON</td>
-          <td class="text-end">
-            <div class="d-flex align-items-center justify-content-end gap-2">
-              <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:16.56%"></div>
-              </div>
-              <span class="small fw-semibold" style="min-width:50px">16.56%</span>
-            </div>
-          </td>
-          <td class="text-end small">
-            —
-          </td>
-          <td class="text-end small">6.333 RON</td>
-          <td class="text-end small
-            text-danger">
-            1.5%
-          </td>
-          <td class="text-end text-muted small">41</td>
-          <td class="text-muted small">2024-12-23</td>
-        </tr>
-        
-        <tr>
-          <td class="text-muted small">2</td>
-          <td>
             <a href="../client/997.html"
                class="text-decoration-none fw-semibold">BEBETEI INVESTMENTS GROUP SRL</a>
           </td>
@@ -257,9 +320,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:15.54%"></div>
+                <div class="progress-bar bg-info" style="width:18.63%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">15.54%</span>
+              <span class="small fw-semibold" style="min-width:50px">18.63%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -276,7 +339,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">3</td>
+          <td class="text-muted small">2</td>
           <td>
             <a href="../client/1263.html"
                class="text-decoration-none fw-semibold">KAUFLAND ROMANIA SCS</a>
@@ -286,9 +349,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:11.4%"></div>
+                <div class="progress-bar bg-info" style="width:13.67%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">11.4%</span>
+              <span class="small fw-semibold" style="min-width:50px">13.67%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -305,7 +368,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">4</td>
+          <td class="text-muted small">3</td>
           <td>
             <a href="../client/888.html"
                class="text-decoration-none fw-semibold">CARREFOUR ROMANIA SA</a>
@@ -315,9 +378,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:9.67%"></div>
+                <div class="progress-bar bg-info" style="width:11.59%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">9.67%</span>
+              <span class="small fw-semibold" style="min-width:50px">11.59%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -334,7 +397,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">5</td>
+          <td class="text-muted small">4</td>
           <td>
             <a href="../client/1347.html"
                class="text-decoration-none fw-semibold">DR.MAX SRL</a>
@@ -344,9 +407,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:7.9%"></div>
+                <div class="progress-bar bg-info" style="width:9.46%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">7.9%</span>
+              <span class="small fw-semibold" style="min-width:50px">9.46%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -363,7 +426,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">6</td>
+          <td class="text-muted small">5</td>
           <td>
             <a href="../client/936.html"
                class="text-decoration-none fw-semibold">FARMACIA TEI SRL</a>
@@ -373,9 +436,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:6.69%"></div>
+                <div class="progress-bar bg-info" style="width:8.02%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">6.69%</span>
+              <span class="small fw-semibold" style="min-width:50px">8.02%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -392,7 +455,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">7</td>
+          <td class="text-muted small">6</td>
           <td>
             <a href="../client/977.html"
                class="text-decoration-none fw-semibold">SELGROS CASH &amp; CARRY SRL</a>
@@ -402,9 +465,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:6.46%"></div>
+                <div class="progress-bar bg-info" style="width:7.74%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">6.46%</span>
+              <span class="small fw-semibold" style="min-width:50px">7.74%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -421,7 +484,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">8</td>
+          <td class="text-muted small">7</td>
           <td>
             <a href="../client/794.html"
                class="text-decoration-none fw-semibold">URANUS DISTRIBUTION S.R.L.</a>
@@ -431,9 +494,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:3.65%"></div>
+                <div class="progress-bar bg-info" style="width:4.38%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">3.65%</span>
+              <span class="small fw-semibold" style="min-width:50px">4.38%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -450,7 +513,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">9</td>
+          <td class="text-muted small">8</td>
           <td>
             <a href="../client/1453.html"
                class="text-decoration-none fw-semibold">SUPECO INVESTMENT SRL</a>
@@ -460,9 +523,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:2.67%"></div>
+                <div class="progress-bar bg-info" style="width:3.2%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">2.67%</span>
+              <span class="small fw-semibold" style="min-width:50px">3.2%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -479,7 +542,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">10</td>
+          <td class="text-muted small">9</td>
           <td>
             <a href="../client/733.html"
                class="text-decoration-none fw-semibold">STEFAN MARKETING SRL</a>
@@ -489,9 +552,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:2.29%"></div>
+                <div class="progress-bar bg-info" style="width:2.74%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">2.29%</span>
+              <span class="small fw-semibold" style="min-width:50px">2.74%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -508,7 +571,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">11</td>
+          <td class="text-muted small">10</td>
           <td>
             <a href="../client/760.html"
                class="text-decoration-none fw-semibold">ZIMEX SRL</a>
@@ -518,9 +581,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:2.04%"></div>
+                <div class="progress-bar bg-info" style="width:2.45%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">2.04%</span>
+              <span class="small fw-semibold" style="min-width:50px">2.45%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -537,7 +600,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">12</td>
+          <td class="text-muted small">11</td>
           <td>
             <a href="../client/773.html"
                class="text-decoration-none fw-semibold">ONEDIA DISTRIBUTION SRL</a>
@@ -547,9 +610,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:1.67%"></div>
+                <div class="progress-bar bg-info" style="width:2.01%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">1.67%</span>
+              <span class="small fw-semibold" style="min-width:50px">2.01%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -566,7 +629,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">13</td>
+          <td class="text-muted small">12</td>
           <td>
             <a href="../client/809.html"
                class="text-decoration-none fw-semibold">FILDAS TRADING SRL</a>
@@ -576,9 +639,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:1.4%"></div>
+                <div class="progress-bar bg-info" style="width:1.68%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">1.4%</span>
+              <span class="small fw-semibold" style="min-width:50px">1.68%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -595,7 +658,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">14</td>
+          <td class="text-muted small">13</td>
           <td>
             <a href="../client/1449.html"
                class="text-decoration-none fw-semibold">SEZAMO S.R.L.</a>
@@ -605,9 +668,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:1.27%"></div>
+                <div class="progress-bar bg-info" style="width:1.53%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">1.27%</span>
+              <span class="small fw-semibold" style="min-width:50px">1.53%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -624,7 +687,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">15</td>
+          <td class="text-muted small">14</td>
           <td>
             <a href="../client/1437.html"
                class="text-decoration-none fw-semibold">EMAG RETAIL S.R.L.</a>
@@ -634,9 +697,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:1.2%"></div>
+                <div class="progress-bar bg-info" style="width:1.43%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">1.2%</span>
+              <span class="small fw-semibold" style="min-width:50px">1.43%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -653,7 +716,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">16</td>
+          <td class="text-muted small">15</td>
           <td>
             <a href="../client/843.html"
                class="text-decoration-none fw-semibold">NEW STARS IMPEX SRL</a>
@@ -663,9 +726,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.72%"></div>
+                <div class="progress-bar bg-info" style="width:0.86%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.72%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.86%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -682,7 +745,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">17</td>
+          <td class="text-muted small">16</td>
           <td>
             <a href="../client/951.html"
                class="text-decoration-none fw-semibold">ELAN-TRIO SRL</a>
@@ -692,9 +755,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.7%"></div>
+                <div class="progress-bar bg-info" style="width:0.84%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.7%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.84%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -711,7 +774,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">18</td>
+          <td class="text-muted small">17</td>
           <td>
             <a href="../client/1405.html"
                class="text-decoration-none fw-semibold">COVRIG CROCANT S.R.L.</a>
@@ -721,9 +784,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.7%"></div>
+                <div class="progress-bar bg-info" style="width:0.84%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.7%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.84%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -740,7 +803,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">19</td>
+          <td class="text-muted small">18</td>
           <td>
             <a href="../client/1393.html"
                class="text-decoration-none fw-semibold">LORIMER SRL</a>
@@ -750,9 +813,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.6%"></div>
+                <div class="progress-bar bg-info" style="width:0.72%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.6%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.72%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -769,7 +832,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">20</td>
+          <td class="text-muted small">19</td>
           <td>
             <a href="../client/1166.html"
                class="text-decoration-none fw-semibold">TOTAL DISTRIBUTION BEER SRL</a>
@@ -779,9 +842,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.55%"></div>
+                <div class="progress-bar bg-info" style="width:0.66%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.55%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.66%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -798,7 +861,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">21</td>
+          <td class="text-muted small">20</td>
           <td>
             <a href="../client/1440.html"
                class="text-decoration-none fw-semibold">AQUILA-FASHION SRL</a>
@@ -808,9 +871,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.47%"></div>
+                <div class="progress-bar bg-info" style="width:0.56%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.47%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.56%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -827,7 +890,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">22</td>
+          <td class="text-muted small">21</td>
           <td>
             <a href="../client/832.html"
                class="text-decoration-none fw-semibold">INTER MACEDONIA C.R. SRL</a>
@@ -837,9 +900,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.38%"></div>
+                <div class="progress-bar bg-info" style="width:0.45%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.38%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.45%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -856,7 +919,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">23</td>
+          <td class="text-muted small">22</td>
           <td>
             <a href="../client/913.html"
                class="text-decoration-none fw-semibold">ISSA INTERNET SRL</a>
@@ -866,9 +929,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.36%"></div>
+                <div class="progress-bar bg-info" style="width:0.43%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.36%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.43%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -885,7 +948,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">24</td>
+          <td class="text-muted small">23</td>
           <td>
             <a href="../client/850.html"
                class="text-decoration-none fw-semibold">NO SUGAR SHOP  SRL</a>
@@ -895,9 +958,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.34%"></div>
+                <div class="progress-bar bg-info" style="width:0.41%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.34%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.41%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -914,7 +977,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">25</td>
+          <td class="text-muted small">24</td>
           <td>
             <a href="../client/2029.html"
                class="text-decoration-none fw-semibold">BARTA ATI SRL</a>
@@ -924,9 +987,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.32%"></div>
+                <div class="progress-bar bg-info" style="width:0.39%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.32%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.39%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -943,7 +1006,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">26</td>
+          <td class="text-muted small">25</td>
           <td>
             <a href="../client/769.html"
                class="text-decoration-none fw-semibold">BENAN PROGRESS S.R.L.</a>
@@ -953,9 +1016,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.32%"></div>
+                <div class="progress-bar bg-info" style="width:0.38%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.32%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.38%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -972,7 +1035,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">27</td>
+          <td class="text-muted small">26</td>
           <td>
             <a href="../client/854.html"
                class="text-decoration-none fw-semibold">SERV-CONEX 2000 S.R.L.</a>
@@ -982,9 +1045,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.31%"></div>
+                <div class="progress-bar bg-info" style="width:0.37%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.31%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.37%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -1001,7 +1064,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">28</td>
+          <td class="text-muted small">27</td>
           <td>
             <a href="../client/1451.html"
                class="text-decoration-none fw-semibold">ALMIRA TRADE SRL</a>
@@ -1011,9 +1074,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.26%"></div>
+                <div class="progress-bar bg-info" style="width:0.31%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.26%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.31%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -1030,7 +1093,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">29</td>
+          <td class="text-muted small">28</td>
           <td>
             <a href="../client/1439.html"
                class="text-decoration-none fw-semibold">ADRIDAN SRL</a>
@@ -1040,9 +1103,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.22%"></div>
+                <div class="progress-bar bg-info" style="width:0.27%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.22%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.27%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -1059,7 +1122,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">30</td>
+          <td class="text-muted small">29</td>
           <td>
             <a href="../client/1199.html"
                class="text-decoration-none fw-semibold">ALBERTINO STAR SRL</a>
@@ -1069,9 +1132,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.22%"></div>
+                <div class="progress-bar bg-info" style="width:0.26%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.22%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.26%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -1088,7 +1151,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">31</td>
+          <td class="text-muted small">30</td>
           <td>
             <a href="../client/758.html"
                class="text-decoration-none fw-semibold">PARA DISTRIBUTION GROUP SRL</a>
@@ -1098,9 +1161,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.2%"></div>
+                <div class="progress-bar bg-info" style="width:0.24%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.2%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.24%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -1117,7 +1180,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">32</td>
+          <td class="text-muted small">31</td>
           <td>
             <a href="../client/763.html"
                class="text-decoration-none fw-semibold">MAIALEX SRL</a>
@@ -1127,9 +1190,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.18%"></div>
+                <div class="progress-bar bg-info" style="width:0.21%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.18%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.21%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -1146,7 +1209,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">33</td>
+          <td class="text-muted small">32</td>
           <td>
             <a href="../client/857.html"
                class="text-decoration-none fw-semibold">BROTACEL SRL</a>
@@ -1156,9 +1219,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.16%"></div>
+                <div class="progress-bar bg-info" style="width:0.2%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.16%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.2%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -1175,7 +1238,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">34</td>
+          <td class="text-muted small">33</td>
           <td>
             <a href="../client/945.html"
                class="text-decoration-none fw-semibold">PLANT FESTIN SRL</a>
@@ -1185,9 +1248,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.15%"></div>
+                <div class="progress-bar bg-info" style="width:0.18%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.15%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.18%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -1204,7 +1267,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">35</td>
+          <td class="text-muted small">34</td>
           <td>
             <a href="../client/958.html"
                class="text-decoration-none fw-semibold">RUBIN FARM S.R.L.</a>
@@ -1214,9 +1277,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.15%"></div>
+                <div class="progress-bar bg-info" style="width:0.17%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.15%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.17%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -1233,7 +1296,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">36</td>
+          <td class="text-muted small">35</td>
           <td>
             <a href="../client/996.html"
                class="text-decoration-none fw-semibold">COMPANIA DE LIBRARII BUCURESTI SA</a>
@@ -1243,9 +1306,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.12%"></div>
+                <div class="progress-bar bg-info" style="width:0.14%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.12%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.14%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -1262,7 +1325,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">37</td>
+          <td class="text-muted small">36</td>
           <td>
             <a href="../client/972.html"
                class="text-decoration-none fw-semibold">ANDREEA GREEN PHARM SRL</a>
@@ -1272,9 +1335,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.12%"></div>
+                <div class="progress-bar bg-info" style="width:0.14%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.12%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.14%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -1291,7 +1354,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">38</td>
+          <td class="text-muted small">37</td>
           <td>
             <a href="../client/835.html"
                class="text-decoration-none fw-semibold">EDEN MARKET IMPEX SRL</a>
@@ -1301,9 +1364,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.12%"></div>
+                <div class="progress-bar bg-info" style="width:0.14%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.12%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.14%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -1320,7 +1383,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">39</td>
+          <td class="text-muted small">38</td>
           <td>
             <a href="../client/1200.html"
                class="text-decoration-none fw-semibold">GREENBIOLIFE S.R.L.</a>
@@ -1330,9 +1393,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.12%"></div>
+                <div class="progress-bar bg-info" style="width:0.14%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.12%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.14%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -1349,7 +1412,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">40</td>
+          <td class="text-muted small">39</td>
           <td>
             <a href="../client/1153.html"
                class="text-decoration-none fw-semibold">TAMIVAL DOLCE SRL</a>
@@ -1359,9 +1422,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.11%"></div>
+                <div class="progress-bar bg-info" style="width:0.14%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.11%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.14%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -1378,7 +1441,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">41</td>
+          <td class="text-muted small">40</td>
           <td>
             <a href="../client/778.html"
                class="text-decoration-none fw-semibold">DUO SRL</a>
@@ -1388,9 +1451,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.1%"></div>
+                <div class="progress-bar bg-info" style="width:0.12%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.1%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.12%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -1407,7 +1470,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">42</td>
+          <td class="text-muted small">41</td>
           <td>
             <a href="../client/1278.html"
                class="text-decoration-none fw-semibold">TINOS FARM SRL</a>
@@ -1417,9 +1480,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.09%"></div>
+                <div class="progress-bar bg-info" style="width:0.11%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.09%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.11%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -1436,7 +1499,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">43</td>
+          <td class="text-muted small">42</td>
           <td>
             <a href="../client/1399.html"
                class="text-decoration-none fw-semibold">GREEN HILLS MARKET S.R.L.</a>
@@ -1446,9 +1509,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.09%"></div>
+                <div class="progress-bar bg-info" style="width:0.11%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.09%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.11%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -1465,7 +1528,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">44</td>
+          <td class="text-muted small">43</td>
           <td>
             <a href="../client/1417.html"
                class="text-decoration-none fw-semibold">VIASAN BIO S.R.L.</a>
@@ -1475,9 +1538,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.08%"></div>
+                <div class="progress-bar bg-info" style="width:0.1%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.08%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.1%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -1494,7 +1557,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">45</td>
+          <td class="text-muted small">44</td>
           <td>
             <a href="../client/1317.html"
                class="text-decoration-none fw-semibold">MARIA PHARMAMED SRL</a>
@@ -1504,9 +1567,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.08%"></div>
+                <div class="progress-bar bg-info" style="width:0.09%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.08%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.09%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -1523,7 +1586,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">46</td>
+          <td class="text-muted small">45</td>
           <td>
             <a href="../client/833.html"
                class="text-decoration-none fw-semibold">ECONOMAT SECTOR 5 SRL</a>
@@ -1533,9 +1596,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.08%"></div>
+                <div class="progress-bar bg-info" style="width:0.09%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.08%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.09%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -1552,7 +1615,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">47</td>
+          <td class="text-muted small">46</td>
           <td>
             <a href="../client/779.html"
                class="text-decoration-none fw-semibold">EL CASIO COM SRL</a>
@@ -1562,9 +1625,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.07%"></div>
+                <div class="progress-bar bg-info" style="width:0.09%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.07%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.09%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -1581,7 +1644,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">48</td>
+          <td class="text-muted small">47</td>
           <td>
             <a href="../client/831.html"
                class="text-decoration-none fw-semibold">FARMACIA ANA-MARIA SRL</a>
@@ -1591,9 +1654,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.07%"></div>
+                <div class="progress-bar bg-info" style="width:0.09%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.07%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.09%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -1610,7 +1673,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">49</td>
+          <td class="text-muted small">48</td>
           <td>
             <a href="../client/998.html"
                class="text-decoration-none fw-semibold">PRO APIS SRL</a>
@@ -1620,9 +1683,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.07%"></div>
+                <div class="progress-bar bg-info" style="width:0.08%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.07%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.08%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -1639,7 +1702,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">50</td>
+          <td class="text-muted small">49</td>
           <td>
             <a href="../client/859.html"
                class="text-decoration-none fw-semibold">SARA INEDIT S.R.L.</a>
@@ -1649,9 +1712,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.07%"></div>
+                <div class="progress-bar bg-info" style="width:0.08%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.07%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.08%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -1668,7 +1731,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">51</td>
+          <td class="text-muted small">50</td>
           <td>
             <a href="../client/804.html"
                class="text-decoration-none fw-semibold">TOTAL S.R.L.</a>
@@ -1678,9 +1741,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.07%"></div>
+                <div class="progress-bar bg-info" style="width:0.08%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.07%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.08%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -1697,7 +1760,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">52</td>
+          <td class="text-muted small">51</td>
           <td>
             <a href="../client/822.html"
                class="text-decoration-none fw-semibold">MARMOSIM S.R.L.</a>
@@ -1707,9 +1770,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.06%"></div>
+                <div class="progress-bar bg-info" style="width:0.08%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.06%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.08%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -1726,7 +1789,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">53</td>
+          <td class="text-muted small">52</td>
           <td>
             <a href="../client/961.html"
                class="text-decoration-none fw-semibold">PADRINO DRINKS SRL</a>
@@ -1736,9 +1799,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.06%"></div>
+                <div class="progress-bar bg-info" style="width:0.07%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.06%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.07%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -1755,7 +1818,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">54</td>
+          <td class="text-muted small">53</td>
           <td>
             <a href="../client/940.html"
                class="text-decoration-none fw-semibold">MONA IMPEX 93 S.R.L.</a>
@@ -1765,9 +1828,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.05%"></div>
+                <div class="progress-bar bg-info" style="width:0.07%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.05%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.07%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -1784,7 +1847,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">55</td>
+          <td class="text-muted small">54</td>
           <td>
             <a href="../client/880.html"
                class="text-decoration-none fw-semibold">CASI COM SRL</a>
@@ -1794,9 +1857,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.05%"></div>
+                <div class="progress-bar bg-info" style="width:0.06%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.05%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.06%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -1813,7 +1876,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">56</td>
+          <td class="text-muted small">55</td>
           <td>
             <a href="../client/1387.html"
                class="text-decoration-none fw-semibold">DAVIS LINE S.R.L.</a>
@@ -1823,9 +1886,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.05%"></div>
+                <div class="progress-bar bg-info" style="width:0.06%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.05%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.06%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -1842,7 +1905,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">57</td>
+          <td class="text-muted small">56</td>
           <td>
             <a href="../client/861.html"
                class="text-decoration-none fw-semibold">COMAT COMSERV SRL</a>
@@ -1852,9 +1915,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.04%"></div>
+                <div class="progress-bar bg-info" style="width:0.05%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.04%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.05%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -1871,7 +1934,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">58</td>
+          <td class="text-muted small">57</td>
           <td>
             <a href="../client/2049.html"
                class="text-decoration-none fw-semibold">AUTOPADOVA SRL</a>
@@ -1900,7 +1963,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">59</td>
+          <td class="text-muted small">58</td>
           <td>
             <a href="../client/1627.html"
                class="text-decoration-none fw-semibold">AUROCOR S.R.L.</a>
@@ -1910,9 +1973,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.03%"></div>
+                <div class="progress-bar bg-info" style="width:0.04%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.03%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.04%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -1929,7 +1992,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">60</td>
+          <td class="text-muted small">59</td>
           <td>
             <a href="../client/892.html"
                class="text-decoration-none fw-semibold">ARZE - MED INVEST S.R.L.</a>
@@ -1939,9 +2002,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.03%"></div>
+                <div class="progress-bar bg-info" style="width:0.04%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.03%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.04%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -1958,7 +2021,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">61</td>
+          <td class="text-muted small">60</td>
           <td>
             <a href="../client/816.html"
                class="text-decoration-none fw-semibold">GRAMA COM. SRL</a>
@@ -1968,9 +2031,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.03%"></div>
+                <div class="progress-bar bg-info" style="width:0.04%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.03%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.04%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -1987,7 +2050,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">62</td>
+          <td class="text-muted small">61</td>
           <td>
             <a href="../client/927.html"
                class="text-decoration-none fw-semibold">DELICATESE FLORESCU S.R.L.</a>
@@ -2016,7 +2079,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">63</td>
+          <td class="text-muted small">62</td>
           <td>
             <a href="../client/2157.html"
                class="text-decoration-none fw-semibold">PMM FAMSERR MARKDIS S.R.L.</a>
@@ -2045,7 +2108,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">64</td>
+          <td class="text-muted small">63</td>
           <td>
             <a href="../client/1201.html"
                class="text-decoration-none fw-semibold">SAFE BUSINESS MARKET S.R.L.</a>
@@ -2074,7 +2137,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">65</td>
+          <td class="text-muted small">64</td>
           <td>
             <a href="../client/1407.html"
                class="text-decoration-none fw-semibold">ACTUAL HIPER SUPER MARKET S.R.L.</a>
@@ -2103,7 +2166,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">66</td>
+          <td class="text-muted small">65</td>
           <td>
             <a href="../client/767.html"
                class="text-decoration-none fw-semibold">GREEN POWER-DISTRIBUTION SRL</a>
@@ -2113,9 +2176,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.02%"></div>
+                <div class="progress-bar bg-info" style="width:0.03%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.02%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.03%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -2132,7 +2195,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">67</td>
+          <td class="text-muted small">66</td>
           <td>
             <a href="../client/1341.html"
                class="text-decoration-none fw-semibold">NEW COM 93 S.R.L.</a>
@@ -2161,7 +2224,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">68</td>
+          <td class="text-muted small">67</td>
           <td>
             <a href="../client/915.html"
                class="text-decoration-none fw-semibold">FARMATECLIN SRL</a>
@@ -2189,7 +2252,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">69</td>
+          <td class="text-muted small">68</td>
           <td>
             <a href="../client/879.html"
                class="text-decoration-none fw-semibold">GRATIA IMOB SRL</a>
@@ -2218,7 +2281,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">70</td>
+          <td class="text-muted small">69</td>
           <td>
             <a href="../client/819.html"
                class="text-decoration-none fw-semibold">COROLA ROSA SRL</a>
@@ -2247,7 +2310,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">71</td>
+          <td class="text-muted small">70</td>
           <td>
             <a href="../client/952.html"
                class="text-decoration-none fw-semibold">CONSTANTIN IONUT</a>
@@ -2257,9 +2320,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.01%"></div>
+                <div class="progress-bar bg-info" style="width:0.02%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.01%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.02%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -2276,7 +2339,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">72</td>
+          <td class="text-muted small">71</td>
           <td>
             <a href="../client/1375.html"
                class="text-decoration-none fw-semibold">FATUM WINE SRL</a>
@@ -2286,9 +2349,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.01%"></div>
+                <div class="progress-bar bg-info" style="width:0.02%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.01%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.02%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -2305,7 +2368,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">73</td>
+          <td class="text-muted small">72</td>
           <td>
             <a href="../client/963.html"
                class="text-decoration-none fw-semibold">CRISTIN N L IMPEX SRL</a>
@@ -2315,9 +2378,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.01%"></div>
+                <div class="progress-bar bg-info" style="width:0.02%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.01%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.02%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -2333,7 +2396,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">74</td>
+          <td class="text-muted small">73</td>
           <td>
             <a href="../client/962.html"
                class="text-decoration-none fw-semibold">BIO LINE NATURALIA SRL</a>
@@ -2343,9 +2406,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.01%"></div>
+                <div class="progress-bar bg-info" style="width:0.02%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.01%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.02%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -2362,7 +2425,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">75</td>
+          <td class="text-muted small">74</td>
           <td>
             <a href="../client/878.html"
                class="text-decoration-none fw-semibold">STAND - AGENTIE DIFUZARE CARTE S.R.L.</a>
@@ -2391,7 +2454,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">76</td>
+          <td class="text-muted small">75</td>
           <td>
             <a href="../client/1307.html"
                class="text-decoration-none fw-semibold">PRAVALIA 13 BIS S.R.L.</a>
@@ -2420,7 +2483,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">77</td>
+          <td class="text-muted small">76</td>
           <td>
             <a href="../client/1326.html"
                class="text-decoration-none fw-semibold">ALEGRO MARKET COMP S.R.L.</a>
@@ -2449,7 +2512,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">78</td>
+          <td class="text-muted small">77</td>
           <td>
             <a href="../client/978.html"
                class="text-decoration-none fw-semibold">VITALIS NUTRI MED SRL</a>
@@ -2478,7 +2541,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">79</td>
+          <td class="text-muted small">78</td>
           <td>
             <a href="../client/869.html"
                class="text-decoration-none fw-semibold">UNIVERSALIA S.R.L.</a>
@@ -2507,7 +2570,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">80</td>
+          <td class="text-muted small">79</td>
           <td>
             <a href="../client/1346.html"
                class="text-decoration-none fw-semibold">SORANA INTERNATIONAL SRL</a>
@@ -2536,7 +2599,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">81</td>
+          <td class="text-muted small">80</td>
           <td>
             <a href="../client/798.html"
                class="text-decoration-none fw-semibold">LIVUTA S.R.L.</a>
@@ -2565,7 +2628,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">82</td>
+          <td class="text-muted small">81</td>
           <td>
             <a href="../client/955.html"
                class="text-decoration-none fw-semibold">BOGDAN DRAGNEA</a>
@@ -2594,7 +2657,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">83</td>
+          <td class="text-muted small">82</td>
           <td>
             <a href="../client/906.html"
                class="text-decoration-none fw-semibold">SUCCES DE LUXE S.R.L.</a>
@@ -2623,7 +2686,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">84</td>
+          <td class="text-muted small">83</td>
           <td>
             <a href="../client/987.html"
                class="text-decoration-none fw-semibold">SUPERMARKET NR.1 EXPRES SRL</a>
@@ -2652,7 +2715,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">85</td>
+          <td class="text-muted small">84</td>
           <td>
             <a href="../client/848.html"
                class="text-decoration-none fw-semibold">ROM SEP SRL</a>
@@ -2681,7 +2744,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">86</td>
+          <td class="text-muted small">85</td>
           <td>
             <a href="../client/829.html"
                class="text-decoration-none fw-semibold">ANIROS COMP SRL</a>
@@ -2691,9 +2754,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.0%"></div>
+                <div class="progress-bar bg-info" style="width:0.01%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.0%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.01%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -2710,7 +2773,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">87</td>
+          <td class="text-muted small">86</td>
           <td>
             <a href="../client/1327.html"
                class="text-decoration-none fw-semibold">GIULI &amp; DAVID VISION SRL</a>
@@ -2720,9 +2783,9 @@
           <td class="text-end">
             <div class="d-flex align-items-center justify-content-end gap-2">
               <div class="progress" style="height:6px;width:60px">
-                <div class="progress-bar bg-info" style="width:0.0%"></div>
+                <div class="progress-bar bg-info" style="width:0.01%"></div>
               </div>
-              <span class="small fw-semibold" style="min-width:50px">0.0%</span>
+              <span class="small fw-semibold" style="min-width:50px">0.01%</span>
             </div>
           </td>
           <td class="text-end small">
@@ -2739,7 +2802,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">88</td>
+          <td class="text-muted small">87</td>
           <td>
             <a href="../client/1336.html"
                class="text-decoration-none fw-semibold">ROSSE&amp;RANYA S.R.L.</a>
@@ -2767,7 +2830,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">89</td>
+          <td class="text-muted small">88</td>
           <td>
             <a href="../client/1321.html"
                class="text-decoration-none fw-semibold">TNA SERVICE 2001 SRL</a>
@@ -2795,7 +2858,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">90</td>
+          <td class="text-muted small">89</td>
           <td>
             <a href="../client/1386.html"
                class="text-decoration-none fw-semibold">CID 2002 SERVCOM CATERING SRL</a>
@@ -2824,7 +2887,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">91</td>
+          <td class="text-muted small">90</td>
           <td>
             <a href="../client/1383.html"
                class="text-decoration-none fw-semibold">SUPERB KIDS S.R.L.</a>
@@ -2853,7 +2916,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">92</td>
+          <td class="text-muted small">91</td>
           <td>
             <a href="../client/1295.html"
                class="text-decoration-none fw-semibold">PALADIUM COM SRL</a>
@@ -2882,7 +2945,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">93</td>
+          <td class="text-muted small">92</td>
           <td>
             <a href="../client/886.html"
                class="text-decoration-none fw-semibold">R-THEO FAMILY SRL</a>
@@ -2911,7 +2974,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">94</td>
+          <td class="text-muted small">93</td>
           <td>
             <a href="../client/1210.html"
                class="text-decoration-none fw-semibold">LUCIA BRINZA</a>
@@ -2940,7 +3003,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">95</td>
+          <td class="text-muted small">94</td>
           <td>
             <a href="../client/1432.html"
                class="text-decoration-none fw-semibold">VASMAR SERV COM IMPEX S.R.L.</a>
@@ -2969,7 +3032,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">96</td>
+          <td class="text-muted small">95</td>
           <td>
             <a href="../client/2342.html"
                class="text-decoration-none fw-semibold">DOINA BUCUR</a>
@@ -2998,7 +3061,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">97</td>
+          <td class="text-muted small">96</td>
           <td>
             <a href="../client/820.html"
                class="text-decoration-none fw-semibold">CITY-PLANT SRL</a>
@@ -3027,7 +3090,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">98</td>
+          <td class="text-muted small">97</td>
           <td>
             <a href="../client/989.html"
                class="text-decoration-none fw-semibold">OZANA MARKET SRL</a>
@@ -3055,7 +3118,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">99</td>
+          <td class="text-muted small">98</td>
           <td>
             <a href="../client/834.html"
                class="text-decoration-none fw-semibold">ADCORIAN IMPEX SRL</a>
@@ -3083,7 +3146,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">100</td>
+          <td class="text-muted small">99</td>
           <td>
             <a href="../client/1442.html"
                class="text-decoration-none fw-semibold">GLAMOUR   FLAVOUR S.R.L.</a>
@@ -3111,7 +3174,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">101</td>
+          <td class="text-muted small">100</td>
           <td>
             <a href="../client/1334.html"
                class="text-decoration-none fw-semibold">EINTRAHT AXEL S.R.L.</a>
@@ -3139,7 +3202,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">102</td>
+          <td class="text-muted small">101</td>
           <td>
             <a href="../client/1035.html"
                class="text-decoration-none fw-semibold">WHITE STORE CONCEPT SRL</a>
@@ -3167,7 +3230,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">103</td>
+          <td class="text-muted small">102</td>
           <td>
             <a href="../client/753.html"
                class="text-decoration-none fw-semibold">GEDAL PRODUCTION S.R.L.</a>
@@ -3196,7 +3259,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted small">104</td>
+          <td class="text-muted small">103</td>
           <td>
             <a href="../client/827.html"
                class="text-decoration-none fw-semibold">VLADU EURO INVESTMENT SRL</a>
@@ -3233,11 +3296,12 @@
 <div class="card shadow-sm border-0">
   <div class="card-header bg-white fw-semibold d-flex justify-content-between align-items-center flex-wrap gap-2">
     <span>
-      <i class="bi bi-list-stars me-1 text-secondary"></i> Top SKU-uri Toras 2024
+      <i class="bi bi-list-stars me-1 text-secondary"></i> Top SKU-uri Toras 
       
     </span>
     <form method="get" class="d-flex gap-2">
       <input type="hidden" name="an" value="2024">
+      
       <div class="input-group input-group-sm" style="width:260px">
         <span class="input-group-text"><i class="bi bi-search"></i></span>
         <input type="text" name="q" value=""
@@ -3273,16 +3337,16 @@
               T.CIOC ECO N CU 100% CACAO 100GR-728 (8410342005861)
             </a>
           </td>
-          <td class="text-end fw-semibold small">238.281 RON</td>
-          <td class="text-end text-muted small">18774</td>
-          <td class="text-end small">94.193 RON</td>
+          <td class="text-end fw-semibold small">202.774 RON</td>
+          <td class="text-end text-muted small">15883</td>
+          <td class="text-end small">91.078 RON</td>
           <td class="text-end small text-warning">
-            39.5%
+            44.9%
           </td>
           <td class="text-end small text-success">
-            39.5%
+            44.9%
           </td>
-          <td class="text-end text-muted small">25</td>
+          <td class="text-end text-muted small">24</td>
         </tr>
         
         <tr>
@@ -3293,16 +3357,16 @@
               T.CIOC CU 72% CACAO FZG 75GR-530 (8410342006585)
             </a>
           </td>
-          <td class="text-end fw-semibold small">208.164 RON</td>
-          <td class="text-end text-muted small">36376</td>
-          <td class="text-end small">83.735 RON</td>
+          <td class="text-end fw-semibold small">192.454 RON</td>
+          <td class="text-end text-muted small">33444</td>
+          <td class="text-end small">84.340 RON</td>
           <td class="text-end small text-warning">
-            40.2%
+            43.8%
           </td>
           <td class="text-end small text-success">
-            40.2%
+            43.8%
           </td>
-          <td class="text-end text-muted small">67</td>
+          <td class="text-end text-muted small">66</td>
         </tr>
         
         <tr>
@@ -3353,80 +3417,60 @@
               T.CIOC ALBA CU FRUCTE GOJI  75GR-569 (8410342006325)
             </a>
           </td>
-          <td class="text-end fw-semibold small">114.124 RON</td>
-          <td class="text-end text-muted small">19002</td>
-          <td class="text-end small">52.026 RON</td>
+          <td class="text-end fw-semibold small">106.525 RON</td>
+          <td class="text-end text-muted small">17572</td>
+          <td class="text-end small">52.770 RON</td>
           <td class="text-end small text-success">
-            45.6%
+            49.5%
           </td>
           <td class="text-end small text-success">
-            45.6%
+            49.5%
           </td>
-          <td class="text-end text-muted small">72</td>
+          <td class="text-end text-muted small">71</td>
         </tr>
         
         <tr>
           <td class="text-muted">6</td>
-          <td class="text-muted small fw-semibold">1125</td>
-          <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="T.CREMA CIOC CU ALUNE PADURE FZG (CU STEVIA) 200G-570 (8410342003508)">
-            <a href="../produs/T_CREMA_CIOC_CU_ALUNE_PADURE_FZG__CU_STEVIA__200G-570__8410342003508_.html" class="text-decoration-none">
-              T.CREMA CIOC CU ALUNE PADURE FZG (CU STEVIA) 20…
-            </a>
-          </td>
-          <td class="text-end fw-semibold small">109.650 RON</td>
-          <td class="text-end text-muted small">7651</td>
-          <td class="text-end small">35.001 RON</td>
-          <td class="text-end small text-warning">
-            31.9%
-          </td>
-          <td class="text-end small text-success">
-            31.9%
-          </td>
-          <td class="text-end text-muted small">28</td>
-        </tr>
-        
-        <tr>
-          <td class="text-muted">7</td>
           <td class="text-muted small fw-semibold">262</td>
           <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="T.CIOC N 54% FR. PAD. FZG (CU STEVIA) 125GR-042 (8410342005526)">
             <a href="../produs/T_CIOC_N_54__FR__PAD__FZG__CU_STEVIA__125GR-042__8410342005526_.html" class="text-decoration-none">
               T.CIOC N 54% FR. PAD. FZG (CU STEVIA) 125GR-042…
             </a>
           </td>
-          <td class="text-end fw-semibold small">102.007 RON</td>
-          <td class="text-end text-muted small">8138</td>
-          <td class="text-end small">48.304 RON</td>
+          <td class="text-end fw-semibold small">87.704 RON</td>
+          <td class="text-end text-muted small">6650</td>
+          <td class="text-end small">51.270 RON</td>
           <td class="text-end small text-success">
-            47.4%
+            58.5%
           </td>
           <td class="text-end small text-success">
-            47.4%
+            58.5%
           </td>
-          <td class="text-end text-muted small">40</td>
+          <td class="text-end text-muted small">39</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted">7</td>
+          <td class="text-muted small fw-semibold">1125</td>
+          <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="T.CREMA CIOC CU ALUNE PADURE FZG (CU STEVIA) 200G-570 (8410342003508)">
+            <a href="../produs/T_CREMA_CIOC_CU_ALUNE_PADURE_FZG__CU_STEVIA__200G-570__8410342003508_.html" class="text-decoration-none">
+              T.CREMA CIOC CU ALUNE PADURE FZG (CU STEVIA) 20…
+            </a>
+          </td>
+          <td class="text-end fw-semibold small">78.319 RON</td>
+          <td class="text-end text-muted small">5193</td>
+          <td class="text-end small">37.333 RON</td>
+          <td class="text-end small text-success">
+            47.7%
+          </td>
+          <td class="text-end small text-success">
+            47.7%
+          </td>
+          <td class="text-end text-muted small">27</td>
         </tr>
         
         <tr>
           <td class="text-muted">8</td>
-          <td class="text-muted small fw-semibold">720</td>
-          <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="T.CIOC ALBA CU CAPSUNI FZG 75GR-565 (8410342005731)">
-            <a href="../produs/T_CIOC_ALBA_CU_CAPSUNI_FZG_75GR-565__8410342005731_.html" class="text-decoration-none">
-              T.CIOC ALBA CU CAPSUNI FZG 75GR-565 (8410342005731)
-            </a>
-          </td>
-          <td class="text-end fw-semibold small">81.559 RON</td>
-          <td class="text-end text-muted small">11982</td>
-          <td class="text-end small">33.833 RON</td>
-          <td class="text-end small text-warning">
-            41.5%
-          </td>
-          <td class="text-end small text-success">
-            41.5%
-          </td>
-          <td class="text-end text-muted small">63</td>
-        </tr>
-        
-        <tr>
-          <td class="text-muted">9</td>
           <td class="text-muted small fw-semibold">1393</td>
           <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="T.ZERO NEAGRA CU 72% CACAO CU MIGDALE FZG-73 (8410342000156)">
             <a href="../produs/T_ZERO_NEAGRA_CU_72__CACAO_CU_MIGDALE_FZG-73__8410342000156_.html" class="text-decoration-none">
@@ -3446,6 +3490,26 @@
         </tr>
         
         <tr>
+          <td class="text-muted">9</td>
+          <td class="text-muted small fw-semibold">720</td>
+          <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="T.CIOC ALBA CU CAPSUNI FZG 75GR-565 (8410342005731)">
+            <a href="../produs/T_CIOC_ALBA_CU_CAPSUNI_FZG_75GR-565__8410342005731_.html" class="text-decoration-none">
+              T.CIOC ALBA CU CAPSUNI FZG 75GR-565 (8410342005731)
+            </a>
+          </td>
+          <td class="text-end fw-semibold small">60.204 RON</td>
+          <td class="text-end text-muted small">8436</td>
+          <td class="text-end small">33.032 RON</td>
+          <td class="text-end small text-success">
+            54.9%
+          </td>
+          <td class="text-end small text-success">
+            54.9%
+          </td>
+          <td class="text-end text-muted small">62</td>
+        </tr>
+        
+        <tr>
           <td class="text-muted">10</td>
           <td class="text-muted small fw-semibold">513</td>
           <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="T.CIOC N CU MANGO FZG 75GR-532 (8410342006301)">
@@ -3453,16 +3517,16 @@
               T.CIOC N CU MANGO FZG 75GR-532 (8410342006301)
             </a>
           </td>
-          <td class="text-end fw-semibold small">67.013 RON</td>
-          <td class="text-end text-muted small">9994</td>
-          <td class="text-end small">29.541 RON</td>
-          <td class="text-end small text-warning">
-            44.1%
+          <td class="text-end fw-semibold small">54.498 RON</td>
+          <td class="text-end text-muted small">7878</td>
+          <td class="text-end small">29.293 RON</td>
+          <td class="text-end small text-success">
+            53.7%
           </td>
           <td class="text-end small text-success">
-            44.1%
+            53.7%
           </td>
-          <td class="text-end text-muted small">60</td>
+          <td class="text-end text-muted small">59</td>
         </tr>
         
         <tr>
@@ -3473,100 +3537,40 @@
               T.CIOC N CU ALUNE FZG (CU STEVIA) 125GR-041 (84…
             </a>
           </td>
-          <td class="text-end fw-semibold small">62.809 RON</td>
-          <td class="text-end text-muted small">5199</td>
-          <td class="text-end small">27.232 RON</td>
-          <td class="text-end small text-warning">
-            43.4%
+          <td class="text-end fw-semibold small">50.002 RON</td>
+          <td class="text-end text-muted small">3879</td>
+          <td class="text-end small">29.811 RON</td>
+          <td class="text-end small text-success">
+            59.6%
           </td>
           <td class="text-end small text-success">
-            43.4%
+            59.6%
           </td>
-          <td class="text-end text-muted small">35</td>
+          <td class="text-end text-muted small">34</td>
         </tr>
         
         <tr>
           <td class="text-muted">12</td>
-          <td class="text-muted small fw-semibold">1128</td>
-          <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="T.ZERO ALBA STRAWBERRIES 125G-63 (8410342004635)">
-            <a href="../produs/T_ZERO_ALBA_STRAWBERRIES_125G-63__8410342004635_.html" class="text-decoration-none">
-              T.ZERO ALBA STRAWBERRIES 125G-63 (8410342004635)
-            </a>
-          </td>
-          <td class="text-end fw-semibold small">55.961 RON</td>
-          <td class="text-end text-muted small">4704</td>
-          <td class="text-end small">22.326 RON</td>
-          <td class="text-end small text-warning">
-            39.9%
-          </td>
-          <td class="text-end small text-success">
-            39.9%
-          </td>
-          <td class="text-end text-muted small">16</td>
-        </tr>
-        
-        <tr>
-          <td class="text-muted">13</td>
           <td class="text-muted small fw-semibold">257</td>
           <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="T.CIOC LAPTE FZG 75GR-559 (8410342005595)">
             <a href="../produs/T_CIOC_LAPTE_FZG_75GR-559__8410342005595_.html" class="text-decoration-none">
               T.CIOC LAPTE FZG 75GR-559 (8410342005595)
             </a>
           </td>
-          <td class="text-end fw-semibold small">54.437 RON</td>
-          <td class="text-end text-muted small">7899</td>
-          <td class="text-end small">28.946 RON</td>
+          <td class="text-end fw-semibold small">49.665 RON</td>
+          <td class="text-end text-muted small">7032</td>
+          <td class="text-end small">29.141 RON</td>
           <td class="text-end small text-success">
-            53.2%
+            58.7%
           </td>
           <td class="text-end small text-success">
-            53.2%
+            58.7%
           </td>
-          <td class="text-end text-muted small">57</td>
+          <td class="text-end text-muted small">56</td>
         </tr>
         
         <tr>
-          <td class="text-muted">14</td>
-          <td class="text-muted small fw-semibold">1278</td>
-          <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="T.CIOC ALBA CU KIWI FZG 75GR-535 (8410342007001)">
-            <a href="../produs/T_CIOC_ALBA_CU_KIWI_FZG_75GR-535__8410342007001_.html" class="text-decoration-none">
-              T.CIOC ALBA CU KIWI FZG 75GR-535 (8410342007001)
-            </a>
-          </td>
-          <td class="text-end fw-semibold small">54.153 RON</td>
-          <td class="text-end text-muted small">7940</td>
-          <td class="text-end small">24.687 RON</td>
-          <td class="text-end small text-success">
-            45.6%
-          </td>
-          <td class="text-end small text-success">
-            45.6%
-          </td>
-          <td class="text-end text-muted small">59</td>
-        </tr>
-        
-        <tr>
-          <td class="text-muted">15</td>
-          <td class="text-muted small fw-semibold">1409</td>
-          <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="T.ZERO NEAGRA CU 85% CACAO FZG 100G-69 (8410342004796)">
-            <a href="../produs/T_ZERO_NEAGRA_CU_85__CACAO_FZG_100G-69__8410342004796_.html" class="text-decoration-none">
-              T.ZERO NEAGRA CU 85% CACAO FZG 100G-69 (8410342…
-            </a>
-          </td>
-          <td class="text-end fw-semibold small">48.624 RON</td>
-          <td class="text-end text-muted small">4874</td>
-          <td class="text-end small">13.452 RON</td>
-          <td class="text-end small text-danger">
-            27.7%
-          </td>
-          <td class="text-end small text-success">
-            27.7%
-          </td>
-          <td class="text-end text-muted small">11</td>
-        </tr>
-        
-        <tr>
-          <td class="text-muted">16</td>
+          <td class="text-muted">13</td>
           <td class="text-muted small fw-semibold">1579</td>
           <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="T.CIOC N CU PORTOCALE FZG 75GR-533 (8410342002013)">
             <a href="../produs/T_CIOC_N_CU_PORTOCALE_FZG_75GR-533__8410342002013_.html" class="text-decoration-none">
@@ -3586,67 +3590,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted">17</td>
-          <td class="text-muted small fw-semibold">1548</td>
-          <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="T.CIOC ECO N FARA ZAHAR CU 79% CACAO 100GR-731 (8410342006998)">
-            <a href="../produs/T_CIOC_ECO_N_FARA_ZAHAR_CU_79__CACAO_100GR-731__8410342006998_.html" class="text-decoration-none">
-              T.CIOC ECO N FARA ZAHAR CU 79% CACAO 100GR-731 …
-            </a>
-          </td>
-          <td class="text-end fw-semibold small">47.888 RON</td>
-          <td class="text-end text-muted small">3421</td>
-          <td class="text-end small">19.093 RON</td>
-          <td class="text-end small text-warning">
-            39.9%
-          </td>
-          <td class="text-end small text-success">
-            39.9%
-          </td>
-          <td class="text-end text-muted small">12</td>
-        </tr>
-        
-        <tr>
-          <td class="text-muted">18</td>
-          <td class="text-muted small fw-semibold">1390</td>
-          <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="T.ZERO NEAGRA CU 72% CACAO SI MENTA FZG 100G-70 (8410342004970)">
-            <a href="../produs/T_ZERO_NEAGRA_CU_72__CACAO_SI_MENTA_FZG_100G-70__8410342004970_.html" class="text-decoration-none">
-              T.ZERO NEAGRA CU 72% CACAO SI MENTA FZG 100G-70…
-            </a>
-          </td>
-          <td class="text-end fw-semibold small">47.564 RON</td>
-          <td class="text-end text-muted small">4609</td>
-          <td class="text-end small">18.378 RON</td>
-          <td class="text-end small text-warning">
-            38.6%
-          </td>
-          <td class="text-end small text-success">
-            38.6%
-          </td>
-          <td class="text-end text-muted small">22</td>
-        </tr>
-        
-        <tr>
-          <td class="text-muted">19</td>
-          <td class="text-muted small fw-semibold">1123</td>
-          <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="T.CIOC LAPTE SI ALUNE FZG 75G-562 (8410342005625)">
-            <a href="../produs/T_CIOC_LAPTE_SI_ALUNE_FZG_75G-562__8410342005625_.html" class="text-decoration-none">
-              T.CIOC LAPTE SI ALUNE FZG 75G-562 (8410342005625)
-            </a>
-          </td>
-          <td class="text-end fw-semibold small">46.317 RON</td>
-          <td class="text-end text-muted small">6733</td>
-          <td class="text-end small">23.817 RON</td>
-          <td class="text-end small text-success">
-            51.4%
-          </td>
-          <td class="text-end small text-success">
-            51.4%
-          </td>
-          <td class="text-end text-muted small">51</td>
-        </tr>
-        
-        <tr>
-          <td class="text-muted">20</td>
+          <td class="text-muted">14</td>
           <td class="text-muted small fw-semibold">1547</td>
           <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="T.CIOC ECO N FARA ZAHAR CU 62% CACAO CU MIGDALE 150GR-730 (8410342006981)">
             <a href="../produs/T_CIOC_ECO_N_FARA_ZAHAR_CU_62__CACAO_CU_MIGDALE_150GR-730__8410342006981_.html" class="text-decoration-none">
@@ -3666,7 +3610,67 @@
         </tr>
         
         <tr>
-          <td class="text-muted">21</td>
+          <td class="text-muted">15</td>
+          <td class="text-muted small fw-semibold">1278</td>
+          <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="T.CIOC ALBA CU KIWI FZG 75GR-535 (8410342007001)">
+            <a href="../produs/T_CIOC_ALBA_CU_KIWI_FZG_75GR-535__8410342007001_.html" class="text-decoration-none">
+              T.CIOC ALBA CU KIWI FZG 75GR-535 (8410342007001)
+            </a>
+          </td>
+          <td class="text-end fw-semibold small">41.981 RON</td>
+          <td class="text-end text-muted small">5900</td>
+          <td class="text-end small">23.403 RON</td>
+          <td class="text-end small text-success">
+            55.7%
+          </td>
+          <td class="text-end small text-success">
+            55.7%
+          </td>
+          <td class="text-end text-muted small">58</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted">16</td>
+          <td class="text-muted small fw-semibold">1548</td>
+          <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="T.CIOC ECO N FARA ZAHAR CU 79% CACAO 100GR-731 (8410342006998)">
+            <a href="../produs/T_CIOC_ECO_N_FARA_ZAHAR_CU_79__CACAO_100GR-731__8410342006998_.html" class="text-decoration-none">
+              T.CIOC ECO N FARA ZAHAR CU 79% CACAO 100GR-731 …
+            </a>
+          </td>
+          <td class="text-end fw-semibold small">41.892 RON</td>
+          <td class="text-end text-muted small">2976</td>
+          <td class="text-end small">18.488 RON</td>
+          <td class="text-end small text-warning">
+            44.1%
+          </td>
+          <td class="text-end small text-success">
+            44.1%
+          </td>
+          <td class="text-end text-muted small">11</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted">17</td>
+          <td class="text-muted small fw-semibold">1128</td>
+          <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="T.ZERO ALBA STRAWBERRIES 125G-63 (8410342004635)">
+            <a href="../produs/T_ZERO_ALBA_STRAWBERRIES_125G-63__8410342004635_.html" class="text-decoration-none">
+              T.ZERO ALBA STRAWBERRIES 125G-63 (8410342004635)
+            </a>
+          </td>
+          <td class="text-end fw-semibold small">41.195 RON</td>
+          <td class="text-end text-muted small">3372</td>
+          <td class="text-end small">19.794 RON</td>
+          <td class="text-end small text-success">
+            48.0%
+          </td>
+          <td class="text-end small text-success">
+            48.0%
+          </td>
+          <td class="text-end text-muted small">15</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted">18</td>
           <td class="text-muted small fw-semibold">1674</td>
           <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="T.FIT CIOC N (STEVIA) CU PROTEINA SOIA, CARAMEL 100G-44. (8410342007551)">
             <a href="../produs/T_FIT_CIOC_N__STEVIA__CU_PROTEINA_SOIA__CARAMEL_100G-44___8410342007551_.html" class="text-decoration-none">
@@ -3686,27 +3690,27 @@
         </tr>
         
         <tr>
-          <td class="text-muted">22</td>
-          <td class="text-muted small fw-semibold">1765</td>
-          <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="T.CIOC N CU 95% CACAO FZG 75GR-595 (8410342007735)">
-            <a href="../produs/T_CIOC_N_CU_95__CACAO_FZG_75GR-595__8410342007735_.html" class="text-decoration-none">
-              T.CIOC N CU 95% CACAO FZG 75GR-595 (8410342007735)
+          <td class="text-muted">19</td>
+          <td class="text-muted small fw-semibold">1123</td>
+          <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="T.CIOC LAPTE SI ALUNE FZG 75G-562 (8410342005625)">
+            <a href="../produs/T_CIOC_LAPTE_SI_ALUNE_FZG_75G-562__8410342005625_.html" class="text-decoration-none">
+              T.CIOC LAPTE SI ALUNE FZG 75G-562 (8410342005625)
             </a>
           </td>
-          <td class="text-end fw-semibold small">40.244 RON</td>
-          <td class="text-end text-muted small">5943</td>
-          <td class="text-end small">14.408 RON</td>
-          <td class="text-end small text-warning">
-            35.8%
+          <td class="text-end fw-semibold small">40.591 RON</td>
+          <td class="text-end text-muted small">5733</td>
+          <td class="text-end small">23.346 RON</td>
+          <td class="text-end small text-success">
+            57.5%
           </td>
           <td class="text-end small text-success">
-            35.8%
+            57.5%
           </td>
-          <td class="text-end text-muted small">43</td>
+          <td class="text-end text-muted small">50</td>
         </tr>
         
         <tr>
-          <td class="text-muted">23</td>
+          <td class="text-muted">20</td>
           <td class="text-muted small fw-semibold">1673</td>
           <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="T.FIT CIOC LAPTE (STEVIA) CU PROTEINA SOIA 100G-52. (8410342007544)">
             <a href="../produs/T_FIT_CIOC_LAPTE__STEVIA__CU_PROTEINA_SOIA_100G-52___8410342007544_.html" class="text-decoration-none">
@@ -3726,7 +3730,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted">24</td>
+          <td class="text-muted">21</td>
           <td class="text-muted small fw-semibold">1549</td>
           <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="T.CACAO PUDRA ECO 150G-0401 (8410342005298)">
             <a href="../produs/T_CACAO_PUDRA_ECO_150G-0401__8410342005298_.html" class="text-decoration-none">
@@ -3746,7 +3750,7 @@
         </tr>
         
         <tr>
-          <td class="text-muted">25</td>
+          <td class="text-muted">22</td>
           <td class="text-muted small fw-semibold">1157</td>
           <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="T.ZERO NEAGRA PORTOCALE 125GR-66 (8410342004642)">
             <a href="../produs/T_ZERO_NEAGRA_PORTOCALE_125GR-66__8410342004642_.html" class="text-decoration-none">
@@ -3766,103 +3770,163 @@
         </tr>
         
         <tr>
-          <td class="text-muted">26</td>
-          <td class="text-muted small fw-semibold">721</td>
-          <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="T.CIOC ALBA CU COCOS FZG 75GR-529 (8410342002167)">
-            <a href="../produs/T_CIOC_ALBA_CU_COCOS_FZG_75GR-529__8410342002167_.html" class="text-decoration-none">
-              T.CIOC ALBA CU COCOS FZG 75GR-529 (8410342002167)
+          <td class="text-muted">23</td>
+          <td class="text-muted small fw-semibold">1390</td>
+          <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="T.ZERO NEAGRA CU 72% CACAO SI MENTA FZG 100G-70 (8410342004970)">
+            <a href="../produs/T_ZERO_NEAGRA_CU_72__CACAO_SI_MENTA_FZG_100G-70__8410342004970_.html" class="text-decoration-none">
+              T.ZERO NEAGRA CU 72% CACAO SI MENTA FZG 100G-70…
             </a>
           </td>
-          <td class="text-end fw-semibold small">36.071 RON</td>
-          <td class="text-end text-muted small">5280</td>
-          <td class="text-end small">17.537 RON</td>
+          <td class="text-end fw-semibold small">36.299 RON</td>
+          <td class="text-end text-muted small">3445</td>
+          <td class="text-end small">17.402 RON</td>
           <td class="text-end small text-success">
-            48.6%
+            47.9%
           </td>
           <td class="text-end small text-success">
-            48.6%
+            47.9%
           </td>
-          <td class="text-end text-muted small">46</td>
+          <td class="text-end text-muted small">21</td>
         </tr>
         
         <tr>
-          <td class="text-muted">27</td>
-          <td class="text-muted small fw-semibold">1391</td>
-          <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="T.ZERO NEAGRA CU 72% CACAO SI CAFEA ARABICA FZG 100G-71 (8410342004987)">
-            <a href="../produs/T_ZERO_NEAGRA_CU_72__CACAO_SI_CAFEA_ARABICA_FZG_100G-71__8410342004987_.html" class="text-decoration-none">
-              T.ZERO NEAGRA CU 72% CACAO SI CAFEA ARABICA FZG…
-            </a>
-          </td>
-          <td class="text-end fw-semibold small">34.843 RON</td>
-          <td class="text-end text-muted small">3436</td>
-          <td class="text-end small">13.332 RON</td>
-          <td class="text-end small text-warning">
-            38.3%
-          </td>
-          <td class="text-end small text-success">
-            38.3%
-          </td>
-          <td class="text-end text-muted small">22</td>
-        </tr>
-        
-        <tr>
-          <td class="text-muted">28</td>
+          <td class="text-muted">24</td>
           <td class="text-muted small fw-semibold">260</td>
           <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="T.CIOC N 60% FZG (CU STEVIA) 100GR-040 (8410342007032)">
             <a href="../produs/T_CIOC_N_60__FZG__CU_STEVIA__100GR-040__8410342007032_.html" class="text-decoration-none">
               T.CIOC N 60% FZG (CU STEVIA) 100GR-040 (8410342…
             </a>
           </td>
-          <td class="text-end fw-semibold small">34.659 RON</td>
-          <td class="text-end text-muted small">3417</td>
-          <td class="text-end small">17.248 RON</td>
+          <td class="text-end fw-semibold small">29.878 RON</td>
+          <td class="text-end text-muted small">2877</td>
+          <td class="text-end small">17.191 RON</td>
           <td class="text-end small text-success">
-            49.8%
+            57.5%
           </td>
           <td class="text-end small text-success">
-            49.8%
+            57.5%
           </td>
-          <td class="text-end text-muted small">38</td>
+          <td class="text-end text-muted small">37</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted">25</td>
+          <td class="text-muted small fw-semibold">721</td>
+          <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="T.CIOC ALBA CU COCOS FZG 75GR-529 (8410342002167)">
+            <a href="../produs/T_CIOC_ALBA_CU_COCOS_FZG_75GR-529__8410342002167_.html" class="text-decoration-none">
+              T.CIOC ALBA CU COCOS FZG 75GR-529 (8410342002167)
+            </a>
+          </td>
+          <td class="text-end fw-semibold small">29.221 RON</td>
+          <td class="text-end text-muted small">4075</td>
+          <td class="text-end small">16.500 RON</td>
+          <td class="text-end small text-success">
+            56.5%
+          </td>
+          <td class="text-end small text-success">
+            56.5%
+          </td>
+          <td class="text-end text-muted small">45</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted">26</td>
+          <td class="text-muted small fw-semibold">718</td>
+          <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="T.CIOC N CU BUC.CACAO FZG 75GR-567 (8410342006004)">
+            <a href="../produs/T_CIOC_N_CU_BUC_CACAO_FZG_75GR-567__8410342006004_.html" class="text-decoration-none">
+              T.CIOC N CU BUC.CACAO FZG 75GR-567 (8410342006004)
+            </a>
+          </td>
+          <td class="text-end fw-semibold small">27.589 RON</td>
+          <td class="text-end text-muted small">3802</td>
+          <td class="text-end small">15.560 RON</td>
+          <td class="text-end small text-success">
+            56.4%
+          </td>
+          <td class="text-end small text-success">
+            56.4%
+          </td>
+          <td class="text-end text-muted small">51</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted">27</td>
+          <td class="text-muted small fw-semibold">1392</td>
+          <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="T.ZERO NEAGRA CU BUC DE CACAO SI MERISOR FZG 125G-72 (8410342004994)">
+            <a href="../produs/T_ZERO_NEAGRA_CU_BUC_DE_CACAO_SI_MERISOR_FZG_125G-72__8410342004994_.html" class="text-decoration-none">
+              T.ZERO NEAGRA CU BUC DE CACAO SI MERISOR FZG 12…
+            </a>
+          </td>
+          <td class="text-end fw-semibold small">27.153 RON</td>
+          <td class="text-end text-muted small">2332</td>
+          <td class="text-end small">12.432 RON</td>
+          <td class="text-end small text-success">
+            45.8%
+          </td>
+          <td class="text-end small text-success">
+            45.8%
+          </td>
+          <td class="text-end text-muted small">18</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted">28</td>
+          <td class="text-muted small fw-semibold">1391</td>
+          <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="T.ZERO NEAGRA CU 72% CACAO SI CAFEA ARABICA FZG 100G-71 (8410342004987)">
+            <a href="../produs/T_ZERO_NEAGRA_CU_72__CACAO_SI_CAFEA_ARABICA_FZG_100G-71__8410342004987_.html" class="text-decoration-none">
+              T.ZERO NEAGRA CU 72% CACAO SI CAFEA ARABICA FZG…
+            </a>
+          </td>
+          <td class="text-end fw-semibold small">27.006 RON</td>
+          <td class="text-end text-muted small">2608</td>
+          <td class="text-end small">12.773 RON</td>
+          <td class="text-end small text-success">
+            47.3%
+          </td>
+          <td class="text-end small text-success">
+            47.3%
+          </td>
+          <td class="text-end text-muted small">21</td>
         </tr>
         
         <tr>
           <td class="text-muted">29</td>
+          <td class="text-muted small fw-semibold">1765</td>
+          <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="T.CIOC N CU 95% CACAO FZG 75GR-595 (8410342007735)">
+            <a href="../produs/T_CIOC_N_CU_95__CACAO_FZG_75GR-595__8410342007735_.html" class="text-decoration-none">
+              T.CIOC N CU 95% CACAO FZG 75GR-595 (8410342007735)
+            </a>
+          </td>
+          <td class="text-end fw-semibold small">26.822 RON</td>
+          <td class="text-end text-muted small">3831</td>
+          <td class="text-end small">13.760 RON</td>
+          <td class="text-end small text-success">
+            51.3%
+          </td>
+          <td class="text-end small text-success">
+            51.3%
+          </td>
+          <td class="text-end text-muted small">42</td>
+        </tr>
+        
+        <tr>
+          <td class="text-muted">30</td>
           <td class="text-muted small fw-semibold">1126</td>
           <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="T.CIOC N CU PIPER, SCORTISOARA, CHILLI FZG 75GR-527 (8410342004550)">
             <a href="../produs/T_CIOC_N_CU_PIPER__SCORTISOARA__CHILLI_FZG_75GR-527__8410342004550_.html" class="text-decoration-none">
               T.CIOC N CU PIPER, SCORTISOARA, CHILLI FZG 75GR…
             </a>
           </td>
-          <td class="text-end fw-semibold small">31.063 RON</td>
-          <td class="text-end text-muted small">4520</td>
-          <td class="text-end small">14.240 RON</td>
+          <td class="text-end fw-semibold small">25.019 RON</td>
+          <td class="text-end text-muted small">3474</td>
+          <td class="text-end small">14.018 RON</td>
           <td class="text-end small text-success">
-            45.8%
-          </td>
-          <td class="text-end small text-success">
-            45.8%
-          </td>
-          <td class="text-end text-muted small">44</td>
-        </tr>
-        
-        <tr>
-          <td class="text-muted">30</td>
-          <td class="text-muted small fw-semibold">1764</td>
-          <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="T.CIOC N CU 85% CACAO FZG 75GR-585 (8410342007049)">
-            <a href="../produs/T_CIOC_N_CU_85__CACAO_FZG_75GR-585__8410342007049_.html" class="text-decoration-none">
-              T.CIOC N CU 85% CACAO FZG 75GR-585 (8410342007049)
-            </a>
-          </td>
-          <td class="text-end fw-semibold small">30.513 RON</td>
-          <td class="text-end text-muted small">4669</td>
-          <td class="text-end small">10.003 RON</td>
-          <td class="text-end small text-warning">
-            32.8%
+            56.0%
           </td>
           <td class="text-end small text-success">
-            32.8%
+            56.0%
           </td>
-          <td class="text-end text-muted small">32</td>
+          <td class="text-end text-muted small">43</td>
         </tr>
         
       </tbody>
@@ -3872,13 +3936,13 @@
 
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="../static/js/bootstrap.bundle.min.js"></script>
+<script src="../static/js/chart.umd.min.js"></script>
 
 <script>
 const MONTHS   = ["Ian", "Feb", "Mar", "Apr", "Mai", "Iun", "Iul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-const TREND_VN = {"2024": [174347.0, 197114.0, 262950.0, 275931.0, 187554.0, 139121.0, 186776.0, 253311.0, 214852.0, 252484.0, 213001.0, 257806.0], "2025": [278412.0, 244550.0, 294341.0, 211564.0, 266782.0, 201437.0, 208805.0, 149751.0, 268635.0, 245643.0, 274692.0, 317806.0], "2026": [217143.0, 300735.0, 347307.0, 307518.0, 114416.0, 0, 0, 0, 0, 0, 0, 0]};
-const TREND_MB = {"2024": [62230.0, 78631.0, 116441.0, 125869.0, 78453.0, 60367.0, 80932.0, 109688.0, 85101.0, 106736.0, 87567.0, 103883.0], "2025": [102196.0, 103096.0, 125118.0, 83638.0, 96040.0, 66479.0, 79245.0, 51779.0, 79784.0, 89007.0, 105012.0, 117931.0], "2026": [78034.0, 107370.0, 129763.0, 97925.0, 43255.0, 0, 0, 0, 0, 0, 0, 0]};
+const TREND_VN = {"2024": [120450.0, 166517.0, 226977.0, 238860.0, 140868.0, 106113.0, 146722.0, 225344.0, 182563.0, 226444.0, 179644.0, 221655.0], "2025": [223379.0, 215095.0, 275645.0, 203809.0, 196688.0, 144509.0, 169700.0, 116995.0, 217275.0, 209573.0, 217990.0, 257081.0], "2026": [153941.0, 233521.0, 294497.0, 212592.0, 127513.0, 0, 0, 0, 0, 0, 0, 0]};
+const TREND_MB = {"2024": [60851.0, 79806.0, 116552.0, 127263.0, 71554.0, 56003.0, 77346.0, 109851.0, 86920.0, 107674.0, 89325.0, 106419.0], "2025": [104628.0, 105360.0, 128267.0, 85378.0, 84749.0, 57462.0, 68472.0, 46720.0, 89348.0, 88339.0, 88098.0, 101300.0], "2026": [61177.0, 88537.0, 114274.0, 79174.0, 51812.0, 0, 0, 0, 0, 0, 0, 0]};
 
 const PALETTE = {
   2024: {vn:'rgba(173,181,189,0.7)', mb:'rgba(173,181,189,0.55)'},
